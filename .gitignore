@@ -9,6 +9,7 @@
 /[Bb]uilds/
 /[Ll]ogs/
 /[Mm]emoryCaptures/
+/[Uu]serSettings/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
@@ -43,6 +44,17 @@ ExportedObj/
 *.opendb
 *.VC.db
 
+# .idea/artifacts
+# .idea/compiler.xml
+# .idea/jarRepositories.xml
+# .idea/modules.xml
+# .idea/vcs.xml
+# .idea/indexLayout.xml
+# .idea/*.iml
+# .idea/modules
+# *.iml
+# *.ipr
+
 # Unity3D generated meta files
 *.pidb.meta
 *.pdb.meta
@@ -57,4 +69,4 @@ sysinfo.txt
 
 # Crashlytics generated file
 crashlytics-build.properties
-
+.idea/
