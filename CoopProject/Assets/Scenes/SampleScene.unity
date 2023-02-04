@@ -1517,6 +1517,7 @@ GameObject:
   - component: {fileID: 1438546958916526242}
   - component: {fileID: 4540228999841794504}
   - component: {fileID: 4540228999841794503}
+  - component: {fileID: 4540228999841794505}
   m_Layer: 0
   m_Name: HumanMale_Character_FREE
   m_TagString: Untagged
@@ -3417,6 +3418,21 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &4540228999841794505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1782702501066209816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8162fe47655a41c4e8f4dfc5ada769e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveSpeed: 2.5
+  _rotationSpeed: 0.2
+  _gravityForce: -2
 --- !u!4 &4548762040139314646
 Transform:
   m_ObjectHideFlags: 0
