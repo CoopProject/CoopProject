@@ -29,7 +29,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
             ""actions"": [
                 {
                     ""name"": ""Movement"",
-                    ""type"": ""Value"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""b6afa441-cf0d-4956-b01c-1a5360b8442e"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",

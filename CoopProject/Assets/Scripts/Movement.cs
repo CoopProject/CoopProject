@@ -9,11 +9,24 @@ public class Movement : MonoBehaviour
     [SerializeField] private float _gravityForce;
 
     private CharacterController _controller;
+    private PlayerInputActions _inputActions;
     private Vector3 _targetDirection;
     private Vector3 _gravityDirection;
     private float _inputAngle;
     private float _rotationSmoothVelocity;
     private float _lockAngleValue = 0.0f;
+
+    private void OnEnable()
+    {
+        _inputActions = new PlayerInputActions();
+        _inputActions.Enable();
+        _inputActions.Player.Movement.performed += OnMove;
+    }
+
+    private void OnDisable()
+    {
+        _inputActions.Player.Movement.performed -= OnMove;
+    }
 
     private void Start()
     {
@@ -26,8 +39,9 @@ public class Movement : MonoBehaviour
         SetGravity();
     }
 
-    public void OnMove(InputAction.CallbackContext context)
+    private void OnMove(InputAction.CallbackContext context)
     {
+        print(context.ReadValue<Vector2>());
         CreateTargetDirection(context.ReadValue<Vector2>());
     }
 
