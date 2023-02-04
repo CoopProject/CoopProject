@@ -281,7 +281,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 949883047}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -1515,11 +1515,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1438546958916526242}
+  - component: {fileID: 4540228999841794506}
   - component: {fileID: 4540228999841794504}
   - component: {fileID: 4540228999841794503}
   - component: {fileID: 4540228999841794505}
   m_Layer: 0
-  m_Name: HumanMale_Character_FREE
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3433,6 +3434,64 @@ MonoBehaviour:
   _moveSpeed: 2.5
   _rotationSpeed: 0.2
   _gravityForce: -2
+--- !u!114 &4540228999841794506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1782702501066209816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 1df35c81c09dbf1418f7ad1fe379e53b, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4540228999841794505}
+        m_TargetAssemblyTypeName: Movement, Assembly-CSharp
+        m_MethodName: OnMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: b6afa441-cf0d-4956-b01c-1a5360b8442e
+    m_ActionName: Player/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9e2ff5fa-c504-4230-9949-32fec64e951c
+    m_ActionName: Player/MouseGetPosition[/Mouse/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a8dc8dde-509a-4c5c-a88e-7a6af7e54940
+    m_ActionName: Player/TouchGetPosition
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e5be2c4d-a6ff-491c-9528-654be1b5ee63
+    m_ActionName: Player/TouchActivateJoystick[/Mouse/press]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: Default
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!4 &4548762040139314646
 Transform:
   m_ObjectHideFlags: 0
