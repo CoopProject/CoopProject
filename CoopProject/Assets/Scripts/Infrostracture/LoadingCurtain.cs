@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public interface ICoroutineRunner
+public interface LoadingCurtain
 {
     Coroutine StartCoroutine(IEnumerator coroutine);
 }

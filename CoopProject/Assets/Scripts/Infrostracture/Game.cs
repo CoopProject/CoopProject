@@ -1,10 +1,10 @@
 
 public class Game
 {
-    public  GameStateMashin _stateMashin;
+    public  GameStateMachine _stateMashin;
 
-    public Game(ICoroutineRunner coroutineRunner)
+    public Game(LoadingCurtain loadingCurtain, LoadingCurtain curtain )
     {
-        _stateMashin = new GameStateMashin(new SceneLoader(coroutineRunner));
+        _stateMashin = new GameStateMachine(new SceneLoader(loadingCurtain),curtain);
     }
 }

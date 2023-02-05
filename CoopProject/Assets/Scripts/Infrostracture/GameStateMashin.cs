@@ -1,40 +1,43 @@
 ﻿using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class GameStateMashin
+public class GameStateMachine
 {
-    private readonly Dictionary<Type, IExitableState> _states;
+    private Dictionary<Type, IExitableState> _states;
     private IExitableState _activeState;
 
-    public GameStateMashin(SceneLoader sceneLoader)
+    public GameStateMachine(SceneLoader sceneLoader, LoadingCurtain loadingCurtain)
     {
-        _states = new Dictionary<Type, IState>()
+        _states = new Dictionary<Type, IExitableState>
         {
-            [typeof(BootstrapState)] = new BootstrapState(this,sceneLoader),
-            [typeof(BootstrapState)] = new LoadLevelState(this,sceneLoader)
+            [typeof(BootstrapState)] = new BootstrapState(this, sceneLoader),
+            [typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader),
         };
     }
     
-    public void Enter<TState>() where TState : IState
+    public void Enter<TState>() where TState : class, IState
     {
-        _activeState?.Exit();
-        IState state = _states[typeof(TState)];
+        IState state = ChangeState<TState>();
         state.Enter();
     }
-    
-    public void Enter<TState,TPayLoad>(TPayLoad payLoad) where TState : IState
+
+    public void Enter<TState, TPayload>(TPayload payload) where TState : class, IPayloadedState<TPayload>
+    {
+        TState state = ChangeState<TState>();
+        state.Enter(payload);
+    }
+
+    private TState ChangeState<TState>() where TState : class, IExitableState
     {
         _activeState?.Exit();
-        IState state = _states[typeof(TState)];
-        state.Enter(playLoad);
+      
+        TState state = GetState<TState>();
+        _activeState = state;
+      
+        return state;
     }
 
-
-    private TState GetState<TState>() where TState : class, IExitableState
-    {
-        return _states[typeof(TState)] as TState;
-    }
-        
+    private TState GetState<TState>() where TState : class, IExitableState => 
+        _states[typeof(TState)] as TState;
 }

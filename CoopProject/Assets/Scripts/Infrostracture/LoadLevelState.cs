@@ -1,23 +1,23 @@
 ﻿using System;
 
-public class LoadLevelState : IState
+public class LoadLevelState : IPayloadedState<int>,IExitableState
 {
-    private readonly GameStateMashin _stateMashin;
+    private readonly GameStateMachine _stateMachine;
     private readonly SceneLoader _sceneLoader;
 
-    public LoadLevelState(GameStateMashin stateMashin, SceneLoader coroutineRunner)
+    public LoadLevelState(GameStateMachine stateMashin, SceneLoader coroutineRunner)
     {
-        _stateMashin = stateMashin;
+        _stateMachine = stateMashin;
         _sceneLoader = coroutineRunner;
     }
 
-    public void Enter()
+    public void Enter(int payLoad)
     {
-        _sceneLoader.Load(1);
+     _sceneLoader.Load(payLoad);  
     }
 
     public void Exit()
     {
-        throw new NotImplementedException();
+        
     }
 }

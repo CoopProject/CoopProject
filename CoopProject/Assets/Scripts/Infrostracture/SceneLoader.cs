@@ -5,13 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader
 {
-    private readonly ICoroutineRunner _coroutineRunner;
+    private readonly LoadingCurtain _loadingCurtain;
 
-    public SceneLoader(ICoroutineRunner coroutineRunner) =>
-        _coroutineRunner = coroutineRunner;
+    public SceneLoader(LoadingCurtain loadingCurtain) =>
+        _loadingCurtain = loadingCurtain;
 
     public void Load(int scenNumber, Action onLoaded = null) =>
-        _coroutineRunner.StartCoroutine(LoadSceen(scenNumber, onLoaded));
+        _loadingCurtain.StartCoroutine(LoadSceen(scenNumber, onLoaded));
     
     public IEnumerator LoadSceen(int sceneNumber, Action onLoaded = null)
     {

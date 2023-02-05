@@ -8,7 +8,7 @@ public interface IExitableState
     void Exit();
 }
 
-public interface IPayLoadState<TPayLoad> : IExitableState
+public interface IPayloadedState<TPayLoad> : IExitableState
 {
     void Enter(TPayLoad payLoad);
 }

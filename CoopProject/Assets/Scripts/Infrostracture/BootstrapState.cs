@@ -2,24 +2,24 @@
 
 public class BootstrapState : IState
 {
-    private readonly GameStateMashin _stateMashin;
-    private SceneLoader _scenLoad;
-    private readonly  int _scenNumber = 0;
-    public BootstrapState(GameStateMashin stateMashin,SceneLoader scenLoad)
+    private readonly GameStateMachine _stateMachine;
+    private SceneLoader _sceneLoader;
+    private readonly  int _scenNumber = 1;
+    public BootstrapState(GameStateMachine stateMashin,SceneLoader scenLoad)
     {
-        _stateMashin = stateMashin;
-        _scenLoad = scenLoad;
+        _stateMachine = stateMashin;
+        _sceneLoader = scenLoad;
     }
 
     public void Enter()
     {
         RegisterServices();
-        _scenLoad.Load(_scenNumber,EnterLoadLevel);
+        _sceneLoader.Load(0, onLoaded: EnterLoadLevel);
     }
 
     private void EnterLoadLevel()
     {
-        _stateMashin.Enter<LoadLevelState>();
+        _stateMachine.Enter<LoadLevelState,int>(_scenNumber);
     }
 
     private void RegisterServices()
