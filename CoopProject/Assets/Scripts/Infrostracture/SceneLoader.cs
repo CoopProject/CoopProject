@@ -15,6 +15,12 @@ public class SceneLoader
     
     public IEnumerator LoadSceen(int sceneNumber, Action onLoaded = null)
     {
+        if (SceneManager.GetActiveScene().buildIndex == sceneNumber)
+        {
+            onLoaded?.Invoke();
+            yield break;
+        }
+        
         AsyncOperation waitNextScene = SceneManager.LoadSceneAsync(sceneNumber);
 
         while (!waitNextScene.isDone)

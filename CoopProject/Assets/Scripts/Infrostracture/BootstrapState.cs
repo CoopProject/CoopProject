@@ -19,16 +19,16 @@ public class BootstrapState : IState
 
     private void EnterLoadLevel()
     {
-        throw new NotImplementedException();
+        _stateMashin.Enter<LoadLevelState>();
     }
 
     private void RegisterServices()
     {
-        throw new NotImplementedException();
+        
     }
 
     public void Exit()
     {
-        throw new NotImplementedException();
+       
     }
 }
