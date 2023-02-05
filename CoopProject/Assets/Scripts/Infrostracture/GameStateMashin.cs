@@ -8,9 +8,12 @@ public class GameStateMashin
     private readonly Dictionary<Type, IState> _states;
     private IState _activeState;
 
-    public GameStateMashin()
+    public GameStateMashin(SceneLoader sceneLoader)
     {
-        _states = new Dictionary<Type, IState>();
+        _states = new Dictionary<Type, IState>()
+        {
+            [typeof(BootstrapState)] = new BootstrapState(this,sceneLoader)
+        };
     }
     
     

@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class Game : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public  GameStateMashin _stateMashin;
 
-    // Update is called once per frame
-    void Update()
+    public Game(ICoroutineRunner coroutineRunner)
     {
-        
+        _stateMashin = new GameStateMashin(new SceneLoader(coroutineRunner));
     }
 }
