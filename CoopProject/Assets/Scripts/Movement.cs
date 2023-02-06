@@ -2,11 +2,13 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(AnimatorPlayer))]
 public class Movement : MonoBehaviour
 {
     [SerializeField] private float _moveSpeed;
     [SerializeField] private float _rotationSpeed;
     [SerializeField] private float _gravityForce;
+    [SerializeField] private AnimatorPlayer _animator;
 
     private CharacterController _controller;
     private PlayerInputActions _inputActions;
@@ -49,9 +51,12 @@ public class Movement : MonoBehaviour
     {
         if (_targetDirection.magnitude > 0.01f)
         {
+            _animator.Move();
             _controller.Move(_targetDirection * Time.deltaTime * _moveSpeed);
             Rotate();
-        }     
+        }
+        else
+            _animator.Stop();
     }
 
     private void CreateTargetDirection(Vector2 inputDirection)
