@@ -5,6 +5,7 @@ public class BootstrapState : IState
     private readonly GameStateMachine _stateMachine;
     private SceneLoader _sceneLoader;
     private readonly  int _scenNumber = 1;
+    
     public BootstrapState(GameStateMachine stateMashin,SceneLoader scenLoad)
     {
         _stateMachine = stateMashin;
