@@ -1,18 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
-public class Game : MonoBehaviour
+public class Game
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public  GameStateMachine _stateMashin;
 
-    // Update is called once per frame
-    void Update()
+    public Game(LoadingCurtain loadingCurtain, LoadingCurtain curtain )
     {
-        
+        _stateMashin = new GameStateMachine(new SceneLoader(loadingCurtain),curtain);
     }
 }
