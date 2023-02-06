@@ -5,6 +5,6 @@ public class Game
 
     public Game(LoadingCurtain loadingCurtain, LoadingCurtain curtain )
     {
-        _stateMashin = new GameStateMachine(new SceneLoader(loadingCurtain),curtain);
+        _stateMashin = new GameStateMachine(new SceneLoader(loadingCurtain),curtain,AllServices.Container);
     }
 }

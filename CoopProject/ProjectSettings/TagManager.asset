@@ -6,6 +6,7 @@ TagManager:
   tags:
   - SpawnPointPlayer
   - InitialPoint
+  - CameraTarget
   layers:
   - Default
   - TransparentFX
