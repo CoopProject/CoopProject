@@ -8,21 +8,36 @@ public class Player : MonoBehaviour
 
     private int _treeResourceCounter;
     private float _extractDuration = 1f;
+    private static int _layerMask;
+    private Collider[] _hits = new Collider[1];
+    private float _radius = 0.3f;
+    
+    private void Awake()
+    {
+        _layerMask = 1 << LayerMask.NameToLayer("Resource");
+    }
 
     private void OnTriggerStay(Collider other)
     {
-        _extractDuration -= Time.deltaTime;
-        if (other.TryGetComponent(out Tree tree) && _extractDuration < 0)
+        if (other.TryGetComponent(out RecourceTree tree))
         {
-            tree.TakeDamage();
-            Extract();
-            _extractDuration = 1f;
+            _extractDuration -= Time.deltaTime;
+            if (_extractDuration < 0 && Hit() > 0)
+            {
+                Extract();
+                _hits[0].gameObject.GetComponent<RecourceTree>().TakeDamage();
+            }
+        }
+        else
+        {
+            _animator.StopExtract();
         }
     }
+    
 
-    private void OnTriggerExit(Collider other)
+    public int Hit()
     {
-        _animator.StopExtract();
+      return  Physics.OverlapSphereNonAlloc(transform.position + transform.forward, _radius, _hits, _layerMask);
     }
 
     private void Extract()
