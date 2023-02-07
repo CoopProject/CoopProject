@@ -1,3 +1,6 @@
-﻿public class TreeResource
+﻿using UnityEngine;
+
+public class TreeResource : MonoBehaviour , IResource
 {
+    
 }
