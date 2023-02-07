@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -17,16 +18,21 @@ public class Player : MonoBehaviour
         _layerMask = 1 << LayerMask.NameToLayer("Resource");
     }
 
-    private void OnTriggerStay(Collider other)
+
+    public void FixedUpdate()
     {
-        if (other.TryGetComponent(out RecourceTree tree))
+        _extractDuration -= Time.deltaTime;
+        
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, transform.forward, out hit, 2f, _layerMask))
         {
-            _extractDuration -= Time.deltaTime;
             if (_extractDuration < 0 && Hit() > 0)
             {
+                _hits[0].GetComponent<ResourceTree>().TakeDamage();
                 Extract();
-                _hits[0].gameObject.GetComponent<RecourceTree>().TakeDamage();
             }
+            else 
+                _animator.StopExtract();
         }
         else
         {
@@ -34,8 +40,9 @@ public class Player : MonoBehaviour
         }
     }
     
+    
 
-    public int Hit()
+    private int Hit()
     {
       return  Physics.OverlapSphereNonAlloc(transform.position + transform.forward, _radius, _hits, _layerMask);
     }

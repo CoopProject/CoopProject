@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class RecourceTree : MonoBehaviour
+public class ResourceTree : MonoBehaviour
 {
     private int _resourceValue = 15;
     
