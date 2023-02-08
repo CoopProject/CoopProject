@@ -2,5 +2,5 @@
 
 public interface IFactoryHelper
 {
-    void Instance(Helper helper,Transform spawnPoint);
+    T InstanceHelper<T>(T helper ,Transform spawnPoint) where T : MonoBehaviour,IHelper;
 }
