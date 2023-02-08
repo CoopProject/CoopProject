@@ -1,9 +1,9 @@
 using UnityEngine;
 
 
-public class FollowTarget : MonoBehaviour
+public class CameraFollowTarget : MonoBehaviour
 { 
-    [SerializeField] private Vector3 _offSet;
+    [SerializeField] private Vector3 _offset;
     [SerializeField] private Transform _target;
     private float _magnitude = 6f;
 
@@ -11,7 +11,7 @@ public class FollowTarget : MonoBehaviour
     {
         if (_target == null)
             return;
-            transform.position = Vector3.Lerp(transform.position, _target.transform.position + _offSet, Time.deltaTime * _magnitude);
+            transform.position = Vector3.Lerp(transform.position, _target.transform.position + _offset, Time.deltaTime * _magnitude);
     }
     
     public void SetTarget(Transform target) =>_target = target;
