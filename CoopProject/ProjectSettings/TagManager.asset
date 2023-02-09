@@ -6,11 +6,12 @@ TagManager:
   tags:
   - SpawnPointPlayer
   - InitialPoint
+  - CameraTarget
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Resource
   - Water
   - UI
   - 
