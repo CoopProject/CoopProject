@@ -43,7 +43,6 @@ public class Movement : MonoBehaviour
 
     private void OnMove(InputAction.CallbackContext context)
     {
-        print(context.ReadValue<Vector2>());
         CreateTargetDirection(context.ReadValue<Vector2>());
     }
 
