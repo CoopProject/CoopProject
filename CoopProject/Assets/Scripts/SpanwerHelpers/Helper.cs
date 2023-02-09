@@ -1,9 +1,18 @@
-﻿using UnityEngine;
+﻿using System;
+using Unity.VisualScripting;
+using UnityEngine;
 
 public class Helper : MonoBehaviour, IHelper
 {
-    public void HelpPlayer()
+   [SerializeField] private FindingState _findingState;
+
+   private void Start()
+   {
+       FindingResources();
+   }
+
+   public void FindingResources()
     {
-        throw new System.NotImplementedException();
+      _findingState.Enter();  
     }
 }

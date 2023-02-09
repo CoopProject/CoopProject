@@ -1,4 +1,4 @@
 ﻿public interface IHelper
 {
-    void HelpPlayer();
+    void FindingResources();
 }
