@@ -1,17 +1,34 @@
-﻿using DG.Tweening;
+﻿using System;
+using DG.Tweening;
 using UnityEngine;
 
-public class MiningState : MonoBehaviour
+public class MiningState : MonoBehaviour,IState
 {
-    public void Enter(ResourceTree resourceTree)
+    [SerializeField] private FindingState _findingState;
+
+    private Transform movePoint;
+    
+    private void Awake() => enabled = false;
+
+    private void FixedUpdate()
     {
-        MovePoint(resourceTree);
+        
     }
 
-    private void MovePoint(ResourceTree pointMove)
+    public void Enter()
     {
-        transform.DOMove(pointMove.transform.position, 1f).onComplete();
+        enabled = true;
     }
-    
+
+    public void Exit()
+    {
+      
+    }
+
+
+    private void MoveToResource()
+    {
+        
+    }
     
 }

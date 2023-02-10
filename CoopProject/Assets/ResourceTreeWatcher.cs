@@ -19,4 +19,9 @@ public class ResourceTreeWatcher : MonoBehaviour
         _dictionary[typeof(Type)].Add(resourceTree);
         Debug.Log(_dictionary[typeof(ResourceTree)].Count);
     }
+
+    public List<ResourceTree> GetList()
+    {
+        return _dictionary[typeof(ResourceTree)];
+    }
 }
