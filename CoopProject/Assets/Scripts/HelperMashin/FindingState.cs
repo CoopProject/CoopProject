@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class FindingState : MonoBehaviour 
+public class FindingState : MonoBehaviour,IState
 {
     [SerializeField] private List<ResourceTree> _resources;
     [SerializeField] private MiningState _miningState;
@@ -14,7 +14,14 @@ public class FindingState : MonoBehaviour
         var findingObject = Finding();
         _miningState.Enter(findingObject);
     }
-    
+
+    //inject
+    public void Exit() 
+    {
+        
+        
+    }
+
     private ResourceTree Finding()
     {
         distance = Mathf.Infinity;
