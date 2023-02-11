@@ -11,12 +11,12 @@ namespace HelperMashin
         [SerializeField] private MoveStateHelper _stateMove;
         [SerializeField] private ExtractResourceState _stateExtract;
         
-        private Dictionary<Type, IStateHelper> _States;
+        private Dictionary<Type, IStateHelper> _states;
         private IStateHelper _lastState;
 
         private void Awake()
         {
-            _States = new Dictionary<Type, IStateHelper>()
+            _states = new Dictionary<Type, IStateHelper>()
             {
                 [typeof(MoveStateHelper)] = _stateMove,
                 [typeof(ExtractResourceState)] = _stateExtract,
@@ -26,7 +26,7 @@ namespace HelperMashin
         public void Enter<TState>() where TState : IStateHelper
         {
             _lastState?.Exit();
-            IStateHelper state = _States[typeof(TState)];
+            IStateHelper state = _states[typeof(TState)];
             _lastState = state;
             state.Enter();
         }
