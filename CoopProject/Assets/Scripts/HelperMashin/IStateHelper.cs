@@ -1,4 +1,4 @@
-﻿public interface IState
+﻿public interface IStateHelper
 {
     public void Enter();
 

@@ -1,15 +1,24 @@
 ﻿using System.Collections.Generic;
+using HelperMashin;
 using Reflex;
 using Reflex.Scripts.Attributes;
 using UnityEngine;
 
-public class FindingState : MonoBehaviour,IState
+public class FindingStateHelper : MonoBehaviour,IStateHelper
 {
-   [SerializeField] private MiningState _miningState;
     private List<ResourceTree> _resources;
     private ResourceTreeWatcher _resourceTreeWatcher;
     private float distance;
     private ResourceTree _resourceTree;
+    private IHelper _helper;
+    private IStateHelper _lastState;
+    private HelperStateMashin _helperStateMashin;
+
+    public FindingStateHelper(HelperStateMashin helperStateMashin)
+    {
+        _helperStateMashin = helperStateMashin;
+    }
+
     public Vector3 PointFindingObject => _resourceTree.transform.position;
     
     
@@ -24,10 +33,9 @@ public class FindingState : MonoBehaviour,IState
     public void Enter()
     {
         Finding();
-        _miningState.Enter();
-        this.enabled = false;
+        _helperStateMashin.Enter<FindingStateHelper>();
     }
-    
+
     public void Exit() 
     {
         

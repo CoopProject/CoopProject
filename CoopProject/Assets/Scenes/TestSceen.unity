@@ -456,6 +456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19929b789dfb4f2595a1d592cdaaed3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _findingState: {fileID: 498185533}
 --- !u!114 &498185533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -468,13 +469,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46175eccaebb4d8d88fc8ab5ae97949b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _resources:
-  - {fileID: 1019006164}
-  - {fileID: 127760381}
-  - {fileID: 130950016}
-  - {fileID: 1288246807}
-  - {fileID: 869341562}
-  - {fileID: 1672245250}
   _miningState: {fileID: 498185532}
 --- !u!114 &498185534
 MonoBehaviour:
@@ -696,14 +690,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 840259114}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: 0.24123205, y: -0, z: -0, w: 0.97046757}
+  m_LocalPosition: {x: 0, y: 5.91, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 27.919, y: 0, z: 0}
 --- !u!1 &869341557
 GameObject:
   m_ObjectHideFlags: 0

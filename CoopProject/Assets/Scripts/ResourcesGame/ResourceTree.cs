@@ -18,7 +18,7 @@ public class ResourceTree : MonoBehaviour,IResource
         _resourceTreeWatcher = container.Resolve<ResourceTreeWatcher>();
     }
 
-    private void Awake()
+    private void Start()
     {
         _resourceTreeWatcher.SetTree<ResourceTree>(this);
     }

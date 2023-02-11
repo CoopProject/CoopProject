@@ -1,19 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEngine;
+﻿using HelperMashin;
 
-public class Helper : MonoBehaviour, IHelper
+public class Helper : HelperStateMashin, IHelper
 {
-   [SerializeField] private FindingState _findingState;
-
-   private void Start()
-   {
-       FindingResources();
-   }
-
-   public void FindingResources()
-    {
-      _findingState.Enter();  
-    }
+    
 }
