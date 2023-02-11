@@ -11,6 +11,8 @@ public class ResourceTree : MonoBehaviour,IResource
 
     private ResourceTreeWatcher _resourceTreeWatcher;
     private int _resourceValue = 15;
+    private int _health = 10;
+    private float _durationReset
 
     [Inject]
     private void Construct(Container container)
@@ -23,9 +25,21 @@ public class ResourceTree : MonoBehaviour,IResource
         _resourceTreeWatcher.SetTree<ResourceTree>(this);
     }
 
-    public void TakeDamage()
+    public void TakeDamage(int damage)
     {
+        _health -= 10;
         
+    }
+
+    private void Dead()
+    {
+        gameObject.SetActive(false);
+    }
+
+
+    private IEnumerator Reset()
+    {
+        var wait = New WaitForSecondsRealtime
     }
     
 }

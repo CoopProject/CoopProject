@@ -11,7 +11,7 @@ public class FindingResourse : MonoBehaviour
     private float distance;
     private ResourceTree _resourceTree;
 
-    public Vector3 PointFindingObject => _resourceTree.transform.position;
+    public ResourceTree PointFindingObject => _resourceTree;
     
     
     [Inject]
@@ -22,7 +22,7 @@ public class FindingResourse : MonoBehaviour
 
     private void Start()=> _resources = _resourceTreeWatcher.GetList();
     
-    public ResourceTree Finding(Transform pointFinding)
+    public void Finding(Transform pointFinding)
     {
         distance = Mathf.Infinity;
         Vector3 position = pointFinding.transform.position;
@@ -34,11 +34,9 @@ public class FindingResourse : MonoBehaviour
 
             if (curDistance < distance)
             {
+                _resourceTree = resourceTree;
                 distance = curDistance;
-                return resourceTree;
             }
         }
-
-        return null;
     }
 }
