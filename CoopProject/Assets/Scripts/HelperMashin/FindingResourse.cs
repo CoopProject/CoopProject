@@ -10,10 +10,7 @@ public class FindingResourse : MonoBehaviour
     private ResourceTreeWatcher _resourceTreeWatcher;
     private float distance;
     private ResourceTree _resourceTree;
-    private IHelper _helper;
-    private IStateHelper _lastState;
-    private HelperStateMashin _helperStateMashin;
-    
+
     public Vector3 PointFindingObject => _resourceTree.transform.position;
     
     
@@ -21,26 +18,14 @@ public class FindingResourse : MonoBehaviour
     private void Construct(Container container)
     {
         _resourceTreeWatcher = container.Resolve<ResourceTreeWatcher>();
-        _helperStateMashin = container.Resolve<HelperStateMashin>();
     }
 
     private void Start()=> _resources = _resourceTreeWatcher.GetList();
-
-    public void Enter()
-    {
-        Finding();
-        _helperStateMashin.Enter<MoveStateHelper>();
-    }
-
-    public void Exit() 
-    {
-        
-    }
-
-    private void Finding()
+    
+    public ResourceTree Finding(Transform pointFinding)
     {
         distance = Mathf.Infinity;
-        Vector3 position = transform.position;
+        Vector3 position = pointFinding.transform.position;
 
         foreach (ResourceTree resourceTree in _resources)
         {
@@ -49,9 +34,11 @@ public class FindingResourse : MonoBehaviour
 
             if (curDistance < distance)
             {
-                _resourceTree = resourceTree;
                 distance = curDistance;
+                return resourceTree;
             }
         }
+
+        return null;
     }
 }

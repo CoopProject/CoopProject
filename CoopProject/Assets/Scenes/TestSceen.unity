@@ -343,6 +343,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136c5abee4a093d45a4f6f978a43dfee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &260647819
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 260647820}
+  m_Layer: 0
+  m_Name: HelperStateMashin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &260647820
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 260647819}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.1947976, y: -2.3869865, z: 9.774885}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &498185526
 GameObject:
   m_ObjectHideFlags: 0
@@ -437,7 +468,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 498185526}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.42584947, y: 1.13, z: 0.6570923}
+  m_LocalPosition: {x: 5.37, y: 1.13, z: 0.6570923}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -480,6 +511,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0bc68c2c9f94b9db9ab710bf7b79873, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _stateMove: {fileID: 498185532}
 --- !u!1 &656520878
 GameObject:
   m_ObjectHideFlags: 0
@@ -605,7 +637,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 695646884}
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 0, y: 6.94, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1475,6 +1507,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Instailer
       objectReference: {fileID: 0}
+    - target: {fileID: 9204183580495749579, guid: 90b8fe09cd0a55547a22e4da7b5ac68a, type: 3}
+      propertyPath: _helperStateMashin
+      value: 
+      objectReference: {fileID: 498185534}
     - target: {fileID: 9204183580495749579, guid: 90b8fe09cd0a55547a22e4da7b5ac68a, type: 3}
       propertyPath: _resourceTreeWatcher
       value: 

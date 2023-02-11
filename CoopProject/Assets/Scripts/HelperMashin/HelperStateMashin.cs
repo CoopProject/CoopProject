@@ -6,7 +6,6 @@ namespace HelperMashin
 {
     public class HelperStateMashin : MonoBehaviour, IHelperStateMashin
     {
-        [SerializeField] private FindingResourse _findingState;
         [SerializeField] private MoveStateHelper _stateMove;
         
         private Dictionary<Type, IStateHelper> _States;
