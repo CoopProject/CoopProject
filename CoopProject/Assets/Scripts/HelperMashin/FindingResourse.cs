@@ -4,7 +4,7 @@ using Reflex;
 using Reflex.Scripts.Attributes;
 using UnityEngine;
 
-public class FindingStateHelper : MonoBehaviour,IStateHelper
+public class FindingResourse : MonoBehaviour
 {
     private List<ResourceTree> _resources;
     private ResourceTreeWatcher _resourceTreeWatcher;
@@ -13,12 +13,7 @@ public class FindingStateHelper : MonoBehaviour,IStateHelper
     private IHelper _helper;
     private IStateHelper _lastState;
     private HelperStateMashin _helperStateMashin;
-
-    public FindingStateHelper(HelperStateMashin helperStateMashin)
-    {
-        _helperStateMashin = helperStateMashin;
-    }
-
+    
     public Vector3 PointFindingObject => _resourceTree.transform.position;
     
     
@@ -26,6 +21,7 @@ public class FindingStateHelper : MonoBehaviour,IStateHelper
     private void Construct(Container container)
     {
         _resourceTreeWatcher = container.Resolve<ResourceTreeWatcher>();
+        _helperStateMashin = container.Resolve<HelperStateMashin>();
     }
 
     private void Start()=> _resources = _resourceTreeWatcher.GetList();
@@ -33,7 +29,7 @@ public class FindingStateHelper : MonoBehaviour,IStateHelper
     public void Enter()
     {
         Finding();
-        _helperStateMashin.Enter<FindingStateHelper>();
+        _helperStateMashin.Enter<MoveStateHelper>();
     }
 
     public void Exit() 

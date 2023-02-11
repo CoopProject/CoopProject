@@ -1,15 +1,19 @@
 ﻿using System;
 using HelperMashin;
+using Reflex;
+using Reflex.Scripts.Attributes;
 using UnityEngine;
 
 public class MoveStateHelper : MonoBehaviour,IStateHelper
 {
+    private FindingResourse
     private HelperStateMashin _helperStateMashin;
     private Transform movePoint;
 
-    public MoveStateHelper(HelperStateMashin helperStateMashin)
+    [Inject]
+    private void Construct(Container container)
     {
-        _helperStateMashin = helperStateMashin;
+        _helperStateMashin = container.Resolve<HelperStateMashin>();
     }
 
     private void Awake() => enabled = false;
