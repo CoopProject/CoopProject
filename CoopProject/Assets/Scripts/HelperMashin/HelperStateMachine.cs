@@ -6,7 +6,7 @@ namespace HelperMashin
 {
     [RequireComponent(typeof(MoveStateHelper))]
     [RequireComponent(typeof(ExtractResourceState))]
-    public class HelperStateMashin : MonoBehaviour, IHelperStateMashin
+    public class HelperStateMachine : MonoBehaviour, IHelperStateMashin
     {
         [SerializeField] private MoveStateHelper _stateMove;
         [SerializeField] private ExtractResourceState _stateExtract;

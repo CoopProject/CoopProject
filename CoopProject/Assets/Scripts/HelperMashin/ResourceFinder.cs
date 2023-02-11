@@ -4,10 +4,10 @@ using Reflex;
 using Reflex.Scripts.Attributes;
 using UnityEngine;
 
-public class FindingResourse : MonoBehaviour
+public class ResourceFinder : MonoBehaviour
 {
     private List<ResourceTree> _resources;
-    private ResourceTreeWatcher _resourceTreeWatcher;
+    private TreeKeeper _treeKeeper;
     private float distance;
     private ResourceTree _resourceTree;
 
@@ -17,12 +17,12 @@ public class FindingResourse : MonoBehaviour
     [Inject]
     private void Construct(Container container)
     {
-        _resourceTreeWatcher = container.Resolve<ResourceTreeWatcher>();
+        _treeKeeper = container.Resolve<TreeKeeper>();
     }
 
-    private void Start()=> _resources = _resourceTreeWatcher.GetList();
+    private void Start()=> _resources = _treeKeeper.GetList();
     
-    public void Finding(Transform pointFinding)
+    public void Search(Transform pointFinding)
     {
         distance = Mathf.Infinity;
         Vector3 position = pointFinding.transform.position;

@@ -1,28 +1,26 @@
-﻿using System;
-using HelperMashin;
+﻿using HelperMashin;
 using Reflex;
 using Reflex.Scripts.Attributes;
 using UnityEngine;
 
-[RequireComponent(typeof(FindingResourse))]
+[RequireComponent(typeof(ResourceFinder))]
 public class MoveStateHelper : MonoBehaviour,IStateHelper
 {
-    private FindingResourse _findingResourse;
+    private ResourceFinder _resourceFinder;
     private ResourceTree movePoint;
-    private HelperStateMashin _helperStateMashin;
+    private HelperStateMachine _helperStateMachine;
     private float _spead = 2.5f;
     private float _distanceEnterState = 1f;
-
-
+    
     [Inject]
     private void Construct(Container container)
     {
-        _helperStateMashin = container.Resolve<HelperStateMashin>();
+        _helperStateMachine = container.Resolve<HelperStateMachine>();
     }
 
     private void Awake()
     {
-        _findingResourse = GetComponent<FindingResourse>();
+        _resourceFinder = GetComponent<ResourceFinder>();
         enabled = false;
     }
     
@@ -33,14 +31,14 @@ public class MoveStateHelper : MonoBehaviour,IStateHelper
             Vector3.MoveTowards(transform.position, movePoint.transform.position, _spead * Time.deltaTime);
         if (Vector3.Distance(transform.position,movePoint.transform.position) < _distanceEnterState)
         {
-            _helperStateMashin.Enter<ExtractResourceState>();
+            _helperStateMachine.Enter<ExtractResourceState>();
         }
     }
 
     public void Enter()
     {
-        _findingResourse.Finding(transform);
-        movePoint = _findingResourse.PointFindingObject;
+        _resourceFinder.Search(transform);
+        movePoint = _resourceFinder.PointFindingObject;
         enabled = true;
     }
 

@@ -7,7 +7,7 @@ namespace HelperMashin
 {
     public class ExtractResourceState : MonoBehaviour , IStateHelper
     {
-        private HelperStateMashin _helperStateMashin;
+        private HelperStateMachine _helperStateMachine;
         private float _extractDuration = 0.5f;
         private Collider[] _hits = new Collider[1];
         private float _radius = 2f;
@@ -16,7 +16,7 @@ namespace HelperMashin
         [Inject]
         private void Construct(Container container)
         {
-            _helperStateMashin = container.Resolve<HelperStateMashin>();
+            _helperStateMachine = container.Resolve<HelperStateMachine>();
         }
 
         private void Awake()
@@ -40,7 +40,7 @@ namespace HelperMashin
             }
             else
             {
-                _helperStateMashin.Enter<MoveStateHelper>();
+                _helperStateMachine.Enter<MoveStateHelper>();
             }
         }
 

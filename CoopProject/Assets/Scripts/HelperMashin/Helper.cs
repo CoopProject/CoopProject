@@ -2,7 +2,7 @@
 using HelperMashin;
 using UnityEngine;
 
-public class Helper : HelperStateMashin, IHelper
+public class Helper : HelperStateMachine, IHelper
 {
     private int _damage;
     private void Start()

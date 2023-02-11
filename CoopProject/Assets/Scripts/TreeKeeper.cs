@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class ResourceTreeWatcher : MonoBehaviour 
+public class TreeKeeper : MonoBehaviour 
 {
     private Dictionary<Type, List<ResourceTree>> _dictionary;
 

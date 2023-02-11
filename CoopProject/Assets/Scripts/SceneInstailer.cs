@@ -2,15 +2,16 @@ using HelperMashin;
 using Reflex;
 using Reflex.Scripts;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class SceneInstailer : Installer
 {
-    [SerializeField] private ResourceTreeWatcher _resourceTreeWatcher;
-    [SerializeField] private HelperStateMashin _helperStateMashin;
+    [FormerlySerializedAs("_resourceTreeWatcher")] [SerializeField] private TreeKeeper treeKeeper;
+    [FormerlySerializedAs("_helperStateMashin")] [SerializeField] private HelperStateMachine helperStateMachine;
     
     public override void InstallBindings(Container container)
     {
-        container.BindInstanceAs(_resourceTreeWatcher);
-        container.BindInstanceAs(_helperStateMashin);
+        container.BindInstanceAs(treeKeeper);
+        container.BindInstanceAs(helperStateMachine);
     }
 }

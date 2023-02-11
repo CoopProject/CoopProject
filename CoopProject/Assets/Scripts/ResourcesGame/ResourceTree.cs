@@ -6,7 +6,7 @@ using UnityEngine;
 public class ResourceTree : MonoBehaviour,IResource
 {
 
-    private ResourceTreeWatcher _resourceTreeWatcher;
+    private TreeKeeper _treeKeeper;
     private int _resourceValue = 15;
     private int _health = 10;
     private int _maxHealth = 10;
@@ -18,12 +18,12 @@ public class ResourceTree : MonoBehaviour,IResource
     [Inject]
     private void Construct(Container container)
     {
-        _resourceTreeWatcher = container.Resolve<ResourceTreeWatcher>();
+        _treeKeeper = container.Resolve<TreeKeeper>();
     }
 
     private void Start()
     {
-        _resourceTreeWatcher.SetTree<ResourceTree>(this);
+        _treeKeeper.SetTree<ResourceTree>(this);
     }
 
     public void TakeDamage(int damage)
@@ -34,7 +34,7 @@ public class ResourceTree : MonoBehaviour,IResource
         {
             Dead();
             _iDead = true;
-            _resourceTreeWatcher.RemoveITemList<ResourceTree>(this);
+            _treeKeeper.RemoveITemList<ResourceTree>(this);
         }
         
     }
