@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     private static int _layerMask;
     private Collider[] _hits = new Collider[1];
     private float _radius = 0.3f;
+    private int _damage = 1;
     
     private void Awake()
     {
@@ -25,7 +26,7 @@ public class Player : MonoBehaviour
         {
             if (_extractDuration < 0 && Hit() > 0)
             {
-                _hits[0].GetComponent<ResourceTree>().TakeDamage();
+                _hits[0].GetComponent<ResourceTree>().TakeDamage(_damage);
                 Extract();
             }
             else 

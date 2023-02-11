@@ -8,7 +8,7 @@ namespace HelperMashin
     public class ExtractResourceState : MonoBehaviour , IStateHelper
     {
         private HelperStateMashin _helperStateMashin;
-        private float _extractDuration = 1f;
+        private float _extractDuration = 0.5f;
         private Collider[] _hits = new Collider[1];
         private float _radius = 2f;
         private int _layerMask;
@@ -27,22 +27,23 @@ namespace HelperMashin
         private void LateUpdate()
         {
             _extractDuration -= Time.deltaTime;
-        
+
             RaycastHit hit;
             if (Physics.Raycast(transform.position, transform.forward, out hit, 2f, _layerMask))
             {
                 if (_extractDuration < 0 && Hit() > 0)
                 {
-                    _hits[0].GetComponent<ResourceTree>().TakeDamage();
+                    _extractDuration = 0.5f;
+                    _hits[0].GetComponent<ResourceTree>().TakeDamage(5);
+                    Debug.Log("Добыл рес");
                 }
-                else
-                {
-                    _helperStateMashin.Enter<MoveStateHelper>();
-                }
-
+            }
+            else
+            {
+                _helperStateMashin.Enter<MoveStateHelper>();
             }
         }
-        
+
         private int Hit()
         {
             return  Physics.OverlapSphereNonAlloc(transform.position + transform.forward, _radius, _hits, _layerMask);

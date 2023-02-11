@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Helper : HelperStateMashin, IHelper
 {
+    private int _damage;
     private void Start()
     {
         StartCoroutine(StartWork());

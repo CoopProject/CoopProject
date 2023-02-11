@@ -29,12 +29,11 @@ namespace HelperMashin
             IStateHelper state = _States[typeof(TState)];
             _lastState = state;
             state.Enter();
-            Debug.Log(state);
         }
 
         public void Exit()
         {
-            throw new NotImplementedException();
+            
         }
     }
 }

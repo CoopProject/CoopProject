@@ -19,6 +19,12 @@ public class ResourceTreeWatcher : MonoBehaviour
         _dictionary[typeof(Type)].Add(resourceTree);
     }
 
+    public void RemoveITemList<Type>(ResourceTree resourceTree)
+    {
+        _dictionary[typeof(Type)].Remove(resourceTree);
+        Debug.Log(_dictionary[typeof(Type)].Count);
+    }
+
     public List<ResourceTree> GetList()
     {
         return _dictionary[typeof(ResourceTree)];

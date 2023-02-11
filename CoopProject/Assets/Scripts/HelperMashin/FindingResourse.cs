@@ -35,6 +35,7 @@ public class FindingResourse : MonoBehaviour
             if (curDistance < distance)
             {
                 _resourceTree = resourceTree;
+                Debug.Log(resourceTree);
                 distance = curDistance;
             }
         }
