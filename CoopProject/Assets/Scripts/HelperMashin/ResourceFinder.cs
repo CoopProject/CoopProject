@@ -6,12 +6,12 @@ using UnityEngine;
 
 public class ResourceFinder : MonoBehaviour
 {
-    private List<ResourceTree> _resources;
+    private List<IResource> _resources;
     private TreeKeeper _treeKeeper;
     private float distance;
-    private ResourceTree _resourceTree;
+    private Tree _tree;
 
-    public ResourceTree PointFindingObject => _resourceTree;
+    public Tree PointFindingObject => _tree;
     
     
     [Inject]
@@ -20,21 +20,21 @@ public class ResourceFinder : MonoBehaviour
         _treeKeeper = container.Resolve<TreeKeeper>();
     }
 
-    private void Start()=> _resources = _treeKeeper.GetList();
+    private void Start()=> _resources = _treeKeeper.GetList<Tree>();
     
     public void Search(Transform pointFinding)
     {
         distance = Mathf.Infinity;
         Vector3 position = pointFinding.transform.position;
 
-        foreach (ResourceTree resourceTree in _resources)
+        foreach (Tree resourceTree in _resources)
         {
             Vector3 direction = resourceTree.transform.position - position;
             float curDistance = direction.sqrMagnitude;
 
             if (curDistance < distance)
             {
-                _resourceTree = resourceTree;
+                _tree = resourceTree;
                 Debug.Log(resourceTree);
                 distance = curDistance;
             }

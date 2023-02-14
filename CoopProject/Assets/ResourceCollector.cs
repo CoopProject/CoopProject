@@ -9,13 +9,13 @@ public class ResourceCollector : MonoBehaviour
 {
     [SerializeField] private Player _player;
 
-    private Dictionary<Type, List<ResourceTree>> _colectionTree;
+    private Dictionary<Type, List<IResource>> _colectionTree;
 
     private void Awake()
     {
-        _colectionTree = new Dictionary<Type, List<ResourceTree>>()
+        _colectionTree = new Dictionary<Type, List<IResource>>()
         {
-            [typeof(ResourceTree)] = new List<ResourceTree>(),
+            [typeof(ResourceTree)] = new List<IResource>(),
         };
     }
 
@@ -37,4 +37,9 @@ public class ResourceCollector : MonoBehaviour
            resourec.gameObject.SetActive(false);
         });
     }
+}
+
+public class ResourceTree: MonoBehaviour, IResource
+{
+    
 }

@@ -2,31 +2,32 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 public class TreeKeeper : MonoBehaviour 
 {
-    private Dictionary<Type, List<ResourceTree>> _dictionary;
+    private Dictionary<Type, List<IResource>> _dictionary;
 
     private void Awake()
     {
-        _dictionary = new Dictionary<Type, List<ResourceTree>>
+        _dictionary = new Dictionary<Type, List<IResource>>
         {
-            [typeof(ResourceTree)] = new List<ResourceTree>()
+            [typeof(Tree)] = new List<IResource>(),
+            [typeof(Rock)] = new List<IResource>(),
         };
     }
 
-    public void SetTree<Type>(ResourceTree resourceTree)
+    public void SetRecousrce<Type>(IResource tree)
     {
-        _dictionary[typeof(Type)].Add(resourceTree);
+        _dictionary[typeof(Type)].Add(tree);
     }
 
-    public void RemoveITemList<Type>(ResourceTree resourceTree)
+    public void RemoveITemList<Type>(IResource tree)
     {
-        _dictionary[typeof(Type)].Remove(resourceTree);
-        Debug.Log(_dictionary[typeof(Type)].Count);
+        _dictionary[typeof(Type)].Remove(tree);
     }
 
-    public List<ResourceTree> GetList()
+    public List<IResource> GetList<TResource>()  
     {
-        return _dictionary[typeof(ResourceTree)];
+        return _dictionary[typeof(TResource)];
     }
 }

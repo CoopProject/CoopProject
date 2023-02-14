@@ -34,8 +34,7 @@ namespace HelperMashin
                 if (_extractDuration < 0 && Hit() > 0)
                 {
                     _extractDuration = 0.5f;
-                    _hits[0].GetComponent<ResourceTree>().TakeDamage(5);
-                    Debug.Log("Добыл рес");
+                    _hits[0].GetComponent<Tree>().TakeDamage(5);
                 }
             }
             else

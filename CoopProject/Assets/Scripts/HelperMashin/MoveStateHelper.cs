@@ -7,7 +7,7 @@ using UnityEngine;
 public class MoveStateHelper : MonoBehaviour,IStateHelper
 {
     private ResourceFinder _resourceFinder;
-    private ResourceTree movePoint;
+    private Tree movePoint;
     private HelperStateMachine _helperStateMachine;
     private float _spead = 2.5f;
     private float _distanceEnterState = 1f;

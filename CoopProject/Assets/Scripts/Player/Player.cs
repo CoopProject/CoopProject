@@ -5,7 +5,7 @@ public class Player : MonoBehaviour
     [SerializeField] private AnimatorPlayer _animator;
 
     private int _treeResourceCounter;
-    private float _extractDuration = 1f;
+    private float _extractDuration = 3f;
     private static int _layerMask;
     private Collider[] _hits = new Collider[1];
     private float _radius = 0.3f;
@@ -19,18 +19,11 @@ public class Player : MonoBehaviour
 
     public void FixedUpdate()
     {
-        _extractDuration -= Time.deltaTime;
-        
         RaycastHit hit;
+        
         if (Physics.Raycast(transform.position, transform.forward, out hit, 2f, _layerMask))
         {
-            if (_extractDuration < 0 && Hit() > 0)
-            {
-                _hits[0].GetComponent<ResourceTree>().TakeDamage(_damage);
-                Extract();
-            }
-            else 
-                _animator.StopExtract();
+            Hit();
         }
         else
         {
@@ -41,12 +34,16 @@ public class Player : MonoBehaviour
     
 
     private int Hit()
-    {
+    { 
+        _animator.Extract();
       return  Physics.OverlapSphereNonAlloc(transform.position + transform.forward, _radius, _hits, _layerMask);
     }
 
-    private void Extract()
+    public void Extract()
     {
-        _animator.Extract();
+        if (Hit() > 0)
+            _hits[0].GetComponent<Tree>().TakeDamage(_damage);
+        
+        
     }
 }
