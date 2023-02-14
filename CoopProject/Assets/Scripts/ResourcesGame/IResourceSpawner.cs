@@ -1,4 +1,4 @@
 ﻿public interface IResourceSpawner
 {
-    IResource Recource();
+    IExtracting Recource();
 }

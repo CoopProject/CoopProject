@@ -5,28 +5,28 @@ using UnityEngine;
 
 public class TreeKeeper : MonoBehaviour 
 {
-    private Dictionary<Type, List<IResource>> _dictionary;
+    private Dictionary<Type, List<IExtracting>> _dictionary;
 
     private void Awake()
     {
-        _dictionary = new Dictionary<Type, List<IResource>>
+        _dictionary = new Dictionary<Type, List<IExtracting>>
         {
-            [typeof(Tree)] = new List<IResource>(),
-            [typeof(Rock)] = new List<IResource>(),
+            [typeof(Tree)] = new List<IExtracting>(),
+            [typeof(Rock)] = new List<IExtracting>(),
         };
     }
 
-    public void SetRecousrce<Type>(IResource tree)
+    public void SetRecousrce<Type>(IExtracting tree)
     {
         _dictionary[typeof(Type)].Add(tree);
     }
 
-    public void RemoveITemList<Type>(IResource tree)
+    public void RemoveITemList<Type>(IExtracting tree)
     {
         _dictionary[typeof(Type)].Remove(tree);
     }
 
-    public List<IResource> GetList<TResource>()  
+    public List<IExtracting> GetList<TResource>()  
     {
         return _dictionary[typeof(TResource)];
     }

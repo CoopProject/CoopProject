@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class ResourceFinder : MonoBehaviour
 {
-    private List<IResource> _resources;
+    private List<IExtracting> _resources;
     private TreeKeeper _treeKeeper;
     private float distance;
     private Tree _tree;

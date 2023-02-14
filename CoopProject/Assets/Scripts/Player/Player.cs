@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
     public void Extract()
     {
         if (Hit() > 0)
-            _hits[0].GetComponent<Tree>().TakeDamage(_damage);
+            _hits[0].GetComponent<IExtracting>().TakeDamage(_damage);
         
         
     }

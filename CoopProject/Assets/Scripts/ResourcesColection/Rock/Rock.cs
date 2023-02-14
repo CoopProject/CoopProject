@@ -3,10 +3,10 @@ using Reflex.Scripts.Attributes;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
-public class Tree : MonoBehaviour,IResource
+public class Rock : MonoBehaviour, IExtracting
 {
-   [SerializeField] private AudioSource _soundHit;
-   private TreeKeeper _treeKeeper;
+    [SerializeField] private AudioSource _soundHit;
+    private TreeKeeper _treeKeeper;
     private int _resourceValue = 15;
     private int _health = 10;
     private int _maxHealth = 10;
@@ -23,7 +23,7 @@ public class Tree : MonoBehaviour,IResource
 
     private void Start()
     {
-        _treeKeeper.SetRecousrce<Tree>(this);
+        _treeKeeper.SetRecousrce<Rock>(this);
     }
 
     public void TakeDamage(int damage)
@@ -35,7 +35,7 @@ public class Tree : MonoBehaviour,IResource
         {
             Dead();
             _iDead = true;
-            _treeKeeper.RemoveITemList<Tree>(this);
+            _treeKeeper.RemoveITemList<Rock>(this);
         }
         
     }
@@ -44,5 +44,5 @@ public class Tree : MonoBehaviour,IResource
     {
         gameObject.SetActive(false);
     }
-    
+
 }

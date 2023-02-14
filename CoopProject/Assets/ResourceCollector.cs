@@ -9,24 +9,37 @@ public class ResourceCollector : MonoBehaviour
 {
     [SerializeField] private Player _player;
 
-    private Dictionary<Type, List<IResource>> _colectionTree;
+    private Dictionary<Type, List<IResource>> _colectionResource;
 
     private void Awake()
     {
-        _colectionTree = new Dictionary<Type, List<IResource>>()
+        _colectionResource = new Dictionary<Type, List<IResource>>()
         {
             [typeof(ResourceTree)] = new List<IResource>(),
+            [typeof(ResourceRock)] = new List<IResource>(),
         };
+    }
+
+    private void FixedUpdate()
+    {
+        Debug.Log($"{_colectionResource[typeof(ResourceTree)].Count} -" + $" Дерево)");
+        Debug.Log($"{_colectionResource[typeof(ResourceRock)].Count} -" + $" Камень)");
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out ResourceTree _resource))
+        if (other.TryGetComponent(out ResourceTree _resourceTree))
         {
-            _colectionTree[typeof(ResourceTree)].Add(_resource);
-            Take(_resource);
+            _colectionResource[typeof(ResourceTree)].Add(_resourceTree);
+            Take(_resourceTree);
         }
-
+        
+        if (other.TryGetComponent(out ResourceRock _resourceRock))
+        {
+            _colectionResource[typeof(ResourceRock)].Add(_resourceRock);
+            Take(_resourceRock);
+        }
+    
     }
     
 
@@ -37,9 +50,4 @@ public class ResourceCollector : MonoBehaviour
            resourec.gameObject.SetActive(false);
         });
     }
-}
-
-public class ResourceTree: MonoBehaviour, IResource
-{
-    
 }

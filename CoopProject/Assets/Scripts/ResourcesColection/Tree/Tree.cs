@@ -1,13 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using Reflex;
 using Reflex.Scripts.Attributes;
 using UnityEngine;
 
-public class Rock : MonoBehaviour, IResource
+[RequireComponent(typeof(AudioSource))]
+public class Tree : MonoBehaviour,IExtracting
 {
-    [SerializeField] private AudioSource _soundHit;
-    private TreeKeeper _treeKeeper;
+   [SerializeField] private AudioSource _soundHit;
+   private TreeKeeper _treeKeeper;
     private int _resourceValue = 15;
     private int _health = 10;
     private int _maxHealth = 10;
@@ -36,7 +35,7 @@ public class Rock : MonoBehaviour, IResource
         {
             Dead();
             _iDead = true;
-            _treeKeeper.RemoveITemList<Rock>(this);
+            _treeKeeper.RemoveITemList<Tree>(this);
         }
         
     }
@@ -45,5 +44,5 @@ public class Rock : MonoBehaviour, IResource
     {
         gameObject.SetActive(false);
     }
-
+    
 }
