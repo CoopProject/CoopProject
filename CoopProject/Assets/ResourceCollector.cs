@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,45 +10,45 @@ public class ResourceCollector : MonoBehaviour
 {
     [SerializeField] private Player _player;
 
-    private Dictionary<Type, List<IResource>> _colectionResource;
+    private Dictionary<Type, List<IResource>> _resources;
 
     private void Awake()
     {
-        _colectionResource = new Dictionary<Type, List<IResource>>()
+        _resources = new Dictionary<Type, List<IResource>>()
         {
             [typeof(ResourceTree)] = new List<IResource>(),
             [typeof(ResourceRock)] = new List<IResource>(),
         };
     }
 
-    private void FixedUpdate()
-    {
-        Debug.Log($"{_colectionResource[typeof(ResourceTree)].Count} -" + $" Дерево)");
-        Debug.Log($"{_colectionResource[typeof(ResourceRock)].Count} -" + $" Камень)");
-    }
-
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out ResourceTree _resourceTree))
+        var tryGetComponent = other.TryGetComponent(out ResourceTree resourceTree);
+        if (tryGetComponent)
         {
-            _colectionResource[typeof(ResourceTree)].Add(_resourceTree);
-            Take(_resourceTree);
+            _resources[typeof(ResourceTree)].Add(resourceTree);
+            Take(resourceTree);
         }
         
-        if (other.TryGetComponent(out ResourceRock _resourceRock))
+        if (other.TryGetComponent(out ResourceRock resourceRock))
         {
-            _colectionResource[typeof(ResourceRock)].Add(_resourceRock);
-            Take(_resourceRock);
+            _resources[typeof(ResourceRock)].Add(resourceRock);
+            Take(resourceRock);
         }
     
     }
     
 
-    private void Take<TResource>( TResource resourec) where TResource : MonoBehaviour,IResource
+    private void Take<TResource>( TResource resources) where TResource : MonoBehaviour,IResource
     {
-        resourec.gameObject.transform.DOMove(_player.transform.position, 1f).OnComplete(() =>
+        resources.gameObject.transform.DOMove(_player.transform.position, 1f).OnComplete(() =>
         {
-           resourec.gameObject.SetActive(false);
+           resources.gameObject.SetActive(false);
         });
+    }
+
+    public List<IResource> SetColectionResources<TResourceType>() where TResourceType: IResource
+    {
+        return _resources[typeof(TResourceType)].ToList();
     }
 }
