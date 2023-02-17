@@ -1,17 +1,15 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using DG.Tweening;
 using ResourcesColection;
 using ResourcesColection.Tree;
 using ResourcesGame;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ResourceCollector : MonoBehaviour
 {
     [SerializeField] private Player _player;
+
+    private int _sumAllPrice;
 
     private Dictionary<Type, List<Resource>> _resources;
 
@@ -39,15 +37,33 @@ public class ResourceCollector : MonoBehaviour
         }
     
     }
-    
 
+    public int CountColection<TResource>() where TResource : Resource,IResource
+    {
+        return _resources[typeof(TResource)].Count;
+    }
+
+    public void SellAllResource()
+    {
+        _resources[typeof(ResourceTree)] = new List<Resource>();
+        _resources[typeof(ResourceRock)] = new List<Resource>();
+    }
+    
     private void Take( Resource resources) 
     {
         resources.gameObject.SetActive(false);
     }
 
-    public List<Resource> SetColectionResources<TResourceType>() where TResourceType: Resource
+    public int SumPriceAllResource<TypeResource>() where TypeResource:Resource,IResource
     {
-        return _resources[typeof(TResourceType)].ToList();
+        if (_resources[typeof(TypeResource)] != null)
+        {
+            foreach (var resource in _resources[typeof(TypeResource)])
+            {
+                return _sumAllPrice += resource.Price;
+            }   
+        }
+        
+        return 0;
     }
 }

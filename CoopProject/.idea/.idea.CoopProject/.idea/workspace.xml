@@ -5,21 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8f7b6ffa-d6d0-46c4-b593-d125d207ea8f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesGame/Resource.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesGame/Resource.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIResource.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CoopProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CoopProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/FMOD/platforms/mac/lib/fmodstudio.bundle/Contents/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/FMOD/platforms/mac/lib/fmodstudio.bundle/Contents/Info.plist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/FMOD/platforms/mac/lib/fmodstudioL.bundle/Contents/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/FMOD/platforms/mac/lib/fmodstudioL.bundle/Contents/Info.plist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/FMOD/platforms/mac/lib/resonanceaudio.bundle/Contents/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/FMOD/platforms/mac/lib/resonanceaudio.bundle/Contents/Info.plist" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ResourceCollector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ResourceCollector.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ResourceRock.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ResourceRock.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestSceen.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestSceen.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/IResource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/IResource.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/Tree/ResourceTree.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/Tree/ResourceTree.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ShopResource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ShopResource.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UIResourceRock.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UIResourceRock.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UIResourceTree.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UIResourceTree.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fmod_editor.log" beforeDir="false" afterPath="$PROJECT_DIR$/fmod_editor.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ShopResource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/ShopResource.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ShopResource.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/ShopResource.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UIResourceRock.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UIResourceRock.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UIResourceTree.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UIResourceTree.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIResource.cs.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,9 +46,8 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ResourcesGame/TreeExtracting.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SceneInstailer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/TreeKeeper.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/ShopResource.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/UIResourceRock.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/UIResourceTree.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/ShopResource.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/UIResource.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.4.4/InputSystem/Actions/InputAction.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualscripting@1.7.8/Runtime/VisualScripting.State/IState.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -82,6 +79,7 @@
     </panes>
   </component>
   <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
@@ -172,7 +170,7 @@
       <workItem from="1676556449224" duration="161000" />
       <workItem from="1676556669968" duration="79000" />
       <workItem from="1676558727292" duration="6324000" />
-      <workItem from="1676645426174" duration="2459000" />
+      <workItem from="1676645426174" duration="8187000" />
     </task>
     <servers />
   </component>
