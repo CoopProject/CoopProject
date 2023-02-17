@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
+using ResourcesColection;
+using ResourcesColection.Tree;
+using ResourcesGame;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,21 +13,20 @@ public class ResourceCollector : MonoBehaviour
 {
     [SerializeField] private Player _player;
 
-    private Dictionary<Type, List<IResource>> _resources;
+    private Dictionary<Type, List<Resource>> _resources;
 
     private void Awake()
     {
-        _resources = new Dictionary<Type, List<IResource>>()
+        _resources = new Dictionary<Type, List<Resource>>()
         {
-            [typeof(ResourceTree)] = new List<IResource>(),
-            [typeof(ResourceRock)] = new List<IResource>(),
+            [typeof(ResourceTree)] = new List<Resource>(),
+            [typeof(ResourceRock)] = new List<Resource>(),
         };
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        var tryGetComponent = other.TryGetComponent(out ResourceTree resourceTree);
-        if (tryGetComponent)
+        if (other.TryGetComponent(out ResourceTree resourceTree))
         {
             _resources[typeof(ResourceTree)].Add(resourceTree);
             Take(resourceTree);
@@ -39,15 +41,12 @@ public class ResourceCollector : MonoBehaviour
     }
     
 
-    private void Take<TResource>( TResource resources) where TResource : MonoBehaviour,IResource
+    private void Take( Resource resources) 
     {
-        resources.gameObject.transform.DOMove(_player.transform.position, 1f).OnComplete(() =>
-        {
-           resources.gameObject.SetActive(false);
-        });
+        resources.gameObject.SetActive(false);
     }
 
-    public List<IResource> SetColectionResources<TResourceType>() where TResourceType: IResource
+    public List<Resource> SetColectionResources<TResourceType>() where TResourceType: Resource
     {
         return _resources[typeof(TResourceType)].ToList();
     }

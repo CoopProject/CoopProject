@@ -1,8 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using ResourcesGame;
 
-public class ResourceRock : MonoBehaviour,IResource
+public class ResourceRock : Resource
 {
-    
+    private void Start()
+    {
+        PriceResource = 55;
+    }
 }
