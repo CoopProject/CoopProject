@@ -5,30 +5,14 @@ using UnityEngine;
 
 public class ButtonLevelUpHome : MonoBehaviour
 {
-   [SerializeField] private List<Island> _islands;
+  [SerializeField] private HomeTrigger _home;
+  [SerializeField] private IncludingIslands _includingIslands;
+  
 
+  public void ActiveNextIsland()
+  {
+    _includingIslands.ActiveNextIsland(_home.LevelHome);
+    _home.LevelUp();
+  }
 
-   private void OnEnable()
-   {
-      DisbaleAllIsland();
-   }
-   
-   private void LevelUp(int level)
-   {
-      if (level <= _islands.Count)
-      {
-         _islands[level].ActiveIsland();
-      }
-   }
-
-   private void DisbaleAllIsland()
-   {
-      foreach (var island in _islands)
-      {
-         island.DisableIsland();
-      }
-   }
-   
-   
-   
 }

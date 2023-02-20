@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Island :MonoBehaviour, IIsland
 {
-    
-    
     public void ActiveIsland()
     { 
         gameObject.SetActive(true);
