@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8f7b6ffa-d6d0-46c4-b593-d125d207ea8f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.CoopProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CoopProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestSceen.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestSceen.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ButtonLevelUpHome.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ButtonLevelUpHome.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/HomeTrigger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/HomeTrigger.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Island.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Island.cs" afterDir="false" />
-    </list>
+    <list default="true" id="8f7b6ffa-d6d0-46c4-b593-d125d207ea8f" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -159,7 +153,7 @@
       <workItem from="1676556669968" duration="79000" />
       <workItem from="1676558727292" duration="6324000" />
       <workItem from="1676645426174" duration="8187000" />
-      <workItem from="1676888757402" duration="3084000" />
+      <workItem from="1676888757402" duration="3680000" />
     </task>
     <servers />
   </component>
