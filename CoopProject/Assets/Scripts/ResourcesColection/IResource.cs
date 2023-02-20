@@ -1,4 +1,7 @@
-﻿public interface IResource
+﻿namespace ResourcesColection
 {
-    
+    public interface IResource
+    {
+        
+    }
 }
