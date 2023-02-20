@@ -3,7 +3,77 @@ guid: 0cc9cf3701f34a343b275d5e24fd7215
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 07 - Default
+    second: {fileID: 2100000, guid: 4ddba38c024c3c24d9f064e39c3f5600, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 43
+    second: {fileID: 2100000, guid: b1fde7e1ac961014c82bca04f316ca29, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cloth
+    second: {fileID: 2100000, guid: d902b8d5139d96d429a8dd6a1ce7b2db, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Grass_2
+    second: {fileID: 2100000, guid: df1d6b171e70e7b46840f3ba3034f2eb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ground
+    second: {fileID: 2100000, guid: c41a16939bdd07d4e9557e8d047ee1e0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal_2
+    second: {fileID: 2100000, guid: fce6d6ee3b637134d969901fbe34b8ab, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metall_1
+    second: {fileID: 2100000, guid: 377e6cfa97df74547a35fea510f92577, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stone_1
+    second: {fileID: 2100000, guid: 1cd8174a265de2a44a853319a32e7119, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stone_2
+    second: {fileID: 2100000, guid: 7df60fe7cc503b94eb0b3b264397ffd9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Target
+    second: {fileID: 2100000, guid: 6c80fc787da89ab4486e2192aa348060, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Water
+    second: {fileID: 2100000, guid: ce4bf09be622efc46b44ce2f118c9668, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u0414\u0435\u0440\u0435\u0432\u043E_1"
+    second: {fileID: 2100000, guid: 3971ff0fe3b135042b735965f37f0757, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u0414\u0435\u0440\u0435\u0432\u043E_2"
+    second: {fileID: 2100000, guid: ae919da33333f1d42a9a893d81999857, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u0423\u0433\u043B\u0438"
+    second: {fileID: 2100000, guid: 867fb4f46a69bfa48a22814bdd6db342, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -35,7 +105,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 100
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -88,7 +158,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
+    globalScale: 100
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
