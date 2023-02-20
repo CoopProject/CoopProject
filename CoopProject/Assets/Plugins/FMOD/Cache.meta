@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:CoopProject/Assets/Plugins/FMOD/Cache.meta
 guid: 021fb36bb1033684da2a9c996faacca4
+========
+guid: 06ae579381df01a4a87bb149dec89954
+>>>>>>>> debug-merge:CoopProject/Assets/Plugins/FMOD.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
