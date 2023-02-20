@@ -5,19 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8f7b6ffa-d6d0-46c4-b593-d125d207ea8f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIResource.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/IIsland.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/IIsland.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CoopProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CoopProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ResourceCollector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ResourceCollector.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PlayBackGroundSound.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PlayBackGroundSound.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ResourceCollector.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ResourceCollector.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ResourceRock.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ResourceRock.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestSceen.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestSceen.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ShopResource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/ShopResource.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ShopResource.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/ShopResource.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UIResourceRock.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UIResourceRock.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UIResourceTree.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UIResourceTree.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIResource.cs.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,16 +33,12 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/PlayBackGroundSound.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/ResourceCollector.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/ResourceRock.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/limil/Desktop/CoopProject/CoopProject/Assets/PlayBackGroundSound.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ResourcesColection/IResource.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ResourcesColection/Rock/Rock.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ResourcesColection/Tree/ResourceTree.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ResourcesColection/Tree/Tree.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ResourcesGame/TreeExtracting.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SceneInstailer.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/TreeKeeper.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/ShopResource.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/UIResource.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.4.4/InputSystem/Actions/InputAction.cs" root0="SKIP_HIGHLIGHTING" />
@@ -171,6 +164,7 @@
       <workItem from="1676556669968" duration="79000" />
       <workItem from="1676558727292" duration="6324000" />
       <workItem from="1676645426174" duration="8187000" />
+      <workItem from="1676888757402" duration="1631000" />
     </task>
     <servers />
   </component>
