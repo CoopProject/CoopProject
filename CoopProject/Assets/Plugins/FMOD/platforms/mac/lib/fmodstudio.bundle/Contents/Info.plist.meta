@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:CoopProject/Assets/Plugins/FMOD/platforms/mac/lib/fmodstudio.bundle/Contents/Info.plist.meta
 guid: fdf09afde87e8e440a6e331d1850add6
+========
+guid: f76d05b5cfe4d7c4f9b3e169fe2550db
+>>>>>>>> scene-refinement:CoopProject/Assets/Scenes/New_Temp_Scene.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
