@@ -1,9 +1,13 @@
-﻿using System;
-using UnityEngine;
+﻿using ResourcesGame;
+using UnityEngine.UIElements.Experimental;
 
-public class ResourceTree: MonoBehaviour, IResource
+namespace ResourcesColection.Tree
 {
-    private int value;
-    
-    public int Value => value;
+    public class ResourceTree: Resource
+    {
+        private void Start()
+        {
+            PriceResource = 30;
+        }
+    }
 }

@@ -2,10 +2,8 @@ using Reflex;
 using Reflex.Scripts.Attributes;
 using UnityEngine;
 
-[RequireComponent(typeof(AudioSource))]
 public class Rock : MonoBehaviour, IExtracting
 {
-    [SerializeField] private AudioSource _soundHit;
     private TreeKeeper _treeKeeper;
     private int _resourceValue = 15;
     private int _health = 10;
@@ -28,7 +26,7 @@ public class Rock : MonoBehaviour, IExtracting
 
     public void TakeDamage(int damage)
     {
-        _soundHit.Play();
+        FMODUnity.RuntimeManager.PlayOneShot("event:/RockHit");
         _health -= damage;
         
         if (_health <= 0)
