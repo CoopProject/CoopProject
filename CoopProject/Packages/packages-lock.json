@@ -7,6 +7,13 @@
       "dependencies": {},
       "hash": "da5c18002d614cc1ceed78ce05d195c193de0212"
     },
+    "com.autodesk.fbx": {
+      "version": "4.1.2",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
     "com.gustavopsantos.reflex": {
       "version": "https://github.com/gustavopsantos/reflex.git?path=/Assets/Reflex/#3.6.0",
       "depth": 0,
@@ -56,6 +63,16 @@
         "com.unity.test-framework": "1.1.31",
         "com.unity.testtools.codecoverage": "1.0.1"
       }
+    },
+    "com.unity.formats.fbx": {
+      "version": "4.1.3",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.timeline": "1.5.2",
+        "com.autodesk.fbx": "4.1.2"
+      },
+      "url": "https://packages.unity.com"
     },
     "com.unity.ide.rider": {
       "version": "3.0.16",
