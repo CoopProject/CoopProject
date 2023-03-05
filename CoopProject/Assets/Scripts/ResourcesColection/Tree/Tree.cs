@@ -1,8 +1,9 @@
 using Reflex;
 using Reflex.Scripts.Attributes;
+using ResourcesColection;
 using UnityEngine;
 
-public class Tree : MonoBehaviour,IExtracting
+public class Tree : ResourceSource
 {
     private TreeKeeper _treeKeeper;
     private int _resourceValue = 15;
@@ -24,7 +25,7 @@ public class Tree : MonoBehaviour,IExtracting
         _treeKeeper.SetRecousrce<Tree>(this);
     }
 
-    public void TakeDamage(int damage)
+    public override void TakeDamage(int damage)
     {
         
         FMODUnity.RuntimeManager.PlayOneShot("event:/TreeHit");

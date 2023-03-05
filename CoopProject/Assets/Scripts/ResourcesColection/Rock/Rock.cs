@@ -1,8 +1,9 @@
 using Reflex;
 using Reflex.Scripts.Attributes;
+using ResourcesColection;
 using UnityEngine;
 
-public class Rock : MonoBehaviour, IExtracting
+public class Rock : ResourceSource
 {
     private TreeKeeper _treeKeeper;
     private int _resourceValue = 15;
@@ -24,7 +25,7 @@ public class Rock : MonoBehaviour, IExtracting
         _treeKeeper.SetRecousrce<Rock>(this);
     }
 
-    public void TakeDamage(int damage)
+    public override void TakeDamage(int damage)
     {
         FMODUnity.RuntimeManager.PlayOneShot("event:/RockHit");
         _health -= damage;
