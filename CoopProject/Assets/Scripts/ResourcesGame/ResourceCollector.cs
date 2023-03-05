@@ -24,7 +24,7 @@ public class ResourceCollector : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out ResourceTree resourceTree))
+        if (other.TryGetComponent(out Resource resourceTree))
         {
             _resources[typeof(ResourceTree)].Add(resourceTree);
             Take(resourceTree);
@@ -60,7 +60,7 @@ public class ResourceCollector : MonoBehaviour
         {
             foreach (var resource in _resources[typeof(TypeResource)])
             {
-                return _sumAllPrice += resource.Price;
+                return _sumAllPrice; // += resource.Price;
             }   
         }
         

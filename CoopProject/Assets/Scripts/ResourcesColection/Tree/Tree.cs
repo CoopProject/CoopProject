@@ -6,14 +6,11 @@ using UnityEngine;
 public class Tree : Resource, IResourceSource
 {
     private int _resourceValue = 15;
-    private int _health = 10;
     private int _maxHealth = 10;
     private float _durationReset = 1f;
-    private bool _iDead = false;
+    
 
-    public bool IDead => _iDead;
-
-    public void TakeDamage(int damage)
+    public override void TakeDamage(int damage)
     {
 
         FMODUnity.RuntimeManager.PlayOneShot("event:/TreeHit");

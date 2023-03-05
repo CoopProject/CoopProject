@@ -9,14 +9,14 @@ namespace SpanwerHelpers
 {
     public abstract class Factory<T>: MonoBehaviour where T : Resource
     {
-        [SerializeField] private Helper _helper;
+        [SerializeField] private Helper _helperPrefab;
         [SerializeField] private Transform _spawnPoint;
         [SerializeField] protected T _resource;
         [SerializeField] protected TreeKeeper _treeKeeper;
 
-        public Helper GetHelperInstantiate()
+        protected Helper GetHelperInstantiate()
         {
-            var instantiateHelper = Instantiate(_helper, _spawnPoint.position, Quaternion.identity);
+            var instantiateHelper = Instantiate(_helperPrefab, _spawnPoint.position, Quaternion.identity);
             return instantiateHelper;
         }
     }
