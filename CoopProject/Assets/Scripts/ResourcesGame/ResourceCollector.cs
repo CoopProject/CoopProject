@@ -24,18 +24,17 @@ public class ResourceCollector : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out Resource resourceTree))
-        {
-            _resources[typeof(ResourceTree)].Add(resourceTree);
-            Take(resourceTree);
-        }
-        
-        if (other.TryGetComponent(out Resource resourceRock))
-        {
-            _resources[typeof(ResourceRock)].Add(resourceRock);
-            Take(resourceRock);
-        }
-    
+        // if (other.TryGetComponent(out Resource resourceTree))
+        // {
+        //     _resources[typeof(ResourceTree)].Add(resourceTree);
+        //     Take(resourceTree);
+        // }
+        //
+        // if (other.TryGetComponent(out Resource resourceRock))
+        // {
+        //     _resources[typeof(ResourceRock)].Add(resourceRock);
+        //     Take(resourceRock);
+        // }
     }
 
     public int CountColection<TResource>() where TResource : IResource

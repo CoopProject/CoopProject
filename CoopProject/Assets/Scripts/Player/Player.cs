@@ -1,4 +1,5 @@
-﻿using ResourcesColection;
+﻿using DefaultNamespace;
+using ResourcesColection;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -8,14 +9,15 @@ public class Player : MonoBehaviour
     private int _treeResourceCounter;
     private float _extractDuration = 3f;
     private static int _layerMask;
-    private Collider[] _hits = new Collider[1];
     private float _radius = 0.3f;
     private int _damage = 1;
     private float _maxExtractDuration = 3;
+    private ExtractResourceService _extractResource;
     
     private void Awake()
     {
         _layerMask = 1 << LayerMask.NameToLayer("Resource");
+        _extractResource = new ExtractResourceService(transform, _layerMask,_radius);
     }
 
 
@@ -23,7 +25,6 @@ public class Player : MonoBehaviour
     {
         RaycastHit hit;
         _extractDuration -= Time.deltaTime;
-        
         if (Physics.Raycast(transform.position, transform.forward, out hit, 1.25f, _layerMask))
         {
             if (_extractDuration < 0)
@@ -37,17 +38,9 @@ public class Player : MonoBehaviour
             _animator.StopExtract();
         }
     }
-    
 
     public void Extract()
     {
-        if (Hit() > 0)
-        {
-            _hits[0].GetComponent<IResourceSource>().TakeDamage(_damage);
-        }
-    }
-    private int Hit()
-    {
-        return  Physics.OverlapSphereNonAlloc(transform.position + transform.forward, _radius, _hits, _layerMask);
+        _extractResource.ExtractResource(_damage);
     }
 }

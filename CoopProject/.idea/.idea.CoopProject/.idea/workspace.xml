@@ -5,14 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c9c8beb0-e3c9-4637-a844-eb3d016ca760" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ExtractResourceService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ExtractResourceService.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CoopProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CoopProject/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/HelperMashin/Helper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/HelperMashin/Helper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Player.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/Resource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/Resource.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/Rock/Rock.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/Rock/Rock.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/Tree/ResourceTree.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/Tree/ResourceTree.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/Tree/Tree.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/Tree/Tree.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResourcesGame/ResourceCollector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesGame/ResourceCollector.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SpanwerHelpers/Factory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SpanwerHelpers/Factory.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +91,7 @@
       <updated>1677853202011</updated>
       <workItem from="1677853235303" duration="8986000" />
       <workItem from="1677988495137" duration="14258000" />
-      <workItem from="1678042006327" duration="836000" />
+      <workItem from="1678042006327" duration="2978000" />
     </task>
     <servers />
   </component>

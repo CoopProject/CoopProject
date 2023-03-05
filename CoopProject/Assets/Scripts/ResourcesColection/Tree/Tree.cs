@@ -7,6 +7,7 @@ public class Tree : Resource, IResourceSource
 {
     private int _resourceValue = 15;
     private int _maxHealth = 10;
+    private int _health = 30;
     private float _durationReset = 1f;
     
 
