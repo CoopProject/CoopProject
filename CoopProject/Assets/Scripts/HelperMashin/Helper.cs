@@ -1,32 +1,20 @@
 ﻿using System.Collections.Generic;
+using Reflex;
+using Reflex.Scripts.Attributes;
 using ResourcesColection;
 using UnityEngine;
 
-public class Helper : MonoBehaviour
+public class Helper : MonoBehaviour 
 {
-    private ResourceSource _resourceType;
-    private List<ResourceSource> _resources;
+    private Resource _resourceType;
+    private List<Resource> _resources;
     private int _damage = 10;
-    private float _moveSpead;
+    private float _moveSpead = 3f;
 
 
-    private void Start()
+    public void FixedUpdate()
     {
-        Search(transform);
-    }
-
-    public void Update()
-    {
-        if (_resourceType != null)
-        {
-            transform.position = 
-                Vector3.MoveTowards(transform.position, _resourceType.transform.position,
-                _moveSpead * Time.deltaTime);
-        }
-        else
-        {
-            Search(transform);
-        }
+        MoveToPoint();
     }
 
     private void Search(Transform pointFinding)
@@ -34,7 +22,7 @@ public class Helper : MonoBehaviour
         float distance = Mathf.Infinity;
         Vector3 position = pointFinding.transform.position;
 
-        foreach (ResourceSource resourceTree in _resources)
+        foreach (Resource resourceTree in _resources)
         {
             Vector3 direction = resourceTree.transform.position - position;
             float curDistance = direction.sqrMagnitude;
@@ -46,6 +34,23 @@ public class Helper : MonoBehaviour
             }
         }
     }
-    
-    public void SetListResource(List<ResourceSource> _resourceObject)=> _resources = _resourceObject;
+
+    private void MoveToPoint()
+    {
+        if (_resourceType != null)
+        {
+            transform.position =
+                Vector3.MoveTowards(transform.position, _resourceType.transform.position,
+                    _moveSpead * Time.deltaTime);
+        }
+        else
+        {
+            Search(transform);
+        }
+    }
+
+    public void SetList<T>(TreeKeeper treeKeeper)
+    {
+        _resources = treeKeeper.GetList<T>();
+    }
 }

@@ -3,29 +3,22 @@ using System.Collections;
 using Reflex;
 using Reflex.Scripts.Attributes;
 using SpanwerHelpers;
+using Unity.VisualScripting;
 using UnityEngine;
 
-internal class SpawnHelperTree : Factory
+internal class SpawnHelperTree : Factory<Tree>
 {
     private Helper _helper;
-    private TreeKeeper _treeKeeper;
 
-    [Inject]
-    private void Construct(Container container)
+    public void Start()
     {
-        _treeKeeper = container.Resolve<TreeKeeper>();
+        StartCoroutine(Instance());
     }
 
-    private void Start()
+    private IEnumerator Instance()
     {
-        StartCoroutine(_SpawnHelper());
-    }
-
-    private IEnumerator _SpawnHelper()
-    {
-        yield return new WaitForSecondsRealtime(1f);
-        _helper = GetHelper();
-        var colection = _treeKeeper.GetList<Tree>();
-        _helper.SetListResource(colection);
+        yield return new WaitForSecondsRealtime(3f);
+        _helper = GetHelperInstantiate();
+        _helper.SetList<Tree>(_treeKeeper);
     }
 }

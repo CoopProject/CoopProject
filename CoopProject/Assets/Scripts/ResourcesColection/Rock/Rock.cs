@@ -3,7 +3,7 @@ using Reflex.Scripts.Attributes;
 using ResourcesColection;
 using UnityEngine;
 
-public class Rock : ResourceSource
+public class Rock : Resource,IResourceSource
 {
     private TreeKeeper _treeKeeper;
     private int _resourceValue = 15;
@@ -13,19 +13,9 @@ public class Rock : ResourceSource
     private bool _iDead = false;
 
     public bool IDead => _iDead;
+    
 
-    [Inject]
-    private void Construct(Container container)
-    {
-        _treeKeeper = container.Resolve<TreeKeeper>();
-    }
-
-    private void Start()
-    {
-        _treeKeeper.SetRecousrce<Rock>(this);
-    }
-
-    public override void TakeDamage(int damage)
+    public  void TakeDamage(int damage)
     {
         FMODUnity.RuntimeManager.PlayOneShot("event:/RockHit");
         _health -= damage;
@@ -34,10 +24,11 @@ public class Rock : ResourceSource
         {
             Dead();
             _iDead = true;
-            _treeKeeper.RemoveITemList<Rock>(this);
         }
         
     }
+
+    public object transform { get; set; }
 
     private void Dead()
     {

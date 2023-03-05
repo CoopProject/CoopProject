@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using ResourcesColection;
+using UnityEngine;
 
 public class Player : MonoBehaviour
 {
@@ -42,7 +43,7 @@ public class Player : MonoBehaviour
     {
         if (Hit() > 0)
         {
-            _hits[0].GetComponent<IExtracting>().TakeDamage(_damage);
+            _hits[0].GetComponent<IResourceSource>().TakeDamage(_damage);
         }
     }
     private int Hit()

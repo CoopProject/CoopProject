@@ -5,59 +5,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c9c8beb0-e3c9-4637-a844-eb3d016ca760" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SpanwerHelpers/Factory.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SpanwerHelpers/Factory.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Downloaded Assets/GUI Kit Casual Game/ResourcesData/Sprite/_Icons/ItemIcons/128/128.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Downloaded Assets/GUI Kit Casual Game/ResourcesData/Sprite/_Icons/ItemIcons/256/256.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Downloaded Assets/GUI Kit Casual Game/ResourcesData/Sprite/_Icons/ItemIcons/32/32.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Downloaded Assets/GUI Kit Casual Game/ResourcesData/Sprite/_Icons/ItemIcons/512/512.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Downloaded Assets/GUI Kit Casual Game/ResourcesData/Sprite/_Icons/ItemIcons/64/64.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Downloaded Assets/GUI Kit Casual Game/ResourcesData/Sprite/_Icons/ItemIcons/backup/backup.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Downloaded Assets/GUI Kit Casual Game/ResourcesData/Sprite/_Icons/Pictoicons/128/128.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Downloaded Assets/GUI Kit Casual Game/ResourcesData/Sprite/_Icons/Pictoicons/256/256.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Downloaded Assets/GUI Kit Casual Game/ResourcesData/Sprite/_Icons/Pictoicons/32/32.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Downloaded Assets/GUI Kit Casual Game/ResourcesData/Sprite/_Icons/Pictoicons/512/512.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Downloaded Assets/GUI Kit Casual Game/ResourcesData/Sprite/_Icons/Pictoicons/64/64.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Downloaded Assets/GUI Kit Casual Game/ResourcesData/Sprite/_Icons/Pictoicons/backup/backup.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Downloaded Assets/GUI Kit Casual Game/ResourcesData/Sprite/_Icons/RuneIcons/128/128.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Downloaded Assets/GUI Kit Casual Game/ResourcesData/Sprite/_Icons/RuneIcons/256/256.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Downloaded Assets/GUI Kit Casual Game/ResourcesData/Sprite/_Icons/RuneIcons/512/512.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Downloaded Assets/GUI Kit Casual Game/ResourcesData/Sprite/_Icons/RuneIcons/64/64.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Helper/Cylinder.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Helper/Cylinder.prefab.meta" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/IResourceSource.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/Resource.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/Resource.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.CoopProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CoopProject/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestSceen.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestSceen.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ButtonLevelUpHome.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/ButtonLevelUpHome.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ButtonLevelUpHome.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/ButtonLevelUpHome.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/HelperMashin/ExtractResourceState.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/HelperMashin/ExtractResourceState.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/HelperMashin/Helper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/HelperMashin/Helper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/HelperMashin/HelperStateMachine.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/HelperMashin/HelperStateMachine.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/HelperMashin/MoveStateHelper.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/HelperMashin/MoveStateHelper.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/HelperMashin/ResourceFinder.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/HelperMashin/ResourceFinder.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ReflexScripts/SceneInstailer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ReflexScripts/SceneInstailer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResourceCollector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesGame/ResourceCollector.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResourceCollector.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesGame/ResourceCollector.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResourceRock.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesGame/ResourceRock.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResourceRock.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesGame/ResourceRock.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/ResourceSource.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/ResourceSource.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/IResourceSource.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/Rock/Rock.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/Rock/Rock.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/Tree/ResourceTree.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/Tree/ResourceTree.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/Tree/Tree.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/Tree/Tree.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/TreeKeeper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/TreeKeeper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SpanwerHelpers/FactoryHelpers.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SpanwerHelpers/FactoryHelpers.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SpanwerHelpers/IFactoryHelper.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SpanwerHelpers/IFactoryHelper.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SpanwerHelpers/IHelper.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SpanwerHelpers/IHelper.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SpawnHelpers.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SpawnHelpers.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResourcesGame/ResourceCollector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesGame/ResourceCollector.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SpanwerHelpers/Factory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SpanwerHelpers/Factory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SpanwerHelpers/SpawnHelperTree.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SpanwerHelpers/SpawnHelperTree.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/67e8fd448e8a4916a15fdca62059e0b612c000/4e/9e91061f/Object.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bae255e3e08e46f7bc2fbd23dde96338158800/df/7edc365d/Transform.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bae255e3e08e46f7bc2fbd23dde96338158800/e8/193255a9/Vector3.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d6232873609549b8a045fa15811a5bd346a800/27/f8af49c7/Exception.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d6232873609549b8a045fa15811a5bd346a800/5e/d4d636ed/SystemException.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d6232873609549b8a045fa15811a5bd346a800/67/b33a5a7d/NullReferenceException.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -101,10 +78,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="16440">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="16440" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -121,7 +98,7 @@
       <option name="presentableId" value="Default" />
       <updated>1677853202011</updated>
       <workItem from="1677853235303" duration="8986000" />
-      <workItem from="1677988495137" duration="3201000" />
+      <workItem from="1677988495137" duration="14258000" />
     </task>
     <servers />
   </component>

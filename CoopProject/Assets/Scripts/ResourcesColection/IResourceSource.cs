@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace ResourcesColection
 {
-    public interface ResourceSource
+    public interface IResourceSource
     {
          void TakeDamage(int damage);
     }

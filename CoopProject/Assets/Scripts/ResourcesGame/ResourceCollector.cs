@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using ResourcesColection;
 using ResourcesColection.Tree;
-using ResourcesGame;
 using UnityEngine;
+using Resource = ResourcesColection.Resource;
 
 public class ResourceCollector : MonoBehaviour
 {
@@ -30,7 +30,7 @@ public class ResourceCollector : MonoBehaviour
             Take(resourceTree);
         }
         
-        if (other.TryGetComponent(out ResourceRock resourceRock))
+        if (other.TryGetComponent(out Resource resourceRock))
         {
             _resources[typeof(ResourceRock)].Add(resourceRock);
             Take(resourceRock);
@@ -38,7 +38,7 @@ public class ResourceCollector : MonoBehaviour
     
     }
 
-    public int CountColection<TResource>() where TResource : Resource,IResource
+    public int CountColection<TResource>() where TResource : IResource
     {
         return _resources[typeof(TResource)].Count;
     }
@@ -54,7 +54,7 @@ public class ResourceCollector : MonoBehaviour
         resources.gameObject.SetActive(false);
     }
 
-    public int SumPriceAllResource<TypeResource>() where TypeResource:Resource,IResource
+    public int SumPriceAllResource<TypeResource>() where TypeResource: IResource
     {
         if (_resources[typeof(TypeResource)] != null)
         {
