@@ -28,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6877587648116387772}
-  m_LocalRotation: {x: -0.7071056, y: -0.00000053644175, z: -0.0000005885958, w: 0.707108}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 168.9, y: 2.1000001, z: 132.85}
   m_LocalScale: {x: 1.8, y: 1.8, z: 1.8}
   m_ConstrainProportionsScale: 1
@@ -68277,39 +68277,11 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 339
+  m_VersionIndex: 345
   m_IsSelectable: 1
-  m_SelectedFaces: 0700000077000000
-  m_SelectedEdges:
-  - a: 37
-    b: 35
-  - a: 39
-    b: 37
-  - a: 43
-    b: 39
-  - a: 35
-    b: 33
-  - a: 33
-    b: 31
-  - a: 31
-    b: 30
-  - a: 30
-    b: 43
-  - a: 501
-    b: 499
-  - a: 503
-    b: 501
-  - a: 507
-    b: 503
-  - a: 499
-    b: 497
-  - a: 497
-    b: 495
-  - a: 495
-    b: 494
-  - a: 494
-    b: 507
-  m_SelectedVertices: 230000002400000025000000270000002b000000210000001f0000001e000000f3010000f4010000f5010000f7010000fb010000f1010000ef010000ee010000
+  m_SelectedFaces: 
+  m_SelectedEdges: []
+  m_SelectedVertices: 
 --- !u!114 &6877587648116387744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68364,8 +68336,8 @@ MeshRenderer:
   - {fileID: 2100000, guid: d812e5556a4df8049b39072235deab32, type: 2}
   - {fileID: 2100000, guid: 47a7d552a3baf7a41bef51bd60d8e0ff, type: 2}
   - {fileID: 2100000, guid: 01a0c2c3a0dd0044e915e58942baa832, type: 2}
-  - {fileID: 2100000, guid: 48e753ba4bfd7394f9fa11973c32e9e9, type: 2}
-  - {fileID: 2100000, guid: 6b9d43f51b6da4748974cfacf9d7a410, type: 2}
+  - {fileID: 2100000, guid: d812e5556a4df8049b39072235deab32, type: 2}
+  - {fileID: 2100000, guid: 47a7d552a3baf7a41bef51bd60d8e0ff, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
