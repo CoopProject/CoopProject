@@ -1,15 +1,21 @@
-using Reflex;
-using Reflex.Scripts.Attributes;
+using System.Collections;
 using ResourcesColection;
 using UnityEngine;
 
+[RequireComponent(typeof(MeshRenderer))]
+[RequireComponent(typeof(BoxCollider))]
 public class Tree : Resource, IResourceSource
 {
-    private int _resourceValue = 15;
-    private int _maxHealth = 10;
+    private int _maxHealth = 30;
     private int _health = 30;
-    private float _durationReset = 1f;
-    
+    private float _durationReset = 8f;
+
+    private void Awake()
+    {
+        _mesh = GetComponent<MeshRenderer>();
+        _colliderBox = GetComponent<BoxCollider>();
+    }
+
 
     public override void TakeDamage(int damage)
     {
@@ -21,12 +27,17 @@ public class Tree : Resource, IResourceSource
         {
             Dead();
             _iDead = true;
+            StartCoroutine(Reset());
         }
     }
     
-    private void Dead()
+    private IEnumerator Reset()
     {
-        gameObject.SetActive(false);
+        var waitForSecondsRealtime = new WaitForSecondsRealtime(_durationReset);
+        yield return waitForSecondsRealtime;
+        _iDead = false;
+        _health = _maxHealth;
+        _mesh.enabled = true;
+        _colliderBox.enabled = true;
     }
-    
 }
