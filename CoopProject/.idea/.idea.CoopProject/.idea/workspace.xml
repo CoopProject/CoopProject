@@ -6,12 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c9c8beb0-e3c9-4637-a844-eb3d016ca760" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CoopProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CoopProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game_Resources/Material/Tree_2_autumn_1.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game_Resources/Material/Tree_2_autumn_1.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestSceen.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestSceen.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/HelperMashin/Helper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/HelperMashin/Helper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/IResourceSource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/IResourceSource.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/Resource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/Resource.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/Tree/Tree.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/Tree/Tree.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +20,8 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d6232873609549b8a045fa15811a5bd346a800/27/f8af49c7/Exception.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d6232873609549b8a045fa15811a5bd346a800/5e/d4d636ed/SystemException.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d6232873609549b8a045fa15811a5bd346a800/67/b33a5a7d/NullReferenceException.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MVC/MVCShop/Viues/ShopElementViue.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MVC/MVCShop/Viues/WodoViues.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ResourcesColection/Resource.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -91,7 +88,7 @@
       <workItem from="1677853235303" duration="8986000" />
       <workItem from="1677988495137" duration="14258000" />
       <workItem from="1678042006327" duration="3612000" />
-      <workItem from="1678112183106" duration="1122000" />
+      <workItem from="1678112183106" duration="3473000" />
     </task>
     <servers />
   </component>
