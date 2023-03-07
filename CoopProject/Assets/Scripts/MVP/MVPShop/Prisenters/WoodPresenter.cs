@@ -1,11 +1,11 @@
 namespace DefaultNamespace.MVC.MVPShop.Prisenters
 {
-    public class LogsPresenter
+    public class WoodPresenter
     {
-        private LogsModel _model;
-        private LogsViues _viue;
+        private WoodModel _model;
+        private WoodViues _viue;
         
-        public LogsPresenter(LogsModel model,LogsViues viues)
+        public WoodPresenter(WoodModel model,WoodViues viues)
         {
             _model = model;
             _viue = viues;

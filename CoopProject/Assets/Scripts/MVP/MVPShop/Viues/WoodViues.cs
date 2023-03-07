@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem.HID;
 using UnityEngine.UI;
 
-public class LogsViues : MonoBehaviour
+public class WoodViues : MonoBehaviour
 {
   [SerializeField] private TextMeshProUGUI _resourceCount;
   [SerializeField] private Button _buttonSale;

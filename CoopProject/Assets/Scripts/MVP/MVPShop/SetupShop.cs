@@ -7,26 +7,26 @@ using UnityEngine.Serialization;
 
 public class SetupShop : MonoBehaviour
 {
-    [SerializeField] private LogsViues logsViues;
+    [SerializeField] private WoodViues woodViues;
     [SerializeField] private GoldViue _goldViue;
     [SerializeField] private StoneViue _stoneViue;
     [SerializeField] private IronViue _ironViue;
     
-    private LogsPresenter _presenterLogs;
+    private WoodPresenter _presenterWood;
     private GoldPresenter _presenterGold;
     private StonePrisenter _prisenterStone;
     private IronPresenter _presenterIron;
     
-    private LogsModel _logsModel = new LogsModel();
-    private GoldModel _goldModel = new GoldModel();
-    private StoneModel _stoneModel = new StoneModel();
-    private IronModel _ironModel = new IronModel();
+    private WoodModel _woodModel = new ();
+    private GoldModel _goldModel = new ();
+    private StoneModel _stoneModel = new ();
+    private IronModel _ironModel = new ();
     
 
 
     private void Awake()
     {
-        _presenterLogs = new LogsPresenter(_logsModel, logsViues);
+        _presenterWood = new WoodPresenter(_woodModel, woodViues);
         _presenterGold = new GoldPresenter(_goldModel,_goldViue);
         _prisenterStone = new StonePrisenter(_stoneModel,_stoneViue);
         _presenterIron = new IronPresenter(_ironModel,_ironViue);
@@ -35,7 +35,7 @@ public class SetupShop : MonoBehaviour
 
     private void Start()
     {
-        _presenterLogs.Start();
+        _presenterWood.Start();
         _presenterGold.Start();
         _prisenterStone.Start();
         _presenterIron.Start();

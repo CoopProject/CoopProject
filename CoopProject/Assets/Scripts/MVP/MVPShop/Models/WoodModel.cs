@@ -1,7 +1,7 @@
 
 using UnityEngine;
 
-public class LogsModel 
+public class WoodModel 
 {
    public int CountElements { get; private set; } = 0;
 
