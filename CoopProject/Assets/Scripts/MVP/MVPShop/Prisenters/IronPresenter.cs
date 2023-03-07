@@ -1,13 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
-public class IronPrisenter : MonoBehaviour
+
+public class IronPresenter 
 {
     private IronModel _model;
     private IronViue _viue;
         
-    public IronPrisenter(IronModel model,IronViue viues)
+    public IronPresenter(IronModel model,IronViue viues)
     {
         _model = model;
         _viue = viues;

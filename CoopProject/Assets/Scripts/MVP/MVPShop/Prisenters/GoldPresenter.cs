@@ -1,13 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
-public class GoldPrisenter : MonoBehaviour
+
+public class GoldPresenter
 {
     private GoldModel _model;
     private GoldViue _viue;
         
-    public GoldPrisenter(GoldModel model,GoldViue viues)
+    public GoldPresenter(GoldModel model,GoldViue viues)
     {
         _model = model;
         _viue = viues;

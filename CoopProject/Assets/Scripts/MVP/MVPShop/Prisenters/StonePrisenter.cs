@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
-public class StonePrisenter : MonoBehaviour
+
+public class StonePrisenter
 {
     private StoneModel _model;
     private StoneViue _viue;

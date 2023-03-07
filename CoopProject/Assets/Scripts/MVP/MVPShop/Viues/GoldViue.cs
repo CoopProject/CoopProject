@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class StoneViue : MonoBehaviour
+public class GoldViue : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _resourceCount;
+    [SerializeField] private Button _buttonSale;
+    [SerializeField] private Button _buttonReward;
 
     public int Count { get; private set; } = 0;
     
