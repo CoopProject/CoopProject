@@ -5,48 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c9c8beb0-e3c9-4637-a844-eb3d016ca760" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesGame/TypeResource.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesGame/TypeResource/Gold.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesGame/TypeResource/Gold.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesGame/TypeResource/IResource.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesGame/TypeResource/Iron.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesGame/TypeResource/Iron.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesGame/TypeResource/Log.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesGame/TypeResource/Log.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesGame/TypeResource/Stone.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesGame/TypeResource/Stone.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CoopProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CoopProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestSceen.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestSceen.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Models/GoldModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Models/GoldModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Models/IronModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Models/IronModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Models/LogsModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Models/LogsModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Models/StoneModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Models/StoneModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Prisenters/GoldPresenter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Prisenters/GoldPresenter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Prisenters/IronPresenter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Prisenters/IronPresenter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Prisenters/LogsPresenter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Prisenters/LogsPresenter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Prisenters/StonePrisenter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Prisenters/StonePrisenter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/SetupShop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/SetupShop.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Viues/GoldViue.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Viues/GoldViue.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Viues/IronViue.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Viues/IronViue.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Viues/LogsViues.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Viues/LogsViues.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Viues/StoneViue.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Viues/StoneViue.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ReflexScripts/SceneInstailer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ReflexScripts/SceneInstailer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/IResource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesGame/TypeResource/IResource.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/IResource.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/Tree/ResourceTree.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/Tree/ResourceTree.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResourcesGame/IResourceSpawner.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResourcesGame/IResourceSpawner.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResourcesGame/Resource.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResourcesGame/Resource.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResourcesGame/ResourceCollector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesGame/ResourceCollector.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResourcesGame/ResourceRock.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResourcesGame/ResourceRock.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResourcesGame/TreeExtracting.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResourcesGame/TreeExtracting.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/ShopResource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/ShopResource.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UIResource.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UIResource.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResourcesGame/TypeResource/Log.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesGame/TypeResource/Log.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,7 +92,7 @@
       <workItem from="1678042006327" duration="3612000" />
       <workItem from="1678112183106" duration="3473000" />
       <workItem from="1678198826565" duration="4668000" />
-      <workItem from="1678286657599" duration="7242000" />
+      <workItem from="1678286657599" duration="8474000" />
     </task>
     <servers />
   </component>

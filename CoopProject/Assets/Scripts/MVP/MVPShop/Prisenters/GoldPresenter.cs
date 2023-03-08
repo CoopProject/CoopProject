@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class GoldPresenter
 {
     private GoldModel _model;
