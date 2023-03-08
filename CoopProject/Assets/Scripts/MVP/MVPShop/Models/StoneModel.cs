@@ -1,8 +1,9 @@
-
-public class StoneModel 
+public class StoneModel
 {
-    public int CountElements { get; private set; } = 0;
-   
+    private ResourceCollector _resourceCollector;
 
-    public void SetValueCount(int value)=> CountElements = value;
+    public int CountElements { get; private set; } = 0;
+
+
+    public void SetValueCount(int value) => CountElements = value;
 }

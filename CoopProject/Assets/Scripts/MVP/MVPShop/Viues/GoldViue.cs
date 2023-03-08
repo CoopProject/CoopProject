@@ -1,5 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Reflex;
+using Reflex.Scripts.Attributes;
+using ResourcesGame.TypeResource;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,11 +13,19 @@ public class GoldViue : MonoBehaviour
     [SerializeField] private Button _buttonSale;
     [SerializeField] private Button _buttonReward;
 
-    public int Count { get; private set; } = 0;
+    private  ResourceCollector _resourceCollector;
     
-    public void SetValueCount(int value)
+    [Inject]
+    private void Inject(Container container)
     {
-        Count = value;
+        _resourceCollector = container.Resolve<ResourceCollector>();
+    }
+
+    public int Count { get; private set; } = 0;
+
+    public void SetValueCount()
+    {
+        Count = _resourceCollector.GetCountList<Gold>();
         _resourceCount.text = $"{Count}";
     }
 }

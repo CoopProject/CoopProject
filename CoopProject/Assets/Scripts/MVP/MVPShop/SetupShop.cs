@@ -33,7 +33,7 @@ public class SetupShop : MonoBehaviour
 
     }
 
-    private void Start()
+    private void OnEnable()
     {
         _presenterLogs.Start();
         _presenterGold.Start();

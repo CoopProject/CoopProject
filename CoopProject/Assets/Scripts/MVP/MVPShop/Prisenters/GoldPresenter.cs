@@ -1,11 +1,9 @@
-
-
 public class GoldPresenter
 {
     private GoldModel _model;
     private GoldViue _viue;
-        
-    public GoldPresenter(GoldModel model,GoldViue viues)
+
+    public GoldPresenter(GoldModel model, GoldViue viues)
     {
         _model = model;
         _viue = viues;
@@ -13,8 +11,7 @@ public class GoldPresenter
 
     public void Start()
     {
-        _model.SetValueCount(0);
-        _viue.SetValueCount(_model.CountElements);
+        _viue.SetValueCount();
+        _model.SetValueCount(_viue.Count);
     }
-
 }

@@ -1,7 +1,9 @@
 using System;
+using Reflex;
+using Reflex.Scripts.Attributes;
+using ResourcesGame.TypeResource;
 using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem.HID;
 using UnityEngine.UI;
 
 public class LogsViues : MonoBehaviour
@@ -9,29 +11,26 @@ public class LogsViues : MonoBehaviour
   [SerializeField] private TextMeshProUGUI _resourceCount;
   [SerializeField] private Button _buttonSale;
   [SerializeField] private Button _buttonReward;
+  
+  private ResourceCollector _resourceCollector;
 
   public event Action<int> NewValue;
-
-  private void OnEnable()
-  {
-    NewValue += SetValueCount;
-  }
-
   public int Count { get; private set; } = 0;
   
-  private void SetValueCount(int value)
+  [Inject]
+  private void Inject(Container container)
   {
-    Count = value;
+    _resourceCollector = container.Resolve<ResourceCollector>();
+  }
+  
+  public void SetValueCount()
+  {
+    Count = _resourceCollector.GetCountList<Log>();
     _resourceCount.text = $"{Count}";
   }
 
   public void SetValue(int value)
   {
     NewValue?.Invoke(value);
-  }
-
-  private void OnDisable()
-  {
-    NewValue -= SetValueCount;
   }
 }

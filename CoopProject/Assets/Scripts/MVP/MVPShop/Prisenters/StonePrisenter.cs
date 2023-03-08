@@ -1,11 +1,9 @@
-
-
 public class StonePrisenter
 {
     private StoneModel _model;
     private StoneViue _viue;
-        
-    public StonePrisenter(StoneModel model,StoneViue viues)
+
+    public StonePrisenter(StoneModel model, StoneViue viues)
     {
         _model = model;
         _viue = viues;
@@ -13,8 +11,7 @@ public class StonePrisenter
 
     public void Start()
     {
-        _model.SetValueCount(0);
-        _viue.SetValueCount(_model.CountElements);
+        _viue.SetValueCount();
+        _model.SetValueCount(_viue.Count);
     }
-
 }
