@@ -1,30 +1,19 @@
+using System.Collections;
 using Reflex;
 using Reflex.Scripts.Attributes;
+using ResourcesColection;
 using UnityEngine;
 
-public class Rock : MonoBehaviour, IExtracting
+public class Rock : Resource,IResourceSource
 {
-    private TreeKeeper _treeKeeper;
     private int _resourceValue = 15;
-    private int _health = 10;
     private int _maxHealth = 10;
+    private int _health = 30;
     private float _durationReset = 1f;
-    private bool _iDead = false;
 
-    public bool IDead => _iDead;
 
-    [Inject]
-    private void Construct(Container container)
-    {
-        _treeKeeper = container.Resolve<TreeKeeper>();
-    }
 
-    private void Start()
-    {
-        _treeKeeper.SetRecousrce<Rock>(this);
-    }
-
-    public void TakeDamage(int damage)
+    public override void TakeDamage(int damage)
     {
         FMODUnity.RuntimeManager.PlayOneShot("event:/RockHit");
         _health -= damage;
@@ -33,14 +22,17 @@ public class Rock : MonoBehaviour, IExtracting
         {
             Dead();
             _iDead = true;
-            _treeKeeper.RemoveITemList<Rock>(this);
         }
         
     }
 
-    private void Dead()
+    private IEnumerator Reset()
     {
-        gameObject.SetActive(false);
+        var waitForSecondsRealtime = new WaitForSecondsRealtime(_durationReset);
+        yield return waitForSecondsRealtime;
+        _iDead = false;
+        _health = _maxHealth;
+        _mesh.enabled = true;
+        _colliderBox.enabled = true;
     }
-
 }

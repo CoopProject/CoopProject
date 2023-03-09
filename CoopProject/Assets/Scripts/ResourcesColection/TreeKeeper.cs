@@ -1,33 +1,34 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
+using ResourcesColection;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class TreeKeeper : MonoBehaviour 
+public class TreeKeeper: MonoBehaviour
 {
-    private Dictionary<Type, List<IExtracting>> _dictionary;
+    private Dictionary<Type, List<Resource>> _dictionary;
 
     private void Awake()
     {
-        _dictionary = new Dictionary<Type, List<IExtracting>>
+        _dictionary = new ()
         {
-            [typeof(Tree)] = new List<IExtracting>(),
-            [typeof(Rock)] = new List<IExtracting>(),
+            [typeof(Tree)] = new List<Resource>(),
+            [typeof(Rock)] = new List<Resource>()
         };
     }
 
-    public void SetRecousrce<Type>(IExtracting tree)
+    public void Start()
     {
-        _dictionary[typeof(Type)].Add(tree);
+        _dictionary[typeof(Tree)] = new List<Resource>(FindObjectsOfType<Tree>());
+        _dictionary[typeof(Rock)] = new List<Resource>(FindObjectsOfType<Rock>());
+        
+        Debug.Log(_dictionary[typeof(Tree)].Count);
+        Debug.Log(_dictionary[typeof(Rock)].Count);
     }
 
-    public void RemoveITemList<Type>(IExtracting tree)
+    public List<Resource> GetList<T>()
     {
-        _dictionary[typeof(Type)].Remove(tree);
-    }
-
-    public List<IExtracting> GetList<TResource>()  
-    {
-        return _dictionary[typeof(TResource)];
+        return _dictionary[typeof(T)];
     }
 }

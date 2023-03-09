@@ -1,13 +1,11 @@
 ﻿using ResourcesGame;
+using UnityEngine;
 using UnityEngine.UIElements.Experimental;
 
 namespace ResourcesColection.Tree
 {
-    public class ResourceTree: Resource
+    public class ResourceTree: MonoBehaviour, IResource
     {
-        private void Start()
-        {
-            PriceResource = 30;
-        }
+       
     }
 }

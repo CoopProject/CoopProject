@@ -1,32 +1,25 @@
-using Reflex;
-using Reflex.Scripts.Attributes;
+using System.Collections;
+using ResourcesColection;
 using UnityEngine;
 
-public class Tree : MonoBehaviour,IExtracting
+[RequireComponent(typeof(MeshRenderer))]
+[RequireComponent(typeof(BoxCollider))]
+public class Tree : Resource, IResourceSource
 {
-    private TreeKeeper _treeKeeper;
-    private int _resourceValue = 15;
-    private int _health = 10;
-    private int _maxHealth = 10;
-    private float _durationReset = 1f;
-    private bool _iDead = false;
+    private int _maxHealth = 30;
+    private int _health = 30;
+    private float _durationReset = 8f;
 
-    public bool IDead => _iDead;
-
-    [Inject]
-    private void Construct(Container container)
+    private void Awake()
     {
-        _treeKeeper = container.Resolve<TreeKeeper>();
+        _mesh = GetComponent<MeshRenderer>();
+        _colliderBox = GetComponent<BoxCollider>();
     }
 
-    private void Start()
-    {
-        _treeKeeper.SetRecousrce<Tree>(this);
-    }
 
-    public void TakeDamage(int damage)
+    public override void TakeDamage(int damage)
     {
-        
+
         FMODUnity.RuntimeManager.PlayOneShot("event:/TreeHit");
         _health -= damage;
         
@@ -34,14 +27,17 @@ public class Tree : MonoBehaviour,IExtracting
         {
             Dead();
             _iDead = true;
-            _treeKeeper.RemoveITemList<Tree>(this);
+            StartCoroutine(Reset());
         }
-        
-    }
-
-    private void Dead()
-    {
-        gameObject.SetActive(false);
     }
     
+    private IEnumerator Reset()
+    {
+        var waitForSecondsRealtime = new WaitForSecondsRealtime(_durationReset);
+        yield return waitForSecondsRealtime;
+        _iDead = false;
+        _health = _maxHealth;
+        _mesh.enabled = true;
+        _colliderBox.enabled = true;
+    }
 }
