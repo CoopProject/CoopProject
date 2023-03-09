@@ -1,4 +1,4 @@
-﻿namespace ResourcesColection
+namespace ResourcesGame.TypeResource
 {
     public interface IResource
     {
