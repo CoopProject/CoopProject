@@ -1,20 +1,22 @@
+
 namespace DefaultNamespace.MVC.MVPShop.Prisenters
 {
     public class LogsPresenter
     {
         private LogsModel _model;
-        private LogsViues _viue;
+        private LogsView _view;
+        private ResourceCollector _resourceCollector;
 
-        public LogsPresenter(LogsModel model, LogsViues viues)
+        public LogsPresenter(LogsModel model, LogsView view,ResourceCollector ResourceCollector)
         {
             _model = model;
-            _viue = viues;
-        }
-
-        public void Start()
-        {
-            _viue.SetValueCount();
-            _model.SetValueCount(_viue.Count);
+            _view = view;
+            _resourceCollector = ResourceCollector;
+            
+            _model.OnSetCount += _view.SetValueCount;
+            _model.ReadySumResource += _view.SetPriceButton;
+            
+            _model.SetStartData(_resourceCollector);
         }
     }
 }

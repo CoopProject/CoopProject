@@ -1,43 +1,39 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using DefaultNamespace.MVC.MVPShop.Prisenters;
+using Reflex;
+using Reflex.Scripts.Attributes;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class SetupShop : MonoBehaviour
 {
-    [SerializeField] private LogsViues logsViues;
-    [SerializeField] private GoldViue _goldViue;
-    [SerializeField] private StoneViue _stoneViue;
-    [SerializeField] private IronViue _ironViue;
+    [SerializeField] private LogsView logsView;
+    [SerializeField] private GoldView goldView;
+    [SerializeField] private StoneView stoneView;
+    [SerializeField] private IronView ironView;
     
     private LogsPresenter _presenterLogs;
     private GoldPresenter _presenterGold;
     private StonePrisenter _prisenterStone;
     private IronPresenter _presenterIron;
     
-    private LogsModel _logsModel = new LogsModel();
-    private GoldModel _goldModel = new GoldModel();
-    private StoneModel _stoneModel = new StoneModel();
-    private IronModel _ironModel = new IronModel();
+    private LogsModel _logsModel = new ();
+    private GoldModel _goldModel = new ();
+    private StoneModel _stoneModel = new ();
+    private IronModel _ironModel = new ();
     
+    private  ResourceCollector _resourceCollector;
 
-
-    private void Awake()
+    [Inject]
+    private void Inject(Container container)
     {
-        _presenterLogs = new LogsPresenter(_logsModel, logsViues);
-        _presenterGold = new GoldPresenter(_goldModel,_goldViue);
-        _prisenterStone = new StonePrisenter(_stoneModel,_stoneViue);
-        _presenterIron = new IronPresenter(_ironModel,_ironViue);
-
+        _resourceCollector = container.Resolve<ResourceCollector>();
     }
-
-    private void OnEnable()
+    
+    private void Start()
     {
-        _presenterLogs.Start();
-        _presenterGold.Start();
-        _prisenterStone.Start();
-        _presenterIron.Start();
+        _presenterLogs = new LogsPresenter(_logsModel, logsView,_resourceCollector);
+        _presenterGold = new GoldPresenter(_goldModel,goldView,_resourceCollector);
+        _prisenterStone = new StonePrisenter(_stoneModel,stoneView,_resourceCollector);
+        _presenterIron = new IronPresenter(_ironModel,ironView,_resourceCollector);
+
     }
 }

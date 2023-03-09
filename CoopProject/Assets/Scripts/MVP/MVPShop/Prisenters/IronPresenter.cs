@@ -1,17 +1,18 @@
 public class IronPresenter
 {
     private IronModel _model;
-    private IronViue _viue;
+    private IronView _view;
+    private ResourceCollector _resourceCollector;
 
-    public IronPresenter(IronModel model, IronViue viues)
+    public IronPresenter(IronModel model, IronView view,ResourceCollector ResourceCollector)
     {
         _model = model;
-        _viue = viues;
-    }
-
-    public void Start()
-    {
-        _viue.SetValueCount();
-        _model.SetValueCount(_viue.Count);
+        _view = view;
+        _resourceCollector = ResourceCollector;
+            
+        _model.OnSetCount += _view.SetValueCount;
+        _model.ReadySumResource += _view.SetPriceButton;
+            
+        _model.SetStartData(_resourceCollector);
     }
 }

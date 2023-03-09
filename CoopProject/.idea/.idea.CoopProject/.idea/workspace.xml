@@ -5,9 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c9c8beb0-e3c9-4637-a844-eb3d016ca760" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Viues/GoldView.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Viues/IronView.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Viues/LogsView.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Viues/StoneView.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CoopProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CoopProject/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestSceen.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestSceen.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Models/GoldModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Models/GoldModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Models/IronModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Models/IronModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Models/LogsModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Models/LogsModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Models/StoneModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Models/StoneModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Prisenters/GoldPresenter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Prisenters/GoldPresenter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResourcesGame/TypeResource/Log.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesGame/TypeResource/Log.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Prisenters/IronPresenter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Prisenters/IronPresenter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Prisenters/LogsPresenter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Prisenters/LogsPresenter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Prisenters/StonePrisenter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Prisenters/StonePrisenter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/SetupShop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/SetupShop.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Viues/GoldViue.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Viues/GoldViue.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Viues/GoldView.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Viues/IronViue.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Viues/IronViue.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Viues/IronView.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Viues/LogsViues.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Viues/LogsViues.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Viues/LogsView.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Viues/StoneViue.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Viues/StoneViue.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Viues/StoneView.cs.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +41,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d6232873609549b8a045fa15811a5bd346a800/27/f8af49c7/Exception.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d6232873609549b8a045fa15811a5bd346a800/5e/d4d636ed/SystemException.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d6232873609549b8a045fa15811a5bd346a800/67/b33a5a7d/NullReferenceException.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Prisenters/IronPresenter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ResourcesColection/Resource.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -92,7 +113,8 @@
       <workItem from="1678042006327" duration="3612000" />
       <workItem from="1678112183106" duration="3473000" />
       <workItem from="1678198826565" duration="4668000" />
-      <workItem from="1678286657599" duration="8474000" />
+      <workItem from="1678286657599" duration="12738000" />
+      <workItem from="1678375996413" duration="4172000" />
     </task>
     <servers />
   </component>

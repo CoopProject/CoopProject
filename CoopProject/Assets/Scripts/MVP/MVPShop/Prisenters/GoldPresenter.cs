@@ -3,17 +3,18 @@ using UnityEngine;
 public class GoldPresenter
 {
     private GoldModel _model;
-    private GoldViue _viue;
+    private GoldView _view;
+    private ResourceCollector _resourceCollector;
 
-    public GoldPresenter(GoldModel model, GoldViue viues)
+    public GoldPresenter(GoldModel model, GoldView view,ResourceCollector ResourceCollector)
     {
         _model = model;
-        _viue = viues;
-    }
-
-    public void Start()
-    {
-        _viue.SetValueCount();
-        _model.SetValueCount(_viue.Count);
+        _view = view;
+        _resourceCollector = ResourceCollector;
+            
+        _model.OnSetCount += _view.SetValueCount;
+        _model.ReadySumResource += _view.SetPriceButton;
+            
+        _model.SetStartData(_resourceCollector);
     }
 }
