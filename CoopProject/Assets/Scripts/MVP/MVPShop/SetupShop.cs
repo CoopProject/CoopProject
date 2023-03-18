@@ -8,9 +8,9 @@ using UnityEngine.Serialization;
 public class SetupShop : MonoBehaviour
 {
     [SerializeField] private WoodViues woodViues;
-    [SerializeField] private GoldViue _goldViue;
-    [SerializeField] private StoneViue _stoneViue;
-    [SerializeField] private IronViue _ironViue;
+    [SerializeField] private GoldView _goldView;
+    [SerializeField] private StoneView _stoneView;
+    [SerializeField] private IronView _ironView;
     
     private WoodPresenter _presenterWood;
     private GoldPresenter _presenterGold;
@@ -27,17 +27,16 @@ public class SetupShop : MonoBehaviour
     private void Awake()
     {
         _presenterWood = new WoodPresenter(_woodModel, woodViues);
-        _presenterGold = new GoldPresenter(_goldModel,_goldViue);
-        _prisenterStone = new StonePrisenter(_stoneModel,_stoneViue);
-        _presenterIron = new IronPresenter(_ironModel,_ironViue);
-
+        /*_presenterGold = new GoldPresenter(_goldModel,_goldView);
+        _prisenterStone = new StonePrisenter(_stoneModel,_stoneView);
+        _presenterIron = new IronPresenter(_ironModel,_ironView);*/
     }
 
     private void Start()
     {
         _presenterWood.Start();
-        _presenterGold.Start();
+        /*_presenterGold.Start();
         _prisenterStone.Start();
-        _presenterIron.Start();
+        _presenterIron.Start();*/
     }
 }
