@@ -1,20 +1,18 @@
-
-
 public class StonePrisenter
 {
     private StoneModel _model;
-    private StoneViue _viue;
-        
-    public StonePrisenter(StoneModel model,StoneViue viues)
+    private StoneView _view;
+    private ResourceCollector _resourceCollector;
+    
+    public StonePrisenter(StoneModel model, StoneView view,ResourceCollector ResourceCollector)
     {
         _model = model;
-        _viue = viues;
+        _view = view;
+        _resourceCollector = ResourceCollector;
+            
+        _model.OnSetCount += _view.SetValueCount;
+        _model.ReadySumResource += _view.SetPriceButton;
+            
+        _model.SetStartData(_resourceCollector);
     }
-
-    public void Start()
-    {
-        _model.SetValueCount(0);
-        _viue.SetValueCount(_model.CountElements);
-    }
-
 }
