@@ -4,7 +4,7 @@ using Reflex.Scripts.Attributes;
 using ResourcesColection;
 using UnityEngine;
 
-public class Rock : Resource,IResourceSource
+public class Rock : ResourceSource,IResourceSource
 {
     private int _resourceValue = 15;
     private int _maxHealth = 10;

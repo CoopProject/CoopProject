@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace SpanwerHelpers
 {
-    public abstract class Factory<T>: MonoBehaviour where T : Resource
+    public abstract class Factory<T>: MonoBehaviour where T : ResourceSource
     {
         [SerializeField] private Helper _helperPrefab;
         [SerializeField] private Transform _spawnPoint;

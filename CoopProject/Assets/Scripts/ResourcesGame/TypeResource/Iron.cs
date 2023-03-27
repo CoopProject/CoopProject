@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace ResourcesGame.TypeResource
 {
-    public class Iron :MonoBehaviour, IResource
+    public class Iron :Resource
     {
         
     }

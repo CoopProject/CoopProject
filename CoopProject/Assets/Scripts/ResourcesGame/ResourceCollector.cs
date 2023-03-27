@@ -8,20 +8,20 @@ public class ResourceCollector : MonoBehaviour
     [SerializeField] private Player _player;
     
 
-    private Dictionary<Type, List<IResource>> _resources;
+    private Dictionary<Type, List<Resource>> _resources;
 
     private void Awake()
     {
-        _resources = new Dictionary<Type, List<IResource>>()
+        _resources = new Dictionary<Type, List<Resource>>()
         {
-            [typeof(Gold)] = new List<IResource>(),
-            [typeof(Log)] = new List<IResource>(),
-            [typeof(Stone)] = new List<IResource>(),
-            [typeof(Iron)] = new List<IResource>(),
+            [typeof(Gold)] = new List<Resource>(),
+            [typeof(Log)] = new List<Resource>(),
+            [typeof(Stone)] = new List<Resource>(),
+            [typeof(Iron)] = new List<Resource>(),
         };
     }
 
-    private void AddResource<TypeResource>( IResource resource)
+    public void AddResource<TypeResource>( Resource resource)
     {
         _resources[typeof(TypeResource)].Add(resource);
     }

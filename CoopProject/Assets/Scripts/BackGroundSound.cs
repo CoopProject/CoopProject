@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayBackGroundSound : MonoBehaviour
+public class BackGroundSound : MonoBehaviour
 {
     private void Start()
     {

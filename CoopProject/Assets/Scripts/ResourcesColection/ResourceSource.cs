@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace ResourcesColection
 {
-    public abstract class Resource : MonoBehaviour,IResourceSource
+    public abstract class ResourceSource : MonoBehaviour,IResourceSource
     {
          protected MeshRenderer _mesh;
          protected BoxCollider _colliderBox;

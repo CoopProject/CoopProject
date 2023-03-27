@@ -6,22 +6,51 @@
   <component name="ChangeListManager">
     <list default="true" id="c9c8beb0-e3c9-4637-a844-eb3d016ca760" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CoopProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CoopProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Downloaded Assets/Epic Toon FX/Upgrade/ETFX 2019.2.3f1 LWRP Upgrade.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Downloaded Assets/Epic Toon FX/Upgrade/ETFX 2019.3 URP Fix.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Downloaded Assets/Epic Toon FX/Upgrade/ETFX Standard Materials.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Plugins/FMOD/Resources/FMODStudioSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/FMOD/Resources/FMODStudioSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Helper/Helper.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Helper/Helper.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Instailer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Instailer.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestSceen.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestSceen.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Models/WoodModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Models/Model.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Models/WoodModel.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Models/Model.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Prisenters/WoodPresenter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Prisenters/Presenter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Prisenters/WoodPresenter.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Prisenters/Presenter.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/HelperMashin/Helper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/HelperMashin/Helper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Models/GoldModel.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Models/GoldModel.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Models/IronModel.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Models/IronModel.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Models/StoneModel.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Models/StoneModel.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Prisenters/GoldPresenter.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Prisenters/GoldPresenter.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Prisenters/IronPresenter.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Prisenters/IronPresenter.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Prisenters/Presenter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Prisenters/Presenter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Prisenters/StonePrisenter.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Prisenters/StonePrisenter.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/SetupShop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/SetupShop.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Viues/WoodViues.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Viues/WoodViues.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Viues/GoldView.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Viues/GoldView.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Viues/IronView.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Viues/IronView.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Viues/LogsView.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Viues/LogsView.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Viues/StoneView.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Viues/StoneView.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Viues/ViuesUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Viues/ViuesUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayBackGroundSound.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BackGroundSound.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayBackGroundSound.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BackGroundSound.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ReflexScripts/SceneInstailer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ReflexScripts/SceneInstailer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/Resource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/ResourceSource.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/Resource.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/ResourceSource.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/Rock/Rock.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/Rock/Rock.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/Tree/Tree.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/Tree/Tree.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/TreeKeeper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/TreeKeeper.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResourcesGame/ResourceCollector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesGame/ResourceCollector.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResourcesGame/TypeResource/Gold.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesGame/TypeResource/Gold.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResourcesGame/TypeResource/IResource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesGame/TypeResource/Resource.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResourcesGame/TypeResource/IResource.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesGame/TypeResource/Resource.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResourcesGame/TypeResource/Iron.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesGame/TypeResource/Iron.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResourcesGame/TypeResource/Log.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesGame/TypeResource/Log.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResourcesGame/TypeResource/Stone.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesGame/TypeResource/Stone.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SpanwerHelpers/Factory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SpanwerHelpers/Factory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fmod_editor.log" beforeDir="false" afterPath="$PROJECT_DIR$/fmod_editor.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +66,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d6232873609549b8a045fa15811a5bd346a800/67/b33a5a7d/NullReferenceException.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d6232873609549b8a045fa15811a5bd346a800/da/ffa3d56e/Dictionary`2.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/SetupShop.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ResourcesColection/Resource.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ResourcesColection/ResourceSource.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -110,7 +139,7 @@
       <workItem from="1678198826565" duration="5012000" />
       <workItem from="1678204028284" duration="654000" />
       <workItem from="1679908511878" duration="871000" />
-      <workItem from="1679909728922" duration="976000" />
+      <workItem from="1679909728922" duration="2449000" />
     </task>
     <servers />
   </component>

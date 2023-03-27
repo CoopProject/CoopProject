@@ -6,8 +6,8 @@ using UnityEngine;
 
 public class Helper : MonoBehaviour
 {
-    private Resource _resourceType;
-    private List<Resource> _resources;
+    private ResourceSource _resourceSourceType;
+    private List<ResourceSource> _resources;
     private int _damage = 30;
     private float _moveSpead = 3f;
     private Vector3 offset = new Vector3(0, 2, 0);
@@ -35,14 +35,14 @@ public class Helper : MonoBehaviour
         float distance = Mathf.Infinity;
         Vector3 position = pointFinding.transform.position;
 
-        foreach (Resource resource in _resources)
+        foreach (ResourceSource resource in _resources)
         {
             Vector3 direction = resource.transform.position - position;
             float curDistance = direction.sqrMagnitude;
 
             if (curDistance < distance && resource.IDead != true)
             {
-                _resourceType = resource;
+                _resourceSourceType = resource;
                 distance = curDistance;
             }
         }
@@ -50,9 +50,9 @@ public class Helper : MonoBehaviour
 
     private void MoveToPoint()
     {
-        if (_resourceType != null && Vector3.Distance(transform.position, _resourceType.transform.position) >= _extractDistance)
+        if (_resourceSourceType != null && Vector3.Distance(transform.position, _resourceSourceType.transform.position) >= _extractDistance)
         {
-            var targetPosition = _resourceType.transform.position + offset;
+            var targetPosition = _resourceSourceType.transform.position + offset;
             transform.position =
                 Vector3.MoveTowards(transform.position,targetPosition,
                     _moveSpead * Time.deltaTime);

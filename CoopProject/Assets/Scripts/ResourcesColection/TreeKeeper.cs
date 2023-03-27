@@ -7,24 +7,24 @@ using UnityEngine;
 
 public class TreeKeeper: MonoBehaviour
 {
-    private Dictionary<Type, List<Resource>> _dictionary;
+    private Dictionary<Type, List<ResourceSource>> _dictionary;
 
     private void Awake()
     {
         _dictionary = new ()
         {
-            [typeof(Tree)] = new List<Resource>(),
-            [typeof(Rock)] = new List<Resource>()
+            [typeof(Tree)] = new List<ResourceSource>(),
+            [typeof(Rock)] = new List<ResourceSource>()
         };
     }
 
     public void Start()
     {
-        _dictionary[typeof(Tree)] = new List<Resource>(FindObjectsOfType<Tree>());
-        _dictionary[typeof(Rock)] = new List<Resource>(FindObjectsOfType<Rock>());
+        _dictionary[typeof(Tree)] = new List<ResourceSource>(FindObjectsOfType<Tree>());
+        _dictionary[typeof(Rock)] = new List<ResourceSource>(FindObjectsOfType<Rock>());
     }
 
-    public List<Resource> GetList<T>()
+    public List<ResourceSource> GetList<T>()
     {
         return _dictionary[typeof(T)];
     }

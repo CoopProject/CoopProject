@@ -13,8 +13,12 @@ namespace DefaultNamespace.MVC.MVPShop.Prisenters
             _model = model;
             _viueUI = viuesUI;
             _resourceCollector = resourceCollector;
-            
-            _model.SetValueCount<T>(_resourceCollector);
+
+            _viueUI.OnActive += () =>
+            {
+                _model.SetValueCount<T>(_resourceCollector);
+                _viueUI.SetCountResource(_model.CountElements);
+            };
         }
     }
 }

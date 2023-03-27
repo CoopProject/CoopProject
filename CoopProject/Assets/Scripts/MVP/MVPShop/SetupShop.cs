@@ -1,4 +1,6 @@
 using DefaultNamespace.MVC.MVPShop.Prisenters;
+using Reflex;
+using Reflex.Scripts.Attributes;
 using ResourcesGame.TypeResource;
 using UnityEngine;
 
@@ -9,8 +11,8 @@ public class SetupShop : MonoBehaviour
     [SerializeField] private ViuesUI _goldView;
     [SerializeField] private ViuesUI _stoneView;
     [SerializeField] private ViuesUI _ironView;
-
-    [SerializeField] private ResourceCollector _resourceCollector;
+    
+    private ResourceCollector _resourceCollector;
     
     private Presenter<Log> _presenterlog;
     private Presenter<Gold> _presenterGold;
@@ -21,6 +23,9 @@ public class SetupShop : MonoBehaviour
     private Model _goldModel = new ();
     private Model _stoneModel = new ();
     private Model _ironModel = new ();
+    
+    [Inject]
+    private void Inject(Container container) => _resourceCollector = container.Resolve<ResourceCollector>();
 
     
     private void Awake()

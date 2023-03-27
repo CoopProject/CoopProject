@@ -9,11 +9,14 @@ public class ViuesUI : MonoBehaviour
   [SerializeField] private TextMeshProUGUI _resourceCount;
   [SerializeField] private Button _buttonSale;
   [SerializeField] private Button _buttonReward;
+  public event Action OnActive;
 
-  private event Action OnActive;
+  private void OnEnable()
+  {
+    OnActive?.Invoke();
+  }
 
-
-  private void SetCountResource(int count)
+  public void SetCountResource(int count)
   {
     _resourceCount.text =$"{count}";
   }
