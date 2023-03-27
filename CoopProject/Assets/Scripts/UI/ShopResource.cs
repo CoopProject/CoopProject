@@ -1,4 +1,3 @@
-using ResourcesColection.Tree;
 using TMPro;
 using UnityEngine;
 
@@ -11,7 +10,7 @@ public class ShopResource : MonoBehaviour
 
    private void OnEnable()
    {
-      _sumPriceResource.text +=
-         $" {_resourceCollector.SumPriceAllResource<ResourceTree>() + _resourceCollector.SumPriceAllResource<ResourceRock>()}";
+      //_sumPriceResource.text +=
+        //$" {_resourceCollector.SumPriceAllResource<ResourceTree>() + _resourceCollector.SumPriceAllResource<ResourceRock>()}";
    }
 }
