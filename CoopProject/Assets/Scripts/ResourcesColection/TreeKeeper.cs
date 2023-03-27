@@ -22,9 +22,6 @@ public class TreeKeeper: MonoBehaviour
     {
         _dictionary[typeof(Tree)] = new List<Resource>(FindObjectsOfType<Tree>());
         _dictionary[typeof(Rock)] = new List<Resource>(FindObjectsOfType<Rock>());
-        
-        Debug.Log(_dictionary[typeof(Tree)].Count);
-        Debug.Log(_dictionary[typeof(Rock)].Count);
     }
 
     public List<Resource> GetList<T>()

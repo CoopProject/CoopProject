@@ -21,23 +21,6 @@ public class ResourceCollector : MonoBehaviour
         };
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.TryGetComponent(out Gold gold))
-            AddResource<Gold>(gold);
-        
-        if (other.TryGetComponent(out Log wood))
-            AddResource<Log>(wood);
-        
-        if (other.TryGetComponent(out Stone stone))
-            AddResource<Stone>(stone);
-        
-        if (other.TryGetComponent(out Iron iron))
-            AddResource<Iron>(iron);
-        
-    }
-
-
     private void AddResource<TypeResource>( IResource resource)
     {
         _resources[typeof(TypeResource)].Add(resource);
