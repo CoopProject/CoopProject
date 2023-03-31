@@ -11,7 +11,10 @@ public class SetupShop : MonoBehaviour
     [SerializeField] private ViuesUI _goldView;
     [SerializeField] private ViuesUI _stoneView;
     [SerializeField] private ViuesUI _ironView;
-    
+    [SerializeField] private ViuesUI _boardsView;
+    [SerializeField] private ViuesUI _ironIngotsView;
+    [SerializeField] private ViuesUI _goldIngotsView;
+   
     private ResourceCollector _resourceCollector;
     
     private Presenter<Log> _presenterlog;
