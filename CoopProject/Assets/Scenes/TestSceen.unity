@@ -724,7 +724,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh36714
+  m_Name: pb_Mesh28682
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4244,10 +4244,10 @@ RectTransform:
   m_Father: {fileID: 547079495}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 339.65002, y: -177}
+  m_SizeDelta: {x: 600, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &264178030
 CanvasRenderer:
@@ -4271,9 +4271,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _resourceCount: {fileID: 1047159602}
   _buttonSale: {fileID: 532781553}
-  _textButtonPrice: {fileID: 0}
+  _textButtonPrice: {fileID: 115512746}
   _buttonReward: {fileID: 659610456}
-  _textRewardButtonPrice: {fileID: 0}
+  _textRewardButtonPrice: {fileID: 1670338222}
 --- !u!1 &272122714
 GameObject:
   m_ObjectHideFlags: 0
@@ -5926,10 +5926,10 @@ RectTransform:
   m_Father: {fileID: 547079495}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 339.65002, y: -481}
+  m_SizeDelta: {x: 600, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &351037013
 CanvasRenderer:
@@ -5953,9 +5953,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _resourceCount: {fileID: 306878527}
   _buttonSale: {fileID: 345637088}
-  _textButtonPrice: {fileID: 0}
+  _textButtonPrice: {fileID: 858251761}
   _buttonReward: {fileID: 460563634}
-  _textRewardButtonPrice: {fileID: 0}
+  _textRewardButtonPrice: {fileID: 976467261}
 --- !u!1 &372752432
 GameObject:
   m_ObjectHideFlags: 0
@@ -7832,10 +7832,10 @@ RectTransform:
   m_Father: {fileID: 547079495}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 339.65002, y: -253}
+  m_SizeDelta: {x: 600, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &474679828
 CanvasRenderer:
@@ -7859,9 +7859,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _resourceCount: {fileID: 1599189715}
   _buttonSale: {fileID: 1797935534}
-  _textButtonPrice: {fileID: 0}
+  _textButtonPrice: {fileID: 388367160}
   _buttonReward: {fileID: 650269121}
-  _textRewardButtonPrice: {fileID: 0}
+  _textRewardButtonPrice: {fileID: 1261893835}
 --- !u!1 &484242982
 GameObject:
   m_ObjectHideFlags: 0
@@ -8183,7 +8183,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &497027968
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14402,10 +14402,10 @@ RectTransform:
   m_Father: {fileID: 547079495}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 339.65002, y: -25}
+  m_SizeDelta: {x: 600, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &736324034
 CanvasRenderer:
@@ -14429,9 +14429,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _resourceCount: {fileID: 847013043}
   _buttonSale: {fileID: 608166595}
-  _textButtonPrice: {fileID: 0}
+  _textButtonPrice: {fileID: 1747085424}
   _buttonReward: {fileID: 1890377508}
-  _textRewardButtonPrice: {fileID: 0}
+  _textRewardButtonPrice: {fileID: 2112235246}
 --- !u!1 &742056299
 GameObject:
   m_ObjectHideFlags: 0
@@ -25408,8 +25408,8 @@ RectTransform:
   m_Father: {fileID: 785403667}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0.43398052}
+  m_AnchorMax: {x: 1, y: 0.9999999}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -27204,7 +27204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _installers:
-  - {fileID: 0}
+  - {fileID: 317339618}
 --- !u!4 &1398406516
 Transform:
   m_ObjectHideFlags: 0
@@ -28068,6 +28068,7 @@ PrefabInstance:
     - {fileID: 1083651109851913885, guid: c9a9fbd212a47884598eeb631377e0e2, type: 3}
     - {fileID: 6385354627531129703, guid: c9a9fbd212a47884598eeb631377e0e2, type: 3}
     - {fileID: 4038970592782942539, guid: c9a9fbd212a47884598eeb631377e0e2, type: 3}
+    - {fileID: -8841365730558813061, guid: c9a9fbd212a47884598eeb631377e0e2, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c9a9fbd212a47884598eeb631377e0e2, type: 3}
 --- !u!43 &1473324774
 Mesh:
@@ -30575,10 +30576,10 @@ RectTransform:
   m_Father: {fileID: 547079495}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 339.65002, y: -101}
+  m_SizeDelta: {x: 600, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1624088914
 CanvasRenderer:
@@ -30602,9 +30603,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _resourceCount: {fileID: 1083498265}
   _buttonSale: {fileID: 404773829}
-  _textButtonPrice: {fileID: 0}
+  _textButtonPrice: {fileID: 724731177}
   _buttonReward: {fileID: 1370565549}
-  _textRewardButtonPrice: {fileID: 0}
+  _textRewardButtonPrice: {fileID: 640852587}
 --- !u!1 &1625848482
 GameObject:
   m_ObjectHideFlags: 0
@@ -32229,7 +32230,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1310679868}
   m_Direction: 2
   m_Value: 0.9999997
-  m_Size: 0.5660194
+  m_Size: 0.56601936
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -33465,10 +33466,10 @@ RectTransform:
   m_Father: {fileID: 547079495}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 339.65002, y: -405}
+  m_SizeDelta: {x: 600, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1761937774
 CanvasRenderer:
@@ -33492,9 +33493,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _resourceCount: {fileID: 643925319}
   _buttonSale: {fileID: 1080107572}
-  _textButtonPrice: {fileID: 0}
+  _textButtonPrice: {fileID: 406349980}
   _buttonReward: {fileID: 1013662132}
-  _textRewardButtonPrice: {fileID: 0}
+  _textRewardButtonPrice: {fileID: 1262647414}
 --- !u!1001 &1776430328
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35088,10 +35089,10 @@ RectTransform:
   m_Father: {fileID: 547079495}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 339.65002, y: -329}
+  m_SizeDelta: {x: 600, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1850767658
 CanvasRenderer:
@@ -35115,9 +35116,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _resourceCount: {fileID: 644680002}
   _buttonSale: {fileID: 529470340}
-  _textButtonPrice: {fileID: 0}
+  _textButtonPrice: {fileID: 509397249}
   _buttonReward: {fileID: 2143867509}
-  _textRewardButtonPrice: {fileID: 0}
+  _textRewardButtonPrice: {fileID: 1044902593}
 --- !u!1 &1853029889
 GameObject:
   m_ObjectHideFlags: 0

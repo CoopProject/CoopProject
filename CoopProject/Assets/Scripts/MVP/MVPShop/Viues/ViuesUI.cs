@@ -24,6 +24,19 @@ public class ViuesUI : MonoBehaviour
     OnActive?.Invoke();
   }
 
+  private void Start()
+  {
+   // ValidateData();
+  }
+
+  private void ValidateData()
+  {
+    if (Count <= 0)
+      gameObject.SetActive(false);
+    else
+      gameObject.SetActive(true);
+  }
+
   public void SetCountResource(int count)
   {
     Count = count;

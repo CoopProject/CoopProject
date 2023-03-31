@@ -16,7 +16,11 @@ public class ResourceCollector : MonoBehaviour
             [typeof(Gold)] = new List<Resource>(),
             [typeof(Log)] = new List<Resource>(),
             [typeof(Stone)] = new List<Resource>(),
+            [typeof(Boards)] = new List<Resource>(),
             [typeof(Iron)] = new List<Resource>(),
+            [typeof(Iron)] = new List<Resource>(),
+            [typeof(Iron)] = new List<Resource>(),
+            
         };
     }
 
@@ -32,7 +36,7 @@ public class ResourceCollector : MonoBehaviour
 
     public int GetResourcePrice<TypeResource>()
     {
-        if (_resources[typeof(TypeResource)].Count >= 0)
+        if (_resources[typeof(TypeResource)].Count > 0)
             return _resources[typeof(TypeResource)][0].Price;
         
         return 0;

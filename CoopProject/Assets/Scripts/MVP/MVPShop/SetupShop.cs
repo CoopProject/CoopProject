@@ -22,12 +22,16 @@ public class SetupShop : MonoBehaviour
     private Presenter<Iron> _prisenterIron;
     private Presenter<Stone> _presenterStone;
     private Presenter<Boards> _presenterBoards;
-
+    private Presenter<IronIngots> _presenterIronIgnots;
+    private Presenter<GoldIngots> _presenterGoldIngots;
+    
     private Model _woodModel = new ();
     private Model _goldModel = new ();
     private Model _stoneModel = new ();
     private Model _ironModel = new ();
     private Model _boardsModel = new ();
+    private Model _ironIgnotsModel = new ();
+    private Model _goldIgnotsModel = new ();
     
     [Inject]
     private void Inject(Container container) => _resourceCollector = container.Resolve<ResourceCollector>();
@@ -35,9 +39,12 @@ public class SetupShop : MonoBehaviour
     
     private void Awake()
     {
-        _presenterlog = new Presenter<Log>(_woodModel, woodViuesUI,_resourceCollector);
-        _presenterGold = new Presenter<Gold>(_goldModel,_goldView, _resourceCollector);
+        _presenterlog = new Presenter<Log>(_woodModel, woodViuesUI, _resourceCollector);
+        _presenterGold = new Presenter<Gold>(_goldModel, _goldView, _resourceCollector);
         _prisenterIron = new Presenter<Iron>(_ironModel, _ironView, _resourceCollector);
         _presenterStone = new Presenter<Stone>(_stoneModel, _stoneView, _resourceCollector);
+        _presenterBoards = new Presenter<Boards>(_boardsModel, _boardsView, _resourceCollector);
+        _presenterIronIgnots = new Presenter<IronIngots>(_ironIgnotsModel, _ironIngotsView, _resourceCollector);
+        _presenterGoldIngots = new Presenter<GoldIngots>(_goldIgnotsModel, _goldIngotsView, _resourceCollector);
     }
 }

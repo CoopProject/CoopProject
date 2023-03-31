@@ -10,7 +10,6 @@ using UnityEngine;
 public class Tree : ResourceSource
 {
     private ResourceCollector _resourceCollector;
-    private Log _log = new ();
     private int _maxHealth = 30;
     private int _health = 30;
     private float _durationReset = 8f;
@@ -33,9 +32,9 @@ public class Tree : ResourceSource
         {
             Dead();
             _iDead = true;
-            var Log = Instantiate(_log);
-            Log.SetPrice();
-            _resourceCollector.AddResource<Log>(Log);
+            Log log = new ();
+            log.SetPrice();
+            _resourceCollector.AddResource<Log>(log);
             StartCoroutine(Reset());
         }
     }
