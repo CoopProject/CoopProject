@@ -5,9 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c9c8beb0-e3c9-4637-a844-eb3d016ca760" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/Gold Ore.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/Gold Ore/GoldOre.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/Gold Ore/GoldOre.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CoopProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CoopProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/IResourceSource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/IResourceSource.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestSceen.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestSceen.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Viues/ViueUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Viues/ViueUI.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/Rock/Rock.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/Rock/Rock.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/Tree/Tree.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/Tree/Tree.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResourcesGame/TypeResource/Gold.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesGame/TypeResource/Gold.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SpanwerHelpers/SpawnHelperTree.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SpanwerHelpers/SpawnHelperTree.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/NavMeshAreas.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/NavMeshAreas.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +34,7 @@
     </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/.." value="shop-dev" />
+        <entry key="$PROJECT_DIR$/.." value="check" />
       </map>
     </option>
   </component>
@@ -183,7 +191,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680290401563</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="AddNewSpawner">
+      <created>1680291234305</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1680291234305</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -203,7 +218,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="Dev" />
+                        <option value="dev-helper" />
                       </list>
                     </value>
                   </entry>
@@ -226,6 +241,7 @@
     <MESSAGE value="AddViueSellAll" />
     <MESSAGE value="AddNavMeshComponent" />
     <MESSAGE value="NavMeshAgentWork" />
-    <option name="LAST_COMMIT_MESSAGE" value="NavMeshAgentWork" />
+    <MESSAGE value="AddNewSpawner" />
+    <option name="LAST_COMMIT_MESSAGE" value="AddNewSpawner" />
   </component>
 </project>

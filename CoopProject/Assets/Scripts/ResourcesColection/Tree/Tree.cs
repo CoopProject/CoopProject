@@ -23,11 +23,10 @@ public class Tree : ResourceSource
         _colliderBox = GetComponent<BoxCollider>();
     }
 
-
     public override void TakeDamage(int damage)
     {
         _health -= damage;
-        
+
         if (_health <= 0)
         {
             Dead();

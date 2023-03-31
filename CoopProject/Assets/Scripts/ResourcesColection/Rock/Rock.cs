@@ -11,7 +11,7 @@ public class Rock : ResourceSource,IResourceSource
 {
     private int _maxHealth = 10;
     private int _health = 30;
-    private float _durationReset = 1f;
+    private float _durationReset = 10f;
     private ResourceCollector _resourceCollector;
 
     [Inject]
@@ -26,7 +26,7 @@ public class Rock : ResourceSource,IResourceSource
     public override void TakeDamage(int damage)
     {
         _health -= damage;
-        
+        Debug.Log("Камень получил урон");
         if (_health <= 0)
         {
             Dead();

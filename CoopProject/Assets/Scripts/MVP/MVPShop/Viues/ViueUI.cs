@@ -14,8 +14,7 @@ public class ViueUI : MonoBehaviour
   [Header("Кнопка рекламы")]
   [SerializeField] private Button _buttonReward;
   [SerializeField] private TextMeshProUGUI _textRewardButtonPrice;
-
-
+  
   public event Action OnActive;
   public event Action ButtonClick;
   public int Count { get; private set; } = 0;
