@@ -6,13 +6,13 @@ using UnityEngine;
 
 public class SetupShop : MonoBehaviour
 {
-    [SerializeField] private ViuesUI woodViuesUI;
-    [SerializeField] private ViuesUI _goldView;
-    [SerializeField] private ViuesUI _stoneView;
-    [SerializeField] private ViuesUI _ironView;
-    [SerializeField] private ViuesUI _boardsView;
-    [SerializeField] private ViuesUI _ironIngotsView;
-    [SerializeField] private ViuesUI _goldIngotsView;
+    [SerializeField] private ViueUI woodViueUI;
+    [SerializeField] private ViueUI _goldView;
+    [SerializeField] private ViueUI _stoneView;
+    [SerializeField] private ViueUI _ironView;
+    [SerializeField] private ViueUI _boardsView;
+    [SerializeField] private ViueUI _ironIngotsView;
+    [SerializeField] private ViueUI _goldIngotsView;
    
     private ResourceCollector _resourceCollector;
     private Player _player;
@@ -42,7 +42,7 @@ public class SetupShop : MonoBehaviour
 
     private void Start()
     {
-        _presenterlog = new Presenter<Log>(_woodModel, woodViuesUI, _resourceCollector,_player);
+        _presenterlog = new Presenter<Log>(_woodModel, woodViueUI, _resourceCollector,_player);
         _presenterGold = new Presenter<Gold>(_goldModel, _goldView, _resourceCollector,_player);
         _prisenterIron = new Presenter<Iron>(_ironModel, _ironView, _resourceCollector,_player);
         _presenterStone = new Presenter<Stone>(_stoneModel, _stoneView, _resourceCollector,_player);

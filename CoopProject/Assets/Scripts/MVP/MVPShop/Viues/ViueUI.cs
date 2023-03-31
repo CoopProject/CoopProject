@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ViuesUI : MonoBehaviour
+public class ViueUI : MonoBehaviour
 {
   [SerializeField] private TextMeshProUGUI _resourceCount;
   [Space]
@@ -14,31 +14,14 @@ public class ViuesUI : MonoBehaviour
   [Header("Кнопка рекламы")]
   [SerializeField] private Button _buttonReward;
   [SerializeField] private TextMeshProUGUI _textRewardButtonPrice;
+
+
   public event Action OnActive;
-  public event Action OnStart;
   public event Action ButtonClick;
   public int Count { get; private set; } = 0;
+  public int Price { get; private set; } = 0;
 
-  private void OnEnable()
-  {
-    SetCountResource(0);
-    SetPriceButton(0);
-    OnActive?.Invoke();
-    OnStart += ActiveComponent;
-  }
-
-  private void Start()
-  {
-    OnStart?.Invoke();
-  }
-
-  public void ActiveComponent()
-  {
-    if (Count <= 0)
-      gameObject.SetActive(false);
-    else
-      gameObject.SetActive(true);
-  }
+  public void SetTartData() => OnActive?.Invoke();
 
   public void SetCountResource(int count)
   {
@@ -50,13 +33,8 @@ public class ViuesUI : MonoBehaviour
   {
     _textButtonPrice.text = $"{value}";
     _textRewardButtonPrice.text = $"{value * 2}";
+    Price = value;
   }
 
   public void SellButtonClick() => ButtonClick?.Invoke();
-
-  private void OnDisable()
-  {
-    OnActive -= ActiveComponent;
-    OnStart -= ActiveComponent;
-  }
 }

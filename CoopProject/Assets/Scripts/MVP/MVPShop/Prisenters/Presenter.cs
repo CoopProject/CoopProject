@@ -4,11 +4,11 @@ namespace DefaultNamespace.MVC.MVPShop.Prisenters
     public class Presenter<T>
     {
         private Model _model;
-        private ViuesUI _viueUI;
+        private ViueUI _viueUI;
         private ResourceCollector _resourceCollector;
         private Player _player;
         
-        public Presenter(Model model,ViuesUI viuesUI,ResourceCollector resourceCollector,Player player)
+        public Presenter(Model model,ViueUI viuesUI,ResourceCollector resourceCollector,Player player)
         {
             _model = model;
             _viueUI = viuesUI;
