@@ -7,16 +7,23 @@ namespace DefaultNamespace.MVC.MVPShop.Prisenters
         private ViueUI _viueUI;
         private ResourceCollector _resourceCollector;
         private Player _player;
+        private ViueAllSell _viueAllSell;
         
-        public Presenter(Model model,ViueUI viuesUI,ResourceCollector resourceCollector,Player player)
+        public Presenter(Model model,ViueUI viuesUI,ResourceCollector resourceCollector,Player player,ViueAllSell viueAllSell)
         {
             _model = model;
             _viueUI = viuesUI;
             _resourceCollector = resourceCollector;
             _player = player;
+            _viueAllSell = viueAllSell;
 
             _viueUI.OnActive += SetStartData;
             _viueUI.ButtonClick += ClickButtonViue;
+            
+            _viueAllSell.OnButtonClick += () =>
+            {
+                ClickButtonViue();
+            };
         }
         
         private void SetStartData()

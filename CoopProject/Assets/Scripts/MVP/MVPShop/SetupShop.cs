@@ -13,6 +13,7 @@ public class SetupShop : MonoBehaviour
     [SerializeField] private ViueUI _boardsView;
     [SerializeField] private ViueUI _ironIngotsView;
     [SerializeField] private ViueUI _goldIngotsView;
+    [SerializeField] private ViueAllSell _viueAllSell;
    
     private ResourceCollector _resourceCollector;
     private Player _player;
@@ -42,12 +43,12 @@ public class SetupShop : MonoBehaviour
 
     private void Start()
     {
-        _presenterlog = new Presenter<Log>(_woodModel, woodViueUI, _resourceCollector,_player);
-        _presenterGold = new Presenter<Gold>(_goldModel, _goldView, _resourceCollector,_player);
-        _prisenterIron = new Presenter<Iron>(_ironModel, _ironView, _resourceCollector,_player);
-        _presenterStone = new Presenter<Stone>(_stoneModel, _stoneView, _resourceCollector,_player);
-        _presenterBoards = new Presenter<Boards>(_boardsModel, _boardsView, _resourceCollector,_player);
-        _presenterIronIgnots = new Presenter<IronIngots>(_ironIgnotsModel, _ironIngotsView, _resourceCollector,_player);
-        _presenterGoldIngots = new Presenter<GoldIngots>(_goldIgnotsModel, _goldIngotsView, _resourceCollector,_player);
+        _presenterlog = new Presenter<Log>(_woodModel, woodViueUI, _resourceCollector,_player,_viueAllSell);
+        _presenterGold = new Presenter<Gold>(_goldModel, _goldView, _resourceCollector,_player,_viueAllSell);
+        _prisenterIron = new Presenter<Iron>(_ironModel, _ironView, _resourceCollector,_player,_viueAllSell);
+        _presenterStone = new Presenter<Stone>(_stoneModel, _stoneView, _resourceCollector,_player,_viueAllSell);
+        _presenterBoards = new Presenter<Boards>(_boardsModel, _boardsView, _resourceCollector,_player,_viueAllSell);
+        _presenterIronIgnots = new Presenter<IronIngots>(_ironIgnotsModel, _ironIngotsView, _resourceCollector,_player,_viueAllSell);
+        _presenterGoldIngots = new Presenter<GoldIngots>(_goldIgnotsModel, _goldIngotsView, _resourceCollector,_player,_viueAllSell);
     }
 }
