@@ -7,6 +7,6 @@ public class BackGroundSound : MonoBehaviour
 {
     private void Start()
     {
-       FMODUnity.RuntimeManager.PlayOneShot("event:/BackgroundSound");
+     
     }
 }

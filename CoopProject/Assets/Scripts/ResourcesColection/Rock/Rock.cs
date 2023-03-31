@@ -15,7 +15,6 @@ public class Rock : ResourceSource,IResourceSource
 
     public override void TakeDamage(int damage)
     {
-        FMODUnity.RuntimeManager.PlayOneShot("event:/RockHit");
         _health -= damage;
         
         if (_health <= 0)

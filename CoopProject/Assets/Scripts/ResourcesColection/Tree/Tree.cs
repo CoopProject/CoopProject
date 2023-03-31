@@ -10,7 +10,7 @@ using UnityEngine;
 public class Tree : ResourceSource
 {
     private ResourceCollector _resourceCollector;
-    
+    private Log _log = new ();
     private int _maxHealth = 30;
     private int _health = 30;
     private float _durationReset = 8f;
@@ -27,16 +27,15 @@ public class Tree : ResourceSource
 
     public override void TakeDamage(int damage)
     {
-
-        FMODUnity.RuntimeManager.PlayOneShot("event:/HitTree");
         _health -= damage;
         
         if (_health <= 0)
         {
             Dead();
             _iDead = true;
-           Resource resourceSource = Instantiate(gameObject).GetComponent<Log>() ;
-           _resourceCollector.AddResource<Log>(resourceSource);
+            var Log = Instantiate(_log);
+            Log.SetPrice();
+            _resourceCollector.AddResource<Log>(Log);
             StartCoroutine(Reset());
         }
     }

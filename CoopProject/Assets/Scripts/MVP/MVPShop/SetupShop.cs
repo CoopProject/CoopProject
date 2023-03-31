@@ -21,11 +21,13 @@ public class SetupShop : MonoBehaviour
     private Presenter<Gold> _presenterGold;
     private Presenter<Iron> _prisenterIron;
     private Presenter<Stone> _presenterStone;
-    
+    private Presenter<Boards> _presenterBoards;
+
     private Model _woodModel = new ();
     private Model _goldModel = new ();
     private Model _stoneModel = new ();
     private Model _ironModel = new ();
+    private Model _boardsModel = new ();
     
     [Inject]
     private void Inject(Container container) => _resourceCollector = container.Resolve<ResourceCollector>();

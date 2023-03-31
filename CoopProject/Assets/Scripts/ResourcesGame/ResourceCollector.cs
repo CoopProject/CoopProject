@@ -7,7 +7,6 @@ public class ResourceCollector : MonoBehaviour
 {
     [SerializeField] private Player _player;
     
-
     private Dictionary<Type, List<Resource>> _resources;
 
     private void Awake()
@@ -29,5 +28,13 @@ public class ResourceCollector : MonoBehaviour
     public int GetCountList<TypeResource>()
     {
         return _resources[typeof(TypeResource)].Count;
+    }
+
+    public int GetResourcePrice<TypeResource>()
+    {
+        if (_resources[typeof(TypeResource)].Count >= 0)
+            return _resources[typeof(TypeResource)][0].Price;
+        
+        return 0;
     }
 }

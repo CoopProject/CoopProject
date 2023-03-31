@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using DefaultNamespace;
 using ResourcesColection;
 using UnityEngine;
@@ -23,8 +22,7 @@ public class Helper : MonoBehaviour
         _layerMask = 1 << LayerMask.NameToLayer("Resource");
         _extractResource = new ExtractResourceService(transform, _layerMask,_radius);
     }
-
-
+    
     public void FixedUpdate()
     {
         MoveToPoint();
