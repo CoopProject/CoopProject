@@ -18,6 +18,7 @@ namespace DefaultNamespace.MVC.MVPShop.Prisenters
             {
                 _model.SetValueCount<T>(_resourceCollector);
                 _viueUI.SetCountResource(_model.CountElements);
+                _viueUI.SetPriceButton(_model.SumResource);
             };
         }
     }

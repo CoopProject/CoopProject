@@ -10,12 +10,14 @@ public class ViuesUI : MonoBehaviour
   [Space]
   [Header("Обычная кнопка продажи")]
   [SerializeField] private Button _buttonSale;
-  [SerializeField] private Text _textButtonPrice;
+  [SerializeField] private TextMeshProUGUI _textButtonPrice;
   [Space]
   [Header("Кнопка рекламы")]
   [SerializeField] private Button _buttonReward;
-  [SerializeField] private Text _textRewardButtonPrice;
+  [SerializeField] private TextMeshProUGUI _textRewardButtonPrice;
   public event Action OnActive;
+
+  public int Count { get; private set; } = 0;
 
   private void OnEnable()
   {
@@ -24,7 +26,14 @@ public class ViuesUI : MonoBehaviour
 
   public void SetCountResource(int count)
   {
-    _resourceCount.text =$"{count}";
+    Count = count;
+    _resourceCount.text = $"{count}";
+  }
+
+  public void SetPriceButton(int value)
+  {
+    _textButtonPrice.text = $"{value}";
+    _textRewardButtonPrice.text = $"{value * 2}";
   }
   
 }
