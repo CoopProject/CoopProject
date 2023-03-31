@@ -7,12 +7,14 @@ namespace DefaultNamespace.MVC.MVPShop.Prisenters
         private Model _model;
         private ViuesUI _viueUI;
         private ResourceCollector _resourceCollector;
+        private Player _player;
         
-        public Presenter(Model model,ViuesUI viuesUI,ResourceCollector resourceCollector)
+        public Presenter(Model model,ViuesUI viuesUI,ResourceCollector resourceCollector,Player player)
         {
             _model = model;
             _viueUI = viuesUI;
             _resourceCollector = resourceCollector;
+            _player = player;
 
             _viueUI.OnActive += () =>
             {

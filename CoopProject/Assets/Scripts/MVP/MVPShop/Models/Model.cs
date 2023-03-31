@@ -14,6 +14,8 @@ public class Model
 
    private void SumResourcePrice()
    {
+       SumResource = 0;
+       
        for (int i = 0; i < CountElements; i++)
        {
            SumResource += PriceResource;

@@ -16,17 +16,16 @@ public class ViuesUI : MonoBehaviour
   [SerializeField] private Button _buttonReward;
   [SerializeField] private TextMeshProUGUI _textRewardButtonPrice;
   public event Action OnActive;
+  
+  
 
   public int Count { get; private set; } = 0;
 
   private void OnEnable()
   {
+    SetCountResource(0);
+    SetPriceButton(0);
     OnActive?.Invoke();
-  }
-
-  private void Start()
-  {
-   // ValidateData();
   }
 
   private void ValidateData()
