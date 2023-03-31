@@ -1,4 +1,3 @@
-using ResourcesColection;
 
 namespace DefaultNamespace.MVC.MVPShop.Prisenters
 {
@@ -16,21 +15,24 @@ namespace DefaultNamespace.MVC.MVPShop.Prisenters
             _resourceCollector = resourceCollector;
             _player = player;
 
-            _viueUI.OnActive += () =>
-            {
-                _model.SetValueCount<T>(_resourceCollector);
-                _viueUI.SetCountResource(_model.CountElements);
-                _viueUI.SetPriceButton(_model.SumResource);
-            };
+            _viueUI.OnActive += SetStartData;
+            _viueUI.ButtonClick += ClickButtonViue;
+        }
+        
+        private void SetStartData()
+        {
+            _model.SetValueCount<T>(_resourceCollector);
+            _viueUI.SetCountResource(_model.CountElements);
+            _viueUI.SetPriceButton(_model.SumResource);
+        }
 
-            _viueUI.ButtonClick += () =>
-            {
-                _model.SetCoinPlayer(_player);
-                _model.ClearData<T>(_resourceCollector);
-                _model.SetValueCount<T>(_resourceCollector);
-                _viueUI.SetCountResource(_model.CountElements);
-                _viueUI.SetPriceButton(_model.SumResource);
-            };
+        private void ClickButtonViue()
+        {
+            _model.SetCoinPlayer(_player);
+            _model.ClearData<T>(_resourceCollector);
+            _model.SetValueCount<T>(_resourceCollector);
+            _viueUI.SetCountResource(_model.CountElements);
+            _viueUI.SetPriceButton(_model.SumResource);
         }
     }
 }

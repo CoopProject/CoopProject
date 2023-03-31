@@ -11,5 +11,6 @@ public class SceneInstailer : Installer
     public override void InstallBindings(Container container)
     {
         container.BindInstanceAs(_resourceCollector);
+        container.BindInstanceAs(_player);
     }
 }

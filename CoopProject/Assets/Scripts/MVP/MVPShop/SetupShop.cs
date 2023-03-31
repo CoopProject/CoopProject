@@ -1,10 +1,8 @@
-using System;
 using DefaultNamespace.MVC.MVPShop.Prisenters;
 using Reflex;
 using Reflex.Scripts.Attributes;
 using ResourcesGame.TypeResource;
 using UnityEngine;
-
 
 public class SetupShop : MonoBehaviour
 {
