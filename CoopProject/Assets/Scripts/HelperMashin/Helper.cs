@@ -2,9 +2,12 @@
 using DefaultNamespace;
 using ResourcesColection;
 using UnityEngine;
+using UnityEngine.AI;
 
+[RequireComponent(typeof(NavMeshAgent))]
 public class Helper : MonoBehaviour
 {
+    private NavMeshAgent _agent;
     private ResourceSource _resourceSourceType;
     private List<ResourceSource> _resources;
     private int _damage = 30;
@@ -21,6 +24,7 @@ public class Helper : MonoBehaviour
     {
         _layerMask = 1 << LayerMask.NameToLayer("Resource");
         _extractResource = new ExtractResourceService(transform, _layerMask,_radius);
+        _agent = GetComponent<NavMeshAgent>();
     }
     
     public void FixedUpdate()
