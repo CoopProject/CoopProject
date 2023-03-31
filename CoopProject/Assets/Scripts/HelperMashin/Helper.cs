@@ -55,15 +55,15 @@ public class Helper : MonoBehaviour
         if (_resourceSourceType != null && Vector3.Distance(transform.position, _resourceSourceType.transform.position) >= _extractDistance)
         {
             var targetPosition = _resourceSourceType.transform.position + offset;
-            transform.position =
-                Vector3.MoveTowards(transform.position,targetPosition,
-                    _moveSpead * Time.deltaTime);
+            _agent.SetDestination(targetPosition);
+            _agent.isStopped = false;
             transform.LookAt(targetPosition);
         }
         else
         {
             Search(transform);
            ExtractResours();
+           _agent.isStopped = true;
         }
     }
 
