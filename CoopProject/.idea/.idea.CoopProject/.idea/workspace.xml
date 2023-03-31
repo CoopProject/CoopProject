@@ -8,14 +8,22 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CoopProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CoopProject/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Models/Model.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Models/Model.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Prisenters/Presenter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Prisenters/Presenter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/SetupShop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/SetupShop.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Viues/ViuesUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Viues/ViuesUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Player.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResourcesGame/ResourceCollector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesGame/ResourceCollector.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
+      </GitPushTagMode>
+    </option>
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/67e8fd448e8a4916a15fdca62059e0b612c000/4e/9e91061f/Object.cs" root0="SKIP_HIGHLIGHTING" />
@@ -101,7 +109,7 @@
       <workItem from="1679908511878" duration="871000" />
       <workItem from="1679909728922" duration="2449000" />
       <workItem from="1680266083575" duration="4726000" />
-      <workItem from="1680272014182" duration="3474000" />
+      <workItem from="1680272014182" duration="4875000" />
     </task>
     <task id="LOCAL-00001" summary="DeleteFMOD">
       <created>1680272442239</created>
@@ -124,7 +132,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680274733521</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="SalePriceForButtonText">
+      <created>1680275585499</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1680275585499</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -160,6 +175,7 @@
     <MESSAGE value="DeleteFMOD" />
     <MESSAGE value="AddPriceResource" />
     <MESSAGE value="AddAllResourceShop" />
-    <option name="LAST_COMMIT_MESSAGE" value="AddAllResourceShop" />
+    <MESSAGE value="SalePriceForButtonText" />
+    <option name="LAST_COMMIT_MESSAGE" value="SalePriceForButtonText" />
   </component>
 </project>

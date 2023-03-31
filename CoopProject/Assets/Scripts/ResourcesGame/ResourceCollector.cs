@@ -40,4 +40,9 @@ public class ResourceCollector : MonoBehaviour
         
         return 0;
     }
+
+    public void SallResource<TypeResource>()
+    {
+        _resources[typeof(TypeResource)].Clear();
+    }
 }
