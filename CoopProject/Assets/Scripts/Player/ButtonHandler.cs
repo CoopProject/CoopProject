@@ -23,7 +23,7 @@ public class ButtonHandler : MonoBehaviour
     {
         _inputActions = new PlayerInputActions();
         _inputActions.Enable();
-        _inputActions.Player.Movement.performed += OnMove;
+        _inputActions.Player.Movement.performed += OnMove; ;
     }
 
     private void Start()
@@ -37,7 +37,7 @@ public class ButtonHandler : MonoBehaviour
         SetGravity();
     }
 
-    private void OpenPause()
+    public void OpenPause(InputAction.CallbackContext context)
     {
         if (_pausePanel.IActive)
             _pausePanel.DisablePanel();
