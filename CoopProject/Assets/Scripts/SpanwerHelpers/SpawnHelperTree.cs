@@ -6,14 +6,14 @@ internal class SpawnHelperTree : Factory<Tree>
 {
     private Helper _helper;
 
-    public void Start()
-    {
-        StartCoroutine(Instance());
-    }
+    private int _counterInstance = 0;
 
-    private IEnumerator Instance()
+    public int CounterInstance => _counterInstance;
+
+    public IEnumerator Instance()
     {
         yield return new WaitForSecondsRealtime(3f);
+        _counterInstance++;
         _helper = GetHelperInstantiate();
         _helper.SetList<Tree>(_treeKeeper);
     }
