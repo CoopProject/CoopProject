@@ -6,6 +6,8 @@ using UnityEngine;
 
 namespace ResourcesColection.IronOre
 {
+    [RequireComponent(typeof(MeshRenderer))]
+    [RequireComponent(typeof(BoxCollider))]
     public class IronOre : ResourceSource
     {
         private int _maxHealth = 10;
