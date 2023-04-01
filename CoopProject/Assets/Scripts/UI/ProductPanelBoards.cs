@@ -28,6 +28,7 @@ public class ProductPanelBoards : ProductPanel
    {
       Boards board = new();
       board.SetPrice();
-      TakeResource<Log>(board);
+      TakeResource<Boards>(board);
+      Reset<Log>();
    }
 }
