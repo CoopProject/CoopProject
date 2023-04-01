@@ -6,16 +6,15 @@ using UnityEngine;
 public class SpawnHelperGold : Factory<GoldOre>
 {
     private Helper _helper;
+    
+    private int _counterInstance = 0;
 
-    public void Start()
-    {
-        StartCoroutine(Instance());
-    }
+    public int CounterInstance => _counterInstance;
 
-    private IEnumerator Instance()
+    public void Instance()
     {
-        yield return new WaitForSecondsRealtime(3f);
+        _counterInstance++;
         _helper = GetHelperInstantiate();
-        _helper.SetList<GoldOre>(_treeKeeper);
+        _helper.SetList<Tree>(_treeKeeper);
     }
 }

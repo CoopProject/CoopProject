@@ -13,6 +13,7 @@ public class Rock : ResourceSource,IResourceSource
     private int _health = 30;
     private float _durationReset = 10f;
     private ResourceCollector _resourceCollector;
+    private int _resourceAddCount = 1;
 
     [Inject]
     private void Inject(Container container) => _resourceCollector = container.Resolve<ResourceCollector>();
@@ -30,13 +31,22 @@ public class Rock : ResourceSource,IResourceSource
         if (_health <= 0)
         {
             Dead();
-            _iDead = true;
-            Stone stone = new ();
-            stone.SetPrice();
-            _resourceCollector.AddResource<Stone>(stone);
+            AddResource();
             StartCoroutine(Reset());
         }
     }
+    
+    private void AddResource()
+    {
+        for (int i = 0; i < _resourceAddCount; i++)
+        {
+            Stone stone = new ();
+            stone.SetPrice();
+            _resourceCollector.AddResource<Stone>(stone);    
+        }
+    }
+    
+    public void AddResourceCount() => _resourceAddCount++;
 
     private IEnumerator Reset()
     {

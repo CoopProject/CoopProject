@@ -5,14 +5,14 @@ using UnityEngine;
 
 public abstract class UpgradePanelUI : MonoBehaviour
 {
-    [SerializeField] private HelpersBuilding _helpersBuilding;
+    [SerializeField] private HelpersBuildingTree helpersBuildingTree;
     [SerializeField] private TextMeshProUGUI _Level;
     [SerializeField] private TextMeshProUGUI _countHelperInstance;
     [SerializeField] private TextMeshProUGUI _textNextCountSpawnHelper;
     [SerializeField] private TextMeshProUGUI _extraction;
     [SerializeField] private TextMeshProUGUI _textValumeExtraction;
     [SerializeField] private TextMeshProUGUI _buttonPrice;
-    [Range(0, 1)][SerializeField] private float _levelUpProgres = 0;
+    [Range(0, 1)] [SerializeField] private float _levelUpProgres = 0;
 
     protected Player _player;
     private int _lvlUpPrice = 10;
@@ -22,21 +22,18 @@ public abstract class UpgradePanelUI : MonoBehaviour
     private int _helperBuildingLevel = 1;
     private int _nexLevelExtraction;
 
-
     [Inject]
     private void Inject(Container container) => _player = container.Resolve<Player>();
-    
 
     private void Start() => SetStartData();
-    
 
     private void SetStartData()
     {
         _Level.text = $"{_helperBuildingLevel}";
-        _countHelperInstance.text = $"{_helpersBuilding.Counter}";
+        _countHelperInstance.text = $"{helpersBuildingTree.Counter}";
         _extraction.text = $"{_extractionValue}";
         _textValumeExtraction.text = $"{_nexLevelExtraction = _extractionValue + 3}";
-        _textNextCountSpawnHelper.text = $"{_helpersBuilding.Counter}";
+        _textNextCountSpawnHelper.text = $"{helpersBuildingTree.Counter}";
         _buttonPrice.text = $"{_lvlUpPrice}";
     }
 
@@ -54,24 +51,24 @@ public abstract class UpgradePanelUI : MonoBehaviour
     {
         _levelUpProgres += _levelUpStep;
         _lvlUpPrice += _levelUpPriceNext;
-        if (_levelUpProgres >= 0.8 )
+        if (_levelUpProgres >= 0.8)
         {
-            _textNextCountSpawnHelper.text = $"{_helpersBuilding.Counter + 1}";
-            
+            _textNextCountSpawnHelper.text = $"{helpersBuildingTree.Counter + 1}";
+
             if (_levelUpProgres >= 1)
             {
-                _helpersBuilding.Lvlup();
+                helpersBuildingTree.Lvlup();
                 _levelUpProgres = 0;
-                _textNextCountSpawnHelper.text = $"{_helpersBuilding.Counter + 1}";
+                _textNextCountSpawnHelper.text = $"{helpersBuildingTree.Counter + 1}";
             }
         }
-            
+
         SetNewData();
     }
 
     private void SetNewData()
     {
-        _countHelperInstance.text = $"{_helpersBuilding.Counter}";
+        _countHelperInstance.text = $"{helpersBuildingTree.Counter}";
         _Level.text = $"{_helperBuildingLevel}";
         _extractionValue += 3;
         _extraction.text = $"{_extractionValue}";
