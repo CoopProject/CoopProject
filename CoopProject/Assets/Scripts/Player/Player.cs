@@ -57,7 +57,7 @@ public class Player : MonoBehaviour
 
     public void SellCoints(int price)
     {
-        if (price > 0)
+        if (price > 0 && _coins >= price)
             _coins -= price;
         
         SetCoinValue?.Invoke();
