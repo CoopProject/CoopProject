@@ -3,12 +3,13 @@ using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(CharacterController))]
 [RequireComponent(typeof(AnimatorPlayer))]
-public class Movement : MonoBehaviour
+public class ButtonHandler : MonoBehaviour
 {
     [SerializeField] private float _moveSpeed;
     [SerializeField] private float _rotationSpeed;
     [SerializeField] private float _gravityForce;
     [SerializeField] private AnimatorPlayer _animator;
+    [SerializeField] private PausePanel _pausePanel;
 
     private CharacterController _controller;
     private PlayerInputActions _inputActions;
@@ -25,11 +26,6 @@ public class Movement : MonoBehaviour
         _inputActions.Player.Movement.performed += OnMove;
     }
 
-    private void OnDisable()
-    {
-        _inputActions.Player.Movement.performed -= OnMove;
-    }
-
     private void Start()
     {
         _controller = GetComponent<CharacterController>();
@@ -39,6 +35,14 @@ public class Movement : MonoBehaviour
     {
         Move();
         SetGravity();
+    }
+
+    private void OpenPause()
+    {
+        if (_pausePanel.IActive)
+            _pausePanel.DisablePanel();
+        else
+            _pausePanel.Enable();
     }
 
     private void OnMove(InputAction.CallbackContext context)
@@ -75,5 +79,10 @@ public class Movement : MonoBehaviour
     {
         _gravityDirection.y += _gravityForce * Time.deltaTime;
         _controller.Move(_gravityDirection * _moveSpeed);
+    }
+    
+    private void OnDisable()
+    {
+        _inputActions.Player.Movement.performed -= OnMove;
     }
 }
