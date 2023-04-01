@@ -32,9 +32,9 @@ namespace ResourcesColection.IronOre
             {
                 Dead();
                 _iDead = true;
-                Iron gold = new();
-                gold.SetPrice();
-                _resourceCollector.AddResource<Gold>(gold);
+                Iron iron = new();
+                iron.SetPrice();
+                _resourceCollector.AddResource<Iron>(iron);
                 StartCoroutine(Reset());
             }
         }
