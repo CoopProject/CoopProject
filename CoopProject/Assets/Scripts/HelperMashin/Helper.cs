@@ -11,7 +11,6 @@ public class Helper : MonoBehaviour
     private ResourceSource _resourceSourceType;
     private List<ResourceSource> _resources;
     private int _damage = 30;
-    private float _moveSpead = 3f;
     private Vector3 offset = new Vector3(0, 2, 0);
     private float _extractDistance = 2.5f;
     private float _extractDuration = 0;

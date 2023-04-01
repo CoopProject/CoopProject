@@ -4,23 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9c8beb0-e3c9-4637-a844-eb3d016ca760" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Viues/StatsView.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Viues/StatsView.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.CoopProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CoopProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestSceen.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestSceen.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/IronOre/IronOre.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/IronOre/IronOre.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/TreeKeeper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/TreeKeeper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResourcesGame/IExtracting.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/IExtracting.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResourcesGame/IExtracting.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ResourcesColection/IExtracting.cs.meta" afterDir="false" />
-    </list>
+    <list default="true" id="c9c8beb0-e3c9-4637-a844-eb3d016ca760" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Merge.Settings">
-    <option name="BRANCH" value="origin/shop-dev" />
+    <option name="BRANCH" value="origin/dev-helper" />
   </component>
   <component name="Git.Settings">
     <option name="PUSH_TAGS">
@@ -31,7 +22,7 @@
     </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/.." value="check" />
+        <entry key="$PROJECT_DIR$/.." value="dev-helper" />
       </map>
     </option>
   </component>
@@ -43,11 +34,18 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d6232873609549b8a045fa15811a5bd346a800/5e/d4d636ed/SystemException.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d6232873609549b8a045fa15811a5bd346a800/67/b33a5a7d/NullReferenceException.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d6232873609549b8a045fa15811a5bd346a800/da/ffa3d56e/Dictionary`2.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Prisenters/PresenterStats.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/SetupShop.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/StatsSetup.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Viues/StatsView.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MVP/MVPShop/Viues/ViueUI.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ResourcesColection/Gold Ore/GoldOre.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ResourcesColection/IronOre/IronOre.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ResourcesColection/ResourceSource.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/limil/Desktop/CoopProject/CoopProject/Assets/Scripts/SpanwerHelpers/SpawnHelperGold.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/limil/Desktop/CoopProject/CoopProject/Assets/Scripts/SpanwerHelpers/SpawnHelperGold.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SpanwerHelpers/SpawnHelperGold.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/limil/Desktop/CoopProject/CoopProject/Assets/Scripts/SpanwerHelpers/SpawnHelperGold.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SpanwerHelpers/SpawnerHelperRock.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/SwitchUIPanel.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -55,7 +53,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2MVWOVsYpS8BbaNp33rVXoN61Rv" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -238,7 +236,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="dev-helper" />
+                        <option value="Dev" />
                       </list>
                     </value>
                   </entry>
