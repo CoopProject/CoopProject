@@ -12,11 +12,15 @@ public class WoodUpgradePanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _textNextCountSpawnHelper;
     [SerializeField] private TextMeshProUGUI _textValumeExtraction;
     [SerializeField] private TextMeshProUGUI _buttonPrice;
-    [Range(0, 1)][SerializeField] private float _lvlUpProgres = 0;
+    [Range(0, 1)][SerializeField] private float _levelUpProgres = 1;
 
     private Player _player;
-
+    private int _lvlUpPrice = 10;
+    private int _levelUpPriceNext = 3;
     private float _levelUpStep = 0.2f;
+    private int _extractionValue = 0;
+    private int _nexLevelExtraction;
+    private int _helperBuildingLevel = 1;
     
     
     [Inject]
@@ -32,21 +36,48 @@ public class WoodUpgradePanel : MonoBehaviour
 
     private void SetStartData()
     {
-        _textLevel.text = $"{_helpersBuilding.Level}";
+        _textLevel.text = $"{_helperBuildingLevel}";
         _textHelperInstance.text = $"{_helpersBuilding.Counter}";
-        _textExtraction.text = $"{0}";
-        _textValumeExtraction.text = $"{0}";
-        _textNextCountSpawnHelper.text = $"{0}";
-        _buttonPrice.text = $"{10}";
+        _textExtraction.text = $"{_extractionValue}";
+        _textValumeExtraction.text = $"{_nexLevelExtraction = _extractionValue + 3}";
+        _textNextCountSpawnHelper.text = $"{_helpersBuilding.Counter}";
+        _buttonPrice.text = $"{_lvlUpPrice}";
     }
 
-    public void LvlUp()
+    public void BuyLevel()
     {
-        if (_lvlUpProgres <= 0.7)
+        if (_player.Coins >= _lvlUpPrice)
         {
-            
+            _helperBuildingLevel++;
+            LevelUp();
+            _player.SellCoints(_lvlUpPrice);
         }
+    }
 
-        _lvlUpProgres += _levelUpStep;
+    private void LevelUp()
+    {
+        _levelUpProgres += _levelUpStep;
+        if (_levelUpProgres >= 0.6 )
+        {
+            _textNextCountSpawnHelper.text = $"{_helpersBuilding.Counter + 1}";
+            
+            if (_levelUpProgres >= 1)
+            {
+                _helpersBuilding.Lvlup();
+                _levelUpProgres = 0;
+                _textNextCountSpawnHelper.text = $"{_helpersBuilding.Counter + 1}";
+            }
+        }
+            
+        SetNewData();
+    }
+
+    private void SetNewData()
+    {
+        _textHelperInstance.text = $"{_helpersBuilding.Counter}";
+        _textLevel.text = $"{_helperBuildingLevel}";
+        _extractionValue += 3;
+        _textExtraction.text = $"{_extractionValue}";
+        _textValumeExtraction.text = $"{_nexLevelExtraction = _extractionValue + 3}";
     }
 }
