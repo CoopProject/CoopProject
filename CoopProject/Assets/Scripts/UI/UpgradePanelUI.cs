@@ -3,7 +3,7 @@ using Reflex.Scripts.Attributes;
 using TMPro;
 using UnityEngine;
 
-public class WoodUpgradePanel : MonoBehaviour
+public abstract class UpgradePanelUI : MonoBehaviour
 {
     [SerializeField] private HelpersBuilding _helpersBuilding;
     [SerializeField] private TextMeshProUGUI _textLevel;
@@ -57,7 +57,8 @@ public class WoodUpgradePanel : MonoBehaviour
     private void LevelUp()
     {
         _levelUpProgres += _levelUpStep;
-        if (_levelUpProgres >= 0.6 )
+        _lvlUpPrice += _levelUpPriceNext;
+        if (_levelUpProgres >= 0.8 )
         {
             _textNextCountSpawnHelper.text = $"{_helpersBuilding.Counter + 1}";
             
@@ -79,5 +80,6 @@ public class WoodUpgradePanel : MonoBehaviour
         _extractionValue += 3;
         _textExtraction.text = $"{_extractionValue}";
         _textValumeExtraction.text = $"{_nexLevelExtraction = _extractionValue + 3}";
+        _buttonPrice.text = $"{_lvlUpPrice}";
     }
 }

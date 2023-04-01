@@ -38,6 +38,7 @@ public class Tree : ResourceSource
         }
     }
     
+    
     private IEnumerator Reset()
     {
         var waitForSecondsRealtime = new WaitForSecondsRealtime(_durationReset);

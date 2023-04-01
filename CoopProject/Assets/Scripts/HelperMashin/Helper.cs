@@ -41,7 +41,7 @@ public class Helper : MonoBehaviour
             Vector3 direction = resource.transform.position - position;
             float curDistance = direction.sqrMagnitude;
 
-            if (curDistance < distance && resource.IDead != true)
+            if (curDistance < distance && resource.IDead == false)
             {
                 _resourceSourceType = resource;
                 distance = curDistance;
@@ -53,6 +53,7 @@ public class Helper : MonoBehaviour
     {
         if (_resourceSourceType != null && Vector3.Distance(transform.position, _resourceSourceType.transform.position) >= _extractDistance)
         {
+            _resourceSourceType.PrivateResource();
             var targetPosition = _resourceSourceType.transform.position + offset;
             _agent.SetDestination(targetPosition);
             _agent.isStopped = false;
