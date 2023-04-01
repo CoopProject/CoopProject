@@ -1,11 +1,10 @@
-using System.Collections;
 using System.Collections.Generic;
 using ResourcesColection.Gold_Ore;
 using UnityEngine;
 
 public class HelperBuildingGold : MonoBehaviour
 {
-    [SerializeField] private SpawnHelperTree _spawnHelperTree;
+    [SerializeField] private SpawnHelperGold _spawnHelperTree;
     [SerializeField] private int _level = 0;
     [SerializeField] private List<GoldOre> _list;
 

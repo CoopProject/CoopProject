@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class StoneUpgradePanel : MonoBehaviour
 {
-    [SerializeField] private HelpersBuildingTree helpersBuildingTree;
+    [SerializeField] private HelperBuildingStone helpersBuildingStone;
     [SerializeField] private TextMeshProUGUI _Level;
     [SerializeField] private TextMeshProUGUI _countHelperInstance;
     [SerializeField] private TextMeshProUGUI _textNextCountSpawnHelper;
@@ -32,10 +32,10 @@ public class StoneUpgradePanel : MonoBehaviour
     private void SetStartData()
     {
         _Level.text = $"{_helperBuildingLevel}";
-        _countHelperInstance.text = $"{helpersBuildingTree.Counter}";
+        _countHelperInstance.text = $"{helpersBuildingStone.Counter}";
         _extraction.text = $"{_extractionValue}";
         _textValumeExtraction.text = $"{_nexLevelExtraction = _extractionValue + 3}";
-        _textNextCountSpawnHelper.text = $"{helpersBuildingTree.Counter}";
+        _textNextCountSpawnHelper.text = $"{helpersBuildingStone.Counter}";
         _buttonPrice.text = $"{_lvlUpPrice}";
     }
 
@@ -55,13 +55,13 @@ public class StoneUpgradePanel : MonoBehaviour
         _lvlUpPrice += _levelUpPriceNext;
         if (_levelUpProgres >= 0.8)
         {
-            _textNextCountSpawnHelper.text = $"{helpersBuildingTree.Counter + 1}";
+            _textNextCountSpawnHelper.text = $"{helpersBuildingStone.Counter + 1}";
 
             if (_levelUpProgres >= 1)
             {
-                helpersBuildingTree.Lvlup();
+                helpersBuildingStone.Lvlup();
                 _levelUpProgres = 0;
-                _textNextCountSpawnHelper.text = $"{helpersBuildingTree.Counter + 1}";
+                _textNextCountSpawnHelper.text = $"{helpersBuildingStone.Counter + 1}";
             }
         }
 
@@ -70,7 +70,7 @@ public class StoneUpgradePanel : MonoBehaviour
 
     private void SetNewData()
     {
-        _countHelperInstance.text = $"{helpersBuildingTree.Counter}";
+        _countHelperInstance.text = $"{helpersBuildingStone.Counter}";
         _Level.text = $"{_helperBuildingLevel}";
         _extractionValue += 3;
         _extraction.text = $"{_extractionValue}";

@@ -1,6 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using ResourcesGame.TypeResource;
 using UnityEngine;
 
 public class HelperBuildingStone : MonoBehaviour

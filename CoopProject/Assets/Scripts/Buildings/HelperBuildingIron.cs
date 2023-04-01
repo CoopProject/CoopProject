@@ -1,11 +1,10 @@
-using System.Collections;
 using System.Collections.Generic;
 using ResourcesColection.IronOre;
 using UnityEngine;
 
 public class HelperBuildingIron : MonoBehaviour
 {
-    [SerializeField] private SpawnHelperTree _spawnHelperTree;
+    [SerializeField] private SpawnHelperIron _spawnHelperTree;
     [SerializeField] private int _level = 0;
     [SerializeField] private List<IronOre> _list;
 
