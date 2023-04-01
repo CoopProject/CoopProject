@@ -62,6 +62,15 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ButtonPause"",
+                    ""type"": ""Button"",
+                    ""id"": ""3f1d6751-e244-4e01-97c2-fa441f4ae077"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -218,6 +227,17 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""action"": ""MouseGetPosition"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2cb17741-423a-442a-a6b3-30b0b6340988"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ButtonPause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -257,6 +277,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_Player_MouseGetPosition = m_Player.FindAction("MouseGetPosition", throwIfNotFound: true);
         m_Player_TouchGetPosition = m_Player.FindAction("TouchGetPosition", throwIfNotFound: true);
         m_Player_TouchActivateJoystick = m_Player.FindAction("TouchActivateJoystick", throwIfNotFound: true);
+        m_Player_ButtonPause = m_Player.FindAction("ButtonPause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -320,6 +341,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_MouseGetPosition;
     private readonly InputAction m_Player_TouchGetPosition;
     private readonly InputAction m_Player_TouchActivateJoystick;
+    private readonly InputAction m_Player_ButtonPause;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -328,6 +350,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         public InputAction @MouseGetPosition => m_Wrapper.m_Player_MouseGetPosition;
         public InputAction @TouchGetPosition => m_Wrapper.m_Player_TouchGetPosition;
         public InputAction @TouchActivateJoystick => m_Wrapper.m_Player_TouchActivateJoystick;
+        public InputAction @ButtonPause => m_Wrapper.m_Player_ButtonPause;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -349,6 +372,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @TouchActivateJoystick.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTouchActivateJoystick;
                 @TouchActivateJoystick.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTouchActivateJoystick;
                 @TouchActivateJoystick.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTouchActivateJoystick;
+                @ButtonPause.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnButtonPause;
+                @ButtonPause.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnButtonPause;
+                @ButtonPause.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnButtonPause;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -365,6 +391,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @TouchActivateJoystick.started += instance.OnTouchActivateJoystick;
                 @TouchActivateJoystick.performed += instance.OnTouchActivateJoystick;
                 @TouchActivateJoystick.canceled += instance.OnTouchActivateJoystick;
+                @ButtonPause.started += instance.OnButtonPause;
+                @ButtonPause.performed += instance.OnButtonPause;
+                @ButtonPause.canceled += instance.OnButtonPause;
             }
         }
     }
@@ -384,5 +413,6 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         void OnMouseGetPosition(InputAction.CallbackContext context);
         void OnTouchGetPosition(InputAction.CallbackContext context);
         void OnTouchActivateJoystick(InputAction.CallbackContext context);
+        void OnButtonPause(InputAction.CallbackContext context);
     }
 }

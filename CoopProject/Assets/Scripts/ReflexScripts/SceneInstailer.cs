@@ -5,12 +5,12 @@ using UnityEngine.Serialization;
 
 public class SceneInstailer : Installer
 {
-    [SerializeField] private TreeKeeper treeKeeper;
     [SerializeField] private ResourceCollector _resourceCollector;
+    [SerializeField] private Player _player;
 
     public override void InstallBindings(Container container)
     {
-        container.BindInstanceAs(treeKeeper);
         container.BindInstanceAs(_resourceCollector);
+        container.BindInstanceAs(_player);
     }
 }

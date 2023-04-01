@@ -103,3 +103,7 @@ fmod_editor.log
 # FMOD 1.10.x (Legacy)
 /Assets/FMODAssets/*
 /Assets/FMODStudioCache.meta
+CoopProject/.idea/.idea.CoopProject/.idea/.gitignore
+CoopProject/.idea/.idea.CoopProject/.idea/encodings.xml
+CoopProject/.idea/.idea.CoopProject/.idea/indexLayout.xml
+CoopProject/.idea/.idea.CoopProject/.idea/vcs.xml

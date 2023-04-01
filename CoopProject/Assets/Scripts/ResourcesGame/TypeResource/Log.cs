@@ -3,14 +3,9 @@ using UnityEngine;
 
 namespace ResourcesGame.TypeResource
 {
-    public class Log : MonoBehaviour, IResource
+    public class Log : Resource
     {
-        private void OnTriggerEnter(Collider other)
-        {
-            if (other.TryGetComponent(out ResourceCollector collector))
-            {
-                gameObject.SetActive(false);
-            }
-        }
+        private int priceLog = 15;
+        public void SetPrice()=> Price = priceLog;
     }
 }

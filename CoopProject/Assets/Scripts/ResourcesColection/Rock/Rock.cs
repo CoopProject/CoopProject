@@ -2,28 +2,40 @@ using System.Collections;
 using Reflex;
 using Reflex.Scripts.Attributes;
 using ResourcesColection;
+using ResourcesGame.TypeResource;
 using UnityEngine;
 
-public class Rock : Resource,IResourceSource
+[RequireComponent(typeof(MeshRenderer))]
+[RequireComponent(typeof(BoxCollider))]
+public class Rock : ResourceSource,IResourceSource
 {
-    private int _resourceValue = 15;
     private int _maxHealth = 10;
     private int _health = 30;
-    private float _durationReset = 1f;
+    private float _durationReset = 10f;
+    private ResourceCollector _resourceCollector;
 
-
-
+    [Inject]
+    private void Inject(Container container) => _resourceCollector = container.Resolve<ResourceCollector>();
+    
+    private void Awake()
+    {
+        _mesh = GetComponent<MeshRenderer>();
+        _colliderBox = GetComponent<BoxCollider>();
+    }
+    
     public override void TakeDamage(int damage)
     {
-        FMODUnity.RuntimeManager.PlayOneShot("event:/RockHit");
         _health -= damage;
-        
+        Debug.Log("Камень получил урон");
         if (_health <= 0)
         {
             Dead();
             _iDead = true;
+            Stone stone = new ();
+            stone.SetPrice();
+            _resourceCollector.AddResource<Stone>(stone);
+            StartCoroutine(Reset());
         }
-        
     }
 
     private IEnumerator Reset()

@@ -1,15 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using DefaultNamespace;
 using ResourcesColection;
 using UnityEngine;
+using UnityEngine.AI;
 
+[RequireComponent(typeof(NavMeshAgent))]
 public class Helper : MonoBehaviour
 {
-    private Resource _resourceType;
-    private List<Resource> _resources;
+    private NavMeshAgent _agent;
+    private ResourceSource _resourceSourceType;
+    private List<ResourceSource> _resources;
     private int _damage = 30;
-    private float _moveSpead = 3f;
     private Vector3 offset = new Vector3(0, 2, 0);
     private float _extractDistance = 2.5f;
     private float _extractDuration = 0;
@@ -22,9 +23,9 @@ public class Helper : MonoBehaviour
     {
         _layerMask = 1 << LayerMask.NameToLayer("Resource");
         _extractResource = new ExtractResourceService(transform, _layerMask,_radius);
+        _agent = GetComponent<NavMeshAgent>();
     }
-
-
+    
     public void FixedUpdate()
     {
         MoveToPoint();
@@ -35,14 +36,14 @@ public class Helper : MonoBehaviour
         float distance = Mathf.Infinity;
         Vector3 position = pointFinding.transform.position;
 
-        foreach (Resource resource in _resources)
+        foreach (ResourceSource resource in _resources)
         {
             Vector3 direction = resource.transform.position - position;
             float curDistance = direction.sqrMagnitude;
 
             if (curDistance < distance && resource.IDead != true)
             {
-                _resourceType = resource;
+                _resourceSourceType = resource;
                 distance = curDistance;
             }
         }
@@ -50,18 +51,18 @@ public class Helper : MonoBehaviour
 
     private void MoveToPoint()
     {
-        if (_resourceType != null && Vector3.Distance(transform.position, _resourceType.transform.position) >= _extractDistance)
+        if (_resourceSourceType != null && Vector3.Distance(transform.position, _resourceSourceType.transform.position) >= _extractDistance)
         {
-            var targetPosition = _resourceType.transform.position + offset;
-            transform.position =
-                Vector3.MoveTowards(transform.position,targetPosition,
-                    _moveSpead * Time.deltaTime);
+            var targetPosition = _resourceSourceType.transform.position + offset;
+            _agent.SetDestination(targetPosition);
+            _agent.isStopped = false;
             transform.LookAt(targetPosition);
         }
         else
         {
             Search(transform);
            ExtractResours();
+           _agent.isStopped = true;
         }
     }
 

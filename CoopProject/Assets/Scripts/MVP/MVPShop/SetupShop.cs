@@ -1,42 +1,54 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using DefaultNamespace.MVC.MVPShop.Prisenters;
+using Reflex;
+using Reflex.Scripts.Attributes;
+using ResourcesGame.TypeResource;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class SetupShop : MonoBehaviour
 {
-    [SerializeField] private WoodViues woodViues;
-    [SerializeField] private GoldView _goldView;
-    [SerializeField] private StoneView _stoneView;
-    [SerializeField] private IronView _ironView;
+    [SerializeField] private ViueUI woodViueUI;
+    [SerializeField] private ViueUI _goldView;
+    [SerializeField] private ViueUI _stoneView;
+    [SerializeField] private ViueUI _ironView;
+    [SerializeField] private ViueUI _boardsView;
+    [SerializeField] private ViueUI _ironIngotsView;
+    [SerializeField] private ViueUI _goldIngotsView;
+    [SerializeField] private ViueAllSell _viueAllSell;
+   
+    private ResourceCollector _resourceCollector;
+    private Player _player;
     
-    private WoodPresenter _presenterWood;
-    private GoldPresenter _presenterGold;
-    private StonePrisenter _prisenterStone;
-    private IronPresenter _presenterIron;
+    private Presenter<Log> _presenterlog;
+    private Presenter<Gold> _presenterGold;
+    private Presenter<Iron> _prisenterIron;
+    private Presenter<Stone> _presenterStone;
+    private Presenter<Boards> _presenterBoards;
+    private Presenter<IronIngots> _presenterIronIgnots;
+    private Presenter<GoldIngots> _presenterGoldIngots;
     
-    private WoodModel _woodModel = new ();
-    private GoldModel _goldModel = new ();
-    private StoneModel _stoneModel = new ();
-    private IronModel _ironModel = new ();
-    
+    private Model _woodModel = new ();
+    private Model _goldModel = new ();
+    private Model _stoneModel = new ();
+    private Model _ironModel = new ();
+    private Model _boardsModel = new ();
+    private Model _ironIgnotsModel = new ();
+    private Model _goldIgnotsModel = new ();
 
-
-    private void Awake()
+    [Inject]
+    private void Inject(Container container)
     {
-        _presenterWood = new WoodPresenter(_woodModel, woodViues);
-        /*_presenterGold = new GoldPresenter(_goldModel,_goldView);
-        _prisenterStone = new StonePrisenter(_stoneModel,_stoneView);
-        _presenterIron = new IronPresenter(_ironModel,_ironView);*/
+        _resourceCollector = container.Resolve<ResourceCollector>();
+        _player = container.Resolve<Player>();
     }
 
     private void Start()
     {
-        _presenterWood.Start();
-        /*_presenterGold.Start();
-        _prisenterStone.Start();
-        _presenterIron.Start();*/
+        _presenterlog = new Presenter<Log>(_woodModel, woodViueUI, _resourceCollector,_player,_viueAllSell);
+        _presenterGold = new Presenter<Gold>(_goldModel, _goldView, _resourceCollector,_player,_viueAllSell);
+        _prisenterIron = new Presenter<Iron>(_ironModel, _ironView, _resourceCollector,_player,_viueAllSell);
+        _presenterStone = new Presenter<Stone>(_stoneModel, _stoneView, _resourceCollector,_player,_viueAllSell);
+        _presenterBoards = new Presenter<Boards>(_boardsModel, _boardsView, _resourceCollector,_player,_viueAllSell);
+        _presenterIronIgnots = new Presenter<IronIngots>(_ironIgnotsModel, _ironIngotsView, _resourceCollector,_player,_viueAllSell);
+        _presenterGoldIngots = new Presenter<GoldIngots>(_goldIgnotsModel, _goldIngotsView, _resourceCollector,_player,_viueAllSell);
     }
 }

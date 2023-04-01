@@ -1,5 +1,5 @@
-﻿using DefaultNamespace;
-using ResourcesColection;
+﻿using System;
+using DefaultNamespace;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -13,13 +13,16 @@ public class Player : MonoBehaviour
     private int _damage = 1;
     private float _maxExtractDuration = 3;
     private ExtractResourceService _extractResource;
-    
+    private int _coins = 0;
+
+    public int Coins => _coins;
+    public event Action SetCoinValue;
+
     private void Awake()
     {
         _layerMask = 1 << LayerMask.NameToLayer("Resource");
-        _extractResource = new ExtractResourceService(transform, _layerMask,_radius);
+        _extractResource = new ExtractResourceService(transform, _layerMask, _radius);
     }
-
 
     public void FixedUpdate()
     {
@@ -42,5 +45,13 @@ public class Player : MonoBehaviour
     public void Extract()
     {
         _extractResource.ExtractResource(_damage);
+    }
+
+    public void SetCoinsValue(int coins)
+    {
+        if (coins > 0)
+            _coins += coins;
+        
+        SetCoinValue?.Invoke();
     }
 }
