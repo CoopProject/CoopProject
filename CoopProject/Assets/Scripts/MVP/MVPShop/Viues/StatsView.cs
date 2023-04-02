@@ -27,12 +27,6 @@ namespace DefaultNamespace.MVP.MVPShop.Viues
                 _text.enabled = true;
                 _background.enabled = true;
             }
-            else
-            {
-                _image.enabled = false;
-                _text.enabled = false;
-                _background.enabled = false;
-            }
         }
     }
 }
