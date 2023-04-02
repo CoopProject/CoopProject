@@ -22,7 +22,7 @@ public class OpenWinterIsland : OpenIslandPanel<Stone,StoneBlocks>
 
     private void Update()
     {
-        ActiveBreadge();
+        ActiveIsland();
     }
 
     public void AddCoin()
@@ -55,7 +55,7 @@ public class OpenWinterIsland : OpenIslandPanel<Stone,StoneBlocks>
         return false;
     }
     
-    protected override void ActiveBreadge()
+    protected override void ActiveIsland()
     {
         if (CountCoin == MaxCountCountCoin && CountResourceOne == MaxCountCountOne &&
             CountResourceTwo == MaxCountCountTwo)
@@ -64,7 +64,8 @@ public class OpenWinterIsland : OpenIslandPanel<Stone,StoneBlocks>
             {
                 wall.gameObject.SetActive(false);
             }
-                        
+             
+            _player.SellCoints(MaxCountCountCoin);
             _resourceCollector.SellCountResource<Stone>(CountResourceTwo);
             _resourceCollector.SellCountResource<StoneBlocks>(MaxCountCountTwo);
             Destroy(this.gameObject);

@@ -21,7 +21,7 @@ public class OpenMagickIsland : OpenIslandPanel<Iron,IronIngots>
 
     private void Update()
     {
-        ActiveBreadge();
+        ActiveIsland();
     }
 
     public void AddCoin()
@@ -54,7 +54,7 @@ public class OpenMagickIsland : OpenIslandPanel<Iron,IronIngots>
         return false;
     }
 
-    protected override void ActiveBreadge()
+    protected override void ActiveIsland()
     {
         if (CountCoin == MaxCountCountCoin && CountResourceOne == MaxCountCountOne &&
             CountResourceTwo == MaxCountCountTwo)
@@ -64,6 +64,7 @@ public class OpenMagickIsland : OpenIslandPanel<Iron,IronIngots>
                 wall.gameObject.SetActive(false);
             }
             
+            _player.SellCoints(MaxCountCountCoin);
             _resourceCollector.SellCountResource<Iron>(CountResourceTwo);
             _resourceCollector.SellCountResource<IronIngots>(MaxCountCountTwo);
             Destroy(this.gameObject);

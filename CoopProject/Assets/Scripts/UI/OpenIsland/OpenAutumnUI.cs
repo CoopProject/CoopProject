@@ -1,8 +1,6 @@
-using System.Collections.Generic;
 using Reflex;
 using Reflex.Scripts.Attributes;
 using ResourcesGame.TypeResource;
-using UnityEngine;
 
 public class OpenAutumnUI : OpenIslandPanel<Log, Boards>
 {
@@ -23,7 +21,7 @@ public class OpenAutumnUI : OpenIslandPanel<Log, Boards>
 
     private void Update()
     {
-        ActiveBreadge();
+        ActiveIsland();
     }
 
     public void AddCoin()
@@ -56,7 +54,7 @@ public class OpenAutumnUI : OpenIslandPanel<Log, Boards>
         return false;
     }
 
-    protected override void ActiveBreadge()
+    protected override void ActiveIsland()
     {
         if (CountCoin == MaxCountCountCoin && CountResourceOne == MaxCountCountOne &&
             CountResourceTwo == MaxCountCountTwo)
@@ -65,7 +63,10 @@ public class OpenAutumnUI : OpenIslandPanel<Log, Boards>
             {
                 Destroy(wall.gameObject);
             }
-            
+
+            _player.SellCoints(MaxCountCountCoin);
+            _resourceCollector.SellCountResource<Log>(CountResourceTwo);
+            _resourceCollector.SellCountResource<Boards>(MaxCountCountTwo);
             Destroy(this.gameObject);
         }
     }

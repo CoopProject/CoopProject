@@ -81,6 +81,6 @@ public abstract class OpenIslandPanel<ResourceOne,ResourceTwo> : MonoBehaviour
         }
     }
 
-    protected abstract void ActiveBreadge();
+    protected abstract void ActiveIsland();
 
 }

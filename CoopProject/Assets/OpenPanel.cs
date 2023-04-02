@@ -1,17 +1,18 @@
+using ResourcesGame.TypeResource;
 using TMPro;
 using UnityEngine;
 
 public abstract class OpenPanel : MonoBehaviour
 {
-    [SerializeField] private Building _building;
-    [SerializeField] private Tarpaulin _tarpaulin;
+    [SerializeField] protected Building _building;
+    [SerializeField] protected Tarpaulin _tarpaulin;
 
     [SerializeField] private TextMeshProUGUI _textCounterCoin;
     [SerializeField] private TextMeshProUGUI _textCounterResourceOne;
     [Space]
     [SerializeField] protected int MaxCountCountCoin = 10;
     [Space]
-    [SerializeField] protected int MaxCountCountOne = 15;
+    [SerializeField] protected int MaxCountResourceOne = 15;
     
     protected int CountCoin = 0;
     protected int CountResourceOne = 0;
@@ -22,7 +23,7 @@ public abstract class OpenPanel : MonoBehaviour
     protected void SetStartData()
     {
         _textCounterCoin.text = $"{CountCoin}/{MaxCountCountCoin}";
-        _textCounterResourceOne.text = $"{CountResourceOne}/{MaxCountCountOne}";
+        _textCounterResourceOne.text = $"{CountResourceOne}/{MaxCountResourceOne}";
 
 
         CountCoin = 0;
@@ -32,16 +33,16 @@ public abstract class OpenPanel : MonoBehaviour
     protected void SetNewData()
     {
         _textCounterCoin.text = $"{CountCoin}/{MaxCountCountCoin}";
-        _textCounterResourceOne.text = $"{CountResourceOne}/{MaxCountCountOne}";
+        _textCounterResourceOne.text = $"{CountResourceOne}/{MaxCountResourceOne}";
     }
     
     protected void AddResourceOne<T>()
     {
         int resourceCount = _resourceCollector.GetCountList<T>();
 
-        if (resourceCount >= MaxCountCountOne)
+        if (resourceCount >= MaxCountResourceOne)
         {
-            CountResourceOne = MaxCountCountOne;
+            CountResourceOne = MaxCountResourceOne;
         }
         else
         {
@@ -61,14 +62,5 @@ public abstract class OpenPanel : MonoBehaviour
         return false;
     }
 
-    protected void ActiveBreadge()
-    {
-        if (CountCoin == MaxCountCountCoin && CountResourceOne == MaxCountCountOne )
-        {
-            _building.gameObject.SetActive(true);
-            _player.SellCoints(MaxCountCountCoin);
-            Destroy(this.gameObject);
-            Destroy(_tarpaulin.gameObject);
-        } 
-    }
+    protected abstract void ActiveBreadge();
 }

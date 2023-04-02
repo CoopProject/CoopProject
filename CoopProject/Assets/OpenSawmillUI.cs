@@ -39,4 +39,16 @@ public class OpenSawmillUI : OpenPanel
         CountCoin = _player.Coins;
         return false;
     }
+
+    protected override void ActiveBreadge()
+    {
+        if (CountCoin == MaxCountCountCoin && CountResourceOne == MaxCountResourceOne )
+        {
+            _building.gameObject.SetActive(true);
+            _player.SellCoints(MaxCountCountCoin);
+            _resourceCollector.SellCountResource<Log>(MaxCountResourceOne);
+            Destroy(this.gameObject);
+            Destroy(_tarpaulin.gameObject);
+        } 
+    }
 }
