@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class IslandBridge : MonoBehaviour
 {
-   private void Awake()
-   {
-      
-   }
+   private void Awake()=> gameObject.SetActive(false);
+   
 }

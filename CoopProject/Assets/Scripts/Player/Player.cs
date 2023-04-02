@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     private float _extractDuration = 3f;
     private static int _layerMask;
     private float _radius = 0.3f;
-    private int _damage = 1;
+    private int _damage = 20;
     private float _maxExtractDuration = 3;
     private ExtractResourceService _extractResource;
     private int _coins = 0;

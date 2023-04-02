@@ -16,6 +16,7 @@ public class ResourceCollector : MonoBehaviour
             [typeof(Gold)] = new List<Resource>(),
             [typeof(Log)] = new List<Resource>(),
             [typeof(Stone)] = new List<Resource>(),
+            [typeof(StoneBlocks)] = new List<Resource>(),
             [typeof(Boards)] = new List<Resource>(),
             [typeof(Iron)] = new List<Resource>(),
             [typeof(IronIngots)] = new List<Resource>(),
