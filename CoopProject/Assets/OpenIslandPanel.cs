@@ -1,10 +1,10 @@
-using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public abstract class OpenIslandPanel<ResourceOne,ResourceTwo> : MonoBehaviour
 {
-    [SerializeField] protected IslandBridge _islandBridge;
+    [SerializeField] protected List<Wall> _walls;
     [Header("Счетчики ресурсов")]
     [SerializeField] private TextMeshProUGUI _textCounterCoin;
     [SerializeField] private TextMeshProUGUI _textCounterResourceOne;
@@ -39,6 +39,46 @@ public abstract class OpenIslandPanel<ResourceOne,ResourceTwo> : MonoBehaviour
         _textCounterCoin.text = $"{CountCoin}/{MaxCountCountCoin}";
         _textCounterResourceOne.text = $"{CountResourceOne}/{MaxCountCountOne}";
         _textCounterResourceTwo.text = $"{CountResourceTwo}/{MaxCountCountTwo}"; 
+    }
+    
+    private bool ValidateAdd()
+    {
+        if (_player.Coins > MaxCountCountCoin)
+        {
+            CountCoin = MaxCountCountCoin;
+            return true;
+        }
+
+        CountCoin = _player.Coins;
+        return false;
+    }
+
+    protected void AddResourceLog<T>()
+    {
+        int resourceCount = _resourceCollector.GetCountList<T>();
+
+        if (resourceCount >= MaxCountCountOne)
+        {
+            CountResourceOne = MaxCountCountOne;
+        }
+        else
+        {
+            CountResourceOne = resourceCount;
+        }
+    }
+
+    protected void AddResourceBoards<T>()
+    {
+        int resourceCount = _resourceCollector.GetCountList<T>();
+
+        if (resourceCount >= MaxCountCountTwo)
+        {
+            CountResourceTwo = MaxCountCountTwo;
+        }
+        else
+        {
+            CountResourceTwo = resourceCount;
+        }
     }
 
     protected abstract void ActiveBreadge();

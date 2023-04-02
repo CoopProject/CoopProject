@@ -1,13 +1,14 @@
-using System;
+using System.Collections.Generic;
 using Reflex;
 using Reflex.Scripts.Attributes;
 using ResourcesGame.TypeResource;
+using UnityEngine;
 
-public class OpenAutumnUI : OpenIslandPanel<Log,Boards>
+public class OpenAutumnUI : OpenIslandPanel<Log, Boards>
 {
     private Log _log;
     private Boards _boards;
-    
+
     [Inject]
     private void Inject(Container container)
     {
@@ -30,7 +31,7 @@ public class OpenAutumnUI : OpenIslandPanel<Log,Boards>
         ValidateAdd();
         SetNewData();
     }
-    
+
     public void AddResourceOne()
     {
         AddResourceLog<Log>();
@@ -42,6 +43,7 @@ public class OpenAutumnUI : OpenIslandPanel<Log,Boards>
         AddResourceBoards<Boards>();
         SetNewData();
     }
+
     private bool ValidateAdd()
     {
         if (_player.Coins > MaxCountCountCoin)
@@ -49,43 +51,20 @@ public class OpenAutumnUI : OpenIslandPanel<Log,Boards>
             CountCoin = MaxCountCountCoin;
             return true;
         }
-        
+
         CountCoin = _player.Coins;
         return false;
     }
 
-    private void AddResourceLog<Log>()
-    {
-        int resourceCount = _resourceCollector.GetCountList<Log>();
-        
-        if (resourceCount >= MaxCountCountOne)
-        {
-            CountResourceOne = MaxCountCountOne;
-        }
-        else
-        {
-            CountResourceOne = resourceCount;
-        }
-    }
-
-    private void AddResourceBoards<Boards>()
-    {
-        int resourceCount = _resourceCollector.GetCountList<Boards>();
-        
-        if (resourceCount >= MaxCountCountTwo)
-        {
-            CountResourceTwo = MaxCountCountTwo;
-        }else
-        {
-            CountResourceTwo = resourceCount;
-        }
-    }
-
     protected override void ActiveBreadge()
     {
-        if (CountCoin == MaxCountCountCoin && CountResourceOne == MaxCountCountOne &&CountResourceTwo == MaxCountCountTwo )
+        if (CountCoin == MaxCountCountCoin && CountResourceOne == MaxCountCountOne &&
+            CountResourceTwo == MaxCountCountTwo)
         {
-            _islandBridge.gameObject.SetActive(true);
+            foreach (var wall in _walls)
+            {
+                Destroy(wall.gameObject);
+            }
             Destroy(this.gameObject);
         }
     }
