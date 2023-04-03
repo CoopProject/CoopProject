@@ -7,41 +7,40 @@ public class Processor : MonoBehaviour
     [SerializeField] private ProductPanel _panel;
     [SerializeField] private float _duration = 1f;
 
-    private int _ñountTransformation = 1;
+    private int _ñountTransformation = 0;
     private int _ñompleted = 0;
     private bool _iWorik = false;
+    private float _countDuration = 0;
     public event Action Done; 
 
     public int CountTransformation => _ñountTransformation;
     public int Completed => _ñompleted;
 
 
-    private void Update()
+    private void FixedUpdate()
     {
-        if (_iWorik)
+        if (_ñountTransformation != 0)
         {
-            StartCoroutine(Transformation());
-            _iWorik = false;
+            _countDuration += Time.deltaTime;
+            
+            if (_countDuration >= _duration)
+            {
+                _countDuration = 0;
+                Transformation();
+            }
         }
     }
 
-    public void Conversion(int count)
+    public void Conversion()
     {
-        _ñountTransformation = count;
-        _iWorik = true;
+        _ñountTransformation++;
     }
 
-    private IEnumerator Transformation()
+    private void Transformation()
     {
-        var waitForSecondsRealtime = new WaitForSecondsRealtime(_duration);
-        while (_ñountTransformation >= _ñompleted)
-        {
-            yield return waitForSecondsRealtime;
-            _ñountTransformation--;
-            _ñompleted++;
-            _panel.ConversionComplit();
-            Done?.Invoke();
-        }
+        _ñountTransformation--;
+        _ñompleted++;
+        Done?.Invoke();
     }
 
     public void Reset()

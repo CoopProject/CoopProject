@@ -14,7 +14,7 @@ public class ProductPanelBoards : ProductPanel
 
     public void AddResource()
     {
-        SetCount<Log>();
+        AddResources<Log>();
     }
 
     public void AddStack()

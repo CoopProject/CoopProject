@@ -9,7 +9,7 @@ public class ProductPanelGoldIngots : ProductPanel
    
     public void AddResource()
     {
-        SetCount<Gold>();
+        AddResources<Gold>();
     }
 
     public void AddStack()

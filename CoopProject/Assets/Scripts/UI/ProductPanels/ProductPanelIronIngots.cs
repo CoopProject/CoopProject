@@ -7,7 +7,7 @@ public class ProductPanelIronIngots : ProductPanel
     [Inject]
     private void Inject(Container container) => _resourceCollector = container.Resolve<ResourceCollector>();
    
-    public void AddResource() => SetCount<Iron>();
+    public void AddResource() => AddResources<Iron>();
     
 
     public void AddStack() => SetStackCount<Iron>();

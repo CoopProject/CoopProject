@@ -9,7 +9,7 @@ public class ProductPanelStone : ProductPanel
 
     public void AddResource()
     {
-        SetCount<Stone>();
+        AddResources<Stone>();
     }
 
     public void AddStack()

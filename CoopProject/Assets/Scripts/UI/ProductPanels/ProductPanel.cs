@@ -13,6 +13,7 @@ public abstract class ProductPanel : MonoBehaviour
     protected ResourceCollector _resourceCollector;
     protected Player _player;
     
+    
     private int _counter = 0;
 
     private void OnEnable()
@@ -33,20 +34,25 @@ public abstract class ProductPanel : MonoBehaviour
 
     public void ConversionComplit()
     {
-        Debug.Log("Конвертация выполнена");
         _counter--;
-        _textCount.text = $"{_counter}";
-        _textEndCount.text = $"{_processor.Completed}";
+        if (_counter < 0)
+        {
+            _counter = 0;
+            _textCount.text = $"{_counter}";
+            _textEndCount.text = $"{_processor.Completed}";
+        }
     }
 
-    protected void SetCount<T>()
+    protected void AddResources<T>()
     {
-        if (ValiadateAdd<T>())
+        int countList = _resourceCollector.GetCountList<T>();
+        
+        if (_counter <= countList && countList != 0 )
         {
             _counter++;
             _resourceCollector.SellCountResource<T>(1);
-            _processor.Conversion(_counter);
-            _textCount.text = $"{_counter}";
+            _processor.Conversion();
+            _textCount.text = $"{_processor.CountTransformation}";
             _textEndCount.text = $"{_processor.Completed}";
         }
     }
@@ -69,7 +75,6 @@ public abstract class ProductPanel : MonoBehaviour
         if (_counter + _stack <= 0)
         {
             _counter -= _stack;
-            _processor.Conversion(_counter);
             _textCount.text = $"{_counter}";
             _textEndCount.text = $"{_processor.Completed}";
         }
@@ -85,7 +90,7 @@ public abstract class ProductPanel : MonoBehaviour
     {
         int countList = _resourceCollector.GetCountList<T>();
 
-        if (_counter < countList)
+        if (_counter <= countList && countList != 0 )
             return true;
 
         return false;
