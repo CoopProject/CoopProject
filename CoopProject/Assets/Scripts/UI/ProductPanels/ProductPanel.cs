@@ -65,6 +65,7 @@ public abstract class ProductPanel : MonoBehaviour
         {
             _counter += _stack;
             _resourceCollector.SellCountResource<T>(_stack);
+            _processor.addStack(_stack);
             _textCount.text = $"{_counter}";
             _textEndCount.text = $"{_processor.Completed}";
         }
@@ -75,6 +76,7 @@ public abstract class ProductPanel : MonoBehaviour
         if (_counter + _stack <= 0)
         {
             _counter -= _stack;
+            _processor.TakeStack(_stack);
             _textCount.text = $"{_counter}";
             _textEndCount.text = $"{_processor.Completed}";
         }

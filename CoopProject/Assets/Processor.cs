@@ -36,6 +36,12 @@ public class Processor : MonoBehaviour
         _ñountTransformation++;
     }
 
+    public void addStack(int stackValue)=> _ñountTransformation += stackValue;
+    
+
+    public void TakeStack(int stackValue) => _ñountTransformation -= stackValue;
+    
+
     private void Transformation()
     {
         _ñountTransformation--;
