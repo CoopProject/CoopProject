@@ -92,8 +92,8 @@ public class OpenPanel<T> : MonoBehaviour
             _player.SellCoints(MaxCountCountCoin);
             _resourceCollector.SellCountResource<_resourceType>(MaxCountResourceOne);
             _statsView.gameObject.SetActive(true);
+            _tarpaulin.Delete();
             Destroy(this.gameObject);
-            Destroy(_tarpaulin.gameObject);
         }
     }
 }

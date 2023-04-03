@@ -27,6 +27,6 @@ public class ProductPanelGoldIngots : ProductPanel
         GoldIngots goldenIngots = new();
         goldenIngots.SetPrice();
         TakeResource<GoldIngots>(goldenIngots);
-        Reset<Gold>();
+        Reset();
     }
 }

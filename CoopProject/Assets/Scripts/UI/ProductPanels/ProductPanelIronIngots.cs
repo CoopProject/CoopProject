@@ -21,6 +21,6 @@ public class ProductPanelIronIngots : ProductPanel
         IronIngots ironIngots = new();
         ironIngots.SetPrice();
         TakeResource<IronIngots>(ironIngots);
-        Reset<Iron>();
+        Reset();
     }
 }

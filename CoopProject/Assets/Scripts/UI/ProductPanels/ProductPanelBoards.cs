@@ -1,11 +1,16 @@
 using Reflex;
 using Reflex.Scripts.Attributes;
 using ResourcesGame.TypeResource;
+using UnityEngine;
 
 public class ProductPanelBoards : ProductPanel
 {
     [Inject]
-    private void Inject(Container container) => _resourceCollector = container.Resolve<ResourceCollector>();
+    private void Inject(Container container)
+    {
+        _resourceCollector = container.Resolve<ResourceCollector>();
+        _player = container.Resolve<Player>();
+    }
 
     public void AddResource()
     {
@@ -24,9 +29,12 @@ public class ProductPanelBoards : ProductPanel
 
     public void TakeConvertType()
     {
-        Boards board = new();
-        board.SetPrice();
-        TakeResource<Boards>(board);
-        Reset<Log>();
+        if (_processor.Completed > 0)
+        {
+            Boards board = new();
+            board.SetPrice();
+            TakeResource<Boards>(board);
+            Reset();
+        }
     }
 }

@@ -70,7 +70,7 @@ public class OpenWinterIsland : OpenIslandPanel<Stone,StoneBlocks>
             _player.SellCoints(MaxCountCountCoin);
             _resourceCollector.SellCountResource<Stone>(CountResourceTwo);
             _resourceCollector.SellCountResource<StoneBlocks>(MaxCountCountTwo);
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
     }
 }

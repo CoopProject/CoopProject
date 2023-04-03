@@ -1,3 +1,4 @@
+using System;
 using ResourcesGame.TypeResource;
 using TMPro;
 using UnityEngine;
@@ -6,16 +7,36 @@ public abstract class ProductPanel : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _textCount;
     [SerializeField] private TextMeshProUGUI _textEndCount;
+    [SerializeField] protected Processor _processor;
     [SerializeField] private int _stack = 10;
 
     protected ResourceCollector _resourceCollector;
+    protected Player _player;
+    
     private int _counter = 0;
-    private int _addResourceCount = 0;
 
-    private void Start()
+    private void OnEnable()
+    {
+        _processor.Done += ConversionComplit;
+    }
+
+    private void LateUpdate()
+    {
+        SetData();
+    }
+
+    private void SetData()
     {
         _textCount.text = $"{_counter}";
-        _textEndCount.text = $"{_addResourceCount}";
+        _textEndCount.text = $"{_processor.Completed}";   
+    }
+
+    public void ConversionComplit()
+    {
+        Debug.Log("Конвертация выполнена");
+        _counter--;
+        _textCount.text = $"{_counter}";
+        _textEndCount.text = $"{_processor.Completed}";
     }
 
     protected void SetCount<T>()
@@ -23,9 +44,10 @@ public abstract class ProductPanel : MonoBehaviour
         if (ValiadateAdd<T>())
         {
             _counter++;
-            _addResourceCount = _counter;
+            _resourceCollector.SellCountResource<T>(1);
+            _processor.Conversion(_counter);
             _textCount.text = $"{_counter}";
-            _textEndCount.text = $"{_addResourceCount}";
+            _textEndCount.text = $"{_processor.Completed}";
         }
     }
 
@@ -36,9 +58,9 @@ public abstract class ProductPanel : MonoBehaviour
         if (countList > _stack && _counter + _stack <= countList)
         {
             _counter += _stack;
-            _addResourceCount = _counter;
+            _resourceCollector.SellCountResource<T>(_stack);
             _textCount.text = $"{_counter}";
-            _textEndCount.text = $"{_addResourceCount}";
+            _textEndCount.text = $"{_processor.Completed}";
         }
     }
 
@@ -47,17 +69,16 @@ public abstract class ProductPanel : MonoBehaviour
         if (_counter + _stack <= 0)
         {
             _counter -= _stack;
+            _processor.Conversion(_counter);
             _textCount.text = $"{_counter}";
-            _addResourceCount = _counter;
-            _textEndCount.text = $"{_addResourceCount}";
+            _textEndCount.text = $"{_processor.Completed}";
         }
     }
 
     protected void TakeResource<Type>(Resource resource)
     {
-        for (int i = 0; i < _addResourceCount; i++)
+        for (int i = 0; i < _processor.Completed; i++)
             _resourceCollector.AddResource<Type>(resource);
-        
     }
 
     private bool ValiadateAdd<T>()
@@ -71,15 +92,17 @@ public abstract class ProductPanel : MonoBehaviour
     }
 
 
-   protected void Reset<Type>()
+    protected void Reset()
     {
-        if (_counter > 0 && _addResourceCount > 0)
+        if (_processor.Completed > 0)
         {
             _counter = 0;
-            _addResourceCount = 0;
+            _processor.Reset();
             _textCount.text = $"{_counter}";
-            _textEndCount.text = $"{_addResourceCount}";
-            _resourceCollector.SallResource<Type>();
+            _textEndCount.text = $"{_processor.Completed}";
         }
     }
+
+    private void OnDisable() => _processor.Done -= ConversionComplit;
+    
 }

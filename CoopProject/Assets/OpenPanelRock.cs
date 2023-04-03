@@ -11,6 +11,11 @@ public class OpenPanelRock : OpenPanel<Stone>
         _resourceCollector = container.Resolve<ResourceCollector>();
         _player = container.Resolve<Player>();
     }
+    
+    private void Update()
+    {
+        ActiveBreadge<Stone>();
+    }
         
     private void Start()
     {
