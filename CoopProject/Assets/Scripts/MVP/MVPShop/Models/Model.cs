@@ -23,13 +23,9 @@ public class Model
        }
    }
 
-   public void SetCoinPlayer(Player player)
-   {
-       player.SetCoinsValue(SumResource);
-   }
+   public void SetCoinPlayer(Player player) => player.SetCoinsValue(SumResource);
+   
 
-   public void ClearData<T>(ResourceCollector resourceCollector)
-   {
-       resourceCollector.SallResource<T>();
-   }
+   public void ClearData<T>(ResourceCollector resourceCollector) => resourceCollector.SallResource<T>();
+   
 }

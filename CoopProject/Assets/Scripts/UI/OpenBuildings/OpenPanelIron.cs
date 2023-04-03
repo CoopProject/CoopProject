@@ -10,6 +10,11 @@ public class OpenPanelIron : OpenPanel<Iron>
         _resourceCollector = container.Resolve<ResourceCollector>();
         _player = container.Resolve<Player>();
     }
+    
+    private void Update()
+    {
+        ActiveBreadge<Iron>();
+    }
         
     private void Start()
     {

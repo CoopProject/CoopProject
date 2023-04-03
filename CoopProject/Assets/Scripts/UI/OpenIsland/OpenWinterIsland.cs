@@ -1,10 +1,11 @@
 using Reflex;
 using Reflex.Scripts.Attributes;
 using ResourcesGame.TypeResource;
+using UnityEngine;
 
 public class OpenWinterIsland : OpenIslandPanel<Stone,StoneBlocks>
 {
-    
+    [SerializeField] private StatsSetup _statsSetup;
     private Log _log;
     private Boards _boards;
 
@@ -64,7 +65,8 @@ public class OpenWinterIsland : OpenIslandPanel<Stone,StoneBlocks>
             {
                 wall.gameObject.SetActive(false);
             }
-             
+            _walls = null;
+             _statsSetup.ActiveWinter();
             _player.SellCoints(MaxCountCountCoin);
             _resourceCollector.SellCountResource<Stone>(CountResourceTwo);
             _resourceCollector.SellCountResource<StoneBlocks>(MaxCountCountTwo);

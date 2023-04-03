@@ -28,10 +28,6 @@ public abstract class OpenIslandPanel<ResourceOne,ResourceTwo> : MonoBehaviour
         _textCounterCoin.text = $"{CountCoin}/{MaxCountCountCoin}";
         _textCounterResourceOne.text = $"{CountResourceOne}/{MaxCountCountOne}";
         _textCounterResourceTwo.text = $"{CountResourceTwo}/{MaxCountCountTwo}";
-
-        CountCoin = 0;
-        CountResourceOne = 0;
-        CountResourceTwo = 0;
     }
 
     protected void SetNewData()
@@ -82,5 +78,4 @@ public abstract class OpenIslandPanel<ResourceOne,ResourceTwo> : MonoBehaviour
     }
 
     protected abstract void ActiveIsland();
-
 }

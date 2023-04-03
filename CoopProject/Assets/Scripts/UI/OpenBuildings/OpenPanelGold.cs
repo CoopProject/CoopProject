@@ -10,6 +10,11 @@ public class OpenPanelGold : OpenPanel<Gold>
         _resourceCollector = container.Resolve<ResourceCollector>();
         _player = container.Resolve<Player>();
     }
+    
+    private void Update()
+    {
+        ActiveBreadge<Gold>();
+    }
         
     private void Start()
     {

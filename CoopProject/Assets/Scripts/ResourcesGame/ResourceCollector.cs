@@ -31,7 +31,8 @@ public class ResourceCollector : MonoBehaviour
 
     public int GetCountList<TypeResource>()
     {
-        return _resources[typeof(TypeResource)].Count;
+        var count = _resources[typeof(TypeResource)].Count;
+        return count;
     }
 
     public int GetResourcePrice<TypeResource>()

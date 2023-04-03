@@ -1,3 +1,5 @@
+using System;
+using System.Security.Cryptography.X509Certificates;
 using DefaultNamespace.MVC.MVPShop.Prisenters;
 using DefaultNamespace.MVP.MVPShop.Viues;
 using Reflex;
@@ -7,7 +9,7 @@ using UnityEngine;
 
 public class StatsSetup : MonoBehaviour
 {
-    [SerializeField] private StatsView woodViueUI;
+    [SerializeField] private StatsView _woodViueUI;
     [SerializeField] private StatsView _goldView;
     [SerializeField] private StatsView _stoneView;
     [SerializeField] private StatsView _ironView;
@@ -39,14 +41,30 @@ public class StatsSetup : MonoBehaviour
         _resourceCollector = container.Resolve<ResourceCollector>();
     }
 
+    private void Start()
+    {
+        _woodViueUI.gameObject.SetActive(true);
+    }
+
     private void Awake()
     {
-        _presenterlog = new PresenterStats<Log>(_woodModel, woodViueUI, _resourceCollector);
+        _presenterlog = new PresenterStats<Log>(_woodModel, _woodViueUI, _resourceCollector);
         _presenterGold = new PresenterStats<Gold>(_goldModel, _goldView, _resourceCollector);
         _prisenterIron = new PresenterStats<Iron>(_ironModel, _ironView, _resourceCollector);
         _presenterStone = new PresenterStats<Stone>(_stoneModel, _stoneView, _resourceCollector);
         _presenterBoards = new PresenterStats<Boards>(_boardsModel, _boardsView, _resourceCollector);
         _presenterIronIgnots = new PresenterStats<IronIngots>(_ironIgnotsModel, _ironIngotsView, _resourceCollector);
         _presenterGoldIngots = new PresenterStats<GoldIngots>(_goldIgnotsModel, _goldIngotsView, _resourceCollector);
+    }
+
+    public void ActiveAmaunt()
+    {
+        _stoneView.gameObject.SetActive(true);
+        _ironView.gameObject.SetActive(true);
+    }
+
+    public void ActiveWinter()
+    {
+        _goldView.gameObject.SetActive(true);
     }
 }

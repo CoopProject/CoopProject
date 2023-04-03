@@ -1,3 +1,5 @@
+using System;
+using DefaultNamespace.MVP.MVPShop.Viues;
 using TMPro;
 using UnityEngine;
 
@@ -7,6 +9,7 @@ public class OpenPanel<T> : MonoBehaviour
     [SerializeField] private Tarpaulin _tarpaulin;
     [SerializeField] private TextMeshProUGUI _textCounterCoin;
     [SerializeField] private TextMeshProUGUI _textCounterResourceOne;
+    [SerializeField] private StatsView _statsView;
     [Space] 
     [SerializeField] private int MaxCountCountCoin = 10;
     [Space]
@@ -22,6 +25,8 @@ public class OpenPanel<T> : MonoBehaviour
     private void OnEnable() => SetStartData();
     
     protected void SetResourceType(T resource) =>  _resourceType = resource;
+
+    
 
     public void AddCoin()
     {
@@ -86,6 +91,7 @@ public class OpenPanel<T> : MonoBehaviour
             _building.gameObject.SetActive(true);
             _player.SellCoints(MaxCountCountCoin);
             _resourceCollector.SellCountResource<_resourceType>(MaxCountResourceOne);
+            _statsView.gameObject.SetActive(true);
             Destroy(this.gameObject);
             Destroy(_tarpaulin.gameObject);
         }

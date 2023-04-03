@@ -16,8 +16,6 @@ public class Helper : MonoBehaviour
     private int _damage = 5;
     private Vector3 offset = new Vector3(0, 2, 0);
     private float _extractDistance = 2.5f;
-    private float _extractDuration = 0;
-    private float _maxExtctractDuration = 3f;
     private ExtractResourceService _extractResource;
     private int _layerMask;
     private float _radius = 0.3f;

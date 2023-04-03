@@ -1,9 +1,13 @@
+using DefaultNamespace.MVP.MVPShop.Viues;
 using Reflex;
 using Reflex.Scripts.Attributes;
 using ResourcesGame.TypeResource;
+using UnityEngine;
 
 public class OpenAutumnUI : OpenIslandPanel<Log, Boards>
 {
+    [SerializeField] private StatsSetup _statsSetup;
+    
     private Log _log;
     private Boards _boards;
 
@@ -65,6 +69,7 @@ public class OpenAutumnUI : OpenIslandPanel<Log, Boards>
             }
 
             _player.SellCoints(MaxCountCountCoin);
+            _statsSetup.ActiveAmaunt();
             _resourceCollector.SellCountResource<Log>(CountResourceTwo);
             _resourceCollector.SellCountResource<Boards>(MaxCountCountTwo);
             Destroy(this.gameObject);
