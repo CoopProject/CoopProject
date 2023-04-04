@@ -8,7 +8,7 @@ public class ViueUI : MonoBehaviour
   [SerializeField] private TextMeshProUGUI _resourceCount;
   [Space]
   [Header("Обычная кнопка продажи")]
-  [SerializeField] private Button _buttonSale;
+  [SerializeField] public Button _buttonSale;
   [SerializeField] private TextMeshProUGUI _textButtonPrice;
   [Space]
   [Header("Кнопка рекламы")]
@@ -16,7 +16,6 @@ public class ViueUI : MonoBehaviour
   [SerializeField] private TextMeshProUGUI _textRewardButtonPrice;
   
   public event Action OnActive;
-  public event Action ButtonClick;
   public int Count { get; private set; } = 0;
   public int Price { get; private set; } = 0;
 
@@ -35,5 +34,5 @@ public class ViueUI : MonoBehaviour
     Price = value;
   }
 
-  public void SellButtonClick() => ButtonClick?.Invoke();
+  public void SellButtonClick() => _buttonSale.onClick.Invoke();
 }

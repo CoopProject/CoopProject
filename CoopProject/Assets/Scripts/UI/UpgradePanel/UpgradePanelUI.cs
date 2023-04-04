@@ -2,11 +2,14 @@ using Reflex;
 using Reflex.Scripts.Attributes;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem.HID;
+using UnityEngine.UI;
 
 public abstract class UpgradePanelUI : MonoBehaviour
 {
     [SerializeField] private HelpersBuildingTree helpersBuildingTree;
     [SerializeField] private TextMeshProUGUI _Level;
+    [SerializeField] private Button _buttonLvlUp;
     [SerializeField] private TextMeshProUGUI _countHelperInstance;
     [SerializeField] private TextMeshProUGUI _textNextCountSpawnHelper;
     [SerializeField] private TextMeshProUGUI _extraction;
@@ -25,7 +28,11 @@ public abstract class UpgradePanelUI : MonoBehaviour
     [Inject]
     private void Inject(Container container) => _player = container.Resolve<Player>();
 
-    private void Start() => SetStartData();
+    private void Start()
+    {
+        SetStartData();
+        _buttonLvlUp.onClick.AddListener(BuyLevel);
+    }
 
     private void SetStartData()
     {
