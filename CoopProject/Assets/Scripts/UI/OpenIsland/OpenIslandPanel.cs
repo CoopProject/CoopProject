@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public abstract class OpenIslandPanel<ResourceOne,ResourceTwo> : MonoBehaviour
 {
@@ -9,6 +10,11 @@ public abstract class OpenIslandPanel<ResourceOne,ResourceTwo> : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _textCounterCoin;
     [SerializeField] private TextMeshProUGUI _textCounterResourceOne;
     [SerializeField] private TextMeshProUGUI _textCounterResourceTwo;
+
+    [Header("Кнопочки для добовления")] 
+    [SerializeField] protected Button _addResourceOne;
+    [SerializeField] protected Button _addResourceTwo;
+    [SerializeField] protected Button _addResourceFree;
     [Space]
     [SerializeField] protected int MaxCountCountCoin = 10;
     [Space]

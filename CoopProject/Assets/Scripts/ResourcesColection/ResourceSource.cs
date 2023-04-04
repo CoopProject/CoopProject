@@ -27,5 +27,8 @@ namespace ResourcesColection
             _colliderBox.enabled = false;
             _iCanBeMined = false;
         }
+
+        public abstract void AddResourceCount();
+
     }
 }

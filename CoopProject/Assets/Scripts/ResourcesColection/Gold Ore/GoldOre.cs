@@ -48,7 +48,7 @@ namespace ResourcesColection.Gold_Ore
             }
         }
         
-        public void AddResourceCount() => _resourceAddCount++;
+        public override void AddResourceCount() => _resourceAddCount++;
 
         private IEnumerator Reset()
         {

@@ -2,6 +2,7 @@ using System;
 using DefaultNamespace.MVP.MVPShop.Viues;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class OpenPanel<T> : MonoBehaviour 
 {
@@ -10,6 +11,9 @@ public class OpenPanel<T> : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _textCounterCoin;
     [SerializeField] private TextMeshProUGUI _textCounterResourceOne;
     [SerializeField] private StatsView _statsView;
+    [Header("Кнопки")] 
+    [SerializeField] private Button _addResourceOne;
+    [SerializeField] private Button _addResourceTwo;
     [Space] 
     [SerializeField] private int MaxCountCountCoin = 10;
     [Space]
@@ -23,18 +27,24 @@ public class OpenPanel<T> : MonoBehaviour
     private T _resourceType;
 
     private void OnEnable() => SetStartData();
-    
+
+    private void Start()
+    {
+        _addResourceOne.onClick.AddListener(AddCoin);
+        _addResourceTwo.onClick.AddListener(AddResourceOne);
+    }
+
     protected void SetResourceType(T resource) =>  _resourceType = resource;
 
     
 
-    public void AddCoin()
+    private void AddCoin()
     {
         ValidateAdd();
         SetNewData();
     }
 
-    public void AddResourceOne()
+    private void AddResourceOne()
     {
         AddResourceOne<T>();
         SetNewData();

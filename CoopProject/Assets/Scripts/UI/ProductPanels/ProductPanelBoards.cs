@@ -1,7 +1,6 @@
 using Reflex;
 using Reflex.Scripts.Attributes;
 using ResourcesGame.TypeResource;
-using UnityEngine;
 
 public class ProductPanelBoards : ProductPanel
 {
@@ -12,22 +11,24 @@ public class ProductPanelBoards : ProductPanel
         _player = container.Resolve<Player>();
     }
 
-    public void AddResource()
+    private void Start()
     {
-        AddResources<Log>();
+        _putResource.onClick.AddListener(AddResource);
+        _putStack.onClick.AddListener(AddStack);
+        _takeStack.onClick.AddListener(TakeStack);
+        _takeResource.onClick.AddListener(TakeConvertType);
     }
 
-    public void AddStack()
-    {
-        SetStackCount<Log>();
-    }
+    private void AddResource()=> AddResources<Log>();
+    
 
-    public void TakeStack()
-    {
-        Take();
-    }
+    private void AddStack()=> SetStackCount<Log>();
+    
 
-    public void TakeConvertType()
+    private void TakeStack()=> Take();
+    
+
+    private void TakeConvertType()
     {
         if (_processor.Completed > 0)
         {

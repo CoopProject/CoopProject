@@ -6,23 +6,25 @@ public class ProductPanelStone : ProductPanel
 {
     [Inject]
     private void Inject(Container container) => _resourceCollector = container.Resolve<ResourceCollector>();
-
-    public void AddResource()
+    
+    private void Start()
     {
-        AddResources<Stone>();
+        _putResource.onClick.AddListener(AddResource);
+        _putStack.onClick.AddListener(AddStack);
+        _takeStack.onClick.AddListener(TakeStack);
+        _takeResource.onClick.AddListener(TakeConvertType);
     }
 
-    public void AddStack()
-    {
-        SetStackCount<Stone>();
-    }
+    private void AddResource()=> AddResources<Stone>();
+    
 
-    public void TakeStack()
-    {
-        Take();
-    }
+    private void AddStack() => SetStackCount<Stone>();
+    
 
-    public void TakeConvertType()
+    private void TakeStack() => Take();
+    
+
+    private void TakeConvertType()
     {
         StoneBlocks board = new();
         board.SetPrice();

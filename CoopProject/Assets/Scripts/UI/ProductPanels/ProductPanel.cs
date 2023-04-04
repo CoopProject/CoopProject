@@ -2,11 +2,16 @@ using System;
 using ResourcesGame.TypeResource;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public abstract class ProductPanel : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _textCount;
     [SerializeField] private TextMeshProUGUI _textEndCount;
+    [SerializeField] protected Button _putResource;
+    [SerializeField] protected Button _putStack;
+    [SerializeField] protected Button _takeStack;
+    [SerializeField] protected Button _takeResource;
     [SerializeField] protected Processor _processor;
     [SerializeField] private int _stack = 10;
 

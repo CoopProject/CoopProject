@@ -1,3 +1,4 @@
+using System;
 using DefaultNamespace.MVP.MVPShop.Viues;
 using Reflex;
 using Reflex.Scripts.Attributes;
@@ -23,24 +24,31 @@ public class OpenAutumnUI : OpenIslandPanel<Log, Boards>
         SetStartData();
     }
 
+    private void Start()
+    {
+        _addResourceOne.onClick.AddListener(AddCoin);
+        _addResourceTwo.onClick.AddListener(AddResourceOne);
+        _addResourceFree.onClick.AddListener(AddResourceTwo);
+    }
+
     private void Update()
     {
         ActiveIsland();
     }
 
-    public void AddCoin()
+    private void AddCoin()
     {
         ValidateAdd();
         SetNewData();
     }
 
-    public void AddResourceOne()
+    private void AddResourceOne()
     {
         AddResourceOne<Log>();
         SetNewData();
     }
 
-    public void AddResourceTwo()
+    private void AddResourceTwo()
     {
         AddResourceTwo<Boards>();
         SetNewData();

@@ -50,7 +50,7 @@ namespace ResourcesColection.IronOre
             }
         }
         
-        public void AddResourceCount() => _resourceAddCount++;
+        public override void AddResourceCount() => _resourceAddCount++;
 
         private IEnumerator Reset()
         {
