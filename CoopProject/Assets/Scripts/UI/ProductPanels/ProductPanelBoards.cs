@@ -23,10 +23,13 @@ public class ProductPanelBoards : ProductPanel
     
 
     private void AddStack()=> SetStackCount<Log>();
-    
 
-    private void TakeStack()=> Take();
-    
+
+    private void TakeStack()
+    {
+        var log = new Log();
+        Take<Log>(log);
+    }
 
     private void TakeConvertType()
     {

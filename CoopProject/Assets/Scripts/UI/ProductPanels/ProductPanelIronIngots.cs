@@ -21,8 +21,11 @@ public class ProductPanelIronIngots : ProductPanel
     private void AddStack() => SetStackCount<Iron>();
     
 
-    private void TakeStack() => Take();
-    
+    private void TakeStack()
+    {
+        var iron = new Iron();
+        Take<Log>(iron);
+    }
 
     private void TakeConvertType()
     {

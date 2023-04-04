@@ -21,7 +21,11 @@ public class ProductPanelGoldIngots : ProductPanel
     private void AddStack()=> SetStackCount<Gold>();
     
 
-    private void TakeStack() => Take();
+    private void TakeStack()
+    {
+        var gold = new Gold();
+        Take<Log>(gold);
+    }
     
 
     private void TakeConvertType()

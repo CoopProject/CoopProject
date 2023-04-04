@@ -1,4 +1,3 @@
-using System;
 using Reflex;
 using Reflex.Scripts.Attributes;
 using ResourcesGame.TypeResource;
@@ -14,15 +13,17 @@ namespace DefaultNamespace.UI.OpenBuildings
             _player = container.Resolve<Player>();
         }
 
-        private void Update()
-        {
-            ActiveBreadge<Log>();
-        }
-
         private void Start()
         {
             var Log = new Log();
             SetResourceType(Log);
+            _addResourceOne.onClick.AddListener(AddCoin);
+            _addResourceTwo.onClick.AddListener(AddResourceOne);
+        }
+
+        private void Update()
+        {
+            ActiveBreadge<Log>();
         }
     }
 }

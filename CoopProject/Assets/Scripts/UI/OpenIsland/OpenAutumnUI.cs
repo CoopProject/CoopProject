@@ -1,5 +1,3 @@
-using System;
-using DefaultNamespace.MVP.MVPShop.Viues;
 using Reflex;
 using Reflex.Scripts.Attributes;
 using ResourcesGame.TypeResource;
@@ -36,19 +34,19 @@ public class OpenAutumnUI : OpenIslandPanel<Log, Boards>
         ActiveIsland();
     }
 
-    private void AddCoin()
+    protected void AddCoin()
     {
         ValidateAdd();
         SetNewData();
     }
 
-    private void AddResourceOne()
+    protected void AddResourceOne()
     {
         AddResourceOne<Log>();
         SetNewData();
     }
 
-    private void AddResourceTwo()
+    protected void AddResourceTwo()
     {
         AddResourceTwo<Boards>();
         SetNewData();

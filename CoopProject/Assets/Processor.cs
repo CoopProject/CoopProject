@@ -17,7 +17,7 @@ public class Processor : MonoBehaviour
     public int Completed => _ñompleted;
 
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (_ñountTransformation != 0)
         {
@@ -44,14 +44,19 @@ public class Processor : MonoBehaviour
 
     private void Transformation()
     {
-        _ñountTransformation--;
-        _ñompleted++;
-        Done?.Invoke();
+        if (_ñountTransformation >= 0)
+        {
+            _ñountTransformation--;
+            _ñompleted++;
+            Done?.Invoke();
+        }
+        else
+        {
+            _ñountTransformation = 0;
+            Done?.Invoke();
+        }
     }
 
-    public void Reset()
-    {
-        _ñountTransformation = 0;
-        _ñompleted = 0;
-    }
+    public void Reset()=> _ñompleted = 0;
+    
 }

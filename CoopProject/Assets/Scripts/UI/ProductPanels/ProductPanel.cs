@@ -19,7 +19,7 @@ public abstract class ProductPanel : MonoBehaviour
     protected Player _player;
     
     
-    private int _counter = 0;
+    protected int _counter  => _processor.CountTransformation;
 
     private void OnEnable()
     {
@@ -33,17 +33,15 @@ public abstract class ProductPanel : MonoBehaviour
 
     private void SetData()
     {
-        _textCount.text = $"{_counter}";
+        _textCount.text = $"{_processor.CountTransformation}";
         _textEndCount.text = $"{_processor.Completed}";   
     }
 
     public void ConversionComplit()
     {
-        _counter--;
         if (_counter < 0)
         {
-            _counter = 0;
-            _textCount.text = $"{_counter}";
+            _textCount.text = $"{_processor.CountTransformation}";
             _textEndCount.text = $"{_processor.Completed}";
         }
     }
@@ -54,7 +52,6 @@ public abstract class ProductPanel : MonoBehaviour
         
         if (_counter <= countList && countList != 0 )
         {
-            _counter++;
             _resourceCollector.SellCountResource<T>(1);
             _processor.Conversion();
             _textCount.text = $"{_processor.CountTransformation}";
@@ -66,23 +63,22 @@ public abstract class ProductPanel : MonoBehaviour
     {
         int countList = _resourceCollector.GetCountList<T>();
 
-        if (countList > _stack && _counter + _stack <= countList)
+        if (countList > _processor.CountTransformation && _processor.CountTransformation + _stack <= countList)
         {
-            _counter += _stack;
             _resourceCollector.SellCountResource<T>(_stack);
             _processor.addStack(_stack);
-            _textCount.text = $"{_counter}";
+            _textCount.text = $"{_processor.CountTransformation}";
             _textEndCount.text = $"{_processor.Completed}";
         }
     }
 
-    protected void Take()
+    protected void Take<T>(Resource resource)
     {
-        if (_counter + _stack <= 0)
+        if (_processor.CountTransformation - _stack >= 0)
         {
-            _counter -= _stack;
             _processor.TakeStack(_stack);
-            _textCount.text = $"{_counter}";
+            TakeResourceStack<T>(resource);
+            _textCount.text = $"{_processor.CountTransformation}";
             _textEndCount.text = $"{_processor.Completed}";
         }
     }
@@ -90,6 +86,12 @@ public abstract class ProductPanel : MonoBehaviour
     protected void TakeResource<Type>(Resource resource)
     {
         for (int i = 0; i < _processor.Completed; i++)
+            _resourceCollector.AddResource<Type>(resource);
+    }
+    
+    protected void TakeResourceStack<Type>(Resource resource)
+    {
+        for (int i = 0; i < _stack; i++)
             _resourceCollector.AddResource<Type>(resource);
     }
 
@@ -108,10 +110,9 @@ public abstract class ProductPanel : MonoBehaviour
     {
         if (_processor.Completed > 0)
         {
-            _counter = 0;
-            _processor.Reset();
-            _textCount.text = $"{_counter}";
+            _textCount.text = $"{_processor.CountTransformation}";
             _textEndCount.text = $"{_processor.Completed}";
+            _processor.Reset();
         }
     }
 

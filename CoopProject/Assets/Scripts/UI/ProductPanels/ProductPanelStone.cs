@@ -21,7 +21,11 @@ public class ProductPanelStone : ProductPanel
     private void AddStack() => SetStackCount<Stone>();
     
 
-    private void TakeStack() => Take();
+    private void TakeStack()
+    {
+        var stone = new Stone();
+        Take<Log>(stone);
+    }
     
 
     private void TakeConvertType()
