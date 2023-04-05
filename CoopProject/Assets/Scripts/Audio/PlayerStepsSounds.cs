@@ -1,18 +1,14 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerStepsSounds : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private List<AudioClip> _steps;
+    [SerializeField] private AudioSource _stepsPlayer;
+    
+    public void Play()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        int index = Random.Range(0, _steps.Count);
+        _stepsPlayer.PlayOneShot(_steps[index]);
     }
 }

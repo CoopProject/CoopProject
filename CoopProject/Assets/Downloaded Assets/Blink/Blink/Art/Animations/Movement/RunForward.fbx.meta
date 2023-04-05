@@ -95,17 +95,17 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.41921398
-        functionName: NewEvent
+      - time: 0.33018377
+        functionName: Play
         data: 
-        objectReferenceParameter: {instanceID: 0}
+        objectReferenceParameter: {fileID: 11500000, guid: d1f069b41c2fb304f875c867af544c87, type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.9170306
-        functionName: NewEvent
+      - time: 0.8295902
+        functionName: Play
         data: 
-        objectReferenceParameter: {instanceID: 0}
+        objectReferenceParameter: {fileID: 11500000, guid: d1f069b41c2fb304f875c867af544c87, type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
