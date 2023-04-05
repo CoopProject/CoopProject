@@ -35,11 +35,25 @@ public class Player : MonoBehaviour
 
             if (_extractDuration < 0)
             {
-                Debug.Log("Аниматор должен запустить добычу");
-                _animator.Extract();
                 transform.LookAt( resource.transform.position + _offset);
+            }
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, transform.forward, out hit, 1.25f, _layerMask))
+        {
+            if (_extractDuration < 0)
+            {
+                _animator.Extract();
                 _extractDuration = _maxExtractDuration;
             }
+        }
+        else
+        {
+            _animator.StopExtract();
         }
     }
 
