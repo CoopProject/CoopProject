@@ -23,6 +23,7 @@ public class Tree : ResourceSource
     {
         _mesh = GetComponent<MeshRenderer>();
         _colliderBox = GetComponent<BoxCollider>();
+        _transform = transform;
     }
 
     public override void TakeDamage(int damage)
