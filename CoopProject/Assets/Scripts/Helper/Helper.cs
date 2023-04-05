@@ -15,10 +15,10 @@ public class Helper : MonoBehaviour
     private HelperAnimator _animator;
     private int _damage = 5;
     private Vector3 offset = new Vector3(0, 2, 0);
-    private float _extractDistance = 2.5f;
+    private float _extractDistance = 1f;
     private ExtractResourceService _extractResource;
     private int _layerMask;
-    private float _radius = 0.3f;
+    private float _radius = 3f;
 
     private void Awake()
     {
@@ -71,10 +71,7 @@ public class Helper : MonoBehaviour
         }
     }
 
-    public void SetList<T>(TreeKeeper treeKeeper)
-    {
-        _resources = treeKeeper.GetList<T>();
-    }
+    public void SetList(List<ResourceSource> resourceSources) => _resources = resourceSources;
 
     public void ExtractResours() => _extractResource.ExtractResource(_damage);
 }

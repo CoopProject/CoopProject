@@ -1,21 +1,23 @@
 using System.Collections.Generic;
 using ResourcesColection;
+using SpanwerHelpers;
 using UnityEngine;
 
 namespace DefaultNamespace.Buildings
 {
     public class HelperBuildng<T> : MonoBehaviour  where T:ResourceSource
     {
-    [SerializeField] protected SpawnerHelperRock _spawnHelperTree;
+    [SerializeField] protected Factory<T> _spawnHelperTree;
     [SerializeField] protected int _level = 0;
-    [SerializeField] protected List<T> _list;
+    [SerializeField] protected List<ResourceSource> _list;
 
-    public int Counter => _spawnHelperTree.CounterInstance;
+    public int Counter => _spawnHelperTree.InstanceCount;
     public int Level => _level;
 
     public void Lvlup()
     {
-        _spawnHelperTree.Instance();
+       var helper =  _spawnHelperTree.GetHelperInstantiate();
+       helper.SetList(_list);
         _level++;
         LevelUpExtraction();
     }

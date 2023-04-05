@@ -13,10 +13,13 @@ namespace SpanwerHelpers
         [SerializeField] private Transform _spawnPoint;
         [SerializeField] protected T _resource;
         [SerializeField] protected TreeKeeper _treeKeeper;
+        
+        public int InstanceCount { get; private set; }
 
-        protected Helper GetHelperInstantiate()
+        public Helper GetHelperInstantiate()
         {
             var instantiateHelper = Instantiate(_helperPrefab, _spawnPoint.position, Quaternion.identity);
+            InstanceCount++;
             return instantiateHelper;
         }
     }
