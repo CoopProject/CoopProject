@@ -1,5 +1,7 @@
 ﻿using System;
 using DefaultNamespace;
+using ResourcesColection;
+using ResourcesGame.TypeResource;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -9,11 +11,12 @@ public class Player : MonoBehaviour
     private int _treeResourceCounter;
     private float _extractDuration = 3f;
     private static int _layerMask;
-    private float _radius = 0.3f;
+    private float _radius = 3f;
     private int _damage = 20;
     private float _maxExtractDuration = 3;
     private ExtractResourceService _extractResource;
     private int _coins = 0;
+    private Vector3 _offset = new Vector3(0, 0.3f, 0);
 
     public int Coins => _coins;
     public event Action SetCoinValue;
@@ -24,21 +27,19 @@ public class Player : MonoBehaviour
         _extractResource = new ExtractResourceService(transform, _layerMask, _radius);
     }
 
-    public void FixedUpdate()
+    private void OnTriggerStay(Collider other)
     {
-        RaycastHit hit;
-        _extractDuration -= Time.deltaTime;
-        if (Physics.Raycast(transform.position, transform.forward, out hit, 1.25f, _layerMask))
+        if (other.TryGetComponent(out ResourceSource resource))
         {
+            _extractDuration -= Time.deltaTime;
+
             if (_extractDuration < 0)
             {
+                Debug.Log("Аниматор должен запустить добычу");
                 _animator.Extract();
+                transform.LookAt( resource.transform.position + _offset);
                 _extractDuration = _maxExtractDuration;
             }
-        }
-        else
-        {
-            _animator.StopExtract();
         }
     }
 
