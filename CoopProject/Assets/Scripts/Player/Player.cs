@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     private float _extractDuration = 3f;
     private static int _layerMask;
     private float _radius = 0.3f;
-    private int _damage = 1;
+    private int _damage = 20;
     private float _maxExtractDuration = 3;
     private ExtractResourceService _extractResource;
     private int _coins = 0;
@@ -51,6 +51,14 @@ public class Player : MonoBehaviour
     {
         if (coins > 0)
             _coins += coins;
+        
+        SetCoinValue?.Invoke();
+    }
+
+    public void SellCoints(int price)
+    {
+        if (price > 0 && _coins >= price)
+            _coins -= price;
         
         SetCoinValue?.Invoke();
     }

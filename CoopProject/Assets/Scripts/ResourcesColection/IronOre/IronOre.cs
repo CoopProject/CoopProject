@@ -14,6 +14,7 @@ namespace ResourcesColection.IronOre
         private int _health = 30;
         private float _durationReset = 10f;
         private ResourceCollector _resourceCollector;
+        private int _resourceAddCount = 1;
 
         [Inject]
         private void Inject(Container container) => _resourceCollector = container.Resolve<ResourceCollector>();
@@ -38,6 +39,18 @@ namespace ResourcesColection.IronOre
                 StartCoroutine(Reset());
             }
         }
+        
+        private void AddResource()
+        {
+            for (int i = 0; i < _resourceAddCount; i++)
+            {
+                Iron iron = new();
+                iron.SetPrice();
+                _resourceCollector.AddResource<Iron>(iron);  
+            }
+        }
+        
+        public override void AddResourceCount() => _resourceAddCount++;
 
         private IEnumerator Reset()
         {

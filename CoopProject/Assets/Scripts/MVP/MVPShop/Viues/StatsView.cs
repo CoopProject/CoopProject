@@ -13,6 +13,11 @@ namespace DefaultNamespace.MVP.MVPShop.Viues
 
         public event Action OnUpdate;
 
+        private void Start()
+        {
+            gameObject.SetActive(false);
+        }
+
         private void LateUpdate()
         {
             OnUpdate?.Invoke();
@@ -29,10 +34,9 @@ namespace DefaultNamespace.MVP.MVPShop.Viues
             }
             else
             {
-                _image.enabled = false;
-                _text.enabled = false;
-                _background.enabled = false;
+                _text.text = $"{0}";
             }
         }
+        
     }
 }

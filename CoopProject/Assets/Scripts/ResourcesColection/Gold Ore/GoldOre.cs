@@ -14,6 +14,7 @@ namespace ResourcesColection.Gold_Ore
         private int _health = 30;
         private float _durationReset = 10f;
         private ResourceCollector _resourceCollector;
+        private int _resourceAddCount;
 
         [Inject]
         private void Inject(Container container) => _resourceCollector = container.Resolve<ResourceCollector>();
@@ -32,12 +33,22 @@ namespace ResourcesColection.Gold_Ore
             {
                 Dead();
                 _iDead = true;
-                Gold gold = new();
-                gold.SetPrice();
-                _resourceCollector.AddResource<Gold>(gold);
+                AddResource();
                 StartCoroutine(Reset());
             }
         }
+        
+        private void AddResource()
+        {
+            for (int i = 0; i < _resourceAddCount; i++)
+            {
+                Gold gold = new();
+                gold.SetPrice();
+                _resourceCollector.AddResource<Gold>(gold);   
+            }
+        }
+        
+        public override void AddResourceCount() => _resourceAddCount++;
 
         private IEnumerator Reset()
         {
