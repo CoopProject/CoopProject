@@ -43,7 +43,7 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.forward, out hit, 1.25f, _layerMask))
+        if (Physics.Raycast(transform.position, transform.forward, out hit, 1.24f, _layerMask))
         {
             if (_extractDuration < 0)
             {
