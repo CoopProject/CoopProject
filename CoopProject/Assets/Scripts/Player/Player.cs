@@ -1,21 +1,20 @@
 ﻿using System;
 using DefaultNamespace;
 using ResourcesColection;
-using ResourcesGame.TypeResource;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
     [SerializeField] private AnimatorPlayer _animator;
 
-    private int _treeResourceCounter;
-    private float _extractDuration = 3f;
-    private static int _layerMask;
-    private float _radius = 3f;
-    private int _damage = 20;
-    private float _maxExtractDuration = 3;
     private ExtractResourceService _extractResource;
+    private static int _layerMask;
+    private int _treeResourceCounter;
+    private int _damage = 20;
     private int _coins = 0;
+    private float _extractDuration = 1f;
+    private float _maxExtractDuration = 3;
+    private float _radius = 3f;
     private Vector3 _offset = new Vector3(0, 0.3f, 0);
 
     public int Coins => _coins;
