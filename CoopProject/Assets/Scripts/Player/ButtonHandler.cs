@@ -57,9 +57,12 @@ public class ButtonHandler : MonoBehaviour
             _animator.Move();
             _controller.Move(_targetDirection * Time.deltaTime * _moveSpeed);
             Rotate();
+            _animator.StopExtract();
         }
         else
+        {
             _animator.Stop();
+        }
     }
 
     private void CreateTargetDirection(Vector2 inputDirection)
