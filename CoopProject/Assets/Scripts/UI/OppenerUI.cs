@@ -33,14 +33,12 @@ public class OppenerUI : MonoBehaviour
 
     private void Open()
     {
-        print("активация");
         _panel.SetActive(true);
         _rectTransform.DOScale(_maxScale, _timeAnimation);
     }
 
     private void Close()
     {
-        print("деактивация");
        _rectTransform.DOScale(_minScale, _timeAnimation);
 
         if (!_isCorutineWork)
