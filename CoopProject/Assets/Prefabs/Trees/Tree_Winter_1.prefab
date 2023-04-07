@@ -12,7 +12,9 @@ GameObject:
   - component: {fileID: 7523975433382923939}
   - component: {fileID: 7515781929528440361}
   - component: {fileID: 7502029213517333829}
-  m_Layer: 0
+  - component: {fileID: 765671612}
+  - component: {fileID: 765671611}
+  m_Layer: 3
   m_Name: Tree_Winter_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7501085516094045917}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.9507484, y: -8.36, z: -9.683594}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4582,8 +4584,33 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 29
+  m_VersionIndex: 41
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!65 &765671612
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7501085516094045917}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.75610584, y: 3.856153, z: 0.83502513}
+  m_Center: {x: 0.033567816, y: 1.9280765, z: 0.0053983927}
+--- !u!114 &765671611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7501085516094045917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 136c5abee4a093d45a4f6f978a43dfee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

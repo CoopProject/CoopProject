@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     private int _damage = 20;
     private int _coins = 0;
     private float _extractDuration = 1f;
-    private float _maxExtractDuration = 3;
+    private float _maxExtractDuration = 1f;
     private float _radius = 3f;
     private Vector3 _offset = new Vector3(0, 0.3f, 0);
 

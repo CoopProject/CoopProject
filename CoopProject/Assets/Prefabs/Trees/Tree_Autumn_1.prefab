@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 7523975433382923939}
   - component: {fileID: 7515781929528440361}
   - component: {fileID: 7502029213517333829}
+  - component: {fileID: 8913412372465468998}
+  - component: {fileID: 2131311640186989419}
   m_Layer: 0
   m_Name: Tree_Autumn_1
   m_TagString: Untagged
@@ -26,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7501085516094045917}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.9507484, y: -8.36, z: -9.683594}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4587,3 +4589,28 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!65 &8913412372465468998
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7501085516094045917}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.7654495, y: 4.8739996, z: 0.8052597}
+  m_Center: {x: 0.03950882, y: 2.4369998, z: -0.021327972}
+--- !u!114 &2131311640186989419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7501085516094045917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 136c5abee4a093d45a4f6f978a43dfee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

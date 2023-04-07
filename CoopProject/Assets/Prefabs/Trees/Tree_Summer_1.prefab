@@ -12,7 +12,9 @@ GameObject:
   - component: {fileID: 33222949445572694}
   - component: {fileID: 23050206849376476}
   - component: {fileID: 937153456}
-  m_Layer: 0
+  - component: {fileID: 1887998423}
+  - component: {fileID: 1887998422}
+  m_Layer: 3
   m_Name: Tree_Summer_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4582,16 +4584,33 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 182
+  m_VersionIndex: 188
   m_IsSelectable: 1
-  m_SelectedFaces: 79000000
-  m_SelectedEdges:
-  - a: 400
-    b: 401
-  - a: 401
-    b: 402
-  - a: 402
-    b: 403
-  - a: 403
-    b: 400
-  m_SelectedVertices: 90010000910100009201000093010000
+  m_SelectedFaces: 
+  m_SelectedEdges: []
+  m_SelectedVertices: 
+--- !u!65 &1887998423
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1612273161005096}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.7829895, y: 3.5308352, z: 0.68239594}
+  m_Center: {x: 0.057403564, y: 1.8254175, z: -0.00008773804}
+--- !u!114 &1887998422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1612273161005096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 136c5abee4a093d45a4f6f978a43dfee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
