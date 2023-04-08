@@ -92,10 +92,10 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.4602882
-        functionName: Extract
+      - time: 0.49781662
+        functionName: PlayMiningSound
         data: 
-        objectReferenceParameter: {instanceID: 0}
+        objectReferenceParameter: {fileID: 11500000, guid: d1f069b41c2fb304f875c867af544c87, type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
