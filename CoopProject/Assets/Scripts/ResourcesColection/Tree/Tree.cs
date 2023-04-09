@@ -50,7 +50,7 @@ public class Tree : ResourceSource
         
     }
 
-    public override void AddResourceCount() => _resourceAddCount++;
+    public override void AddResourceCount(int resourceExtraction) => _resourceAddCount = resourceExtraction;
     
     private IEnumerator Reset()
     {

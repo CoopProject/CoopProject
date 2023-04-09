@@ -8,24 +8,24 @@ namespace DefaultNamespace.Buildings
     public class HelperBuildng<T> : MonoBehaviour  where T:ResourceSource
     {
     [SerializeField] protected Factory<T> _spawnHelperTree;
-    [SerializeField] protected int _level = 0;
     [SerializeField] protected List<ResourceSource> _list;
 
     public int Counter => _spawnHelperTree.InstanceCount;
-    public int Level => _level;
 
-    public void Lvlup()
+    public void Lvlup(int helperInstance,int resourceExtraction)
     {
-       var helper =  _spawnHelperTree.GetHelperInstantiate();
-       helper.SetList(_list);
-        _level++;
-        LevelUpExtraction();
+        while (Counter <= helperInstance)
+        {
+            var helper = _spawnHelperTree.GetHelperInstantiate();
+            helper.SetList(_list);
+        }
+       LevelUpExtraction(resourceExtraction);
     }
 
-    private void LevelUpExtraction()
+    private void LevelUpExtraction(int extraction)
     {
         for (int i = 0; i < _list.Count; i++)
-            _list[i].AddResourceCount();
+            _list[i].AddResourceCount(extraction);
 
     }
     }

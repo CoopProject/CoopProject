@@ -36,7 +36,12 @@ public class Rock : ResourceSource,IResourceSource
             StartCoroutine(Reset());
         }
     }
-    
+
+    public override void AddResourceCount(int extraction)
+    {
+        throw new System.NotImplementedException();
+    }
+
     private void AddResource()
     {
         for (int i = 0; i < _resourceAddCount; i++)
@@ -47,7 +52,7 @@ public class Rock : ResourceSource,IResourceSource
         }
     }
     
-    public override void AddResourceCount() => _resourceAddCount++;
+   // public override void AddResourceCount() => _resourceAddCount++;
 
     private IEnumerator Reset()
     {

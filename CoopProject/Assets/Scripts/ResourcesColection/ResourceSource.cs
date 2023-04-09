@@ -30,7 +30,7 @@ namespace ResourcesColection
             _iCanBeMined = false;
         }
 
-        public abstract void AddResourceCount();
+        public abstract void AddResourceCount(int extraction);
 
     }
 }

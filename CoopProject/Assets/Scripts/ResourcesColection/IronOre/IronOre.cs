@@ -8,7 +8,7 @@ namespace ResourcesColection.IronOre
 {
     [RequireComponent(typeof(MeshRenderer))]
     [RequireComponent(typeof(BoxCollider))]
-    public class IronOre : ResourceSource
+    public class IronOre : ResourceSource,IResourceSource
     {
         private int _maxHealth = 10;
         private int _health = 30;
@@ -40,7 +40,12 @@ namespace ResourcesColection.IronOre
                 StartCoroutine(Reset());
             }
         }
-        
+
+        public override void AddResourceCount(int extraction)
+        {
+            throw new System.NotImplementedException();
+        }
+
         private void AddResource()
         {
             for (int i = 0; i < _resourceAddCount; i++)
@@ -51,7 +56,7 @@ namespace ResourcesColection.IronOre
             }
         }
         
-        public override void AddResourceCount() => _resourceAddCount++;
+       // public override void AddResourceCount() => _resourceAddCount++;
 
         private IEnumerator Reset()
         {

@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+using DefaultNamespace.UI.UpgradePanel;
 using Reflex;
 using Reflex.Scripts.Attributes;
 using TMPro;
@@ -7,79 +10,24 @@ using UnityEngine.UI;
 
 public abstract class UpgradePanelUI : MonoBehaviour
 {
-    [SerializeField] private HelpersBuildingTree helpersBuildingTree;
-    [SerializeField] private TextMeshProUGUI _Level;
+    [SerializeField] private HelpersBuildingTree _helpersBuilding;
+    [SerializeField] private TextMeshProUGUI _levelUpNow;
     [SerializeField] private Button _buttonLvlUp;
     [SerializeField] private TextMeshProUGUI _countHelperInstance;
-    [SerializeField] private TextMeshProUGUI _textNextCountSpawnHelper;
+    [SerializeField] private TextMeshProUGUI _nextCountSpawnHelper;
     [SerializeField] private TextMeshProUGUI _extraction;
-    [SerializeField] private TextMeshProUGUI _textValumeExtraction;
+    [SerializeField] private TextMeshProUGUI _valumeExtraction;
     [SerializeField] private TextMeshProUGUI _buttonPrice;
-    [Range(0, 1)] [SerializeField] private float _levelUpProgres = 0;
+    [SerializeField] private List<LevelUpData> _levelUps;
 
-    protected Player _player;
-    private int _lvlUpPrice = 10;
-    private int _levelUpPriceNext = 3;
-    private float _levelUpStep = 0.2f;
-    private int _extractionValue = 0;
-    private int _helperBuildingLevel = 1;
-    private int _nexLevelExtraction;
-
-    [Inject]
-    private void Inject(Container container) => _player = container.Resolve<Player>();
-
+    private int _levelNow = 0;
     private void Start()
     {
-        SetStartData();
-        _buttonLvlUp.onClick.AddListener(BuyLevel);
-    }
+        _levelUpNow.text = $"{_levelNow + 1}";
+        _countHelperInstance.text = $"{_levelUps[_levelNow].InstanceHelpers}";
+        _nextCountSpawnHelper.text = $"{_levelUps[_levelNow + 1].InstanceHelpers}";
+        _extraction.text = $"{_levelUps[_levelNow].ExtractedResources}";
+        _valumeExtraction.text = $"{_levelUps[_levelNow + 1].ExtractedResources}";
 
-    private void SetStartData()
-    {
-        _Level.text = $"{_helperBuildingLevel}";
-        _countHelperInstance.text = $"{helpersBuildingTree.Counter}";
-        _extraction.text = $"{_extractionValue}";
-        _textValumeExtraction.text = $"{_nexLevelExtraction = _extractionValue + 3}";
-        _textNextCountSpawnHelper.text = $"{helpersBuildingTree.Counter}";
-        _buttonPrice.text = $"{_lvlUpPrice}";
-    }
-
-    public void BuyLevel()
-    {
-        if (_player.Coins >= _lvlUpPrice)
-        {
-            _helperBuildingLevel++;
-            LevelUp();
-            _player.SellCoints(_lvlUpPrice);
-        }
-    }
-
-    private void LevelUp()
-    {
-        _levelUpProgres += _levelUpStep;
-        _lvlUpPrice += _levelUpPriceNext;
-        if (_levelUpProgres >= 0.8)
-        {
-            _textNextCountSpawnHelper.text = $"{helpersBuildingTree.Counter + 1}";
-
-            if (_levelUpProgres >= 1)
-            {
-                helpersBuildingTree.Lvlup();
-                _levelUpProgres = 0;
-                _textNextCountSpawnHelper.text = $"{helpersBuildingTree.Counter + 1}";
-            }
-        }
-
-        SetNewData();
-    }
-
-    private void SetNewData()
-    {
-        _countHelperInstance.text = $"{helpersBuildingTree.Counter}";
-        _Level.text = $"{_helperBuildingLevel}";
-        _extractionValue += 3;
-        _extraction.text = $"{_extractionValue}";
-        _textValumeExtraction.text = $"{_nexLevelExtraction = _extractionValue + 3}";
-        _buttonPrice.text = $"{_lvlUpPrice}";
     }
 }
