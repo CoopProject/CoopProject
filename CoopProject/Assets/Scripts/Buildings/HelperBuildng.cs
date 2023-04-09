@@ -5,28 +5,28 @@ using UnityEngine;
 
 namespace DefaultNamespace.Buildings
 {
-    public class HelperBuildng<T> : MonoBehaviour  where T:ResourceSource
+    public class HelperBuildng<T> : MonoBehaviour where T : ResourceSource
     {
-    [SerializeField] protected Factory<T> _spawnHelperTree;
-    [SerializeField] protected List<ResourceSource> _list;
+        [SerializeField] protected Factory<T> _spawnHelperTree;
+        [SerializeField] protected List<ResourceSource> _list;
 
-    public int Counter => _spawnHelperTree.InstanceCount;
+        public int Counter => _spawnHelperTree.InstanceCount;
 
-    public void Lvlup(int helperInstance,int resourceExtraction)
-    {
-        while (Counter <= helperInstance)
+        public void Lvlup(int helperInstance, int resourceExtraction)
         {
-            var helper = _spawnHelperTree.GetHelperInstantiate();
-            helper.SetList(_list);
+            while (Counter <= helperInstance - 1)
+            {
+                var helper = _spawnHelperTree.GetHelperInstantiate();
+                helper.SetList(_list);
+            }
+
+            LevelUpExtraction(resourceExtraction);
         }
-       LevelUpExtraction(resourceExtraction);
-    }
 
-    private void LevelUpExtraction(int extraction)
-    {
-        for (int i = 0; i < _list.Count; i++)
-            _list[i].AddResourceCount(extraction);
-
-    }
+        private void LevelUpExtraction(int extraction)
+        {
+            for (int i = 0; i < _list.Count; i++)
+                _list[i].AddResourceCount(extraction);
+        }
     }
 }

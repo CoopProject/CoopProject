@@ -1,8 +1,10 @@
+using System;
 using UnityEngine;
 
 namespace DefaultNamespace.UI.UpgradePanel
 {
-    public class LevelUpData : MonoBehaviour
+    [Serializable]
+    public class LevelUpData
     {
         [SerializeField] private int _instanceHelpers = 0;
         [SerializeField] private int _extractedResources = 0;
