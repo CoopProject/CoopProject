@@ -1,12 +1,14 @@
 using System.Collections.Generic;
+using DefaultNamespace.Buildings;
 using DefaultNamespace.UI.UpgradePanel;
+using ResourcesColection;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public abstract class UpgradePanelUI : MonoBehaviour
+public abstract class UpgradePanelUI<T> : MonoBehaviour where T : ResourceSource
 {
-    [SerializeField] private HelpersBuildingTree _helpersBuilding;
+    [SerializeField] private HelperBuildng<T> _helpersBuilding;
     [SerializeField] private TextMeshProUGUI _levelUpNow;
     [SerializeField] private TextMeshProUGUI _countHelperInstance;
     [SerializeField] private TextMeshProUGUI _nextCountSpawnHelper;

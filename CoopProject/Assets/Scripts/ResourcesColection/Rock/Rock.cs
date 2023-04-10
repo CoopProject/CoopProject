@@ -9,12 +9,12 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider))]
 public class Rock : ResourceSource,IResourceSource
 {
-    private int _maxHealth = 10;
-    private int _health = 30;
-    private float _durationReset = 10f;
     private ResourceCollector _resourceCollector;
+    private int _maxHealth = 30;
+    private int _health = 30;
+    private float _durationReset = 8f;
     private int _resourceAddCount = 1;
-
+    
     [Inject]
     private void Inject(Container container) => _resourceCollector = container.Resolve<ResourceCollector>();
     
@@ -24,22 +24,18 @@ public class Rock : ResourceSource,IResourceSource
         _colliderBox = GetComponent<BoxCollider>();
         _transform = transform;
     }
-    
+
     public override void TakeDamage(int damage)
     {
         _health -= damage;
-        Debug.Log("Камень получил урон");
+
         if (_health <= 0)
         {
             Dead();
+            _iDead = true;
             AddResource();
             StartCoroutine(Reset());
         }
-    }
-
-    public override void AddResourceCount(int extraction)
-    {
-        throw new System.NotImplementedException();
     }
 
     private void AddResource()
@@ -50,10 +46,11 @@ public class Rock : ResourceSource,IResourceSource
             stone.SetPrice();
             _resourceCollector.AddResource<Stone>(stone);    
         }
+        
     }
-    
-   // public override void AddResourceCount() => _resourceAddCount++;
 
+    public override void AddResourceCount(int resourceExtraction) => _resourceAddCount = resourceExtraction;
+    
     private IEnumerator Reset()
     {
         var waitForSecondsRealtime = new WaitForSecondsRealtime(_durationReset);

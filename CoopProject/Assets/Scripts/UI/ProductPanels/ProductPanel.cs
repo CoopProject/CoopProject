@@ -18,7 +18,6 @@ public abstract class ProductPanel : MonoBehaviour
     protected ResourceCollector _resourceCollector;
     protected Player _player;
     
-    
     protected int _counter  => _processor.CountTransformation;
 
     private void OnEnable()
@@ -77,22 +76,26 @@ public abstract class ProductPanel : MonoBehaviour
         if (_processor.CountTransformation - _stack >= 0)
         {
             _processor.TakeStack(_stack);
-            TakeResourceStack<T>(resource);
+            TakeResourceComplite<T>(resource);
             _textCount.text = $"{_processor.CountTransformation}";
             _textEndCount.text = $"{_processor.Completed}";
         }
     }
 
-    protected void TakeResource<Type>(Resource resource)
+    protected void TakeResourceComplite<Type>(Resource resource)
     {
         for (int i = 0; i < _processor.Completed; i++)
             _resourceCollector.AddResource<Type>(resource);
     }
-    
-    protected void TakeResourceStack<Type>(Resource resource)
+
+    protected void TakeResource<Type>(Resource resource)
     {
-        for (int i = 0; i < _stack; i++)
+        if (_processor.CountTransformation > 0)
+        {
             _resourceCollector.AddResource<Type>(resource);
+            _processor.CancellationProcessing();
+            _textCount.text = $"{_processor.CountTransformation}";   
+        }
     }
 
     private bool ValiadateAdd<T>()

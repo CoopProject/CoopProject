@@ -8,12 +8,12 @@ namespace ResourcesColection.IronOre
 {
     [RequireComponent(typeof(MeshRenderer))]
     [RequireComponent(typeof(BoxCollider))]
-    public class IronOre : ResourceSource,IResourceSource
+    public class IronOre : ResourceSource, IResourceSource
     {
-        private int _maxHealth = 10;
-        private int _health = 30;
-        private float _durationReset = 10f;
         private ResourceCollector _resourceCollector;
+        private int _maxHealth = 30;
+        private int _health = 30;
+        private float _durationReset = 8f;
         private int _resourceAddCount = 1;
 
         [Inject]
@@ -34,16 +34,9 @@ namespace ResourcesColection.IronOre
             {
                 Dead();
                 _iDead = true;
-                Iron iron = new();
-                iron.SetPrice();
-                _resourceCollector.AddResource<Iron>(iron);
+                AddResource();
                 StartCoroutine(Reset());
             }
-        }
-
-        public override void AddResourceCount(int extraction)
-        {
-            throw new System.NotImplementedException();
         }
 
         private void AddResource()
@@ -52,11 +45,11 @@ namespace ResourcesColection.IronOre
             {
                 Iron iron = new();
                 iron.SetPrice();
-                _resourceCollector.AddResource<Iron>(iron);  
+                _resourceCollector.AddResource<Iron>(iron);
             }
         }
-        
-       // public override void AddResourceCount() => _resourceAddCount++;
+
+        public override void AddResourceCount(int resourceExtraction) => _resourceAddCount = resourceExtraction;
 
         private IEnumerator Reset()
         {

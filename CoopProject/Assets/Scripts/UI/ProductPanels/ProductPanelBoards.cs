@@ -15,20 +15,20 @@ public class ProductPanelBoards : ProductPanel
     {
         _putResource.onClick.AddListener(AddResource);
         _putStack.onClick.AddListener(AddStack);
-        _takeStack.onClick.AddListener(TakeStack);
+        _takeStack.onClick.AddListener(TakeResourceBack);
         _takeResource.onClick.AddListener(TakeConvertType);
     }
 
     private void AddResource()=> AddResources<Log>();
     
-
+    
     private void AddStack()=> SetStackCount<Log>();
 
 
-    private void TakeStack()
+    private void TakeResourceBack()
     {
         var log = new Log();
-        Take<Log>(log);
+        TakeResource<Log>(log);
     }
 
     private void TakeConvertType()

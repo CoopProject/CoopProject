@@ -1,7 +1,7 @@
 using Reflex;
 using Reflex.Scripts.Attributes;
 
-public class WoodUpgradePanel : UpgradePanelUI
+public class WoodUpgradePanel : UpgradePanelUI<Tree>
 {
        
     [Inject]

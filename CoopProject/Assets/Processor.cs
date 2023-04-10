@@ -31,10 +31,11 @@ public class Processor : MonoBehaviour
         }
     }
 
-    public void Conversion()
-    {
-        _ñountTransformation++;
-    }
+    public void Conversion()=> _ñountTransformation++;
+    
+
+    public void CancellationProcessing() => _ñountTransformation--;
+    
 
     public void addStack(int stackValue)=> _ñountTransformation += stackValue;
     
