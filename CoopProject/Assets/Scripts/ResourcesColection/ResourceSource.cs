@@ -9,25 +9,24 @@ namespace ResourcesColection
          protected Transform _transform;
         
         protected bool _iDead = false;
-        protected bool _iCanBeMined = true;
+        protected bool _iFree = true;
         public bool IDead => _iDead;
-        public bool ICanBeMined => _iCanBeMined;
+        public bool Free => _iFree;
         public Transform Transform => _transform;
         
-        
+                
 
         public abstract void TakeDamage(int damage);
         
-        public void PrivateResource()
-        {
-            _iCanBeMined = false;
-        }
+        public void Occupy() => _iFree = false;
+
+        public void ToFree() => _iFree = true;
         
         protected void Dead()
         {
             _mesh.enabled = false;
             _colliderBox.enabled = false;
-            _iCanBeMined = false;
+            _iFree = false;
         }
 
         public abstract void AddResourceCount(int extraction);

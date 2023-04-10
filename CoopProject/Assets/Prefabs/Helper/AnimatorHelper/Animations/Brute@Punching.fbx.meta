@@ -58,7 +58,7 @@ ModelImporter:
       curves: []
       events:
       - time: 0.59060043
-        functionName: ExtractResours
+        functionName: ExtractResourceTarget
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
