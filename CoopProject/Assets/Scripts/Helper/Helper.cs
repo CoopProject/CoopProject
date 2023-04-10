@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using DefaultNamespace;
 using DefaultNamespace.Helper;
 using ResourcesColection;
@@ -15,10 +16,11 @@ public class Helper : MonoBehaviour
     private HelperAnimator _animator;
     private int _damage = 5;
     private Vector3 offset = new Vector3(0, 2, 0);
-    private float _extractDistance = 1f;
+    private float _extractDistance = 1.5f;
     private int _layerMask;
     private float _radius = 3f;
     private Collider[] _hits = new Collider[1];
+    private float _extractDuration = 1;
 
     private void Awake()
     {
@@ -50,6 +52,7 @@ public class Helper : MonoBehaviour
             {
                 _animator.Extract();
                 _agent.isStopped = true;
+                transform.LookAt(_target.transform.position + offset);
             }
         }
         else
@@ -89,7 +92,6 @@ public class Helper : MonoBehaviour
         if (Hit() > 0)
         {
             _hits[0].GetComponent<IResourceSource>().TakeDamage(_damageEnemy);
-            transform.LookAt(_target.transform.position + offset);
         }
         else
         {

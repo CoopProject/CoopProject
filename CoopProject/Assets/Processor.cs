@@ -32,6 +32,8 @@ public class Processor : MonoBehaviour
     }
 
     public void Conversion()=> _ñountTransformation++;
+
+    public void AddAll(int value) => _ñountTransformation = value;
     
 
     public void CancellationProcessing() => _ñountTransformation--;

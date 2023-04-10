@@ -1,4 +1,3 @@
-using System;
 using ResourcesGame.TypeResource;
 using TMPro;
 using UnityEngine;
@@ -17,8 +16,8 @@ public abstract class ProductPanel : MonoBehaviour
 
     protected ResourceCollector _resourceCollector;
     protected Player _player;
-    
-    protected int _counter  => _processor.CountTransformation;
+
+    protected int _counter => _processor.CountTransformation;
 
     private void OnEnable()
     {
@@ -33,7 +32,7 @@ public abstract class ProductPanel : MonoBehaviour
     private void SetData()
     {
         _textCount.text = $"{_processor.CountTransformation}";
-        _textEndCount.text = $"{_processor.Completed}";   
+        _textEndCount.text = $"{_processor.Completed}";
     }
 
     public void ConversionComplit()
@@ -45,11 +44,22 @@ public abstract class ProductPanel : MonoBehaviour
         }
     }
 
+    protected void SellAllResource<T>()
+    {
+        var countResource = _resourceCollector.GetCountList<T>();
+
+        if (countResource != 0)
+        {
+            _processor.AddAll(countResource);
+            _resourceCollector.SallResource<T>();
+        }
+    }
+
     protected void AddResources<T>()
     {
         int countList = _resourceCollector.GetCountList<T>();
-        
-        if (_counter <= countList && countList != 0 )
+
+        if (_counter <= countList && countList != 0)
         {
             _resourceCollector.SellCountResource<T>(1);
             _processor.Conversion();
@@ -94,18 +104,8 @@ public abstract class ProductPanel : MonoBehaviour
         {
             _resourceCollector.AddResource<Type>(resource);
             _processor.CancellationProcessing();
-            _textCount.text = $"{_processor.CountTransformation}";   
+            _textCount.text = $"{_processor.CountTransformation}";
         }
-    }
-
-    private bool ValiadateAdd<T>()
-    {
-        int countList = _resourceCollector.GetCountList<T>();
-
-        if (_counter <= countList && countList != 0 )
-            return true;
-
-        return false;
     }
 
 
@@ -120,5 +120,4 @@ public abstract class ProductPanel : MonoBehaviour
     }
 
     private void OnDisable() => _processor.Done -= ConversionComplit;
-    
 }

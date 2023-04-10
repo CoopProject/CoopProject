@@ -10,29 +10,32 @@ public class ProductPanelStone : ProductPanel
     private void Start()
     {
         _putResource.onClick.AddListener(AddResource);
-        _putStack.onClick.AddListener(AddStack);
-        _takeStack.onClick.AddListener(TakeStack);
+        _putStack.onClick.AddListener(AddAll);
+        _takeStack.onClick.AddListener(TakeResourceBack);
         _takeResource.onClick.AddListener(TakeConvertType);
     }
 
     private void AddResource()=> AddResources<Stone>();
     
 
-    private void AddStack() => SetStackCount<Stone>();
+    private void AddAll()=> SellAllResource<Stone>();
     
 
-    private void TakeStack()
+    private void TakeResourceBack()
     {
         var stone = new Stone();
-        Take<Log>(stone);
+        TakeResource<Stone>(stone);
     }
     
 
     private void TakeConvertType()
     {
-        StoneBlocks board = new();
-        board.SetPrice();
-        TakeResource<StoneBlocks>(board);
-        Reset();
+        if (_processor.Completed > 0)
+        {
+            StoneBlocks board = new();
+            board.SetPrice();
+            TakeResourceComplite<StoneBlocks>(board);
+            Reset();
+        }
     }
 }

@@ -14,7 +14,7 @@ public class ProductPanelBoards : ProductPanel
     private void Start()
     {
         _putResource.onClick.AddListener(AddResource);
-        _putStack.onClick.AddListener(AddStack);
+        _putStack.onClick.AddListener(AddAll);
         _takeStack.onClick.AddListener(TakeResourceBack);
         _takeResource.onClick.AddListener(TakeConvertType);
     }
@@ -22,7 +22,7 @@ public class ProductPanelBoards : ProductPanel
     private void AddResource()=> AddResources<Log>();
     
     
-    private void AddStack()=> SetStackCount<Log>();
+    private void AddAll()=> SellAllResource<Log>();
 
 
     private void TakeResourceBack()
@@ -37,7 +37,7 @@ public class ProductPanelBoards : ProductPanel
         {
             Boards board = new();
             board.SetPrice();
-            TakeResource<Boards>(board);
+            TakeResourceComplite<Boards>(board);
             Reset();
         }
     }
