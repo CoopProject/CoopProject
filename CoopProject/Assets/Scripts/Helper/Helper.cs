@@ -89,6 +89,7 @@ public class Helper : MonoBehaviour
         if (Hit() > 0)
         {
             _hits[0].GetComponent<IResourceSource>().TakeDamage(_damageEnemy);
+            transform.LookAt(_target.transform.position + offset);
         }
         else
         {
