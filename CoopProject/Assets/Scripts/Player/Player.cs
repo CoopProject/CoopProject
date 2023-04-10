@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     private float _extractDuration = 1f;
     private float _maxExtractDuration = 1f;
     private float _radius = 1.5f;
-    private Vector3 _offset = new Vector3(0, 0.3f, 0);
+    private Vector3 _offset = new Vector3(0, 0.1f, 0);
 
     public int Coins => _coins;
     public event Action SetCoinValue;
