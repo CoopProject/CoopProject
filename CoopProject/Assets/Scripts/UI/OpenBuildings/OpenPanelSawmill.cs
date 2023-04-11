@@ -1,6 +1,7 @@
 using Reflex;
 using Reflex.Scripts.Attributes;
 using ResourcesGame.TypeResource;
+using UnityEngine;
 
 namespace DefaultNamespace.UI.OpenBuildings
 {
@@ -11,6 +12,11 @@ namespace DefaultNamespace.UI.OpenBuildings
         {
             _resourceCollector = container.Resolve<ResourceCollector>();
             _player = container.Resolve<Player>();
+        }
+
+        private void OnEnable()
+        {
+            _rectTransform = GetComponent<RectTransform>();
         }
 
         private void Start()

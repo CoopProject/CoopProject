@@ -50,6 +50,13 @@ public class ResourceCollector : MonoBehaviour
     
     public void SellCountResource<TypeResource>(int countResource)
     {
-        _resources[typeof(TypeResource)].RemoveRange(0,countResource);
+        if (countResource > 0 & countResource >= _resources[typeof(TypeResource)].Count)
+        {
+            for (int i = 0; i < countResource; i++)
+            {
+                _resources[typeof(TypeResource)].RemoveAt(i);
+            }    
+        }
+        
     }
 }

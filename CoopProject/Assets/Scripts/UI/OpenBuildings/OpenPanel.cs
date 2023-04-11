@@ -1,42 +1,48 @@
 using System;
 using DefaultNamespace.MVP.MVPShop.Viues;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class OpenPanel<T> : MonoBehaviour 
+public class OpenPanel<T> : MonoBehaviour
 {
     [SerializeField] private Building _building;
     [SerializeField] private Tarpaulin _tarpaulin;
     [SerializeField] private TextMeshProUGUI _textCounterCoin;
     [SerializeField] private TextMeshProUGUI _textCounterResourceOne;
     [SerializeField] private StatsView _statsView;
-    [Header("Êíîïêè")] 
-    [SerializeField] protected Button _addResourceOne;
+    [Header("Êíîïêè")] [SerializeField] protected Button _addResourceOne;
     [SerializeField] protected Button _addResourceTwo;
-    [Space] 
-    [SerializeField] private int MaxCountCountCoin = 10;
     [Space]
+    [SerializeField] private int MaxCountCountCoin = 10;
+    [Space] 
     [SerializeField] private int MaxCountResourceOne = 15;
     
     private int CountCoin = 0;
     private int CountResourceOne = 0;
-    
+    private int _minScale = 0;
+
+    protected RectTransform _rectTransform;
     protected ResourceCollector _resourceCollector;
     protected Player _player;
     private T _resourceType;
 
     private void OnEnable() => SetStartData();
     
-
-    protected void SetResourceType(T resource) =>  _resourceType = resource;
-
+    protected void SetResourceType(T resource) => _resourceType = resource;
     
-
     protected void AddCoin()
     {
-        ValidateAdd();
-        SetNewData();
+        if (ValidateAdd())
+        {
+            _player.SellCoints(CountCoin);
+            SetNewData();
+        }
+        else
+        {
+            SetNewData();
+        }
     }
 
     protected void AddResourceOne()
@@ -49,8 +55,7 @@ public class OpenPanel<T> : MonoBehaviour
     {
         _textCounterCoin.text = $"{CountCoin}/{MaxCountCountCoin}";
         _textCounterResourceOne.text = $"{CountResourceOne}/{MaxCountResourceOne}";
-
-
+        
         CountCoin = 0;
         CountResourceOne = 0;
     }
@@ -61,9 +66,9 @@ public class OpenPanel<T> : MonoBehaviour
         _textCounterResourceOne.text = $"{CountResourceOne}/{MaxCountResourceOne}";
     }
 
-    private void AddResourceOne<_resourceType>()
+    private void AddResourceOne<T>()
     {
-        int resourceCount = _resourceCollector.GetCountList<_resourceType>();
+        int resourceCount = _resourceCollector.GetCountList<T>();
 
         if (resourceCount >= MaxCountResourceOne)
         {
@@ -94,11 +99,13 @@ public class OpenPanel<T> : MonoBehaviour
         if (CountCoin == MaxCountCountCoin && CountResourceOne == MaxCountResourceOne)
         {
             _building.gameObject.SetActive(true);
-            _player.SellCoints(MaxCountCountCoin);
             _resourceCollector.SellCountResource<_resourceType>(MaxCountResourceOne);
             _statsView.gameObject.SetActive(true);
             _tarpaulin.Delete();
-            Destroy(this.gameObject);
+            _rectTransform.DOScale(_minScale, _minScale).OnComplete(() =>
+            {
+                gameObject.SetActive(false);
+            });
         }
     }
 }
