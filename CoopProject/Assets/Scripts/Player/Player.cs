@@ -11,14 +11,12 @@ public class Player : MonoBehaviour
     private static int _layerMask;
     private int _treeResourceCounter;
     private int _damage = 20;
-    private int _coins = 0;
+
     private float _extractDuration = 1f;
     private float _maxExtractDuration = 1f;
     private float _radius = 1.5f;
     private Vector3 _offset = new Vector3(0, 0.3f, 0);
-
-    public int Coins => _coins;
-    public event Action SetCoinValue;
+    
 
     private void Awake()
     {
@@ -57,24 +55,6 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void Extract()
-    {
-        _extractResource.ExtractResource(_damage);
-    }
-
-    public void SetCoinsValue(int coins)
-    {
-        if (coins > 0)
-            _coins += coins;
-        
-        SetCoinValue?.Invoke();
-    }
-
-    public void SellCoints(int price)
-    {
-        if (price > 0 && _coins >= price)
-            _coins -= price;
-        
-        SetCoinValue?.Invoke();
-    }
+    public void Extract()=> _extractResource.ExtractResource(_damage);
+    
 }

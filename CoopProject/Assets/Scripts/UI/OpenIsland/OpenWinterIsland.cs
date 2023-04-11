@@ -13,7 +13,7 @@ public class OpenWinterIsland : OpenIslandPanel<Stone,StoneBlocks>
     private void Inject(Container container)
     {
         _resourceCollector = container.Resolve<ResourceCollector>();
-        _player = container.Resolve<Player>();
+        _playerWallet = container.Resolve<PlayerWallet>();
     }
 
     private void OnEnable()
@@ -46,13 +46,13 @@ public class OpenWinterIsland : OpenIslandPanel<Stone,StoneBlocks>
 
     private bool ValidateAdd()
     {
-        if (_player.Coins > MaxCountCountCoin)
+        if (_playerWallet.Coins > MaxCountCountCoin)
         {
             CountCoin = MaxCountCountCoin;
             return true;
         }
 
-        CountCoin = _player.Coins;
+        CountCoin = _playerWallet.Coins;
         return false;
     }
     
@@ -67,7 +67,7 @@ public class OpenWinterIsland : OpenIslandPanel<Stone,StoneBlocks>
             }
             _walls = null;
              _statsSetup.ActiveWinter();
-            _player.SellCoints(MaxCountCountCoin);
+            _playerWallet.SellCoints(MaxCountCountCoin);
             _resourceCollector.SellCountResource<Stone>(CountResourceTwo);
             _resourceCollector.SellCountResource<StoneBlocks>(MaxCountCountTwo);
             Destroy(gameObject);

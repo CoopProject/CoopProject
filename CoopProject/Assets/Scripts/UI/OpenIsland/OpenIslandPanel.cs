@@ -28,7 +28,7 @@ public abstract class OpenIslandPanel<ResourceOne,ResourceTwo> : MonoBehaviour
     protected int CountResourceTwo = 0;
     
     protected ResourceCollector _resourceCollector;
-    protected Player _player;
+    protected PlayerWallet _playerWallet;
 
     protected void SetStartData()
     {
@@ -46,13 +46,13 @@ public abstract class OpenIslandPanel<ResourceOne,ResourceTwo> : MonoBehaviour
     
     private bool ValidateAdd()
     {
-        if (_player.Coins > MaxCountCountCoin)
+        if (_playerWallet.Coins > MaxCountCountCoin)
         {
             CountCoin = MaxCountCountCoin;
             return true;
         }
 
-        CountCoin = _player.Coins;
+        CountCoin = _playerWallet.Coins;
         return false;
     }
 

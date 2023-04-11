@@ -14,7 +14,7 @@ public abstract class ProductPanel : MonoBehaviour
     [SerializeField] protected Processor _processor;
 
     protected ResourceCollector _resourceCollector;
-    protected Player _player;
+    protected PlayerWallet _playerWallet;
 
     protected int _counter => _processor.CountTransformation;
 

@@ -11,7 +11,7 @@ public class OpenMagickIsland : OpenIslandPanel<Iron,IronIngots>
     private void Inject(Container container)
     {
         _resourceCollector = container.Resolve<ResourceCollector>();
-        _player = container.Resolve<Player>();
+        _playerWallet = container.Resolve<PlayerWallet>();
     }
 
     private void OnEnable()
@@ -44,13 +44,13 @@ public class OpenMagickIsland : OpenIslandPanel<Iron,IronIngots>
 
     private bool ValidateAdd()
     {
-        if (_player.Coins > MaxCountCountCoin)
+        if (_playerWallet.Coins > MaxCountCountCoin)
         {
             CountCoin = MaxCountCountCoin;
             return true;
         }
 
-        CountCoin = _player.Coins;
+        CountCoin = _playerWallet.Coins;
         return false;
     }
 
@@ -64,7 +64,7 @@ public class OpenMagickIsland : OpenIslandPanel<Iron,IronIngots>
                 wall.gameObject.SetActive(false);
             }
             
-            _player.SellCoints(MaxCountCountCoin);
+            _playerWallet.SellCoints(MaxCountCountCoin);
             _resourceCollector.SellCountResource<Iron>(CountResourceTwo);
             _resourceCollector.SellCountResource<IronIngots>(MaxCountCountTwo);
             Destroy(this.gameObject);

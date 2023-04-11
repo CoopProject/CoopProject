@@ -18,7 +18,7 @@ public abstract class UpgradePanelUI<T> : MonoBehaviour where T : ResourceSource
     [SerializeField] private TextMeshProUGUI _buttonPrice;
     [SerializeField] private List<LevelUpData> _levelUps;
 
-    protected Player _player;
+    protected PlayerWallet _playerWallet;
     private int _levelNow = 0;
 
     private void Start()
@@ -30,9 +30,9 @@ public abstract class UpgradePanelUI<T> : MonoBehaviour where T : ResourceSource
 
     private void LevelUp()
     {
-        if (_player.Coins >= _levelUps[_levelNow].LevelUpPrice && _levelNow < _levelUps.Count - 1)
+        if (_playerWallet.Coins >= _levelUps[_levelNow].LevelUpPrice && _levelNow < _levelUps.Count - 1)
         {
-            _player.SellCoints(_levelUps[_levelNow].LevelUpPrice);
+            _playerWallet.SellCoints(_levelUps[_levelNow].LevelUpPrice);
             _levelNow++;
             SetData();
             SetNexData();

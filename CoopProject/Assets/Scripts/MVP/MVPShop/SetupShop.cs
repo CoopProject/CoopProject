@@ -16,7 +16,7 @@ public class SetupShop : MonoBehaviour
     [SerializeField] private ViueAllSell _viueAllSell;
    
     private ResourceCollector _resourceCollector;
-    private Player _player;
+    private PlayerWallet _playerWallet;
     
     private Presenter<Log> _presenterlog;
     private Presenter<Gold> _presenterGold;
@@ -38,17 +38,17 @@ public class SetupShop : MonoBehaviour
     private void Inject(Container container)
     {
         _resourceCollector = container.Resolve<ResourceCollector>();
-        _player = container.Resolve<Player>();
+        _playerWallet = container.Resolve<PlayerWallet>();
     }
 
     private void Start()
     {
-        _presenterlog = new Presenter<Log>(_woodModel, woodViueUI, _resourceCollector,_player,_viueAllSell);
-        _presenterGold = new Presenter<Gold>(_goldModel, _goldView, _resourceCollector,_player,_viueAllSell);
-        _prisenterIron = new Presenter<Iron>(_ironModel, _ironView, _resourceCollector,_player,_viueAllSell);
-        _presenterStone = new Presenter<Stone>(_stoneModel, _stoneView, _resourceCollector,_player,_viueAllSell);
-        _presenterBoards = new Presenter<Boards>(_boardsModel, _boardsView, _resourceCollector,_player,_viueAllSell);
-        _presenterIronIgnots = new Presenter<IronIngots>(_ironIgnotsModel, _ironIngotsView, _resourceCollector,_player,_viueAllSell);
-        _presenterGoldIngots = new Presenter<GoldIngots>(_goldIgnotsModel, _goldIngotsView, _resourceCollector,_player,_viueAllSell);
+        _presenterlog = new Presenter<Log>(_woodModel, woodViueUI, _resourceCollector,_playerWallet,_viueAllSell);
+        _presenterGold = new Presenter<Gold>(_goldModel, _goldView, _resourceCollector,_playerWallet,_viueAllSell);
+        _prisenterIron = new Presenter<Iron>(_ironModel, _ironView, _resourceCollector,_playerWallet,_viueAllSell);
+        _presenterStone = new Presenter<Stone>(_stoneModel, _stoneView, _resourceCollector,_playerWallet,_viueAllSell);
+        _presenterBoards = new Presenter<Boards>(_boardsModel, _boardsView, _resourceCollector,_playerWallet,_viueAllSell);
+        _presenterIronIgnots = new Presenter<IronIngots>(_ironIgnotsModel, _ironIngotsView, _resourceCollector,_playerWallet,_viueAllSell);
+        _presenterGoldIngots = new Presenter<GoldIngots>(_goldIgnotsModel, _goldIngotsView, _resourceCollector,_playerWallet,_viueAllSell);
     }
 }

@@ -7,6 +7,6 @@ public class WoodUpgradePanel : UpgradePanelUI<Tree>
     [Inject]
     private void Inject(Container container)
     {
-        _player = container.Resolve<Player>();
+        _playerWallet = container.Resolve<PlayerWallet>();
     } 
 }

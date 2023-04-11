@@ -26,7 +26,7 @@ public class OpenPanel<T> : MonoBehaviour
     protected bool _objectActive = false;
     protected RectTransform _rectTransform;
     protected ResourceCollector _resourceCollector;
-    protected Player _player;
+    protected PlayerWallet _playerWallet;
     private T _resourceType;
 
     private void OnEnable() => SetStartData();
@@ -37,7 +37,7 @@ public class OpenPanel<T> : MonoBehaviour
     {
         if (ValidateAdd())
         {
-            _player.SellCoints(CountCoin);
+            _playerWallet.SellCoints(CountCoin);
             SetNewData();
         }
         else
@@ -84,13 +84,13 @@ public class OpenPanel<T> : MonoBehaviour
 
     private bool ValidateAdd()
     {
-        if (_player.Coins > MaxCountCountCoin)
+        if (_playerWallet.Coins > MaxCountCountCoin)
         {
             CountCoin = MaxCountCountCoin;
             return true;
         }
 
-        CountCoin = _player.Coins;
+        CountCoin = _playerWallet.Coins;
         return false;
     }
 

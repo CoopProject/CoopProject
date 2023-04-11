@@ -14,7 +14,7 @@ public class OpenAutumnUI : OpenIslandPanel<Log, Boards>
     private void Inject(Container container)
     {
         _resourceCollector = container.Resolve<ResourceCollector>();
-        _player = container.Resolve<Player>();
+        _playerWallet = container.Resolve<PlayerWallet>();
     }
 
     private void OnEnable()
@@ -54,13 +54,13 @@ public class OpenAutumnUI : OpenIslandPanel<Log, Boards>
 
     private bool ValidateAdd()
     {
-        if (_player.Coins > MaxCountCountCoin)
+        if (_playerWallet.Coins > MaxCountCountCoin)
         {
             CountCoin = MaxCountCountCoin;
             return true;
         }
 
-        CountCoin = _player.Coins;
+        CountCoin = _playerWallet.Coins;
         return false;
     }
 
@@ -74,7 +74,7 @@ public class OpenAutumnUI : OpenIslandPanel<Log, Boards>
                 Destroy(wall.gameObject);
             }
 
-            _player.SellCoints(MaxCountCountCoin);
+            _playerWallet.SellCoints(MaxCountCountCoin);
             _statsSetup.ActiveAmaunt();
             _resourceCollector.SellCountResource<Log>(CountResourceTwo);
             _resourceCollector.SellCountResource<Boards>(MaxCountCountTwo);

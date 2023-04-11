@@ -11,7 +11,7 @@ namespace DefaultNamespace.UI.OpenBuildings
         private void Inject(Container container)
         {
             _resourceCollector = container.Resolve<ResourceCollector>();
-            _player = container.Resolve<Player>();
+            _playerWallet = container.Resolve<PlayerWallet>();
         }
 
         private void OnEnable()

@@ -6,15 +6,15 @@ namespace DefaultNamespace.MVC.MVPShop.Prisenters
         private Model _model;
         private ViueUI _viueUI;
         private ResourceCollector _resourceCollector;
-        private Player _player;
+        private PlayerWallet _playerWallet;
         private ViueAllSell _viueAllSell;
         
-        public Presenter(Model model,ViueUI viuesUI,ResourceCollector resourceCollector,Player player,ViueAllSell viueAllSell)
+        public Presenter(Model model,ViueUI viuesUI,ResourceCollector resourceCollector,PlayerWallet playerWallet,ViueAllSell viueAllSell)
         {
             _model = model;
             _viueUI = viuesUI;
             _resourceCollector = resourceCollector;
-            _player = player;
+            _playerWallet = playerWallet;
             _viueAllSell = viueAllSell;
 
             _viueUI.OnActive += SetStartData;
@@ -32,7 +32,7 @@ namespace DefaultNamespace.MVC.MVPShop.Prisenters
 
         private void ClickButtonViue()
         {
-            _model.SetCoinPlayer(_player);
+            _model.SetCoinPlayer(_playerWallet);
             _model.ClearData<T>(_resourceCollector);
             _model.SetValueCount<T>(_resourceCollector);
             _viueUI.SetCountResource(_model.CountElements);
