@@ -1,18 +1,18 @@
-using System;
 using DefaultNamespace.MVP.MVPShop.Viues;
-using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class OpenPanel<T> : MonoBehaviour
 {
+    [SerializeField] private OppenerUI _oppener;
     [SerializeField] private Building _building;
     [SerializeField] private Tarpaulin _tarpaulin;
     [SerializeField] private TextMeshProUGUI _textCounterCoin;
     [SerializeField] private TextMeshProUGUI _textCounterResourceOne;
     [SerializeField] private StatsView _statsView;
-    [Header("Кнопки")] [SerializeField] protected Button _addResourceOne;
+    [Header("Кнопки")] 
+    [SerializeField] protected Button _addResourceOne;
     [SerializeField] protected Button _addResourceTwo;
     [Space]
     [SerializeField] private int MaxCountCountCoin = 10;
@@ -23,6 +23,7 @@ public class OpenPanel<T> : MonoBehaviour
     private int CountResourceOne = 0;
     private int _minScale = 0;
 
+    protected bool _objectActive = false;
     protected RectTransform _rectTransform;
     protected ResourceCollector _resourceCollector;
     protected Player _player;
@@ -98,14 +99,13 @@ public class OpenPanel<T> : MonoBehaviour
     {
         if (CountCoin == MaxCountCountCoin && CountResourceOne == MaxCountResourceOne)
         {
+            _objectActive = true;
             _building.gameObject.SetActive(true);
             _resourceCollector.SellCountResource<_resourceType>(MaxCountResourceOne);
             _statsView.gameObject.SetActive(true);
             _tarpaulin.Delete();
-            _rectTransform.DOScale(_minScale, _minScale).OnComplete(() =>
-            {
-                gameObject.SetActive(false);
-            });
+            _oppener.Close();
+            _oppener.Unplug();
         }
     }
 }

@@ -47,16 +47,14 @@ public class ResourceCollector : MonoBehaviour
     {
         _resources[typeof(TypeResource)].Clear();
     }
-    
+
     public void SellCountResource<TypeResource>(int countResource)
     {
-        if (countResource > 0 & countResource >= _resources[typeof(TypeResource)].Count)
+        if (_resources[typeof(TypeResource)].Count > countResource)
         {
-            for (int i = 0; i < countResource; i++)
-            {
-                _resources[typeof(TypeResource)].RemoveAt(i);
-            }    
+            _resources[typeof(TypeResource)].RemoveRange(1,countResource);    
         }
+    } 
         
-    }
+    
 }

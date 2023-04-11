@@ -29,7 +29,10 @@ namespace DefaultNamespace.UI.OpenBuildings
 
         private void Update()
         {
-            ActiveBreadge<Log>();
+            if (!_objectActive)
+            {
+                ActiveBreadge<Log>();     
+            }
         }
     }
 }

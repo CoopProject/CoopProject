@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public abstract class OpenIslandPanel<ResourceOne,ResourceTwo> : MonoBehaviour
 {
+    [SerializeField] private OppenerUI _oppener;
     [SerializeField] protected List<Wall> _walls;
     [Header("Счетчики ресурсов")]
     [SerializeField] private TextMeshProUGUI _textCounterCoin;
