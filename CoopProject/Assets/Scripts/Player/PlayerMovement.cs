@@ -3,13 +3,12 @@ using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(CharacterController))]
 [RequireComponent(typeof(AnimatorPlayer))]
-public class ButtonHandler : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float _moveSpeed;
     [SerializeField] private float _rotationSpeed;
     [SerializeField] private float _gravityForce;
     [SerializeField] private AnimatorPlayer _animator;
-    [SerializeField] private PausePanel _pausePanel;
 
     private CharacterController _controller;
     private PlayerInputActions _inputActions;
@@ -23,7 +22,8 @@ public class ButtonHandler : MonoBehaviour
     {
         _inputActions = new PlayerInputActions();
         _inputActions.Enable();
-        _inputActions.Player.Movement.performed += OnMove; ;
+        _inputActions.Player.Movement.performed += OnMove;
+        ;
     }
 
     private void Start()
@@ -35,14 +35,6 @@ public class ButtonHandler : MonoBehaviour
     {
         Move();
         SetGravity();
-    }
-
-    public void OpenPause(InputAction.CallbackContext context)
-    {
-        if (_pausePanel.IActive)
-            _pausePanel.DisablePanel();
-        else
-            _pausePanel.Enable();
     }
 
     private void OnMove(InputAction.CallbackContext context)
@@ -67,14 +59,13 @@ public class ButtonHandler : MonoBehaviour
 
     private void CreateTargetDirection(Vector2 inputDirection)
     {
-        _targetDirection = new Vector3(inputDirection.x, 0.0f, inputDirection.y).normalized;  
+        _targetDirection = new Vector3(inputDirection.x, 0.0f, inputDirection.y).normalized;
     }
 
     private void Rotate()
     {
         _inputAngle = Mathf.Atan2(_targetDirection.x, _targetDirection.z) * Mathf.Rad2Deg;
-        float targetAngle = Mathf.SmoothDampAngle(transform.eulerAngles.y,
-                _inputAngle, ref _rotationSmoothVelocity, _rotationSpeed);
+        float targetAngle = Mathf.SmoothDampAngle(transform.eulerAngles.y,_inputAngle, ref _rotationSmoothVelocity, _rotationSpeed);
         transform.rotation = Quaternion.Euler(_lockAngleValue, targetAngle, _lockAngleValue);
     }
 
@@ -83,7 +74,7 @@ public class ButtonHandler : MonoBehaviour
         _gravityDirection.y += _gravityForce * Time.deltaTime;
         _controller.Move(_gravityDirection * _moveSpeed);
     }
-    
+
     private void OnDisable()
     {
         _inputActions.Player.Movement.performed -= OnMove;
