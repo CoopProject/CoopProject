@@ -20,7 +20,6 @@ public class Helper : MonoBehaviour
     private int _layerMask;
     private float _radius = 3f;
     private Collider[] _hits = new Collider[1];
-    private float _extractDuration = 1;
 
     private void Awake()
     {

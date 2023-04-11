@@ -66,9 +66,9 @@ public class OpenPanel<T> : MonoBehaviour
         _textCounterResourceOne.text = $"{CountResourceOne}/{MaxCountResourceOne}";
     }
 
-    private void AddResourceOne<T>()
+    private void AddResourceOne<ResourceInGame>()
     {
-        int resourceCount = _resourceCollector.GetCountList<T>();
+        int resourceCount = _resourceCollector.GetCountList<ResourceInGame>();
 
         if (resourceCount >= MaxCountResourceOne)
         {

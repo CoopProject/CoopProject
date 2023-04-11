@@ -13,10 +13,10 @@ public class ProductPanelBoards : ProductPanel
 
     private void Start()
     {
-        _putResource.onClick.AddListener(AddResource);
-        _putStack.onClick.AddListener(AddAll);
-        _takeStack.onClick.AddListener(TakeResourceBack);
-        _takeResource.onClick.AddListener(TakeConvertType);
+        _addResourceButton.onClick.AddListener(AddResource);
+        _addAllResourceButton.onClick.AddListener(AddAll);
+        _takeResourceBackButton.onClick.AddListener(TakeResourceBack);
+        _takeResourceComplitButton.onClick.AddListener(TakeConvertType);
     }
 
     private void AddResource()=> AddResources<Log>();

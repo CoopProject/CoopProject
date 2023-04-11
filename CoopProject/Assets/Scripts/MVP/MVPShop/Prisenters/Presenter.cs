@@ -20,10 +20,7 @@ namespace DefaultNamespace.MVC.MVPShop.Prisenters
             _viueUI.OnActive += SetStartData;
             _viueUI._buttonSale.onClick.AddListener(ClickButtonViue);
             
-            _viueAllSell.OnButtonClick += () =>
-            {
-                ClickButtonViue();
-            };
+            _viueAllSell.ButtonSellAll.onClick.AddListener(ClickButtonViue);
         }
         
         private void SetStartData()

@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using UnityEngine;
 
 public class Processor : MonoBehaviour
@@ -9,7 +8,6 @@ public class Processor : MonoBehaviour
 
     private int _ñountTransformation = 0;
     private int _ñompleted = 0;
-    private bool _iWorik = false;
     private float _countDuration = 0;
     public event Action Done; 
 
