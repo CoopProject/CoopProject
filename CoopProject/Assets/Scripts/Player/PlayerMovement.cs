@@ -17,6 +17,9 @@ public class PlayerMovement : MonoBehaviour
     private float _inputAngle;
     private float _rotationSmoothVelocity;
     private float _lockAngleValue = 0.0f;
+    private bool _iMove = false;
+
+    public bool Imove => _iMove;
 
     private void OnEnable()
     {
@@ -46,6 +49,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (_targetDirection.magnitude > 0.01f)
         {
+            _iMove = true;
             _animator.Move();
             _controller.Move(_targetDirection * Time.deltaTime * _moveSpeed);
             Rotate();
@@ -54,6 +58,7 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             _animator.Stop();
+            _iMove = false;
         }
     }
 
