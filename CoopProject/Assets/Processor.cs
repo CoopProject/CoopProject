@@ -4,26 +4,28 @@ using UnityEngine;
 public class Processor : MonoBehaviour
 {
     [SerializeField] private ProductPanel _panel;
-    [SerializeField] private float _duration = 1f;
+    [SerializeField] private float _duration = 5f;
 
     private int _ñountTransformation = 0;
     private int _ñompleted = 0;
-    private float _countDuration = 0;
+    private float _countDuration = 5;
+    private float _durationMinimum = 2.5f;
+    private float _maxDurationVelue => _duration;
     public event Action Done; 
 
     public int CountTransformation => _ñountTransformation;
     public int Completed => _ñompleted;
 
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (_ñountTransformation != 0)
         {
-            _countDuration += Time.deltaTime;
+            _countDuration -= Time.deltaTime;
             
-            if (_countDuration >= _duration)
+            if (_countDuration <= 0)
             {
-                _countDuration = 0;
+                _countDuration = _maxDurationVelue;
                 Transformation();
             }
         }
@@ -35,12 +37,6 @@ public class Processor : MonoBehaviour
     
 
     public void CancellationProcessing() => _ñountTransformation--;
-    
-
-    public void addStack(int stackValue)=> _ñountTransformation += stackValue;
-    
-
-    public void TakeStack(int stackValue) => _ñountTransformation -= stackValue;
     
 
     private void Transformation()
@@ -59,5 +55,10 @@ public class Processor : MonoBehaviour
     }
 
     public void Reset()=> _ñompleted = 0;
-    
+
+    public void LevelUp()
+    {
+        if (_duration > _durationMinimum)
+            _duration -= 0.5f;
+    }
 }

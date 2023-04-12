@@ -7,16 +7,20 @@ public abstract class ProductPanel : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _textCount;
     [SerializeField] private TextMeshProUGUI _textEndCount;
+    [SerializeField] private TextMeshProUGUI _levelValue;
     [SerializeField] protected Button _addResourceButton;
     [SerializeField] protected Button _addAllResourceButton;
     [SerializeField] protected Button _takeResourceBackButton;
     [SerializeField] protected Button _takeResourceComplitButton;
+    [SerializeField] protected Button _buttonLevelUp;
+    [SerializeField] protected Button _buttonLevelUpReward;
     [SerializeField] protected Processor _processor;
 
     protected ResourceCollector _resourceCollector;
     protected PlayerWallet _playerWallet;
-
     protected int _counter => _processor.CountTransformation;
+    private int _levelNow = 1;
+    private int _levelUpPrice = 100;
 
     private void OnEnable()
     {
@@ -34,7 +38,18 @@ public abstract class ProductPanel : MonoBehaviour
         _textEndCount.text = $"{_processor.Completed}";
     }
 
-    public void ConversionComplit()
+    public void LevelUp()
+    {
+        if (_playerWallet.Coins >= _levelUpPrice && _levelNow <= 5)
+        {
+            _processor.LevelUp();
+            _playerWallet.SellCoints(_levelUpPrice);
+            _levelNow++;
+            _levelValue.text = $"{_levelNow}";
+        }
+    }
+
+    protected void ConversionComplit()
     {
         if (_counter < 0)
         {
@@ -66,30 +81,7 @@ public abstract class ProductPanel : MonoBehaviour
             _textEndCount.text = $"{_processor.Completed}";
         }
     }
-
-    // protected void SetStackCount<T>()
-    // {
-    //     int countList = _resourceCollector.GetCountList<T>();
-    //
-    //     if (countList > _processor.CountTransformation && _processor.CountTransformation + _stack <= countList)
-    //     {
-    //         _resourceCollector.SellCountResource<T>(_stack);
-    //         _processor.addStack(_stack);
-    //         _textCount.text = $"{_processor.CountTransformation}";
-    //         _textEndCount.text = $"{_processor.Completed}";
-    //     }
-    // }
-
-    // protected void Take<T>(Resource resource)
-    // {
-    //     if (_processor.CountTransformation - _stack >= 0)
-    //     {
-    //         _processor.TakeStack(_stack);
-    //         TakeResourceComplite<T>(resource);
-    //         _textCount.text = $"{_processor.CountTransformation}";
-    //         _textEndCount.text = $"{_processor.Completed}";
-    //     }
-    // }
+    
 
     protected void TakeResourceComplite<Type>(Resource resource)
     {

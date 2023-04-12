@@ -17,6 +17,7 @@ public class ProductPanelBoards : ProductPanel
         _addAllResourceButton.onClick.AddListener(AddAll);
         _takeResourceBackButton.onClick.AddListener(TakeResourceBack);
         _takeResourceComplitButton.onClick.AddListener(TakeConvertType);
+        _buttonLevelUp.onClick.AddListener(LevelUp);
     }
 
     private void AddResource()=> AddResources<Log>();
