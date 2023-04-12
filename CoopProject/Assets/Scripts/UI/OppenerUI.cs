@@ -40,11 +40,7 @@ public class OppenerUI : MonoBehaviour
 
     public void Close()
     {
-       _rectTransform.DOScale(_minScale, _timeAnimation).OnComplete(() =>
-       {
-          
-       });
-
+        _rectTransform.DOScale(_minScale, _timeAnimation);
         if (!_isCorutineWork)
             StartCoroutine(OnPlayedDelay());
     }
