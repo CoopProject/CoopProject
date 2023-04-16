@@ -13,7 +13,7 @@ namespace SpanwerHelpers
         [SerializeField] private Transform _spawnPoint;
         [SerializeField] protected T _resource;
         [SerializeField] protected TreeKeeper _treeKeeper;
-        
+
         public int InstanceCount { get; private set; }
 
         public Helper GetHelperInstantiate()

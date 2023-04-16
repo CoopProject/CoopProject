@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using DefaultNamespace;
+﻿using System.Collections.Generic;
 using DefaultNamespace.Helper;
 using ResourcesColection;
 using UnityEngine;
@@ -18,7 +16,7 @@ public class Helper : MonoBehaviour
     private Vector3 offset = new Vector3(0, 2, 0);
     private float _extractDistance = 1.5f;
     private int _layerMask;
-    private float _radius = 3f;
+    private float _radius = 1f;
     private Collider[] _hits = new Collider[1];
 
     private void Awake()
@@ -28,11 +26,7 @@ public class Helper : MonoBehaviour
         _animator = GetComponent<HelperAnimator>();
     }
 
-    public void FixedUpdate()
-    {
-        MoveToPoint();
-    }
-    
+    public void FixedUpdate() => MoveToPoint();
 
     private void MoveToPoint()
     {
@@ -59,8 +53,7 @@ public class Helper : MonoBehaviour
             Search(transform);
         }
     }
-    
-    
+
     private void Search(Transform pointFinding)
     {
         float distance = Mathf.Infinity;
@@ -81,10 +74,7 @@ public class Helper : MonoBehaviour
 
     public void SetList(List<ResourceSource> resourceSources) => _resources = resourceSources;
 
-    public void ExtractResourceTarget()
-    {
-        ExtractResource(_damage);
-    }
+    public void ExtractResourceTarget() => ExtractResource(_damage);
     
     private void ExtractResource(int _damageEnemy)
     {
@@ -94,13 +84,12 @@ public class Helper : MonoBehaviour
         }
         else
         {
-            Search(transform); 
+            _animator.StopExtract();
+            Search(transform);
         }
     }
-    private int Hit()
-    {
-            
-        return  Physics.OverlapSphereNonAlloc(transform.position +  transform.forward, _radius, _hits, _layerMask);
+
+    private int Hit() {
+        return Physics.OverlapSphereNonAlloc(transform.position + transform.forward, _radius, _hits, _layerMask);
     }
-    
 }

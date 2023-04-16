@@ -40,7 +40,7 @@ public abstract class ProductPanel : MonoBehaviour
 
     public void LevelUp()
     {
-        if (_playerWallet.Coins >= _levelUpPrice && _levelNow <= 5)
+        if (_playerWallet.Coins >= _levelUpPrice && _levelNow < 5)
         {
             _processor.LevelUp();
             _playerWallet.SellCoints(_levelUpPrice);

@@ -1,6 +1,7 @@
 using Reflex;
 using Reflex.Scripts.Attributes;
 using ResourcesGame.TypeResource;
+using UnityEngine;
 
 
 public class OpenPanelRock : OpenPanel<Stone>
@@ -12,14 +13,24 @@ public class OpenPanelRock : OpenPanel<Stone>
         _playerWallet = container.Resolve<PlayerWallet>();
     }
     
-    private void Update()
+    private void OnEnable()
     {
-        ActiveBreadge<Stone>();
+        _rectTransform = GetComponent<RectTransform>();
     }
-        
+
     private void Start()
     {
         var stone = new Stone();
         SetResourceType(stone);
+        _addResourceOne.onClick.AddListener(AddCoin);
+        _addResourceTwo.onClick.AddListener(AddResourceOne);
+    }
+
+    private void Update()
+    {
+        if (!_objectActive)
+        {
+            ActiveBreadge<Log>();     
+        }
     }
 }
