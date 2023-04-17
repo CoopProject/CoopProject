@@ -14,7 +14,7 @@ public class Helper : MonoBehaviour
     private HelperAnimator _animator;
     private int _damage = 5;
     private Vector3 offset = new Vector3(0, 2, 0);
-    private float _extractDistance = 1.5f;
+    private float _extractDistance = 2f;
     private int _layerMask;
     private float _radius = 1f;
     private Collider[] _hits = new Collider[1];
