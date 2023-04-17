@@ -16,6 +16,7 @@ public class OpenPanelRock : OpenPanel<Stone>
     private void OnEnable()
     {
         _rectTransform = GetComponent<RectTransform>();
+        SetStartData();
     }
 
     private void Start()

@@ -52,7 +52,7 @@ public class OpenPanel<T> : MonoBehaviour
         SetNewData();
     }
 
-    private void SetStartData()
+    protected void SetStartData()
     {
         _textCounterCoin.text = $"{CountCoin}/{MaxCountCountCoin}";
         _textCounterResourceOne.text = $"{CountResourceOne}/{MaxCountResourceOne}";

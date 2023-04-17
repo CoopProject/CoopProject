@@ -17,6 +17,7 @@ namespace DefaultNamespace.UI.OpenBuildings
         private void OnEnable()
         {
             _rectTransform = GetComponent<RectTransform>();
+            SetStartData();
         }
 
         private void Start()
