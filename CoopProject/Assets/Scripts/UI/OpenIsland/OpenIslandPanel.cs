@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -29,6 +30,9 @@ public abstract class OpenIslandPanel<ResourceOne,ResourceTwo> : MonoBehaviour
     
     protected ResourceCollector _resourceCollector;
     protected PlayerWallet _playerWallet;
+
+    private void OnEnable() => SetStartData();
+    
 
     protected void SetStartData()
     {

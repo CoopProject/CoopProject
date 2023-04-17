@@ -43,17 +43,19 @@ public class ResourceCollector : MonoBehaviour
         return 0;
     }
 
-    public void SallResource<TypeResource>()
+    public void SellResource<TypeResource>()
     {
         _resources[typeof(TypeResource)].Clear();
     }
 
     public void SellCountResource<TypeResource>(int countResource)
     {
-        if (_resources[typeof(TypeResource)].Count > countResource)
-        {
+        if (countResource == _resources[typeof(TypeResource)].Count)
+            SellResource<TypeResource>();
+        
+        else if(_resources[typeof(TypeResource)].Count > countResource)
             _resources[typeof(TypeResource)].RemoveRange(1,countResource);    
-        }
+        
     } 
         
     

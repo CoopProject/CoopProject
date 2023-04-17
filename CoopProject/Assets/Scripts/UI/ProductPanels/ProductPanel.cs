@@ -8,7 +8,6 @@ public abstract class ProductPanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _textCount;
     [SerializeField] private TextMeshProUGUI _textEndCount;
     [SerializeField] private TextMeshProUGUI _levelValue;
-    [SerializeField] private GameObject _levelNowPanel;
     [SerializeField] private GameObject _levelMaxPanel;
     [SerializeField] protected Button _addResourceButton;
     [SerializeField] protected Button _addAllResourceButton;
@@ -28,7 +27,6 @@ public abstract class ProductPanel : MonoBehaviour
     private void OnEnable()
     {
         _processor.Done += ConversionComplit;
-        _levelNowPanel.gameObject.SetActive(true);
         _levelMaxPanel.gameObject.SetActive(false);
     }
 
@@ -52,7 +50,8 @@ public abstract class ProductPanel : MonoBehaviour
             
             if (_levelNow == 5)
             {
-                _levelNowPanel.gameObject.SetActive(false);
+                _buttonLevelUp.gameObject.SetActive(false);
+                _buttonLevelUpReward.gameObject.SetActive(false);
                 _levelMaxPanel.gameObject.SetActive(true);
             }
         }
@@ -74,7 +73,7 @@ public abstract class ProductPanel : MonoBehaviour
         if (countResource != 0)
         {
             _processor.AddAll(countResource);
-            _resourceCollector.SallResource<T>();
+            _resourceCollector.SellResource<T>();
         }
     }
 

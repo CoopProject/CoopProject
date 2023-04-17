@@ -38,7 +38,9 @@ public class Player : MonoBehaviour
             if (_rotationDuration < 0 && _playerMovement.Imove == false)
             {
                 var direction = resource.transform.position - transform.position;
-                transform.rotation = Quaternion.LookRotation(direction + _offset);
+                direction.y = 0;
+                Quaternion targetRotation = Quaternion.LookRotation(direction);
+                transform.rotation = Quaternion.Euler(0,targetRotation.eulerAngles.y,0);
                 _rotationDuration = _rotationMaxDuration;
             }
         }

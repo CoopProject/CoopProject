@@ -69,17 +69,15 @@ public class OpenAutumnUI : OpenIslandPanel<Log, Boards>
         if (CountCoin == MaxCountCountCoin && CountResourceOne == MaxCountCountOne &&
             CountResourceTwo == MaxCountCountTwo)
         {
-            
             foreach (var wall in _walls)
                 wall.gameObject.SetActive(false);
             
-
             _playerWallet.SellCoints(MaxCountCountCoin);
+            _resourceCollector.SellCountResource<Log>(CountResourceOne);
+            _resourceCollector.SellCountResource<Boards>(CountResourceTwo);
             _statsSetup.ActiveAmaunt();
             _oppener.Close();
             _oppener.Unplug();
-            _resourceCollector.SellCountResource<Log>(CountResourceTwo);
-            _resourceCollector.SellCountResource<Boards>(MaxCountCountTwo);
         }
     }
 }

@@ -13,7 +13,7 @@ public class Tree : ResourceSource
     private ResourceCollector _resourceCollector;
     private int _maxHealth = 30;
     private int _health = 30;
-    private float _durationReset = 8f;
+    private float _durationReset = 15f;
     private int _resourceAddCount = 1;
     
     [Inject]

@@ -26,6 +26,6 @@ public class Model
    public void SetCoinPlayer(PlayerWallet playerWallet) => playerWallet.SetCoinsValue(SumResource);
    
 
-   public void ClearData<T>(ResourceCollector resourceCollector) => resourceCollector.SallResource<T>();
+   public void ClearData<T>(ResourceCollector resourceCollector) => resourceCollector.SellResource<T>();
    
 }
