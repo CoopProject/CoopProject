@@ -9,6 +9,8 @@ using UnityEngine.UI;
 public abstract class UpgradePanelUI<T> : MonoBehaviour where T : ResourceSource
 {
     [SerializeField] private HelperBuildng<T> _helpersBuilding;
+    [SerializeField] private GameObject _maxLevelPanel;
+    [SerializeField] private GameObject _levelPanel;
     [SerializeField] private TextMeshProUGUI _levelUpNow;
     [SerializeField] private TextMeshProUGUI _countHelperInstance;
     [SerializeField] private TextMeshProUGUI _nextCountSpawnHelper;
@@ -39,7 +41,6 @@ public abstract class UpgradePanelUI<T> : MonoBehaviour where T : ResourceSource
             _helpersBuilding.Lvlup(_levelUps[_levelNow].InstanceHelpers, _levelUps[_levelNow].ExtractedResources);
         }
     }
-    
 
     private void SetData()
     {
@@ -55,10 +56,13 @@ public abstract class UpgradePanelUI<T> : MonoBehaviour where T : ResourceSource
         {
             _valumeExtraction.text = $"{_levelUps[_levelNow + 1].ExtractedResources}";
             _nextCountSpawnHelper.text = $"{_levelUps[_levelNow + 1].InstanceHelpers}";
+            _maxLevelPanel.gameObject.SetActive(false);
+            _levelPanel.gameObject.SetActive(true);
         }
         else
         {
-            _levelUpNow.text = $"{_levelNow}";
+            _maxLevelPanel.gameObject.SetActive(true);
+            _levelPanel.gameObject.SetActive(false);
             _valumeExtraction.text = $"{_levelUps[_levelNow].ExtractedResources}";
             _nextCountSpawnHelper.text = $"{_levelUps[_levelNow].InstanceHelpers}";
         }

@@ -30,7 +30,7 @@ public class OpenPanelRock : OpenPanel<Stone>
     {
         if (!_objectActive)
         {
-            ActiveBreadge<Log>();     
+            ActiveBreadge<Stone>();     
         }
     }
 }

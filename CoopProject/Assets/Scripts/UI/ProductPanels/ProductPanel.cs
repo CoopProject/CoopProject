@@ -8,6 +8,8 @@ public abstract class ProductPanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _textCount;
     [SerializeField] private TextMeshProUGUI _textEndCount;
     [SerializeField] private TextMeshProUGUI _levelValue;
+    [SerializeField] private GameObject _levelNowPanel;
+    [SerializeField] private GameObject _levelMaxPanel;
     [SerializeField] protected Button _addResourceButton;
     [SerializeField] protected Button _addAllResourceButton;
     [SerializeField] protected Button _takeResourceBackButton;
@@ -21,16 +23,17 @@ public abstract class ProductPanel : MonoBehaviour
     protected int _counter => _processor.CountTransformation;
     private int _levelNow = 1;
     private int _levelUpPrice = 100;
+    private int _maxLevel = 5;
 
     private void OnEnable()
     {
         _processor.Done += ConversionComplit;
+        _levelNowPanel.gameObject.SetActive(true);
+        _levelMaxPanel.gameObject.SetActive(false);
     }
 
-    private void LateUpdate()
-    {
-        SetData();
-    }
+    private void LateUpdate() => SetData();
+    
 
     private void SetData()
     {
@@ -40,12 +43,18 @@ public abstract class ProductPanel : MonoBehaviour
 
     public void LevelUp()
     {
-        if (_playerWallet.Coins >= _levelUpPrice && _levelNow < 5)
+        if (_playerWallet.Coins >= _levelUpPrice && _levelNow < _maxLevel)
         {
             _processor.LevelUp();
             _playerWallet.SellCoints(_levelUpPrice);
             _levelNow++;
             _levelValue.text = $"{_levelNow}";
+            
+            if (_levelNow == 5)
+            {
+                _levelNowPanel.gameObject.SetActive(false);
+                _levelMaxPanel.gameObject.SetActive(true);
+            }
         }
     }
 

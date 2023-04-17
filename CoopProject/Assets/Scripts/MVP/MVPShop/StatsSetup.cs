@@ -1,5 +1,3 @@
-using System;
-using System.Security.Cryptography.X509Certificates;
 using DefaultNamespace.MVC.MVPShop.Prisenters;
 using DefaultNamespace.MVP.MVPShop.Viues;
 using Reflex;
@@ -62,14 +60,8 @@ public class StatsSetup : MonoBehaviour
         _presenterGoldIngots = new PresenterStats<GoldIngots>(_goldIgnotsModel, _goldIngotsView, _resourceCollector);
     }
 
-    public void ActiveAmaunt()
-    {
-        _stoneView.gameObject.SetActive(true);
-        _ironView.gameObject.SetActive(true);
-    }
-
-    public void ActiveWinter()
-    {
-        _goldView.gameObject.SetActive(true);
-    }
+    public void ActiveAmaunt()=> _stoneView.gameObject.SetActive(true);
+    
+    public void ActiveWinter()=> _goldView.gameObject.SetActive(true);
+    
 }

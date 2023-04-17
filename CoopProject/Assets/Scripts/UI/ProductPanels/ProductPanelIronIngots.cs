@@ -10,28 +10,33 @@ public class ProductPanelIronIngots : ProductPanel
     private void Start()
     {
         _addResourceButton.onClick.AddListener(AddResource);
-        //_addAllResourceButton.onClick.AddListener(AddStack);
-        _takeResourceBackButton.onClick.AddListener(TakeStack);
+        _addAllResourceButton.onClick.AddListener(AddAll);
+        _takeResourceBackButton.onClick.AddListener(TakeResourceBack);
         _takeResourceComplitButton.onClick.AddListener(TakeConvertType);
+        _buttonLevelUp.onClick.AddListener(LevelUp);
     }
    
-    private void AddResource() => AddResources<Iron>();
+    private void AddResource()=> AddResources<Stone>();
     
 
-   //private void AddStack() => SetStackCount<Iron>();
+    private void AddAll()=> SellAllResource<Stone>();
     
 
-    private void TakeStack()
+    private void TakeResourceBack()
     {
         var iron = new Iron();
-        //Take<Log>(iron);
+        TakeResource<Iron>(iron);
     }
+    
 
     private void TakeConvertType()
     {
-        IronIngots ironIngots = new();
-        ironIngots.SetPrice();
-        TakeResource<IronIngots>(ironIngots);
-        Reset();
+        if (_processor.Completed > 0)
+        {
+            IronIngots ironIngots = new();
+            ironIngots.SetPrice();
+            TakeResourceComplite<IronIngots>(ironIngots);
+            Reset();
+        }
     }
 }

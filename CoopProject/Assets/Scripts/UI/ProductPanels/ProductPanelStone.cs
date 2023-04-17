@@ -5,14 +5,19 @@ using ResourcesGame.TypeResource;
 public class ProductPanelStone : ProductPanel
 {
     [Inject]
-    private void Inject(Container container) => _resourceCollector = container.Resolve<ResourceCollector>();
-    
+    private void Inject(Container container)
+    {
+        _resourceCollector = container.Resolve<ResourceCollector>();
+        _playerWallet = container.Resolve<PlayerWallet>();
+    }
+
     private void Start()
     {
         _addResourceButton.onClick.AddListener(AddResource);
         _addAllResourceButton.onClick.AddListener(AddAll);
         _takeResourceBackButton.onClick.AddListener(TakeResourceBack);
         _takeResourceComplitButton.onClick.AddListener(TakeConvertType);
+        _buttonLevelUp.onClick.AddListener(LevelUp);
     }
 
     private void AddResource()=> AddResources<Stone>();
@@ -32,9 +37,9 @@ public class ProductPanelStone : ProductPanel
     {
         if (_processor.Completed > 0)
         {
-            StoneBlocks board = new();
-            board.SetPrice();
-            TakeResourceComplite<StoneBlocks>(board);
+            StoneBlocks stoneBlocks = new();
+            stoneBlocks.SetPrice();
+            TakeResourceComplite<StoneBlocks>(stoneBlocks);
             Reset();
         }
     }

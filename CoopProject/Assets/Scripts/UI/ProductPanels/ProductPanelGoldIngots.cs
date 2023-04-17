@@ -10,29 +10,33 @@ public class ProductPanelGoldIngots : ProductPanel
     private void Start()
     {
         _addResourceButton.onClick.AddListener(AddResource);
-        //_addAllResourceButton.onClick.AddListener(AddStack);
-        _takeResourceBackButton.onClick.AddListener(TakeStack);
+        _addAllResourceButton.onClick.AddListener(AddAll);
+        _takeResourceBackButton.onClick.AddListener(TakeResourceBack);
         _takeResourceComplitButton.onClick.AddListener(TakeConvertType);
+        _buttonLevelUp.onClick.AddListener(LevelUp);
     }
    
-    private void AddResource() => AddResources<Gold>();
+    private void AddResource()=> AddResources<Stone>();
     
 
-   // private void AddStack()=> SetStackCount<Gold>();
+    private void AddAll()=> SellAllResource<Stone>();
     
 
-    private void TakeStack()
+    private void TakeResourceBack()
     {
         var gold = new Gold();
-       // Take<Log>(gold);
+        TakeResource<Gold>(gold);
     }
     
 
     private void TakeConvertType()
     {
-        GoldIngots goldenIngots = new();
-        goldenIngots.SetPrice();
-        TakeResource<GoldIngots>(goldenIngots);
-        Reset();
+        if (_processor.Completed > 0)
+        {
+            GoldIngots goldIngots = new();
+            goldIngots.SetPrice();
+            TakeResourceComplite<GoldIngots>(goldIngots);
+            Reset();
+        }
     }
 }
