@@ -7,12 +7,13 @@ using UnityEngine.UI;
 public class ViueAllSell : MonoBehaviour
 {
    [SerializeField] private List<ViueUI> _viue;
-   [SerializeField] Button _buttonSellAll;
+   [SerializeField] private Button _buttonSellAll;
    [SerializeField] private TextMeshProUGUI _textButtonSell;
    [SerializeField] private Button _buttonRewarSellAll;
    [SerializeField] private TextMeshProUGUI _textRewardButtonSell;
 
    public Button ButtonSellAll => _buttonSellAll;
+   public Button ButtonReward => _buttonSellAll;
 
    private int _sumResource = 0;
 

@@ -50,9 +50,9 @@ public abstract class ProductPanel : MonoBehaviour
             
             if (_levelNow == 5)
             {
+                _levelMaxPanel.gameObject.SetActive(true);
                 _buttonLevelUp.gameObject.SetActive(false);
                 _buttonLevelUpReward.gameObject.SetActive(false);
-                _levelMaxPanel.gameObject.SetActive(true);
             }
         }
     }

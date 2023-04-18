@@ -1,4 +1,5 @@
 using System;
+using Agava.YandexGames;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,7 +13,7 @@ public class ViueUI : MonoBehaviour
   [SerializeField] private TextMeshProUGUI _textButtonPrice;
   [Space]
   [Header("Кнопка рекламы")]
-  [SerializeField] private Button _buttonReward;
+  [SerializeField] public Button _buttonReward;
   [SerializeField] private TextMeshProUGUI _textRewardButtonPrice;
   
   public event Action OnActive;
@@ -33,6 +34,9 @@ public class ViueUI : MonoBehaviour
     _textRewardButtonPrice.text = $"{value * 2}";
     Price = value;
   }
+
+  public void SellButtonRewardClick() => _buttonReward.onClick.Invoke();
+  
 
   public void SellButtonClick() => _buttonSale.onClick.Invoke();
 }
