@@ -6,8 +6,6 @@ using UnityEngine;
 public class OpenWinterIsland : OpenIslandPanel<Stone,StoneBlocks>
 {
     [SerializeField] private StatsSetup _statsSetup;
-    private Log _log;
-    private Boards _boards;
 
     [Inject]
     private void Inject(Container container)
@@ -16,29 +14,31 @@ public class OpenWinterIsland : OpenIslandPanel<Stone,StoneBlocks>
         _playerWallet = container.Resolve<PlayerWallet>();
     }
 
-    private void OnEnable()
+    private void OnEnable() =>  SetStartData();
+    
+    private void Start()
     {
-        SetStartData();
+        _addResourceOne.onClick.AddListener(AddCoin);
+        _addResourceTwo.onClick.AddListener(AddResourceOne);
+        _addResourceFree.onClick.AddListener(AddResourceTwo);
     }
 
-    private void Update()
-    {
-        ActiveIsland();
-    }
+    private void Update() => ActiveIsland();
+    
 
-    public void AddCoin()
+    private void AddCoin()
     {
         ValidateAdd();
         SetNewData();
     }
 
-    public void AddResourceOne()
+    private void AddResourceOne()
     {
         AddResourceOne<Stone>();
         SetNewData();
     }
 
-    public void AddResourceTwo()
+    private void AddResourceTwo()
     {
         AddResourceTwo<StoneBlocks>();
         SetNewData();
@@ -62,15 +62,14 @@ public class OpenWinterIsland : OpenIslandPanel<Stone,StoneBlocks>
             CountResourceTwo == MaxCountCountTwo)
         {
             foreach (var wall in _walls)
-            {
                 wall.gameObject.SetActive(false);
-            }
-            _walls = null;
-             _statsSetup.ActiveWinter();
+
             _playerWallet.SellCoints(MaxCountCountCoin);
-            _resourceCollector.SellCountResource<Stone>(CountResourceTwo);
-            _resourceCollector.SellCountResource<StoneBlocks>(MaxCountCountTwo);
-            Destroy(gameObject);
+            _resourceCollector.SellCountResource<Stone>(CountResourceOne);
+            _resourceCollector.SellCountResource<StoneBlocks>(CountResourceTwo);
+            _statsSetup.ActiveWinter();
+            _oppener.Close();
+            _oppener.Unplug();
         }
     }
 }

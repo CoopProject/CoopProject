@@ -49,15 +49,10 @@ public class SetupShop : MonoBehaviour
         _presenterlog = new Presenter<Log>(_woodModel, woodViueUI, _resourceCollector, _playerWallet, _viueAllSell);
         _presenterGold = new Presenter<Gold>(_goldModel, _goldView, _resourceCollector, _playerWallet, _viueAllSell);
         _prisenterIron = new Presenter<Iron>(_ironModel, _ironView, _resourceCollector, _playerWallet, _viueAllSell);
-        _presenterStone =
-            new Presenter<Stone>(_stoneModel, _stoneView, _resourceCollector, _playerWallet, _viueAllSell);
-        _presenterStoneBlocks = new Presenter<StoneBlocks>(_stoneBlocksModel, _blocksView, _resourceCollector,
-            _playerWallet, _viueAllSell);
-        _presenterBoards =
-            new Presenter<Boards>(_boardsModel, _boardsView, _resourceCollector, _playerWallet, _viueAllSell);
-        _presenterIronIgnots = new Presenter<IronIngots>(_ironIgnotsModel, _ironIngotsView, _resourceCollector,
-            _playerWallet, _viueAllSell);
-        _presenterGoldIngots = new Presenter<GoldIngots>(_goldIgnotsModel, _goldIngotsView, _resourceCollector,
-            _playerWallet, _viueAllSell);
+        _presenterStone = new Presenter<Stone>(_stoneModel, _stoneView, _resourceCollector, _playerWallet, _viueAllSell);
+        _presenterStoneBlocks = new Presenter<StoneBlocks>(_stoneBlocksModel, _blocksView, _resourceCollector,_playerWallet, _viueAllSell);
+        _presenterBoards = new Presenter<Boards>(_boardsModel, _boardsView, _resourceCollector, _playerWallet, _viueAllSell);
+        _presenterIronIgnots = new Presenter<IronIngots>(_ironIgnotsModel, _ironIngotsView, _resourceCollector, _playerWallet, _viueAllSell);
+        _presenterGoldIngots = new Presenter<GoldIngots>(_goldIgnotsModel, _goldIngotsView, _resourceCollector,_playerWallet, _viueAllSell);
     }
 }

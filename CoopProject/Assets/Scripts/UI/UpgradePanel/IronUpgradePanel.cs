@@ -5,8 +5,6 @@ using ResourcesColection.IronOre;
 public class IronUpgradePanel : UpgradePanelUI<IronOre>
 {
     [Inject]
-    private void Inject(Container container)
-    {
-       // _player = container.Resolve<Player>();
-    } 
+    private void Inject(Container container) => _playerWallet = container.Resolve<PlayerWallet>();
+    
 }

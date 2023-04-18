@@ -62,6 +62,6 @@ public class StatsSetup : MonoBehaviour
 
     public void ActiveAmaunt()=> _stoneView.gameObject.SetActive(true);
     
-    public void ActiveWinter()=> _goldView.gameObject.SetActive(true);
+    public void ActiveWinter()=> _ironView.gameObject.SetActive(true);
     
 }
