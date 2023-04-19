@@ -65,11 +65,10 @@ public class ResourceCollector : MonoBehaviour
        };
    }
 
-   private void LateUpdate() => SaveData();
-   
    public void AddResource<TypeResource>()
     {
         _resources[typeof(TypeResource)]++;
+        SaveData();
     }
 
     private void SaveData()
@@ -100,6 +99,7 @@ public class ResourceCollector : MonoBehaviour
     public void SellResource<TypeResource>()
     {
         _resources[typeof(TypeResource)] = 0;
+        SaveData();
     }
 
 
@@ -110,5 +110,6 @@ public class ResourceCollector : MonoBehaviour
 
         else if (_resources[typeof(TypeResource)] > countResource)
             _resources[typeof(TypeResource)] -= countResource;
+        SaveData();
     }
 }
