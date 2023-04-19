@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using ResourcesColection;
 using SpanwerHelpers;
@@ -9,8 +10,12 @@ namespace DefaultNamespace.Buildings
     {
         [SerializeField] protected Factory<T> _spawnHelperTree;
         [SerializeField] protected List<ResourceSource> _list;
+        [SerializeField] protected UpgradePanelUI<T> _panel;
 
         public int Counter => _spawnHelperTree.InstanceCount;
+
+        private void Start()=> Lvlup(_panel.LevelUps[_panel.LevelNow].InstanceHelpers, _panel.LevelUps[_panel.LevelNow].ExtractedResources);
+        
 
         public void Lvlup(int helperInstance, int resourceExtraction)
         {

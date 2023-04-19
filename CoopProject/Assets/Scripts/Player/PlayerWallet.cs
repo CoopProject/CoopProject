@@ -7,7 +7,12 @@ public class PlayerWallet : MonoBehaviour
     
     public int Coins => _coins;
     public event Action SetCoinValue;
-    
+
+    private void Start()
+    {
+        SetCoinValue?.Invoke();
+    }
+
     public void SetCoinsValue(int coins)
     {
         if (coins > 0)

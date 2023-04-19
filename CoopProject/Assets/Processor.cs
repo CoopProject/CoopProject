@@ -6,9 +6,9 @@ public class Processor : MonoBehaviour
     [SerializeField] private ProductPanel _panel;
     [SerializeField] private float _duration = 5f;
 
-    private int _ñountTransformation = 0;
-    private int _ñompleted = 0;
-    private float _countDuration = 0;
+    [ES3Serializable]private int _ñountTransformation = 0;
+    [ES3Serializable]private int _ñompleted = 0;
+    private float _countDuration = 5f;
     private float _durationMinimum = 2.5f;
     private float _maxDurationVelue => _duration;
     public event Action Done; 

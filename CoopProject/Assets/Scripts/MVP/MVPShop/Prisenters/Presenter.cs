@@ -22,8 +22,8 @@ namespace DefaultNamespace.MVC.MVPShop.Prisenters
             _viueUI._buttonSale.onClick.AddListener(ClickButtonViue);
             _viueUI._buttonReward.onClick.AddListener(ClickButtonRewardViue);
             
-            _viueAllSell.ButtonSellAll.onClick.AddListener(ClickButtonViue);
-            _viueAllSell.ButtonReward.onClick.AddListener(ClickButtonRewardViue);
+            _viueAllSell.ButtonSellAll.onClick.AddListener(SellAllResource);
+            _viueAllSell.ButtonReward.onClick.AddListener(SellAllResourceReward);
         }
         
         private void SetStartData()
@@ -42,6 +42,10 @@ namespace DefaultNamespace.MVC.MVPShop.Prisenters
             _viueUI.SetPriceButton(_model.SumResource);
         }
 
+        private void SellAllResource() => _viueUI._buttonSale.onClick.Invoke();
+        private void SellAllResourceReward() => _viueUI._buttonReward.onClick.Invoke();
+        
+
         private void ClickButtonRewardViue()
         {
             _model.SetRewardCoinPlayer(_playerWallet);
@@ -49,7 +53,7 @@ namespace DefaultNamespace.MVC.MVPShop.Prisenters
             _model.SetValueCount<T>(_resourceCollector);
             _viueUI.SetCountResource(_model.CountElements);
             _viueUI.SetPriceButton(_model.SumResource);
-            VideoAd.Show();
+            //VideoAd.Show();
         }
     }
 }
