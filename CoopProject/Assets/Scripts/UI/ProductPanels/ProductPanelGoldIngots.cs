@@ -25,7 +25,7 @@ public class ProductPanelGoldIngots : ProductPanel
     private void TakeResourceBack()
     {
         var gold = new Gold();
-        TakeResource<Gold>(gold);
+        TakeResource<Gold>();
     }
     
 
@@ -35,7 +35,7 @@ public class ProductPanelGoldIngots : ProductPanel
         {
             GoldIngots goldIngots = new();
             goldIngots.SetPrice();
-            TakeResourceComplite<GoldIngots>(goldIngots);
+            TakeResourceComplite<GoldIngots>();
             Reset();
         }
     }

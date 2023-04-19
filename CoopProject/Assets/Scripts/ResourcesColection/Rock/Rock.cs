@@ -42,9 +42,7 @@ public class Rock : ResourceSource,IResourceSource
     {
         for (int i = 0; i < _resourceAddCount; i++)
         {
-            Stone stone = new ();
-            stone.SetPrice();
-            _resourceCollector.AddResource<Stone>(stone);    
+            _resourceCollector.AddResource<Stone>();    
         }
         
     }

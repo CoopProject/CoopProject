@@ -43,9 +43,7 @@ namespace ResourcesColection.Gold_Ore
         {
             for (int i = 0; i < _resourceAddCount; i++)
             {
-                Gold iron = new();
-                iron.SetPrice();
-                _resourceCollector.AddResource<Gold>(iron);
+                _resourceCollector.AddResource<Gold>();
             }
         }
 

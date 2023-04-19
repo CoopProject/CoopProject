@@ -45,7 +45,7 @@ namespace ResourcesColection.IronOre
             {
                 Iron iron = new();
                 iron.SetPrice();
-                _resourceCollector.AddResource<Iron>(iron);
+                _resourceCollector.AddResource<Iron>();
             }
         }
 

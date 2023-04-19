@@ -43,9 +43,7 @@ public class Tree : ResourceSource
     {
         for (int i = 0; i < _resourceAddCount; i++)
         {
-            Log log = new ();
-            log.SetPrice();
-            _resourceCollector.AddResource<Log>(log);    
+            _resourceCollector.AddResource<Log>();    
         }
         
     }

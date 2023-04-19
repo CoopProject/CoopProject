@@ -91,17 +91,17 @@ public abstract class ProductPanel : MonoBehaviour
     }
     
 
-    protected void TakeResourceComplite<Type>(Resource resource)
+    protected void TakeResourceComplite<Type>()
     {
         for (int i = 0; i < _processor.Completed; i++)
-            _resourceCollector.AddResource<Type>(resource);
+            _resourceCollector.AddResource<Type>();
     }
 
-    protected void TakeResource<Type>(Resource resource)
+    protected void TakeResource<Type>()
     {
         if (_processor.CountTransformation > 0)
         {
-            _resourceCollector.AddResource<Type>(resource);
+            _resourceCollector.AddResource<Type>();
             _processor.CancellationProcessing();
             _textCount.text = $"{_processor.CountTransformation}";
         }

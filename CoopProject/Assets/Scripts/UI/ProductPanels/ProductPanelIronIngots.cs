@@ -29,7 +29,7 @@ public class ProductPanelIronIngots : ProductPanel
     private void TakeResourceBack()
     {
         var iron = new Iron();
-        TakeResource<Iron>(iron);
+        TakeResource<Iron>();
     }
     
 
@@ -39,7 +39,7 @@ public class ProductPanelIronIngots : ProductPanel
         {
             IronIngots ironIngots = new();
             ironIngots.SetPrice();
-            TakeResourceComplite<IronIngots>(ironIngots);
+            TakeResourceComplite<IronIngots>();
             Reset();
         }
     }

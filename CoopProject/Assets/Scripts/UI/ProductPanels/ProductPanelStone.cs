@@ -29,7 +29,7 @@ public class ProductPanelStone : ProductPanel
     private void TakeResourceBack()
     {
         var stone = new Stone();
-        TakeResource<Stone>(stone);
+        TakeResource<Stone>();
     }
     
 
@@ -39,7 +39,7 @@ public class ProductPanelStone : ProductPanel
         {
             StoneBlocks stoneBlocks = new();
             stoneBlocks.SetPrice();
-            TakeResourceComplite<StoneBlocks>(stoneBlocks);
+            TakeResourceComplite<StoneBlocks>();
             Reset();
         }
     }

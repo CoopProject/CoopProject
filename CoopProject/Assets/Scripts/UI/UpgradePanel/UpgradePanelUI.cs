@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Agava.YandexGames;
 using DefaultNamespace.Buildings;

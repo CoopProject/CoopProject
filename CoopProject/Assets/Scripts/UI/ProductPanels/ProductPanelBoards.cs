@@ -29,7 +29,7 @@ public class ProductPanelBoards : ProductPanel
     private void TakeResourceBack()
     {
         var log = new Log();
-        TakeResource<Log>(log);
+        TakeResource<Log>();
     }
 
     private void TakeConvertType()
@@ -38,7 +38,7 @@ public class ProductPanelBoards : ProductPanel
         {
             Boards board = new();
             board.SetPrice();
-            TakeResourceComplite<Boards>(board);
+            TakeResourceComplite<Boards>();
             Reset();
         }
     }
