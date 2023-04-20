@@ -68,7 +68,7 @@ public class OpenMagickIsland : OpenIslandPanel<Iron,IronIngots>
             _playerWallet.SellCoints(MaxCountCountCoin);
             _resourceCollector.SellCountResource<Stone>(CountResourceOne);
             _resourceCollector.SellCountResource<StoneBlocks>(CountResourceTwo);
-            _statsSetup.ActiveWinter();
+            _statsSetup.ActiveMagickIsland();
             DisableOpenners();
         }
     }

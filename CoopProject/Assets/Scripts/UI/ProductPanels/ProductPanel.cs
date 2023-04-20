@@ -28,7 +28,6 @@ public abstract class ProductPanel : MonoBehaviour
     private void OnEnable()
     {
         _processor.Done += ConversionComplit;
-        _levelMaxPanel.gameObject.SetActive(false);
     }
 
     private void LateUpdate() => SetData();
