@@ -56,17 +56,13 @@ public abstract class ProductPanel : MonoBehaviour
             }
         }
     }
-
-    protected void ShowReward()
-    {
-        VideoAd.Show();
-        LevelUpReward();
-    }
+    
 
     public void LevelUpReward()
     {
         if (_playerWallet.Coins >= _levelUpPrice && _levelNow < _maxLevel)
         {
+            VideoAd.Show();
             _processor.LevelUpReward();
             _playerWallet.SellCoints(_levelUpPrice);
             _levelNow += 2;
