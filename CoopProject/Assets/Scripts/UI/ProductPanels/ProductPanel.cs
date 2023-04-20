@@ -1,3 +1,4 @@
+using Agava.YandexGames;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -54,6 +55,12 @@ public abstract class ProductPanel : MonoBehaviour
                 _buttonLevelUpReward.gameObject.SetActive(false);
             }
         }
+    }
+
+    protected void ShowReward()
+    {
+        VideoAd.Show();
+        LevelUpReward();
     }
 
     public void LevelUpReward()

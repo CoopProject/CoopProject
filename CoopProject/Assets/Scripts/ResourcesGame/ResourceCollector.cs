@@ -20,9 +20,9 @@ public class ResourceCollector : MonoBehaviour
      [ES3Serializable] private int _dataResourceStone;
      [ES3Serializable] private int _dataResourceGold;
      [ES3Serializable] private int _dataResourceBoards;
-     [ES3Serializable] private int _dataResourceIron = 10;
+     [ES3Serializable] private int _dataResourceIron;
      [ES3Serializable] private int _dataResourceStoneBlocks;
-     [ES3Serializable] private int _dataResourceIronIgnots = 10;
+     [ES3Serializable] private int _dataResourceIronIgnots;
      [ES3Serializable] private int _dataResourceGoldIgnots;
     
      private int _counterResourceLog;

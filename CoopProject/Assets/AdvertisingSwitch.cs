@@ -16,7 +16,7 @@ public class AdvertisingSwitch : MonoBehaviour
       while (true)
       {
          yield return WaitForSecondsRealtime;
-         VideoAd.Show();
+         InterstitialAd.Show();
       }
    }
 }

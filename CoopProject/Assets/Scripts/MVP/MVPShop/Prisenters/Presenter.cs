@@ -46,9 +46,12 @@ namespace DefaultNamespace.MVC.MVPShop.Prisenters
         private void SellAllResource() => _viueUI._buttonSale.onClick.Invoke();
         private void SellAllResourceReward() => _viueUI._buttonReward.onClick.Invoke();
 
-        private void RewardShow() => InterstitialAd.Show(ClickButtonRewardViue);
+        private void RewardShow()
+        {
+             VideoAd.Show();
+             ClickButtonRewardViue();
+        }
         
-
         private void ClickButtonRewardViue()
         {
             _model.SetRewardCoinPlayer(_playerWallet);

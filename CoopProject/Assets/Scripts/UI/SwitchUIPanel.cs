@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -5,6 +6,7 @@ public class SwitchUIPanel : MonoBehaviour
 {
    [SerializeField] private List<ViueUI> _viues;
    [SerializeField] private ViueAllSell _viueAllSell;
+   
 
    private void FixedUpdate()
    {

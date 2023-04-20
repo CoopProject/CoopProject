@@ -52,25 +52,18 @@ public abstract class UpgradePanelUI<T> : MonoBehaviour where T : ResourceSource
         }
     }
 
-    private void ShowReward() => InterstitialAd.Show(LevelUpReward);
+    private void ShowReward() => VideoAd.Show(null, null, LevelUpReward);
     
 
     private void LevelUpReward()
     {
-        if (_playerWallet.Coins >= LevelUps[_levelNow].LevelUpPrice && _levelNow < LevelUps.Count - 1)
+        if (_playerWallet.Coins >= LevelUps[_levelNow].LevelUpReward && _levelNow < LevelUps.Count - 1)
         {
-
-            if (_levelNow < LevelUps.Count - 2)
-                _levelNow += 2;
-            
-            else
-                _levelNow++;
-            
-            _playerWallet.SellCoints(LevelUps[_levelNow].LevelUpPrice);
+            _playerWallet.SellCoints(LevelUps[_levelNow].LevelUpReward);
+            _levelNow++;
             SetData();
             SetNexData();
             _helpersBuilding.Lvlup(LevelUps[_levelNow].InstanceHelpers, LevelUps[_levelNow].ExtractedResources);
-            
         }
     }
 
