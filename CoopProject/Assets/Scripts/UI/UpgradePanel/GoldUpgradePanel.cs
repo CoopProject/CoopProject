@@ -5,8 +5,6 @@ using ResourcesColection.Gold_Ore;
 public class GoldUpgradePanel : UpgradePanelUI<GoldOre>
 {
     [Inject]
-    private void Inject(Container container)
-    {
-        //_player = container.Resolve<Player>();
-    } 
+    private void Inject(Container container) => _playerWallet = container.Resolve<PlayerWallet>();
+    
 }

@@ -6,12 +6,9 @@ using UnityEngine.UI;
 
 public abstract class OpenIslandPanel<ResourceOne,ResourceTwo> : MonoBehaviour
 {
-    [SerializeField] protected OppenerUI _oppener;
+    [SerializeField] protected List<OppenerUI> _oppener;
     [SerializeField] protected List<Wall> _walls;
-    [Header("Счетчики ресурсов")]
-    [SerializeField] private TextMeshProUGUI _textCounterCoin;
-    [SerializeField] private TextMeshProUGUI _textCounterResourceOne;
-    [SerializeField] private TextMeshProUGUI _textCounterResourceTwo;
+    [SerializeField] protected Button _buttonClose;
 
     [Header("Кнопочки для добовления")] 
     [SerializeField] protected Button _addResourceOne;
@@ -23,6 +20,11 @@ public abstract class OpenIslandPanel<ResourceOne,ResourceTwo> : MonoBehaviour
     [SerializeField] protected int MaxCountCountOne = 15;
     [Space]
     [SerializeField] protected int MaxCountCountTwo = 20;
+    
+    [Header("Счетчики ресурсов")]
+    [SerializeField] private TextMeshProUGUI _textCounterCoin;
+    [SerializeField] private TextMeshProUGUI _textCounterResourceOne;
+    [SerializeField] private TextMeshProUGUI _textCounterResourceTwo;
 
     protected int CountCoin = 0;
     protected int CountResourceOne = 0;
@@ -87,6 +89,8 @@ public abstract class OpenIslandPanel<ResourceOne,ResourceTwo> : MonoBehaviour
             CountResourceTwo = resourceCount;
         }
     }
+
+    protected void Close() => gameObject.SetActive(false);
 
     protected abstract void ActiveIsland();
 }

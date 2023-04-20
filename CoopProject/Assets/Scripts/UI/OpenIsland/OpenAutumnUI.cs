@@ -27,6 +27,7 @@ public class OpenAutumnUI : OpenIslandPanel<Log, Boards>
         _addResourceOne.onClick.AddListener(AddCoin);
         _addResourceTwo.onClick.AddListener(AddResourceOne);
         _addResourceFree.onClick.AddListener(AddResourceTwo);
+        _buttonClose.onClick.AddListener(Close);
     }
 
     private void Update()
@@ -76,8 +77,16 @@ public class OpenAutumnUI : OpenIslandPanel<Log, Boards>
             _resourceCollector.SellCountResource<Log>(CountResourceOne);
             _resourceCollector.SellCountResource<Boards>(CountResourceTwo);
             _statsSetup.ActiveAmaunt();
-            _oppener.Close();
-            _oppener.Unplug();
+            DisableOpenners();
+        }
+    }
+    
+    private void DisableOpenners()
+    {
+        for (int i = 0; i < _oppener.Count; i++)
+        {
+            _oppener[i].Close();
+            _oppener[i].Unplug();    
         }
     }
 }

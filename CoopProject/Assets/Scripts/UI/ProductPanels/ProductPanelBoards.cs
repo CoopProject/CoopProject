@@ -18,6 +18,7 @@ public class ProductPanelBoards : ProductPanel
         _takeResourceBackButton.onClick.AddListener(TakeResourceBack);
         _takeResourceComplitButton.onClick.AddListener(TakeConvertType);
         _buttonLevelUp.onClick.AddListener(LevelUp);
+        _close.onClick.AddListener(Close);
     }
 
     private void AddResource()=> AddResources<Log>();
@@ -28,7 +29,6 @@ public class ProductPanelBoards : ProductPanel
 
     private void TakeResourceBack()
     {
-        var log = new Log();
         TakeResource<Log>();
     }
 
@@ -36,8 +36,6 @@ public class ProductPanelBoards : ProductPanel
     {
         if (_processor.Completed > 0)
         {
-            Boards board = new();
-            board.SetPrice();
             TakeResourceComplite<Boards>();
             Reset();
         }

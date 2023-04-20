@@ -18,6 +18,7 @@ public abstract class UpgradePanelUI<T> : MonoBehaviour where T : ResourceSource
     [SerializeField] private TextMeshProUGUI _valumeExtraction;
     [SerializeField] private Button _buttonLvlUp;
     [SerializeField] private Button _buttonLvlUpReward;
+    [SerializeField] private Button _closeWindow;
     [SerializeField] private TextMeshProUGUI _buttonPrice;
     [SerializeField] private List<LevelUpData> _levelUps;
 
@@ -35,6 +36,7 @@ public abstract class UpgradePanelUI<T> : MonoBehaviour where T : ResourceSource
         _helpersBuilding.Lvlup(LevelUps[_levelNow].InstanceHelpers, LevelUps[_levelNow].ExtractedResources);
         _buttonLvlUp.onClick.AddListener(LevelUp);
         _buttonLvlUpReward.onClick.AddListener(LevelUpReward);
+        _closeWindow.onClick.AddListener(Close);
     }
 
     private void LevelUp()
@@ -92,4 +94,7 @@ public abstract class UpgradePanelUI<T> : MonoBehaviour where T : ResourceSource
             _buttonLvlUpReward.gameObject.SetActive(false);
         }
     }
+
+    private void Close() => gameObject.SetActive(false);
+    
 }

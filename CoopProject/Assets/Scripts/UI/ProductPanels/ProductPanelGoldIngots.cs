@@ -14,17 +14,17 @@ public class ProductPanelGoldIngots : ProductPanel
         _takeResourceBackButton.onClick.AddListener(TakeResourceBack);
         _takeResourceComplitButton.onClick.AddListener(TakeConvertType);
         _buttonLevelUp.onClick.AddListener(LevelUp);
+        _close.onClick.AddListener(Close);
     }
    
-    private void AddResource()=> AddResources<Stone>();
+    private void AddResource()=> AddResources<Gold>();
     
 
-    private void AddAll()=> SellAllResource<Stone>();
+    private void AddAll()=> SellAllResource<Gold>();
     
 
     private void TakeResourceBack()
     {
-        var gold = new Gold();
         TakeResource<Gold>();
     }
     
@@ -33,8 +33,6 @@ public class ProductPanelGoldIngots : ProductPanel
     {
         if (_processor.Completed > 0)
         {
-            GoldIngots goldIngots = new();
-            goldIngots.SetPrice();
             TakeResourceComplite<GoldIngots>();
             Reset();
         }

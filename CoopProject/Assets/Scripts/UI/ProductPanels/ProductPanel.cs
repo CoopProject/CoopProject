@@ -15,6 +15,7 @@ public abstract class ProductPanel : MonoBehaviour
     [SerializeField] protected Button _takeResourceComplitButton;
     [SerializeField] protected Button _buttonLevelUp;
     [SerializeField] protected Button _buttonLevelUpReward;
+    [SerializeField] protected Button _close;
     [SerializeField] protected Processor _processor;
 
     protected ResourceCollector _resourceCollector;
@@ -117,6 +118,8 @@ public abstract class ProductPanel : MonoBehaviour
             _processor.Reset();
         }
     }
+
+    protected void Close() => gameObject.SetActive(false);
 
     private void OnDisable() => _processor.Done -= ConversionComplit;
 }

@@ -18,6 +18,7 @@ public class ProductPanelIronIngots : ProductPanel
         _takeResourceBackButton.onClick.AddListener(TakeResourceBack);
         _takeResourceComplitButton.onClick.AddListener(TakeConvertType);
         _buttonLevelUp.onClick.AddListener(LevelUp);
+        _close.onClick.AddListener(Close);
     }
    
     private void AddResource()=> AddResources<Iron>();
@@ -28,7 +29,6 @@ public class ProductPanelIronIngots : ProductPanel
 
     private void TakeResourceBack()
     {
-        var iron = new Iron();
         TakeResource<Iron>();
     }
     
@@ -37,8 +37,6 @@ public class ProductPanelIronIngots : ProductPanel
     {
         if (_processor.Completed > 0)
         {
-            IronIngots ironIngots = new();
-            ironIngots.SetPrice();
             TakeResourceComplite<IronIngots>();
             Reset();
         }
