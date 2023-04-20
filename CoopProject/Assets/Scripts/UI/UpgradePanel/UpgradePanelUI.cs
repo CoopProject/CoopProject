@@ -20,6 +20,7 @@ public abstract class UpgradePanelUI<T> : MonoBehaviour where T : ResourceSource
     [SerializeField] private Button _buttonLvlUpReward;
     [SerializeField] private Button _closeWindow;
     [SerializeField] private TextMeshProUGUI _buttonPrice;
+    [SerializeField] private TextMeshProUGUI _buttonPriceReward;
     [SerializeField] private List<LevelUpData> _levelUps;
 
     protected PlayerWallet _playerWallet;
@@ -35,7 +36,7 @@ public abstract class UpgradePanelUI<T> : MonoBehaviour where T : ResourceSource
         SetNexData();
         _helpersBuilding.Lvlup(LevelUps[_levelNow].InstanceHelpers, LevelUps[_levelNow].ExtractedResources);
         _buttonLvlUp.onClick.AddListener(LevelUp);
-        _buttonLvlUpReward.onClick.AddListener(LevelUpReward);
+        _buttonLvlUpReward.onClick.AddListener(ShowReward);
         _closeWindow.onClick.AddListener(Close);
     }
 
@@ -50,6 +51,9 @@ public abstract class UpgradePanelUI<T> : MonoBehaviour where T : ResourceSource
             _helpersBuilding.Lvlup(LevelUps[_levelNow].InstanceHelpers, LevelUps[_levelNow].ExtractedResources);
         }
     }
+
+    private void ShowReward() => InterstitialAd.Show(LevelUpReward);
+    
 
     private void LevelUpReward()
     {
@@ -66,13 +70,14 @@ public abstract class UpgradePanelUI<T> : MonoBehaviour where T : ResourceSource
             SetData();
             SetNexData();
             _helpersBuilding.Lvlup(LevelUps[_levelNow].InstanceHelpers, LevelUps[_levelNow].ExtractedResources);
-            VideoAd.Show();
+            
         }
     }
 
     private void SetData()
     {
         _buttonPrice.text = $"{LevelUps[_levelNow].LevelUpPrice}";
+        _buttonPriceReward.text = $"{LevelUps[_levelNow].LevelUpReward}";
         _levelUpNow.text = $"{_levelNow}";
         _extraction.text = $"{LevelUps[_levelNow].ExtractedResources}";
         _countHelperInstance.text = $"{LevelUps[_levelNow].InstanceHelpers}";

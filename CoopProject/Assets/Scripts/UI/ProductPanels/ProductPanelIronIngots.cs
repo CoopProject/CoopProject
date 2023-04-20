@@ -18,6 +18,7 @@ public class ProductPanelIronIngots : ProductPanel
         _takeResourceBackButton.onClick.AddListener(TakeResourceBack);
         _takeResourceComplitButton.onClick.AddListener(TakeConvertType);
         _buttonLevelUp.onClick.AddListener(LevelUp);
+        _buttonLevelUpReward.onClick.AddListener(LevelUpReward);
         _close.onClick.AddListener(Close);
     }
    

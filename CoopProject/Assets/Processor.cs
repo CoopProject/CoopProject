@@ -61,4 +61,10 @@ public class Processor : MonoBehaviour
         if (_duration > _durationMinimum)
             _duration -= 0.5f;
     }
+
+    public void LevelUpReward()
+    {
+        if (_duration > _durationMinimum)
+            _duration -= 1f;
+    }
 }

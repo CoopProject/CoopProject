@@ -1,3 +1,4 @@
+using System;
 using Agava.YandexGames;
 
 namespace DefaultNamespace.MVC.MVPShop.Prisenters
@@ -9,7 +10,7 @@ namespace DefaultNamespace.MVC.MVPShop.Prisenters
         private ResourceCollector _resourceCollector;
         private PlayerWallet _playerWallet;
         private ViueAllSell _viueAllSell;
-        
+
         public Presenter(Model model,ViueUI viuesUI,ResourceCollector resourceCollector,PlayerWallet playerWallet,ViueAllSell viueAllSell)
         {
             _model = model;
@@ -20,7 +21,7 @@ namespace DefaultNamespace.MVC.MVPShop.Prisenters
 
             _viueUI.OnActive += SetStartData;
             _viueUI._buttonSale.onClick.AddListener(ClickButtonViue);
-            _viueUI._buttonReward.onClick.AddListener(ClickButtonRewardViue);
+            _viueUI._buttonReward.onClick.AddListener(RewardShow);
             
             _viueAllSell.ButtonSellAll.onClick.AddListener(SellAllResource);
             _viueAllSell.ButtonReward.onClick.AddListener(SellAllResourceReward);
@@ -44,6 +45,8 @@ namespace DefaultNamespace.MVC.MVPShop.Prisenters
 
         private void SellAllResource() => _viueUI._buttonSale.onClick.Invoke();
         private void SellAllResourceReward() => _viueUI._buttonReward.onClick.Invoke();
+
+        private void RewardShow() => InterstitialAd.Show(ClickButtonRewardViue);
         
 
         private void ClickButtonRewardViue()
@@ -53,7 +56,6 @@ namespace DefaultNamespace.MVC.MVPShop.Prisenters
             _model.SetValueCount<T>(_resourceCollector);
             _viueUI.SetCountResource(_model.CountElements);
             _viueUI.SetPriceButton(_model.SumResource);
-            //VideoAd.Show();
         }
     }
 }

@@ -13,7 +13,7 @@ public class ViueAllSell : MonoBehaviour
    [SerializeField] private TextMeshProUGUI _textRewardButtonSell;
 
    public Button ButtonSellAll => _buttonSellAll;
-   public Button ButtonReward => _buttonSellAll;
+   public Button ButtonReward => _buttonRewarSellAll;
 
    private int _sumResource = 0;
 

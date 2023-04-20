@@ -1,4 +1,3 @@
-using ResourcesGame.TypeResource;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -46,6 +45,24 @@ public abstract class ProductPanel : MonoBehaviour
             _processor.LevelUp();
             _playerWallet.SellCoints(_levelUpPrice);
             _levelNow++;
+            _levelValue.text = $"{_levelNow}";
+            
+            if (_levelNow == 5)
+            {
+                _levelMaxPanel.gameObject.SetActive(true);
+                _buttonLevelUp.gameObject.SetActive(false);
+                _buttonLevelUpReward.gameObject.SetActive(false);
+            }
+        }
+    }
+
+    public void LevelUpReward()
+    {
+        if (_playerWallet.Coins >= _levelUpPrice && _levelNow < _maxLevel)
+        {
+            _processor.LevelUpReward();
+            _playerWallet.SellCoints(_levelUpPrice);
+            _levelNow += 2;
             _levelValue.text = $"{_levelNow}";
             
             if (_levelNow == 5)
