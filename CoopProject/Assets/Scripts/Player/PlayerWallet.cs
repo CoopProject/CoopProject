@@ -7,9 +7,11 @@ public class PlayerWallet : MonoBehaviour
     
     public int Coins => _coins;
     public event Action SetCoinValue;
+    
 
     private void Start()
     {
+        LoadData();
         SetCoinValue?.Invoke();
     }
 
@@ -19,6 +21,7 @@ public class PlayerWallet : MonoBehaviour
             _coins += coins;
         
         SetCoinValue?.Invoke();
+        SaveData();
     }
 
     public void SellCoints(int price)
@@ -27,5 +30,12 @@ public class PlayerWallet : MonoBehaviour
             _coins -= price;
         
         SetCoinValue?.Invoke();
+        SaveData();
     }
+
+    private void SaveData() => PlayerPrefs.SetInt("Coins",_coins);
+    
+
+    private void LoadData() => _coins = PlayerPrefs.GetInt("Coins",0);
+    
 }

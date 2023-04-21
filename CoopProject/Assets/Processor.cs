@@ -6,13 +6,12 @@ public class Processor : MonoBehaviour
     [SerializeField] private ProductPanel _panel;
     [SerializeField] private float _duration = 5f;
 
-    [ES3Serializable]private int _ñountTransformation = 0;
-    [ES3Serializable]private int _ñompleted = 0;
+    private int _ñountTransformation = 0;
+    private int _ñompleted = 0;
     private float _countDuration = 5f;
     private float _durationMinimum = 2.5f;
     private float _maxDurationVelue => _duration;
-    public event Action Done; 
-
+    public event Action Done;
     public int CountTransformation => _ñountTransformation;
     public int Completed => _ñompleted;
 
@@ -31,27 +30,23 @@ public class Processor : MonoBehaviour
         }
     }
 
-    public void Conversion()=> _ñountTransformation++;
-
-    public void AddAll(int value) => _ñountTransformation += value;
-    
-
-    public void CancellationProcessing() => _ñountTransformation--;
-    
-
-    private void Transformation()
+    public void Conversion()
     {
-        if (_ñountTransformation >= 0)
-        {
-            _ñountTransformation--;
-            _ñompleted++;
-            Done?.Invoke();
-        }
-        else
-        {
-            _ñountTransformation = 0;
-            Done?.Invoke();
-        }
+        _ñountTransformation++;
+        SaveData();
+    }
+
+    public void AddAll(int value)
+    {
+        _ñountTransformation += value;
+        SaveData();
+    }
+
+
+    public void CancellationProcessing()
+    {
+        _ñountTransformation--;
+        SaveData();
     }
 
     public void Reset()=> _ñompleted = 0;
@@ -60,11 +55,47 @@ public class Processor : MonoBehaviour
     {
         if (_duration > _durationMinimum)
             _duration -= 0.5f;
+        
+        SaveData();
     }
 
     public void LevelUpReward()
     {
         if (_duration > _durationMinimum)
             _duration -= 1f;
+        
+        SaveData();
+    }
+    
+    private void Transformation()
+    {
+        if (_ñountTransformation >= 0)
+        {
+            _ñountTransformation--;
+            _ñompleted++;
+            Done?.Invoke();
+            SaveData();
+        }
+        else
+        {
+            _ñountTransformation = 0;
+            Done?.Invoke();
+            SaveData();
+        }
+    }
+
+
+    private void SaveData()
+    {
+        PlayerPrefs.SetFloat("Transformation",_ñountTransformation);
+        PlayerPrefs.SetFloat("Compliter",_ñompleted);
+        PlayerPrefs.SetFloat("duration",_countDuration);
+    }
+
+    private void LoadData()
+    {
+        PlayerPrefs.GetFloat("Transformation", 0);
+        PlayerPrefs.GetFloat("Compliter", 0);
+        PlayerPrefs.GetFloat("duration", 0);
     }
 }

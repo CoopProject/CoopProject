@@ -15,15 +15,16 @@ public class ResourceCollector : MonoBehaviour
     [SerializeField] private int _priceStoneBloks = 25;
     [SerializeField] private int _priceIronIgnots = 30;
     [SerializeField] private int _priceGoldIgnots = 40;
-    
-     [ES3Serializable] private int _dataResourceLog;
-     [ES3Serializable] private int _dataResourceStone;
-     [ES3Serializable] private int _dataResourceGold;
-     [ES3Serializable] private int _dataResourceBoards;
-     [ES3Serializable] private int _dataResourceIron;
-     [ES3Serializable] private int _dataResourceStoneBlocks;
-     [ES3Serializable] private int _dataResourceIronIgnots;
-     [ES3Serializable] private int _dataResourceGoldIgnots;
+    [SerializeField] private GameData _data;
+
+    public int DataResourceLog { get; private set;}
+     public int DataResourceStone { get; private set;}
+     public int DataResourceGold { get; private set;}
+     public int DataResourceBoards { get; private set;}
+     public int DataResourceIron { get; private set;}
+     public int DataResourceStoneBlocks { get; private set;}
+     public int DataResourceIronIgnots { get; private set;}
+     public int DataResourceGoldIgnots { get; private set;}
     
      private int _counterResourceLog;
      private int _counterResourceStone;
@@ -40,16 +41,17 @@ public class ResourceCollector : MonoBehaviour
     
    private void Awake()
    {
+       LoadData();
        _resources = new Dictionary<Type, int>
        {
-           [typeof (Gold)] = _counterResourceGold = _dataResourceGold,
-           [typeof (Log)] = _counterResourceLog = _dataResourceLog,
-           [typeof (Stone)] = _counterResourceStone = _dataResourceStone,
-           [typeof (StoneBlocks)] = _counterResourceStoneBlocks = _dataResourceStoneBlocks,
-           [typeof (Boards)] = _counterResourceBoards = _dataResourceBoards,
-           [typeof (Iron)] = _counterResourceIron = _dataResourceIron,
-           [typeof (IronIngots)] = _counterResourceIronIgnots = _dataResourceIronIgnots,
-           [typeof (GoldIngots)] = _counterResourceGoldIgnots = _dataResourceGoldIgnots
+           [typeof (Gold)] = _counterResourceGold = DataResourceGold,
+           [typeof (Log)] = _counterResourceLog = DataResourceLog,
+           [typeof (Stone)] = _counterResourceStone = DataResourceStone,
+           [typeof (StoneBlocks)] = _counterResourceStoneBlocks = DataResourceStoneBlocks,
+           [typeof (Boards)] = _counterResourceBoards = DataResourceBoards,
+           [typeof (Iron)] = _counterResourceIron = DataResourceIron,
+           [typeof (IronIngots)] = _counterResourceIronIgnots = DataResourceIronIgnots,
+           [typeof (GoldIngots)] = _counterResourceGoldIgnots = DataResourceGoldIgnots
        };
         
        _priceResource = new Dictionary<Type, int>
@@ -73,15 +75,39 @@ public class ResourceCollector : MonoBehaviour
 
     private void SaveData()
     {
-        _dataResourceLog = _resources[typeof(Log)];
-        _dataResourceStone = _resources[typeof(Stone)];
-        _dataResourceGold = _resources[typeof(Gold)];
-        _dataResourceBoards = _resources[typeof(Boards)];
-        _dataResourceIron = _resources[typeof(Iron)];
-        _dataResourceStoneBlocks = _resources[typeof(StoneBlocks)];
-        _dataResourceIronIgnots = _resources[typeof(IronIngots)];
-        _dataResourceGoldIgnots = _resources[typeof(GoldIngots)];
+        DataResourceLog = _resources[typeof(Log)];
+        DataResourceStone = _resources[typeof(Stone)];
+        DataResourceGold = _resources[typeof(Gold)];
+        DataResourceBoards = _resources[typeof(Boards)];
+        DataResourceIron = _resources[typeof(Iron)];
+        DataResourceStoneBlocks = _resources[typeof(StoneBlocks)];
+        DataResourceIronIgnots = _resources[typeof(IronIngots)];
+        DataResourceGoldIgnots = _resources[typeof(GoldIngots)];
+        
+        _data.Save("Log",DataResourceLog);
+        _data.Save("Stone",DataResourceStone);
+        _data.Save("Gold",DataResourceGold);
+        _data.Save("Boards",DataResourceBoards);
+        _data.Save("Iron",DataResourceIron);
+        _data.Save("StoneBlocks",DataResourceStoneBlocks);
+        _data.Save("IronIgnots",DataResourceIronIgnots);
+        _data.Save("GoldIgnots",DataResourceGoldIgnots);
     }
+
+    private void LoadData()
+    {
+        DataResourceLog = _data.Load("Log");
+        DataResourceStone =_data.Load("Stone");
+        DataResourceGold = _data.Load("Gold");
+        DataResourceBoards = _data.Load("Boards");
+        DataResourceIron = _data.Load("Iron");
+        DataResourceStoneBlocks = _data.Load("StoneBlocks");
+        DataResourceIronIgnots = _data.Load("IronIgnots");
+        DataResourceGoldIgnots = _data.Load("GoldIgnots");
+    }
+    
+    
+    
     public int GetCountList<TypeResource>()
     {
         var count = _resources[typeof(TypeResource)];

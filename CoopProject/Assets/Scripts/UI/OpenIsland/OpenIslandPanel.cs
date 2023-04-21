@@ -7,9 +7,9 @@ using UnityEngine.UI;
 public abstract class OpenIslandPanel<ResourceOne,ResourceTwo> : MonoBehaviour
 {
     [SerializeField] protected List<OppenerUI> _oppener;
-    [SerializeField] protected List<Wall> _walls;
+    [SerializeField] protected List<WallAutumn> _walls;
     [SerializeField] protected Button _buttonClose;
-
+    [SerializeField] protected GameData _data;
     [Header("Кнопочки для добовления")] 
     [SerializeField] protected Button _addResourceOne;
     [SerializeField] protected Button _addResourceTwo;

@@ -6,9 +6,13 @@ using UnityEngine;
 public class OpenAutumnUI : OpenIslandPanel<Log, Boards>
 {
     [SerializeField] private StatsSetup _statsSetup;
-    
+
+    private bool _wallsDisabel = false;
     private Log _log;
     private Boards _boards;
+    private string _dataKey = "Autumn";
+
+    public string DataKey => _dataKey;
 
     [Inject]
     private void Inject(Container container)
@@ -71,8 +75,10 @@ public class OpenAutumnUI : OpenIslandPanel<Log, Boards>
             CountResourceTwo == MaxCountCountTwo)
         {
             foreach (var wall in _walls)
-                wall.gameObject.SetActive(false);
-            
+                wall.Disable();
+
+            _wallsDisabel = true;
+            _data.SaveObject(_dataKey, _wallsDisabel);
             _playerWallet.SellCoints(MaxCountCountCoin);
             _resourceCollector.SellCountResource<Log>(CountResourceOne);
             _resourceCollector.SellCountResource<Boards>(CountResourceTwo);
@@ -80,13 +86,19 @@ public class OpenAutumnUI : OpenIslandPanel<Log, Boards>
             DisableOpenners();
         }
     }
-    
+
     private void DisableOpenners()
     {
         for (int i = 0; i < _oppener.Count; i++)
         {
             _oppener[i].Close();
-            _oppener[i].Unplug();    
+            _oppener[i].Unplug();
         }
+    }
+
+    public void DisableWalls()
+    {
+        DisableOpenners();
+        _statsSetup.ActiveAmaunt();
     }
 }
