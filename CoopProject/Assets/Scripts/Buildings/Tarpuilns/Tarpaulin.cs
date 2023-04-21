@@ -12,7 +12,6 @@ public class Tarpaulin<T> : MonoBehaviour
     private void Awake()
     {
         _objectActive = _data.LoadObject(KeyData);
-        Debug.Log(_objectActive);
     }
 
     protected void ActiveBuilding()

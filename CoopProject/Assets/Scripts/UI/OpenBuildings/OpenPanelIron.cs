@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class OpenPanelIron : OpenPanel<Iron>
 {
+    private string _keyData = "IronStack";
+
     [Inject]
     private void Inject(Container container)
     {
@@ -14,6 +16,7 @@ public class OpenPanelIron : OpenPanel<Iron>
 
     private void OnEnable()
     {
+        KeyData = _keyData;
         _rectTransform = GetComponent<RectTransform>();
         SetStartData();
     }
@@ -21,8 +24,6 @@ public class OpenPanelIron : OpenPanel<Iron>
 
     private void Start()
     {
-        var iron = new Iron();
-        SetResourceType(iron);
         _addResourceOne.onClick.AddListener(AddCoin);
         _addResourceTwo.onClick.AddListener(AddResourceOne);
     }

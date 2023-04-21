@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using ResourcesColection;
-using ResourcesGame.TypeResource;
 using SpanwerHelpers;
 using UnityEngine;
 

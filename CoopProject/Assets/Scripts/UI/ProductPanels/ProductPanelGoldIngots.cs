@@ -5,8 +5,12 @@ using ResourcesGame.TypeResource;
 public class ProductPanelGoldIngots : ProductPanel
 {
     [Inject]
-    private void Inject(Container container) => _resourceCollector = container.Resolve<ResourceCollector>();
-    
+    private void Inject(Container container)
+    {
+        _resourceCollector = container.Resolve<ResourceCollector>();
+        _playerWallet = container.Resolve<PlayerWallet>();
+    }
+
     private void Start()
     {
         _addResourceButton.onClick.AddListener(AddResource);

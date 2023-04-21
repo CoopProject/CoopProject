@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class OpenPanelRock : OpenPanel<Stone>
 {
+    private string _keyData = "StoneBlock";
+    
     [Inject]
     private void Inject(Container container)
     {
@@ -15,6 +17,7 @@ public class OpenPanelRock : OpenPanel<Stone>
     
     private void OnEnable()
     {
+        KeyData = _keyData;
         _rectTransform = GetComponent<RectTransform>();
         SetStartData();
     }

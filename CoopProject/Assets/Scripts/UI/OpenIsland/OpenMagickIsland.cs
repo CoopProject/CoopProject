@@ -6,6 +6,10 @@ using UnityEngine;
 public class OpenMagickIsland : OpenIslandPanel<Iron,IronIngots>
 {
     [SerializeField] private StatsSetup _statsSetup;
+    
+    private bool _wallsDisabel = false;
+    private string _dataKey = "Magick";
+    public string DataKey => _dataKey;
 
     [Inject]
     private void Inject(Container container)
@@ -64,7 +68,9 @@ public class OpenMagickIsland : OpenIslandPanel<Iron,IronIngots>
         {
             foreach (var wall in _walls)
                 wall.gameObject.SetActive(false);
-
+            
+            _wallsDisabel = true;
+            _data.SaveObject(_dataKey, _wallsDisabel);
             _playerWallet.SellCoints(MaxCountCountCoin);
             _resourceCollector.SellCountResource<Stone>(CountResourceOne);
             _resourceCollector.SellCountResource<StoneBlocks>(CountResourceTwo);
@@ -80,5 +86,11 @@ public class OpenMagickIsland : OpenIslandPanel<Iron,IronIngots>
             _oppener[i].Close();
             _oppener[i].Unplug();    
         }
+    }
+    
+    public void DisableWalls()
+    {
+        _statsSetup.ActiveMagickIsland();
+        DisableOpenners();
     }
 }

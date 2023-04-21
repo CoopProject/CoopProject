@@ -5,15 +5,24 @@ public class Processor : MonoBehaviour
 {
     [SerializeField] private ProductPanel _panel;
     [SerializeField] private float _duration = 5f;
+    [SerializeField] private GameData _data;
+    [SerializeField] private string _keyConvertion;
+    [SerializeField] private string _keyComplited;
 
     private int _ñountTransformation = 0;
     private int _ñompleted = 0;
     private float _countDuration = 5f;
     private float _durationMinimum = 2.5f;
     private float _maxDurationVelue => _duration;
+    
     public event Action Done;
     public int CountTransformation => _ñountTransformation;
     public int Completed => _ñompleted;
+
+    private void Awake()
+    {
+        LoadData();
+    }
 
 
     private void FixedUpdate()
@@ -87,15 +96,15 @@ public class Processor : MonoBehaviour
 
     private void SaveData()
     {
-        PlayerPrefs.SetFloat("Transformation",_ñountTransformation);
-        PlayerPrefs.SetFloat("Compliter",_ñompleted);
+        _data.Save(_keyConvertion,_ñountTransformation);
+        _data.Save(_keyComplited,_ñompleted);
         PlayerPrefs.SetFloat("duration",_countDuration);
     }
 
     private void LoadData()
     {
-        PlayerPrefs.GetFloat("Transformation", 0);
-        PlayerPrefs.GetFloat("Compliter", 0);
+        _ñountTransformation =  _data.Load(_keyConvertion);
+        _ñompleted = _data.Load(_keyComplited);
         PlayerPrefs.GetFloat("duration", 0);
     }
 }

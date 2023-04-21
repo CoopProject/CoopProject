@@ -7,6 +7,8 @@ namespace DefaultNamespace.UI.OpenBuildings
 {
     public class OpenPanelSawmill : OpenPanel<Log>
     {
+        private string _keyData = "Samwiil";
+        
         [Inject]
         private void Inject(Container container)
         {
@@ -16,6 +18,7 @@ namespace DefaultNamespace.UI.OpenBuildings
 
         private void OnEnable()
         {
+            KeyData = _keyData;
             _rectTransform = GetComponent<RectTransform>();
             SetStartData();
         }

@@ -24,6 +24,7 @@ public class OpenPanel<T> : MonoBehaviour
     protected RectTransform _rectTransform;
     protected ResourceCollector _resourceCollector;
     protected PlayerWallet _playerWallet;
+    protected string KeyData = "";
 
     private int CountCoin = 0;
     private int CountResourceOne = 0;
@@ -103,7 +104,7 @@ public class OpenPanel<T> : MonoBehaviour
         {
             _objectActive = true;
             _tarpaulin.ActiveObject();
-            _data.SaveObject("Samwiil",_objectActive);
+            _data.SaveObject(KeyData,_objectActive);
             _building.gameObject.SetActive(true);
             _resourceCollector.SellCountResource<_resourceType>(MaxCountResourceOne);
             _statsView.gameObject.SetActive(true);

@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using ResourcesColection;
-using SpanwerHelpers;
-using UnityEngine;
 
 namespace DefaultNamespace.Buildings
 {

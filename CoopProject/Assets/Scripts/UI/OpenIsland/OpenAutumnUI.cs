@@ -8,8 +8,6 @@ public class OpenAutumnUI : OpenIslandPanel<Log, Boards>
     [SerializeField] private StatsSetup _statsSetup;
 
     private bool _wallsDisabel = false;
-    private Log _log;
-    private Boards _boards;
     private string _dataKey = "Autumn";
 
     public string DataKey => _dataKey;
