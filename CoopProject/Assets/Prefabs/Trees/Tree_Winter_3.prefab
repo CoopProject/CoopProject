@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7810758074917930759}
   - component: {fileID: 1973828088}
   - component: {fileID: 1973828087}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Tree_Winter_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8892,7 +8892,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 36
+  m_VersionIndex: 48
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
