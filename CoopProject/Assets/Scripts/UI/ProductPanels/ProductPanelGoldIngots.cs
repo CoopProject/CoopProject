@@ -5,34 +5,41 @@ using ResourcesGame.TypeResource;
 public class ProductPanelGoldIngots : ProductPanel
 {
     [Inject]
-    private void Inject(Container container) => _resourceCollector = container.Resolve<ResourceCollector>();
-    
+    private void Inject(Container container)
+    {
+        _resourceCollector = container.Resolve<ResourceCollector>();
+        _playerWallet = container.Resolve<PlayerWallet>();
+    }
+
     private void Start()
     {
-        _putResource.onClick.AddListener(AddResource);
-        _putStack.onClick.AddListener(AddStack);
-        _takeStack.onClick.AddListener(TakeStack);
-        _takeResource.onClick.AddListener(TakeConvertType);
+        _addResourceButton.onClick.AddListener(AddResource);
+        _addAllResourceButton.onClick.AddListener(AddAll);
+        _takeResourceBackButton.onClick.AddListener(TakeResourceBack);
+        _takeResourceComplitButton.onClick.AddListener(TakeConvertType);
+        _buttonLevelUp.onClick.AddListener(LevelUp);
+        _buttonLevelUpReward.onClick.AddListener(LevelUpReward);
+        _close.onClick.AddListener(Close);
     }
    
-    private void AddResource() => AddResources<Gold>();
+    private void AddResource()=> AddResources<Gold>();
     
 
-    private void AddStack()=> SetStackCount<Gold>();
+    private void AddAll()=> SellAllResource<Gold>();
     
 
-    private void TakeStack()
+    private void TakeResourceBack()
     {
-        var gold = new Gold();
-        Take<Log>(gold);
+        TakeResource<Gold>();
     }
     
 
     private void TakeConvertType()
     {
-        GoldIngots goldenIngots = new();
-        goldenIngots.SetPrice();
-        TakeResource<GoldIngots>(goldenIngots);
-        Reset();
+        if (_processor.Completed > 0)
+        {
+            TakeResourceComplite<GoldIngots>();
+            Reset();
+        }
     }
 }

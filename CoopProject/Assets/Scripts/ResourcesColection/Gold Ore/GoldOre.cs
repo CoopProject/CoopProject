@@ -10,11 +10,11 @@ namespace ResourcesColection.Gold_Ore
     [RequireComponent(typeof(BoxCollider))]
     public class GoldOre : ResourceSource, IResourceSource
     {
-        private int _maxHealth = 10;
-        private int _health = 30;
-        private float _durationReset = 10f;
         private ResourceCollector _resourceCollector;
-        private int _resourceAddCount;
+        private int _maxHealth = 30;
+        private int _health = 30;
+        private float _durationReset = 8f;
+        private int _resourceAddCount = 1;
 
         [Inject]
         private void Inject(Container container) => _resourceCollector = container.Resolve<ResourceCollector>();
@@ -38,18 +38,16 @@ namespace ResourcesColection.Gold_Ore
                 StartCoroutine(Reset());
             }
         }
-        
+
         private void AddResource()
         {
             for (int i = 0; i < _resourceAddCount; i++)
             {
-                Gold gold = new();
-                gold.SetPrice();
-                _resourceCollector.AddResource<Gold>(gold);   
+                _resourceCollector.AddResource<Gold>();
             }
         }
-        
-        public override void AddResourceCount() => _resourceAddCount++;
+
+        public override void AddResourceCount(int resourceExtraction) => _resourceAddCount = resourceExtraction;
 
         private IEnumerator Reset()
         {

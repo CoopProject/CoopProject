@@ -6,15 +6,17 @@ using UnityEngine;
 public class OpenAutumnUI : OpenIslandPanel<Log, Boards>
 {
     [SerializeField] private StatsSetup _statsSetup;
-    
-    private Log _log;
-    private Boards _boards;
+
+    private bool _wallsDisabel = false;
+    private string _dataKey = "Autumn";
+
+    public string DataKey => _dataKey;
 
     [Inject]
     private void Inject(Container container)
     {
         _resourceCollector = container.Resolve<ResourceCollector>();
-        _player = container.Resolve<Player>();
+        _playerWallet = container.Resolve<PlayerWallet>();
     }
 
     private void OnEnable()
@@ -27,6 +29,7 @@ public class OpenAutumnUI : OpenIslandPanel<Log, Boards>
         _addResourceOne.onClick.AddListener(AddCoin);
         _addResourceTwo.onClick.AddListener(AddResourceOne);
         _addResourceFree.onClick.AddListener(AddResourceTwo);
+        _buttonClose.onClick.AddListener(Close);
     }
 
     private void Update()
@@ -54,13 +57,13 @@ public class OpenAutumnUI : OpenIslandPanel<Log, Boards>
 
     private bool ValidateAdd()
     {
-        if (_player.Coins > MaxCountCountCoin)
+        if (_playerWallet.Coins > MaxCountCountCoin)
         {
             CountCoin = MaxCountCountCoin;
             return true;
         }
 
-        CountCoin = _player.Coins;
+        CountCoin = _playerWallet.Coins;
         return false;
     }
 
@@ -70,15 +73,30 @@ public class OpenAutumnUI : OpenIslandPanel<Log, Boards>
             CountResourceTwo == MaxCountCountTwo)
         {
             foreach (var wall in _walls)
-            {
-                Destroy(wall.gameObject);
-            }
+                wall.Disable();
 
-            _player.SellCoints(MaxCountCountCoin);
+            _wallsDisabel = true;
+            _data.SaveObject(_dataKey, _wallsDisabel);
+            _playerWallet.SellCoints(MaxCountCountCoin);
+            _resourceCollector.SellCountResource<Log>(CountResourceOne);
+            _resourceCollector.SellCountResource<Boards>(CountResourceTwo);
             _statsSetup.ActiveAmaunt();
-            _resourceCollector.SellCountResource<Log>(CountResourceTwo);
-            _resourceCollector.SellCountResource<Boards>(MaxCountCountTwo);
-            Destroy(this.gameObject);
+            DisableOpenners();
         }
+    }
+
+    private void DisableOpenners()
+    {
+        for (int i = 0; i < _oppener.Count; i++)
+        {
+            _oppener[i].Close();
+            _oppener[i].Unplug();
+        }
+    }
+
+    public void DisableWalls()
+    {
+        DisableOpenners();
+        _statsSetup.ActiveAmaunt();
     }
 }

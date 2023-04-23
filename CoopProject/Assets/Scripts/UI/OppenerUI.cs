@@ -12,6 +12,7 @@ public class OppenerUI : MonoBehaviour
     private int _maxScale = 1;
     private WaitForSeconds _waitTime;
     private bool _isCorutineWork = false;
+    private bool _theObjectMustBeDisabled = false;
 
     private void OnEnable()
     {
@@ -37,17 +38,23 @@ public class OppenerUI : MonoBehaviour
         _rectTransform.DOScale(_maxScale, _timeAnimation);
     }
 
-    private void Close()
+    public void Close()
     {
-       _rectTransform.DOScale(_minScale, _timeAnimation);
-
+        _rectTransform.DOScale(_minScale, _timeAnimation);
         if (!_isCorutineWork)
             StartCoroutine(OnPlayedDelay());
     }
+
+    public void Unplug()=> _theObjectMustBeDisabled = true;
+    
 
     private IEnumerator OnPlayedDelay()
     {
         yield return _waitTime;
         _panel.SetActive(false);
+        
+        if (_theObjectMustBeDisabled)
+            gameObject.SetActive(false);
+        
     }
 }

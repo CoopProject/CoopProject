@@ -1,16 +1,16 @@
+using System;
 using System.Collections.Generic;
+using DefaultNamespace.Buildings.BuildingIsland;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public abstract class OpenIslandPanel<ResourceOne,ResourceTwo> : MonoBehaviour
 {
+    [SerializeField] protected List<OppenerUI> _oppener;
     [SerializeField] protected List<Wall> _walls;
-    [Header("Счетчики ресурсов")]
-    [SerializeField] private TextMeshProUGUI _textCounterCoin;
-    [SerializeField] private TextMeshProUGUI _textCounterResourceOne;
-    [SerializeField] private TextMeshProUGUI _textCounterResourceTwo;
-
+    [SerializeField] protected Button _buttonClose;
+    [SerializeField] protected GameData _data;
     [Header("Кнопочки для добовления")] 
     [SerializeField] protected Button _addResourceOne;
     [SerializeField] protected Button _addResourceTwo;
@@ -21,13 +21,21 @@ public abstract class OpenIslandPanel<ResourceOne,ResourceTwo> : MonoBehaviour
     [SerializeField] protected int MaxCountCountOne = 15;
     [Space]
     [SerializeField] protected int MaxCountCountTwo = 20;
+    
+    [Header("Счетчики ресурсов")]
+    [SerializeField] private TextMeshProUGUI _textCounterCoin;
+    [SerializeField] private TextMeshProUGUI _textCounterResourceOne;
+    [SerializeField] private TextMeshProUGUI _textCounterResourceTwo;
 
     protected int CountCoin = 0;
     protected int CountResourceOne = 0;
     protected int CountResourceTwo = 0;
     
     protected ResourceCollector _resourceCollector;
-    protected Player _player;
+    protected PlayerWallet _playerWallet;
+
+    private void OnEnable() => SetStartData();
+    
 
     protected void SetStartData()
     {
@@ -45,13 +53,13 @@ public abstract class OpenIslandPanel<ResourceOne,ResourceTwo> : MonoBehaviour
     
     private bool ValidateAdd()
     {
-        if (_player.Coins > MaxCountCountCoin)
+        if (_playerWallet.Coins > MaxCountCountCoin)
         {
             CountCoin = MaxCountCountCoin;
             return true;
         }
 
-        CountCoin = _player.Coins;
+        CountCoin = _playerWallet.Coins;
         return false;
     }
 
@@ -82,6 +90,8 @@ public abstract class OpenIslandPanel<ResourceOne,ResourceTwo> : MonoBehaviour
             CountResourceTwo = resourceCount;
         }
     }
+
+    protected void Close() => gameObject.SetActive(false);
 
     protected abstract void ActiveIsland();
 }

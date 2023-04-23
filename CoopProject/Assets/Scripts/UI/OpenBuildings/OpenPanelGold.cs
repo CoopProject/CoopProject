@@ -1,6 +1,7 @@
 using Reflex;
 using Reflex.Scripts.Attributes;
 using ResourcesGame.TypeResource;
+using UnityEngine;
 
 public class OpenPanelGold : OpenPanel<Gold>
 {
@@ -8,9 +9,14 @@ public class OpenPanelGold : OpenPanel<Gold>
     private void Inject(Container container)
     {
         _resourceCollector = container.Resolve<ResourceCollector>();
-        _player = container.Resolve<Player>();
+        _playerWallet = container.Resolve<PlayerWallet>();
     }
-
+    
+    private void OnEnable()
+    {
+        _rectTransform = GetComponent<RectTransform>();
+        SetStartData();
+    }
     private void Start()
     {
         var gold = new Gold();

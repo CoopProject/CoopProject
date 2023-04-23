@@ -1,85 +1,90 @@
-using Reflex;
-using Reflex.Scripts.Attributes;
+using System.Collections.Generic;
+using Agava.YandexGames;
+using DefaultNamespace.UI.UpgradePanel;
+using ResourcesColection;
 using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem.HID;
 using UnityEngine.UI;
 
-public abstract class UpgradePanelUI : MonoBehaviour
+public abstract class UpgradePanelUI<T> : MonoBehaviour where T : ResourceSource
 {
-    [SerializeField] private HelpersBuildingTree helpersBuildingTree;
-    [SerializeField] private TextMeshProUGUI _Level;
-    [SerializeField] private Button _buttonLvlUp;
+    [SerializeField] protected Button _buttonLvlUp;
+    [SerializeField] protected Button _buttonLvlUpReward;
+    [SerializeField] protected Button _closeWindow;
+    [SerializeField] protected GameData _data;
+    [SerializeField] protected HelpersBuilding<T> _helpersBuilding;
+    [SerializeField] private GameObject _levelMaxPanel;
+    [SerializeField] private TextMeshProUGUI _levelUpNow;
     [SerializeField] private TextMeshProUGUI _countHelperInstance;
-    [SerializeField] private TextMeshProUGUI _textNextCountSpawnHelper;
+    [SerializeField] private TextMeshProUGUI _nextCountSpawnHelper;
     [SerializeField] private TextMeshProUGUI _extraction;
-    [SerializeField] private TextMeshProUGUI _textValumeExtraction;
+    [SerializeField] private TextMeshProUGUI _valumeExtraction;
     [SerializeField] private TextMeshProUGUI _buttonPrice;
-    [Range(0, 1)] [SerializeField] private float _levelUpProgres = 0;
+    [SerializeField] private TextMeshProUGUI _buttonPriceReward;
+    [SerializeField] private List<LevelUpData> _levelUps;
 
-    protected Player _player;
-    private int _lvlUpPrice = 10;
-    private int _levelUpPriceNext = 3;
-    private float _levelUpStep = 0.2f;
-    private int _extractionValue = 0;
-    private int _helperBuildingLevel = 1;
-    private int _nexLevelExtraction;
+    protected PlayerWallet _playerWallet;
+    protected int _levelNow= 0;
+    public List<LevelUpData> LevelUps => _levelUps;
+    public int LevelelNow => _levelNow;
 
-    [Inject]
-    private void Inject(Container container) => _player = container.Resolve<Player>();
-
-    private void Start()
+    protected void LevelUp()
     {
-        SetStartData();
-        _buttonLvlUp.onClick.AddListener(BuyLevel);
-    }
-
-    private void SetStartData()
-    {
-        _Level.text = $"{_helperBuildingLevel}";
-        _countHelperInstance.text = $"{helpersBuildingTree.Counter}";
-        _extraction.text = $"{_extractionValue}";
-        _textValumeExtraction.text = $"{_nexLevelExtraction = _extractionValue + 3}";
-        _textNextCountSpawnHelper.text = $"{helpersBuildingTree.Counter}";
-        _buttonPrice.text = $"{_lvlUpPrice}";
-    }
-
-    public void BuyLevel()
-    {
-        if (_player.Coins >= _lvlUpPrice)
+        if (_playerWallet.Coins >= LevelUps[_levelNow].LevelUpPrice && _levelNow < LevelUps.Count - 1)
         {
-            _helperBuildingLevel++;
-            LevelUp();
-            _player.SellCoints(_lvlUpPrice);
+            _levelNow++;
+            _playerWallet.SellCoints(LevelUps[_levelNow].LevelUpPrice);
+            SetData();
+            SetNexData();
+            _helpersBuilding.Levelup(LevelUps[_levelNow].InstanceHelpers, LevelUps[_levelNow].ExtractedResources);
         }
     }
 
-    private void LevelUp()
+    protected void ShowReward() =>  LevelUpReward();
+
+    protected void LevelUpReward()
     {
-        _levelUpProgres += _levelUpStep;
-        _lvlUpPrice += _levelUpPriceNext;
-        if (_levelUpProgres >= 0.8)
+        if (_playerWallet.Coins >= LevelUps[_levelNow].LevelUpReward && _levelNow < LevelUps.Count - 1)
         {
-            _textNextCountSpawnHelper.text = $"{helpersBuildingTree.Counter + 1}";
-
-            if (_levelUpProgres >= 1)
-            {
-                helpersBuildingTree.Lvlup();
-                _levelUpProgres = 0;
-                _textNextCountSpawnHelper.text = $"{helpersBuildingTree.Counter + 1}";
-            }
+            _playerWallet.SellCoints(LevelUps[_levelNow].LevelUpReward);
+            SetData();
+            SetNexData();
+            _helpersBuilding.Levelup(LevelUps[_levelNow].InstanceHelpers, LevelUps[_levelNow].ExtractedResources);
+            VideoAd.Show();
         }
-
-        SetNewData();
     }
 
-    private void SetNewData()
+    public void SetLevel(int level)
     {
-        _countHelperInstance.text = $"{helpersBuildingTree.Counter}";
-        _Level.text = $"{_helperBuildingLevel}";
-        _extractionValue += 3;
-        _extraction.text = $"{_extractionValue}";
-        _textValumeExtraction.text = $"{_nexLevelExtraction = _extractionValue + 3}";
-        _buttonPrice.text = $"{_lvlUpPrice}";
+        _levelNow = level;
     }
+    
+
+        protected void SetData()
+    {
+        _buttonPrice.text = $"{LevelUps[_levelNow].LevelUpPrice}";
+        _buttonPriceReward.text = $"{LevelUps[_levelNow].LevelUpReward}";
+        _levelUpNow.text = $"{_levelNow}";
+        _extraction.text = $"{LevelUps[_levelNow].ExtractedResources}";
+        _countHelperInstance.text = $"{LevelUps[_levelNow].InstanceHelpers}";
+    }
+
+    protected void SetNexData()
+    {
+        if (_levelNow + 1 < LevelUps.Count)
+        {
+            _valumeExtraction.text = $"{LevelUps[_levelNow + 1].ExtractedResources}";
+            _nextCountSpawnHelper.text = $"{LevelUps[_levelNow + 1].InstanceHelpers}";
+        }
+        else
+        {
+            _levelMaxPanel.gameObject.SetActive(true);
+            _valumeExtraction.text = $"{LevelUps[_levelNow].ExtractedResources}";
+            _nextCountSpawnHelper.text = $"{LevelUps[_levelNow].InstanceHelpers}";
+            _buttonLvlUp.gameObject.SetActive(false);
+            _buttonLvlUpReward.gameObject.SetActive(false);
+        }
+    }
+
+    protected void Close() => gameObject.SetActive(false);
 }

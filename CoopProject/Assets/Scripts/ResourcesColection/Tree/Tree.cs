@@ -13,7 +13,7 @@ public class Tree : ResourceSource
     private ResourceCollector _resourceCollector;
     private int _maxHealth = 30;
     private int _health = 30;
-    private float _durationReset = 8f;
+    private float _durationReset = 15f;
     private int _resourceAddCount = 1;
     
     [Inject]
@@ -29,7 +29,7 @@ public class Tree : ResourceSource
     public override void TakeDamage(int damage)
     {
         _health -= damage;
-
+        Occupy();
         if (_health <= 0)
         {
             Dead();
@@ -43,14 +43,12 @@ public class Tree : ResourceSource
     {
         for (int i = 0; i < _resourceAddCount; i++)
         {
-            Log log = new ();
-            log.SetPrice();
-            _resourceCollector.AddResource<Log>(log);    
+            _resourceCollector.AddResource<Log>();    
         }
         
     }
 
-    public override void AddResourceCount() => _resourceAddCount++;
+    public override void AddResourceCount(int resourceExtraction) => _resourceAddCount = resourceExtraction;
     
     private IEnumerator Reset()
     {
@@ -59,6 +57,7 @@ public class Tree : ResourceSource
         _iDead = false;
         _health = _maxHealth;
         _mesh.enabled = true;
+        _iFree = true;
         _colliderBox.enabled = true;
     }
 }

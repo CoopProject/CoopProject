@@ -6,14 +6,14 @@ using UnityEngine;
 public class MoneyPlayerUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _textUI;
-    [SerializeField] private Player _player;
+    [SerializeField] private PlayerWallet _playerWallet;
     
     [Inject]
-    private void Inject(Container container) => _player = container.Resolve<Player>();
+    private void Inject(Container container) => _playerWallet = container.Resolve<PlayerWallet>();
 
-    private void OnEnable() => _player.SetCoinValue += DisplayPlayerCoin;
+    private void OnEnable() => _playerWallet.SetCoinValue += DisplayPlayerWalletCoin;
     
-    private void DisplayPlayerCoin() => _textUI.text = $"{_player.Coins}";
+    private void DisplayPlayerWalletCoin() => _textUI.text = $"{_playerWallet.Coins}";
     
-    private void OnDisable() => _player.SetCoinValue -= DisplayPlayerCoin;
+    private void OnDisable() => _playerWallet.SetCoinValue -= DisplayPlayerWalletCoin;
 }
