@@ -12,8 +12,8 @@ public class GameData : MonoBehaviour
 
     private void Awake()
     {
-        LoadData();
-        LoadDataObject();
+        /*LoadData();
+        LoadDataObject();*/
     }
 
 

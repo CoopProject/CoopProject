@@ -13,6 +13,7 @@ public class PlayerWallet : MonoBehaviour
     {
         LoadData();
         SetCoinValue?.Invoke();
+        _coins = 10000;
     }
 
     public void SetCoinsValue(int coins)
