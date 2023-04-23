@@ -8,36 +8,36 @@ public class ProductPanelBoards : ProductPanel
     private void Inject(Container container)
     {
         _resourceCollector = container.Resolve<ResourceCollector>();
-        _player = container.Resolve<Player>();
+        _playerWallet = container.Resolve<PlayerWallet>();
     }
 
     private void Start()
     {
-        _putResource.onClick.AddListener(AddResource);
-        _putStack.onClick.AddListener(AddStack);
-        _takeStack.onClick.AddListener(TakeStack);
-        _takeResource.onClick.AddListener(TakeConvertType);
+        _addResourceButton.onClick.AddListener(AddResource);
+        _addAllResourceButton.onClick.AddListener(AddAll);
+        _takeResourceBackButton.onClick.AddListener(TakeResourceBack);
+        _takeResourceComplitButton.onClick.AddListener(TakeConvertType);
+        _buttonLevelUp.onClick.AddListener(LevelUp);
+        _buttonLevelUpReward.onClick.AddListener(LevelUpReward);
+        _close.onClick.AddListener(Close);
     }
 
     private void AddResource()=> AddResources<Log>();
     
+    
+    private void AddAll()=> SellAllResource<Log>();
 
-    private void AddStack()=> SetStackCount<Log>();
 
-
-    private void TakeStack()
+    private void TakeResourceBack()
     {
-        var log = new Log();
-        Take<Log>(log);
+        TakeResource<Log>();
     }
 
     private void TakeConvertType()
     {
         if (_processor.Completed > 0)
         {
-            Boards board = new();
-            board.SetPrice();
-            TakeResource<Boards>(board);
+            TakeResourceComplite<Boards>();
             Reset();
         }
     }

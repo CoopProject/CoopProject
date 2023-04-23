@@ -57,8 +57,8 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.59060043
-        functionName: ExtractResours
+      - time: 0
+        functionName: ExtractResourceTarget
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

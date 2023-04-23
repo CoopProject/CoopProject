@@ -1,31 +1,39 @@
 using System;
-using System.Collections;
 using UnityEngine;
 
 public class Processor : MonoBehaviour
 {
     [SerializeField] private ProductPanel _panel;
-    [SerializeField] private float _duration = 1f;
+    [SerializeField] private float _duration = 5f;
+    [SerializeField] private GameData _data;
+    [SerializeField] private string _keyConvertion;
+    [SerializeField] private string _keyComplited;
 
     private int _ñountTransformation = 0;
     private int _ñompleted = 0;
-    private bool _iWorik = false;
-    private float _countDuration = 0;
-    public event Action Done; 
-
+    private float _countDuration = 5f;
+    private float _durationMinimum = 2.5f;
+    private float _maxDurationVelue => _duration;
+    
+    public event Action Done;
     public int CountTransformation => _ñountTransformation;
     public int Completed => _ñompleted;
 
+    private void Awake()
+    {
+        LoadData();
+    }
 
-    private void Update()
+
+    private void FixedUpdate()
     {
         if (_ñountTransformation != 0)
         {
-            _countDuration += Time.deltaTime;
+            _countDuration -= Time.deltaTime;
             
-            if (_countDuration >= _duration)
+            if (_countDuration <= 0)
             {
-                _countDuration = 0;
+                _countDuration = _maxDurationVelue;
                 Transformation();
             }
         }
@@ -34,14 +42,40 @@ public class Processor : MonoBehaviour
     public void Conversion()
     {
         _ñountTransformation++;
+        SaveData();
     }
 
-    public void addStack(int stackValue)=> _ñountTransformation += stackValue;
-    
+    public void AddAll(int value)
+    {
+        _ñountTransformation += value;
+        SaveData();
+    }
 
-    public void TakeStack(int stackValue) => _ñountTransformation -= stackValue;
-    
 
+    public void CancellationProcessing()
+    {
+        _ñountTransformation--;
+        SaveData();
+    }
+
+    public void Reset()=> _ñompleted = 0;
+
+    public void LevelUp()
+    {
+        if (_duration > _durationMinimum)
+            _duration -= 0.5f;
+        
+        SaveData();
+    }
+
+    public void LevelUpReward()
+    {
+        if (_duration > _durationMinimum)
+            _duration -= 1f;
+        
+        SaveData();
+    }
+    
     private void Transformation()
     {
         if (_ñountTransformation >= 0)
@@ -49,14 +83,28 @@ public class Processor : MonoBehaviour
             _ñountTransformation--;
             _ñompleted++;
             Done?.Invoke();
+            SaveData();
         }
         else
         {
             _ñountTransformation = 0;
             Done?.Invoke();
+            SaveData();
         }
     }
 
-    public void Reset()=> _ñompleted = 0;
-    
+
+    private void SaveData()
+    {
+        _data.Save(_keyConvertion,_ñountTransformation);
+        _data.Save(_keyComplited,_ñompleted);
+        PlayerPrefs.SetFloat("duration",_countDuration);
+    }
+
+    private void LoadData()
+    {
+        _ñountTransformation =  _data.Load(_keyConvertion);
+        _ñompleted = _data.Load(_keyComplited);
+        PlayerPrefs.GetFloat("duration", 0);
+    }
 }

@@ -13,11 +13,6 @@ namespace DefaultNamespace.MVP.MVPShop.Viues
 
         public event Action OnUpdate;
 
-        private void Awake()
-        {
-            gameObject.SetActive(false);
-        }
-
         private void LateUpdate()
         {
             OnUpdate?.Invoke();

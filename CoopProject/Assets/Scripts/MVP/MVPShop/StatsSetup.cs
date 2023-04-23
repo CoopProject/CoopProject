@@ -1,5 +1,3 @@
-using System;
-using System.Security.Cryptography.X509Certificates;
 using DefaultNamespace.MVC.MVPShop.Prisenters;
 using DefaultNamespace.MVP.MVPShop.Viues;
 using Reflex;
@@ -16,6 +14,8 @@ public class StatsSetup : MonoBehaviour
     [SerializeField] private StatsView _boardsView;
     [SerializeField] private StatsView _ironIngotsView;
     [SerializeField] private StatsView _goldIngotsView;
+    [SerializeField] private StatsView _blockIngotsView;
+    
 
     private ResourceCollector _resourceCollector;
 
@@ -26,6 +26,7 @@ public class StatsSetup : MonoBehaviour
     private PresenterStats<Boards> _presenterBoards;
     private PresenterStats<IronIngots> _presenterIronIgnots;
     private PresenterStats<GoldIngots> _presenterGoldIngots;
+    private PresenterStats<StoneBlocks> _presenterStoneBlocks;
     
     private Model _woodModel = new ();
     private Model _goldModel = new ();
@@ -34,6 +35,7 @@ public class StatsSetup : MonoBehaviour
     private Model _boardsModel = new ();
     private Model _ironIgnotsModel = new ();
     private Model _goldIgnotsModel = new ();
+    private Model _stoneBlocksModel = new ();
 
     [Inject]
     private void Inject(Container container)
@@ -52,19 +54,16 @@ public class StatsSetup : MonoBehaviour
         _presenterGold = new PresenterStats<Gold>(_goldModel, _goldView, _resourceCollector);
         _prisenterIron = new PresenterStats<Iron>(_ironModel, _ironView, _resourceCollector);
         _presenterStone = new PresenterStats<Stone>(_stoneModel, _stoneView, _resourceCollector);
+        _presenterStoneBlocks = new PresenterStats<StoneBlocks>(_stoneBlocksModel, _blockIngotsView, _resourceCollector);
         _presenterBoards = new PresenterStats<Boards>(_boardsModel, _boardsView, _resourceCollector);
         _presenterIronIgnots = new PresenterStats<IronIngots>(_ironIgnotsModel, _ironIngotsView, _resourceCollector);
         _presenterGoldIngots = new PresenterStats<GoldIngots>(_goldIgnotsModel, _goldIngotsView, _resourceCollector);
     }
 
-    public void ActiveAmaunt()
-    {
-        _stoneView.gameObject.SetActive(true);
-        _ironView.gameObject.SetActive(true);
-    }
+    public void ActiveAmaunt()=> _stoneView.gameObject.SetActive(true);
+    
+    public void ActiveWinter()=> _ironView.gameObject.SetActive(true);
 
-    public void ActiveWinter()
-    {
-        _goldView.gameObject.SetActive(true);
-    }
+    public void ActiveMagickIsland() => _goldView.gameObject.SetActive(true);
+
 }

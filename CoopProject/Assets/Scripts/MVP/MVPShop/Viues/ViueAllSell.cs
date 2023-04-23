@@ -12,7 +12,8 @@ public class ViueAllSell : MonoBehaviour
    [SerializeField] private Button _buttonRewarSellAll;
    [SerializeField] private TextMeshProUGUI _textRewardButtonSell;
 
-   public event Action OnButtonClick;
+   public Button ButtonSellAll => _buttonSellAll;
+   public Button ButtonReward => _buttonRewarSellAll;
 
    private int _sumResource = 0;
 
@@ -30,9 +31,6 @@ public class ViueAllSell : MonoBehaviour
       _sumResource = 0;
    }
 
-   public void SellAll()
-   {
-      OnButtonClick?.Invoke();
-      SetValue();
-   }
+   public void SellAll() => SetValue();
+   
 }

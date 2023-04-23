@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using DefaultNamespace;
 using DefaultNamespace.Helper;
 using ResourcesColection;
 using UnityEngine;
@@ -10,27 +9,49 @@ using UnityEngine.AI;
 public class Helper : MonoBehaviour
 {
     private NavMeshAgent _agent;
-    private ResourceSource _resourceSourceType;
+    private ResourceSource _target;
     private List<ResourceSource> _resources;
     private HelperAnimator _animator;
     private int _damage = 5;
     private Vector3 offset = new Vector3(0, 2, 0);
-    private float _extractDistance = 1f;
-    private ExtractResourceService _extractResource;
+    private float _extractDistance = 2f;
     private int _layerMask;
-    private float _radius = 3f;
+    private float _radius = 1f;
+    private Collider[] _hits = new Collider[1];
 
     private void Awake()
     {
         _layerMask = 1 << LayerMask.NameToLayer("Resource");
-        _extractResource = new ExtractResourceService(transform, _layerMask, _radius);
         _agent = GetComponent<NavMeshAgent>();
         _animator = GetComponent<HelperAnimator>();
     }
 
-    public void FixedUpdate()
+    public void FixedUpdate() => MoveToPoint();
+
+    private void MoveToPoint()
     {
-        MoveToPoint();
+        if (_target != null)
+        {
+            if (Vector3.Distance(transform.position, _target.transform.position) >= _extractDistance)
+            {
+                var targetPosition = _target.transform.position + offset;
+                _target.Occupy();
+                _agent.SetDestination(targetPosition);
+                _agent.isStopped = false;
+                _animator.StopExtract();
+                transform.LookAt(targetPosition);
+            }
+            else
+            {
+                _animator.Extract();
+                _agent.isStopped = true;
+                transform.LookAt(_target.transform.position + offset);
+            }
+        }
+        else
+        {
+            Search(transform);
+        }
     }
 
     private void Search(Transform pointFinding)
@@ -43,35 +64,32 @@ public class Helper : MonoBehaviour
             Vector3 direction = resource.transform.position - position;
             float curDistance = direction.sqrMagnitude;
 
-            if (curDistance < distance && resource.IDead == false)
+            if (curDistance < distance && resource.IDead == false && resource.Free)
             {
-                _resourceSourceType = resource;
+                _target = resource;
                 distance = curDistance;
             }
         }
     }
 
-    private void MoveToPoint()
+    public void SetList(List<ResourceSource> resourceSources) => _resources = resourceSources;
+
+    public void ExtractResourceTarget() => ExtractResource(_damage);
+    
+    private void ExtractResource(int _damageEnemy)
     {
-        if (_resourceSourceType != null &&
-            Vector3.Distance(transform.position, _resourceSourceType.transform.position) >= _extractDistance)
+        if (Hit() > 0)
         {
-            _resourceSourceType.PrivateResource();
-            var targetPosition = _resourceSourceType.transform.position + offset;
-            _agent.SetDestination(targetPosition);
-            _agent.isStopped = false;
-            _animator.StopExtract();
-            transform.LookAt(targetPosition);
+            _hits[0].GetComponent<IResourceSource>().TakeDamage(_damageEnemy);
         }
         else
         {
+            _animator.StopExtract();
             Search(transform);
-            _animator.Extract();
-            _agent.isStopped = true;
         }
     }
 
-    public void SetList(List<ResourceSource> resourceSources) => _resources = resourceSources;
-
-    public void ExtractResours() => _extractResource.ExtractResource(_damage);
+    private int Hit() {
+        return Physics.OverlapSphereNonAlloc(transform.position + transform.forward, _radius, _hits, _layerMask);
+    }
 }

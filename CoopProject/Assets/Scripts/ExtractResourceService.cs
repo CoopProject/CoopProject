@@ -9,8 +9,7 @@ namespace DefaultNamespace
         private Collider[] _hits = new Collider[1];
         private int _layerMask;
         private float _radius;
-        private float _extractDistance = 1f;
-
+        
         public ExtractResourceService(Transform transform,int layerMask,float radius)
         {
             _transform = transform;
