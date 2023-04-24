@@ -48,9 +48,8 @@ namespace DefaultNamespace.MVC.MVPShop.Prisenters
 
         private void RewardShow()
         {
-             /*VideoAd.Show();
-             ClickButtonRewardViue();*/
-             VideoAd.Show(onRewardedCallback: ClickButtonRewardViue);
+             VideoAd.Show();
+             ClickButtonRewardViue();
         }
         
         private void ClickButtonRewardViue()
