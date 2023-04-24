@@ -20,7 +20,7 @@ namespace DefaultNamespace.UI.UpgradePanel.WoodUpdates
             SetData();
             SetNexData();
 
-            _helpersBuilding.Levelup(LevelUps[_levelNow].InstanceHelpers, LevelUps[_levelNow].ExtractedResources);
+            _helpersBuilding.LevelUp(LevelUps[_levelNow].InstanceHelpers, LevelUps[_levelNow].ExtractedResources);
             _buttonLvlUpReward.onClick.AddListener(ShowReward);
             _buttonLvlUp.onClick.AddListener(LevelUp);
             _closeWindow.onClick.AddListener(Close);
