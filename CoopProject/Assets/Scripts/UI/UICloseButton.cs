@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CloseSalleShope : MonoBehaviour
+public class UICloseButton : MonoBehaviour
 {
     [SerializeField] private Button _closeButton;
     private void Start()
