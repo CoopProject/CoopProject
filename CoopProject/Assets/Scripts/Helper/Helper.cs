@@ -34,34 +34,18 @@ public class Helper : MonoBehaviour
         {
             if (Vector3.Distance(transform.position, _target.transform.position) >= _extractDistance)
             {
-                
                 var targetPosition = _target.transform.position + offset;
                 _target.Occupy();
                 _agent.SetDestination(targetPosition);
                 _agent.isStopped = false;
                 _animator.StopExtract();
                 transform.LookAt(targetPosition);
-                
-                if (_target.IDead)
-                    _target = null;
             }
             else
             {
-                RaycastHit hit;
-                
-                if (Physics.Raycast(transform.position, transform.forward, out hit, 2f, _layerMask))
-                {
-                    _animator.Extract();
-                    _agent.isStopped = true;
-                }
-                else
-                    Search(transform);
-                
-                
-                var direction = _target.transform.position - transform.position;
-                direction.y = 0;
-                Quaternion targetRotation = Quaternion.LookRotation(direction);
-                transform.rotation = Quaternion.Euler(0,targetRotation.eulerAngles.y,0);
+                _animator.Extract();
+                _agent.isStopped = true;
+                transform.LookAt(_target.transform.position + offset);
             }
         }
         else
