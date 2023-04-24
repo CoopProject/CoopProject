@@ -1,4 +1,5 @@
 using Agava.YandexGames;
+using DefaultNamespace;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -61,7 +62,7 @@ public abstract class ProductPanel : MonoBehaviour
     {
         if (_playerWallet.Coins >= _levelUpPrice && _levelNow < _maxLevel)
         {
-            VideoAd.Show();
+            VideoAd.Show(GamePause.OnGamePauseActive,null,GamePause.OffGamePauseActive);
             _processor.LevelUpReward();
             _playerWallet.SellCoints(_levelUpPrice);
             _levelNow += 2;

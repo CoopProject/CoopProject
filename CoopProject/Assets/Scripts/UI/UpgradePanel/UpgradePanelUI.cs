@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Agava.YandexGames;
+using DefaultNamespace;
 using DefaultNamespace.UI.UpgradePanel;
 using ResourcesColection;
 using TMPro;
@@ -50,7 +51,7 @@ public abstract class UpgradePanelUI<T> : MonoBehaviour where T : ResourceSource
             SetData();
             SetNexData();
             _helpersBuilding.LevelUp(LevelUps[_levelNow].InstanceHelpers, LevelUps[_levelNow].ExtractedResources);
-            VideoAd.Show();
+            VideoAd.Show(GamePause.OnGamePauseActive,null,GamePause.OffGamePauseActive);
         }
     }
 
