@@ -1,34 +1,34 @@
-using System;
 using DG.Tweening;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Button))]
 public class ButtonOpenUI : MonoBehaviour
 {
     [SerializeField] private GameObject _panel;
     [SerializeField] private float _timeAnimation;
+    [SerializeField] private Button _closeButton;
+    [SerializeField] private Button _mainButton;
     
-    private Button _button;
     private RectTransform _rectTransform;
+    private WaitForSeconds _waitTime;
     private int _minScale = 0;
     private int _maxScale = 1;
-    private WaitForSeconds _waitTime;
     private bool _isCoroutineWork = false;
-    private bool _isOpen;
+    private bool _isOpen = false;
 
     private void OnEnable()
     {
-        _button = GetComponent<Button>();
-        _isOpen = gameObject.activeSelf;
+        _rectTransform = _panel.GetComponent<RectTransform>();
         _waitTime = new WaitForSeconds(_timeAnimation);
-        _button.onClick.AddListener(AutoSetState);
+        _mainButton.onClick.AddListener(AutoSetState);
+        _closeButton.onClick.AddListener(Close);
     }
 
     private void OnDisable()
     {
-        _button.onClick.RemoveListener(AutoSetState);
+        _mainButton.onClick.RemoveListener(AutoSetState);
+        _closeButton.onClick.RemoveListener(Close);
     }
 
     private void AutoSetState()
@@ -46,12 +46,14 @@ public class ButtonOpenUI : MonoBehaviour
     {
         _panel.SetActive(true);
         _rectTransform.DOScale(_maxScale, _timeAnimation);
+        _isOpen = true;
     }
 
     private void Close()
     {
         _rectTransform.DOScale(_minScale, _timeAnimation);
-        
+        _isOpen = false;
+
         if (!_isCoroutineWork)
             StartCoroutine(OnStartDisable());
     }
@@ -60,7 +62,7 @@ public class ButtonOpenUI : MonoBehaviour
     {
         _isCoroutineWork = true;
         yield return _waitTime;
-        gameObject.SetActive(false);
+        _panel.SetActive(false);
         _isCoroutineWork = false;
     }
 }
