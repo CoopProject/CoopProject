@@ -1,11 +1,14 @@
 using DG.Tweening;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class OppenerUI : MonoBehaviour
 {
     [SerializeField] private GameObject _panel;
     [SerializeField] private float _timeAnimation;
+    
+    public UnityAction PanelOpen;
 
     private RectTransform _rectTransform;
     private int _minScale = 0;

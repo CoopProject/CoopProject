@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class ButtonOpenUI : MonoBehaviour
@@ -9,13 +10,16 @@ public class ButtonOpenUI : MonoBehaviour
     [SerializeField] private float _timeAnimation;
     [SerializeField] private Button _closeButton;
     [SerializeField] private Button _mainButton;
-    
+
+    public UnityAction PanelOpen;
+
     private RectTransform _rectTransform;
     private WaitForSeconds _waitTime;
     private int _minScale = 0;
     private int _maxScale = 1;
     private bool _isCoroutineWork = false;
     private bool _isOpen = false;
+    private bool _theObjectMustBeDisabled = false;
 
     private void OnEnable()
     {
@@ -31,7 +35,7 @@ public class ButtonOpenUI : MonoBehaviour
         _closeButton.onClick.RemoveListener(Close);
     }
 
-    private void AutoSetState()
+    public void AutoSetState()
     {
         if (!_isOpen)
         {
@@ -42,14 +46,14 @@ public class ButtonOpenUI : MonoBehaviour
         Close();
     }
 
-    private void Open()
+    public void Open()
     {
         _panel.SetActive(true);
         _rectTransform.DOScale(_maxScale, _timeAnimation);
         _isOpen = true;
     }
 
-    private void Close()
+    public void Close()
     {
         _rectTransform.DOScale(_minScale, _timeAnimation);
         _isOpen = false;
@@ -64,5 +68,8 @@ public class ButtonOpenUI : MonoBehaviour
         yield return _waitTime;
         _panel.SetActive(false);
         _isCoroutineWork = false;
+        
+        if (_theObjectMustBeDisabled)
+            gameObject.SetActive(false);
     }
 }
