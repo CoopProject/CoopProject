@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using ResourcesColection;
 using SpanwerHelpers;
@@ -14,14 +15,21 @@ public class HelpersBuilding<T> : MonoBehaviour where T : ResourceSource
 
     protected int LevelPanel = 0;
     public int Counter => _spawnHelperTree.InstanceCount;
-    public void Levelup(int helperInstance, int resourceExtraction)
+
+    public void LevelUp(int helperInstance,int resourceExtraction)
+    {
+       StartCoroutine(HelperInstance(helperInstance));
+       LevelUpExtraction(resourceExtraction);
+    }
+    
+    public IEnumerator HelperInstance(int helperInstance)
     {
         while (Counter <= helperInstance - 1)
         {
             var helper = _spawnHelperTree.GetHelperInstantiate();
             helper.SetList(_list);
+            yield return new WaitForSecondsRealtime(1f);
         }
-        LevelUpExtraction(resourceExtraction);
     }
     
     private void LevelUpExtraction(int extraction)

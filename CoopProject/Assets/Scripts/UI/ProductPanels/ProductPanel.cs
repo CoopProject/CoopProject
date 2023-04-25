@@ -1,4 +1,5 @@
 using Agava.YandexGames;
+using DefaultNamespace;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,6 +10,7 @@ public abstract class ProductPanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _textEndCount;
     [SerializeField] private TextMeshProUGUI _levelValue;
     [SerializeField] private GameObject _levelMaxPanel;
+    [SerializeField] private GameData _data;
     [SerializeField] protected Button _addResourceButton;
     [SerializeField] protected Button _addAllResourceButton;
     [SerializeField] protected Button _takeResourceBackButton;
@@ -17,6 +19,7 @@ public abstract class ProductPanel : MonoBehaviour
     [SerializeField] protected Button _buttonLevelUpReward;
     [SerializeField] protected Button _close;
     [SerializeField] protected Processor _processor;
+    [SerializeField] private string _keyData = "";
 
     protected ResourceCollector _resourceCollector;
     protected PlayerWallet _playerWallet;
@@ -28,6 +31,8 @@ public abstract class ProductPanel : MonoBehaviour
     private void OnEnable()
     {
         _processor.Done += ConversionComplit;
+        LoadData();
+        CheckMaxLevel();
     }
 
     private void LateUpdate() => SetData();
@@ -47,13 +52,8 @@ public abstract class ProductPanel : MonoBehaviour
             _playerWallet.SellCoints(_levelUpPrice);
             _levelNow++;
             _levelValue.text = $"{_levelNow}";
-            
-            if (_levelNow == 5)
-            {
-                _levelMaxPanel.gameObject.SetActive(true);
-                _buttonLevelUp.gameObject.SetActive(false);
-                _buttonLevelUpReward.gameObject.SetActive(false);
-            }
+            _data.Save(_keyData,_levelNow);
+            CheckMaxLevel();
         }
     }
     
@@ -62,18 +62,12 @@ public abstract class ProductPanel : MonoBehaviour
     {
         if (_playerWallet.Coins >= _levelUpPrice && _levelNow < _maxLevel)
         {
-            VideoAd.Show();
+            VideoAd.Show(GamePause.OnGamePauseActive,null,GamePause.OffGamePauseActive);
             _processor.LevelUpReward();
             _playerWallet.SellCoints(_levelUpPrice);
             _levelNow += 2;
             _levelValue.text = $"{_levelNow}";
-            
-            if (_levelNow == 5)
-            {
-                _levelMaxPanel.gameObject.SetActive(true);
-                _buttonLevelUp.gameObject.SetActive(false);
-                _buttonLevelUpReward.gameObject.SetActive(false);
-            }
+            CheckMaxLevel();
         }
     }
 
@@ -141,4 +135,18 @@ public abstract class ProductPanel : MonoBehaviour
     protected void Close() => gameObject.SetActive(false);
 
     private void OnDisable() => _processor.Done -= ConversionComplit;
+
+    private void LoadData()=> _levelNow =  _data.Load(_keyData);
+
+    private void CheckMaxLevel()
+    {
+        _levelValue.text = $"{_levelNow}";
+        if (_levelNow == 5)
+        {
+            _levelMaxPanel.gameObject.SetActive(true);
+            _buttonLevelUp.gameObject.SetActive(false);
+            _buttonLevelUpReward.gameObject.SetActive(false);
+        }
+    }
+    
 }

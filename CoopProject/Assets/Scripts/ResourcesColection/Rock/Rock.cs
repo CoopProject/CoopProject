@@ -54,6 +54,7 @@ public class Rock : ResourceSource,IResourceSource
         var waitForSecondsRealtime = new WaitForSecondsRealtime(_durationReset);
         yield return waitForSecondsRealtime;
         _iDead = false;
+        _iFree = true;
         _health = _maxHealth;
         _mesh.enabled = true;
         _colliderBox.enabled = true;
