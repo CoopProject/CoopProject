@@ -7,6 +7,6 @@ public class HelperBuildingIron : HelpersBuilding<IronOre>
     
     private void Start()
     {
-        Levelup(_panel.LevelUps[LevelPanel].InstanceHelpers,_panel.LevelUps[LevelPanel].ExtractedResources);
+        LevelUp(_panel.LevelUps[LevelPanel].InstanceHelpers,_panel.LevelUps[LevelPanel].ExtractedResources);
     }
 }

@@ -15,8 +15,7 @@ public class GameData : MonoBehaviour
         LoadData();
         LoadDataObject();
     }
-
-
+    
     public void Save(string key,int value)
     {
         if (key != "")

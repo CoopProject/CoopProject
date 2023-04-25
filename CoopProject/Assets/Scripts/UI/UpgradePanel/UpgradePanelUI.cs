@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Agava.YandexGames;
+using DefaultNamespace;
 using DefaultNamespace.UI.UpgradePanel;
 using ResourcesColection;
 using TMPro;
@@ -36,7 +37,7 @@ public abstract class UpgradePanelUI<T> : MonoBehaviour where T : ResourceSource
             _playerWallet.SellCoints(LevelUps[_levelNow].LevelUpPrice);
             SetData();
             SetNexData();
-            _helpersBuilding.Levelup(LevelUps[_levelNow].InstanceHelpers, LevelUps[_levelNow].ExtractedResources);
+            _helpersBuilding.LevelUp(LevelUps[_levelNow].InstanceHelpers, LevelUps[_levelNow].ExtractedResources);
         }
     }
 
@@ -49,8 +50,8 @@ public abstract class UpgradePanelUI<T> : MonoBehaviour where T : ResourceSource
             _playerWallet.SellCoints(LevelUps[_levelNow].LevelUpReward);
             SetData();
             SetNexData();
-            _helpersBuilding.Levelup(LevelUps[_levelNow].InstanceHelpers, LevelUps[_levelNow].ExtractedResources);
-            VideoAd.Show();
+            _helpersBuilding.LevelUp(LevelUps[_levelNow].InstanceHelpers, LevelUps[_levelNow].ExtractedResources);
+            VideoAd.Show(GamePause.OnGamePauseActive,null,GamePause.OffGamePauseActive);
         }
     }
 

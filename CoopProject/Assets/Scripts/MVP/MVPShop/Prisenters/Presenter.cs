@@ -48,7 +48,7 @@ namespace DefaultNamespace.MVC.MVPShop.Prisenters
 
         private void RewardShow()
         {
-             VideoAd.Show();
+            VideoAd.Show(GamePause.OnGamePauseActive,null,GamePause.OffGamePauseActive);
              ClickButtonRewardViue();
         }
         
