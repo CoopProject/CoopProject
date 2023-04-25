@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class UIPanelControlActivity : MonoBehaviour
 {
-    [SerializeField] private List<ButtonOpenUI> _buttonOpenUI;
+    [SerializeField] private List<OpenUIPanel> _buttonOpenUI;
     
     private void OnEnable()
     {

@@ -4,10 +4,9 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class ButtonOpenUI : MonoBehaviour
+public class OpenUIPanel : MonoBehaviour
 {
     [SerializeField] private GameObject _panel;
-    [SerializeField] private float _timeAnimation;
     [SerializeField] private Button _closeButton;
     [SerializeField] private Button _mainButton;
 
@@ -17,25 +16,32 @@ public class ButtonOpenUI : MonoBehaviour
     private WaitForSeconds _waitTime;
     private int _minScale = 0;
     private int _maxScale = 1;
+    private float _timeAnimation = 0.2f;
     private bool _isCoroutineWork = false;
     private bool _isOpen = false;
     private bool _theObjectMustBeDisabled = false;
+    
+    public void Unplug()=> _theObjectMustBeDisabled = true;
 
     private void OnEnable()
     {
         _rectTransform = _panel.GetComponent<RectTransform>();
         _waitTime = new WaitForSeconds(_timeAnimation);
-        _mainButton.onClick.AddListener(AutoSetState);
         _closeButton.onClick.AddListener(Close);
+
+        if (_mainButton != null)
+            _mainButton.onClick.AddListener(AutoSetState);
     }
 
     private void OnDisable()
     {
-        _mainButton.onClick.RemoveListener(AutoSetState);
         _closeButton.onClick.RemoveListener(Close);
+        
+        if (_mainButton != null)
+            _mainButton.onClick.RemoveListener(AutoSetState);
     }
 
-    public void AutoSetState()
+    private void AutoSetState()
     {
         if (!_isOpen)
         {

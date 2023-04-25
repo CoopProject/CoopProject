@@ -11,7 +11,7 @@ public abstract class UpgradePanelUI<T> : MonoBehaviour where T : ResourceSource
 {
     [SerializeField] protected Button _buttonLvlUp;
     [SerializeField] protected Button _buttonLvlUpReward;
-    [SerializeField] protected Button _closeWindow;
+    /*[SerializeField] protected Button _closeWindow;*/
     [SerializeField] protected GameData _data;
     [SerializeField] protected HelpersBuilding<T> _helpersBuilding;
     [SerializeField] private GameObject _levelMaxPanel;

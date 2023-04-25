@@ -17,7 +17,7 @@ public abstract class ProductPanel : MonoBehaviour
     [SerializeField] protected Button _takeResourceComplitButton;
     [SerializeField] protected Button _buttonLevelUp;
     [SerializeField] protected Button _buttonLevelUpReward;
-    [SerializeField] protected Button _close;
+    /*[SerializeField] protected Button _close;*/
     [SerializeField] protected Processor _processor;
     [SerializeField] private string _keyData = "";
 

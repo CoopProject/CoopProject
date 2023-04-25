@@ -1,17 +1,18 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class ZoneActivateUI : MonoBehaviour
 {
-    [SerializeField] private ButtonOpenUI _openUI;
+    [FormerlySerializedAs("_openUI")] [SerializeField] private OpenUIPanel _openUIPanel;
     private void OnTriggerEnter(Collider сollider)
     {
         if (сollider.TryGetComponent(out Player player))
-            _openUI.Open();
+            _openUIPanel.Open();
     }
 
     private void OnTriggerExit(Collider сollider)
     {
         if (сollider.TryGetComponent(out Player player))
-            _openUI.Close();
+            _openUIPanel.Close();
     }
 }

@@ -21,7 +21,7 @@ public class GoldUpgradePanel : UpgradePanelUI<GoldOre>
         _helpersBuilding.LevelUp(LevelUps[_levelNow].InstanceHelpers, LevelUps[_levelNow].ExtractedResources);
         _buttonLvlUpReward.onClick.AddListener(ShowReward);
         _buttonLvlUp.onClick.AddListener(LevelUp);
-        _closeWindow.onClick.AddListener(Close);
+        /*_closeWindow.onClick.AddListener(Close);*/
     }
     private void FixedUpdate()
     {

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public abstract class OpenIslandPanel<ResourceOne,ResourceTwo> : MonoBehaviour
 {
-    [SerializeField] protected List<OppenerUI> _oppener;
+    [SerializeField] protected List<OpenUIPanel> _oppener;
     [SerializeField] protected List<Wall> _walls;
     [SerializeField] protected Button _buttonClose;
     [SerializeField] protected GameData _data;
