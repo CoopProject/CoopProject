@@ -19,12 +19,8 @@ public class JoystickSetterActivity : MonoBehaviour
 
     private void SetActive()
     {
-        Debug.Log("МЕТОД ЗАПУЩЕН");
-        Debug.Log("ДЕВАЙС  " + Device.Type);
-
         if (Device.Type == DeviceType.Mobile || Device.Type == DeviceType.Tablet)
         {
-            Debug.Log("ДЖОЙСТИК АКТИВИРОВАН");
             _joystick.SetActive((true));
         }
     }
