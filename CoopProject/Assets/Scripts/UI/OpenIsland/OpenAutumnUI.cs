@@ -29,7 +29,6 @@ public class OpenAutumnUI : OpenIslandPanel<Log, Boards>
         _addResourceOne.onClick.AddListener(AddCoin);
         _addResourceTwo.onClick.AddListener(AddResourceOne);
         _addResourceFree.onClick.AddListener(AddResourceTwo);
-        _buttonClose.onClick.AddListener(Close);
     }
 
     private void Update()

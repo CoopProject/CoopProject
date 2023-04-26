@@ -17,7 +17,6 @@ public abstract class ProductPanel : MonoBehaviour
     [SerializeField] protected Button _takeResourceComplitButton;
     [SerializeField] protected Button _buttonLevelUp;
     [SerializeField] protected Button _buttonLevelUpReward;
-    [SerializeField] protected Button _close;
     [SerializeField] protected Processor _processor;
     [SerializeField] private string _keyData = "";
 
@@ -37,7 +36,6 @@ public abstract class ProductPanel : MonoBehaviour
 
     private void LateUpdate() => SetData();
     
-
     private void SetData()
     {
         _textCount.text = $"{_processor.CountTransformation}";
@@ -56,7 +54,6 @@ public abstract class ProductPanel : MonoBehaviour
             CheckMaxLevel();
         }
     }
-    
 
     public void LevelUpReward()
     {
@@ -104,7 +101,6 @@ public abstract class ProductPanel : MonoBehaviour
         }
     }
     
-
     protected void TakeResourceComplite<Type>()
     {
         for (int i = 0; i < _processor.Completed; i++)
@@ -120,8 +116,7 @@ public abstract class ProductPanel : MonoBehaviour
             _textCount.text = $"{_processor.CountTransformation}";
         }
     }
-
-
+    
     protected void Reset()
     {
         if (_processor.Completed > 0)
@@ -131,8 +126,6 @@ public abstract class ProductPanel : MonoBehaviour
             _processor.Reset();
         }
     }
-
-    protected void Close() => gameObject.SetActive(false);
 
     private void OnDisable() => _processor.Done -= ConversionComplit;
 
@@ -148,5 +141,4 @@ public abstract class ProductPanel : MonoBehaviour
             _buttonLevelUpReward.gameObject.SetActive(false);
         }
     }
-    
 }

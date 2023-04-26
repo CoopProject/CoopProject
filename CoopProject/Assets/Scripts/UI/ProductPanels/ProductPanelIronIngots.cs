@@ -19,20 +19,16 @@ public class ProductPanelIronIngots : ProductPanel
         _takeResourceComplitButton.onClick.AddListener(TakeConvertType);
         _buttonLevelUp.onClick.AddListener(LevelUp);
         _buttonLevelUpReward.onClick.AddListener(LevelUpReward);
-        _close.onClick.AddListener(Close);
     }
    
     private void AddResource()=> AddResources<Iron>();
-    
 
     private void AddAll()=> SellAllResource<Iron>();
     
-
     private void TakeResourceBack()
     {
         TakeResource<Iron>();
     }
-    
 
     private void TakeConvertType()
     {
