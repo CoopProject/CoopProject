@@ -9,7 +9,7 @@ public class SetterJoystickPosition : MonoBehaviour
     [SerializeField] private RectTransform _joystickPanel;
     [SerializeField] private Image _joystickRidged;
     [SerializeField] private Image _joystickOutline;
-    
+
     private PlayerInputActions _inputActions;
     private Vector2 _inputPosition;
     private Vector2 _canvasPosition;
