@@ -1,4 +1,5 @@
-using System;
+#pragma warning disable
+
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using UnityEngine;
@@ -12,8 +13,10 @@ public class GameData : MonoBehaviour
 
     private void Awake()
     {
+#if YANDEX_GAMES && UNITY_WEBGL && !UNITY_EDITOR
         LoadData();
         LoadDataObject();
+#endif
     }
     
     public void Save(string key,int value)

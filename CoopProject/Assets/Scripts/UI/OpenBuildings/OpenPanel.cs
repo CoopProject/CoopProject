@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class OpenPanel<T> : MonoBehaviour
 {
-    [Header(" ÌÓÔÍË")] 
+    [Header("–ö–Ω–æ–ø–∫–∏")] 
     [SerializeField] protected Button _addResourceOne;
     [SerializeField] protected Button _addResourceTwo;
-    [SerializeField] private OppenerUI _oppener;
+    [SerializeField] private OpenUIPanel _oppener;
     [SerializeField] private Building _building;
     [SerializeField] private Tarpaulin<T> _tarpaulin;
     [SerializeField] private TextMeshProUGUI _textCounterCoin;
@@ -28,7 +28,6 @@ public class OpenPanel<T> : MonoBehaviour
 
     private int CountCoin = 0;
     private int CountResourceOne = 0;
-    private int _minScale = 0;
     private T _resourceType;
 
 

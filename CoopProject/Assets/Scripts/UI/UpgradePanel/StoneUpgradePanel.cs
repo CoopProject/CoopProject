@@ -12,7 +12,6 @@ public class StoneUpgradePanel : UpgradePanelUI<Rock>
 
     private void Awake()=> _levelNow = _data.Load("StonePanel");
     
-
     private void Start()
     {
         SetData();
@@ -21,7 +20,6 @@ public class StoneUpgradePanel : UpgradePanelUI<Rock>
         _helpersBuilding.LevelUp(LevelUps[_levelNow].InstanceHelpers, LevelUps[_levelNow].ExtractedResources);
         _buttonLvlUpReward.onClick.AddListener(ShowReward);
         _buttonLvlUp.onClick.AddListener(LevelUp);
-        _closeWindow.onClick.AddListener(Close);
     }
     private void FixedUpdate()
     {
