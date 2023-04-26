@@ -26,7 +26,6 @@ public class OpenWinterIsland : OpenIslandPanel<Stone,StoneBlocks>
         _addResourceOne.onClick.AddListener(AddCoin);
         _addResourceTwo.onClick.AddListener(AddResourceOne);
         _addResourceFree.onClick.AddListener(AddResourceTwo);
-        _buttonClose.onClick.AddListener(Close);
     }
 
     private void Update() => ActiveIsland();

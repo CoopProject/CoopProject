@@ -19,21 +19,17 @@ public class ProductPanelStone : ProductPanel
         _takeResourceComplitButton.onClick.AddListener(TakeConvertType);
         _buttonLevelUp.onClick.AddListener(LevelUp);
         _buttonLevelUpReward.onClick.AddListener(LevelUpReward);
-        /*_close.onClick.AddListener(Close);*/
     }
 
     private void AddResource()=> AddResources<Stone>();
     
-
     private void AddAll()=> SellAllResource<Stone>();
     
-
     private void TakeResourceBack()
     {
         TakeResource<Stone>();
     }
     
-
     private void TakeConvertType()
     {
         if (_processor.Completed > 0)

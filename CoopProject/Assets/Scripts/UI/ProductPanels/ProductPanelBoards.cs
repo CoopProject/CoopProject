@@ -19,15 +19,12 @@ public class ProductPanelBoards : ProductPanel
         _takeResourceComplitButton.onClick.AddListener(TakeConvertType);
         _buttonLevelUp.onClick.AddListener(LevelUp);
         _buttonLevelUpReward.onClick.AddListener(LevelUpReward);
-        /*_close.onClick.AddListener(Close);*/
     }
 
     private void AddResource()=> AddResources<Log>();
     
-    
     private void AddAll()=> SellAllResource<Log>();
-
-
+    
     private void TakeResourceBack()
     {
         TakeResource<Log>();

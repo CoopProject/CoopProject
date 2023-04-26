@@ -19,21 +19,17 @@ public class ProductPanelGoldIngots : ProductPanel
         _takeResourceComplitButton.onClick.AddListener(TakeConvertType);
         _buttonLevelUp.onClick.AddListener(LevelUp);
         _buttonLevelUpReward.onClick.AddListener(LevelUpReward);
-        /*_close.onClick.AddListener(Close);*/
     }
    
     private void AddResource()=> AddResources<Gold>();
-    
 
     private void AddAll()=> SellAllResource<Gold>();
-    
 
     private void TakeResourceBack()
     {
         TakeResource<Gold>();
     }
     
-
     private void TakeConvertType()
     {
         if (_processor.Completed > 0)

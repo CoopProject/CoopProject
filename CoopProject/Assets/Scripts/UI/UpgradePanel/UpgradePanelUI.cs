@@ -11,7 +11,6 @@ public abstract class UpgradePanelUI<T> : MonoBehaviour where T : ResourceSource
 {
     [SerializeField] protected Button _buttonLvlUp;
     [SerializeField] protected Button _buttonLvlUpReward;
-    /*[SerializeField] protected Button _closeWindow;*/
     [SerializeField] protected GameData _data;
     [SerializeField] protected HelpersBuilding<T> _helpersBuilding;
     [SerializeField] private GameObject _levelMaxPanel;
@@ -59,9 +58,8 @@ public abstract class UpgradePanelUI<T> : MonoBehaviour where T : ResourceSource
     {
         _levelNow = level;
     }
-    
 
-        protected void SetData()
+    protected void SetData()
     {
         _buttonPrice.text = $"{LevelUps[_levelNow].LevelUpPrice}";
         _buttonPriceReward.text = $"{LevelUps[_levelNow].LevelUpReward}";
@@ -86,6 +84,4 @@ public abstract class UpgradePanelUI<T> : MonoBehaviour where T : ResourceSource
             _buttonLvlUpReward.gameObject.SetActive(false);
         }
     }
-
-    protected void Close() => gameObject.SetActive(false);
 }

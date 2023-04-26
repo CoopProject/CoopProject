@@ -6,7 +6,6 @@ namespace DefaultNamespace.UI.UpgradePanel.WoodUpdates
 {
     public class WoodUpgradePanelGoldIsland : UpgradePanelUI<Tree>
     {
-
         [Inject]
         private void Inject(Container container)
         {
@@ -26,7 +25,6 @@ namespace DefaultNamespace.UI.UpgradePanel.WoodUpdates
             _helpersBuilding.LevelUp(LevelUps[_levelNow].InstanceHelpers, LevelUps[_levelNow].ExtractedResources);
             _buttonLvlUpReward.onClick.AddListener(ShowReward);
             _buttonLvlUp.onClick.AddListener(LevelUp);
-            /*_closeWindow.onClick.AddListener(Close);*/
         }
 
         private void FixedUpdate()
