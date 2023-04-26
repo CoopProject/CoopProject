@@ -10,7 +10,7 @@ public class OpenUIPanel : MonoBehaviour
     [SerializeField] private Button _closeButton;
     [SerializeField] private Button _mainButton;
 
-    public UnityAction PanelOpen;
+    public UnityAction<GameObject> PanelOpen;
 
     private RectTransform _rectTransform;
     private WaitForSeconds _waitTime;
@@ -57,6 +57,7 @@ public class OpenUIPanel : MonoBehaviour
         _panel.SetActive(true);
         _rectTransform.DOScale(_maxScale, _timeAnimation);
         _isOpen = true;
+        PanelOpen?.Invoke(gameObject);
     }
 
     public void Close()
