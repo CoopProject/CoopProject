@@ -9,10 +9,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _rotationSpeed;
     [SerializeField] private float _gravityForce;
     [SerializeField] private AnimatorPlayer _animator;
+    [SerializeField] private FloatingJoystick _joystick;
 
     private CharacterController _controller;
     private PlayerInputActions _inputActions;
     private Vector3 _targetDirection;
+    private Vector3 _inputDirection;
     private Vector3 _gravityDirection;
     private float _inputAngle;
     private float _rotationSmoothVelocity;
@@ -25,8 +27,7 @@ public class PlayerMovement : MonoBehaviour
     {
         _inputActions = new PlayerInputActions();
         _inputActions.Enable();
-        _inputActions.Player.Movement.performed += OnMove;
-        ;
+        _inputActions.Player.Movement.performed += GetInputDirection;
     }
 
     private void Start()
@@ -38,11 +39,12 @@ public class PlayerMovement : MonoBehaviour
     {
         Move();
         SetGravity();
+        CreateTargetDirection();
     }
 
-    private void OnMove(InputAction.CallbackContext context)
+    private void GetInputDirection(InputAction.CallbackContext context)
     {
-        CreateTargetDirection(context.ReadValue<Vector2>());
+        _inputDirection = context.ReadValue<Vector2>();
     }
 
     private void Move()
@@ -62,9 +64,12 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void CreateTargetDirection(Vector2 inputDirection)
+    private void CreateTargetDirection()
     {
-        _targetDirection = new Vector3(inputDirection.x, 0.0f, inputDirection.y).normalized;
+        if (_joystick.Vertical != 0.0f || _joystick.Horizontal != 0.0f)
+            _targetDirection = Vector3.forward * _joystick.Vertical + Vector3.right * _joystick.Horizontal;
+        else 
+            _targetDirection = new Vector3(_inputDirection.x, 0.0f, _inputDirection.y).normalized;;
     }
 
     private void Rotate()
@@ -82,6 +87,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnDisable()
     {
-        _inputActions.Player.Movement.performed -= OnMove;
+        _inputActions.Player.Movement.performed -= GetInputDirection;
     }
 }
