@@ -19,7 +19,6 @@ public class Player : MonoBehaviour
     private float _maxExtractDuration = 1f;
     private float _radius = 1.5f;
     private Vector3 _offset = new Vector3(0, 0.3f, 0);
-    
 
     private void Awake()
     {
@@ -34,13 +33,13 @@ public class Player : MonoBehaviour
         {
             _rotationDuration -= Time.deltaTime;
             _extractDuration -= Time.deltaTime;
-            
+
             if (_rotationDuration < 0 && _playerMovement.Imove == false)
             {
                 var direction = resource.transform.position - transform.position;
                 direction.y = 0;
                 Quaternion targetRotation = Quaternion.LookRotation(direction);
-                transform.rotation = Quaternion.Euler(0,targetRotation.eulerAngles.y,0);
+                transform.rotation = Quaternion.Euler(0, targetRotation.eulerAngles.y, 0);
                 _rotationDuration = _rotationMaxDuration;
             }
         }
@@ -49,7 +48,7 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         RaycastHit hit;
-        
+
         if (Physics.Raycast(transform.position, transform.forward, out hit, 2.10f, _layerMask))
         {
             if (_extractDuration < 0)
@@ -64,6 +63,5 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void Extract()=> _extractResource.ExtractResource(_damage);
-    
+    public void Extract() => _extractResource.ExtractResource(_damage);
 }
