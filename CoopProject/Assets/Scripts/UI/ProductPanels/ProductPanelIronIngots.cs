@@ -25,10 +25,8 @@ public class ProductPanelIronIngots : ProductPanel
 
     private void AddAll()=> SellAllResource<Iron>();
     
-    private void TakeResourceBack()
-    {
-        TakeResource<Iron>();
-    }
+    private void TakeResourceBack() => TakeResource<Iron>();
+    
 
     private void TakeConvertType()
     {

@@ -24,12 +24,12 @@ public class OpenPanelIron : OpenPanel<Iron>
 
     private void Start()
     {
+        var iron = new Iron();
+        SetResourceType(iron);
         _addResourceOne.onClick.AddListener(AddCoin);
         _addResourceTwo.onClick.AddListener(AddResourceOne);
     }
 
-    private void Update()
-    {
-        ActiveBreadge<Iron>();
-    }
+    private void Update() => ActiveBreadge<Iron>();
+    
 }

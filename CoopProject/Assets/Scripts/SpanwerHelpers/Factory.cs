@@ -1,13 +1,9 @@
-using System;
-using System.Collections.Generic;
-using Reflex;
-using Reflex.Scripts.Attributes;
 using ResourcesColection;
 using UnityEngine;
 
 namespace SpanwerHelpers
 {
-    public abstract class Factory<T>: MonoBehaviour where T : ResourceSource
+    public abstract class Factory<T> : MonoBehaviour where T : ResourceSource
     {
         [SerializeField] private Helper _helperPrefab;
         [SerializeField] private Transform _spawnPoint;

@@ -25,10 +25,8 @@ public class ProductPanelBoards : ProductPanel
     
     private void AddAll()=> SellAllResource<Log>();
     
-    private void TakeResourceBack()
-    {
-        TakeResource<Log>();
-    }
+    private void TakeResourceBack() => TakeResource<Log>();
+    
 
     private void TakeConvertType()
     {

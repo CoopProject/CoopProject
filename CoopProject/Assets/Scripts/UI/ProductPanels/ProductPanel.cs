@@ -6,11 +6,6 @@ using UnityEngine.UI;
 
 public abstract class ProductPanel : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI _textCount;
-    [SerializeField] private TextMeshProUGUI _textEndCount;
-    [SerializeField] private TextMeshProUGUI _levelValue;
-    [SerializeField] private GameObject _levelMaxPanel;
-    [SerializeField] private GameData _data;
     [SerializeField] protected Button _addResourceButton;
     [SerializeField] protected Button _addAllResourceButton;
     [SerializeField] protected Button _takeResourceBackButton;
@@ -18,6 +13,11 @@ public abstract class ProductPanel : MonoBehaviour
     [SerializeField] protected Button _buttonLevelUp;
     [SerializeField] protected Button _buttonLevelUpReward;
     [SerializeField] protected Processor _processor;
+    [SerializeField] private TextMeshProUGUI _textCount;
+    [SerializeField] private TextMeshProUGUI _textEndCount;
+    [SerializeField] private TextMeshProUGUI _levelValue;
+    [SerializeField] private GameObject _levelMaxPanel;
+    [SerializeField] private GameData _data;
     [SerializeField] private string _keyData = "";
 
     protected ResourceCollector _resourceCollector;
