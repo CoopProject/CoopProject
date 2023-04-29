@@ -30,6 +30,11 @@ public class OpenPanelRock : OpenPanel<Stone>
         _addResourceTwo.onClick.AddListener(AddResourceOne);
     }
 
-    private void Update() => ActiveBreadge<Stone>(); 
-    
+    private void Update()
+    {
+        if (!_objectActive)
+        {
+            ActiveBreadge<Stone>();        
+        }
+    }
 }

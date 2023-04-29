@@ -31,7 +31,12 @@ namespace DefaultNamespace.UI.OpenBuildings
             _addResourceTwo.onClick.AddListener(AddResourceOne);
         }
 
-        private void Update() => ActiveBreadge<Log>();
-        
+        private void Update()
+        {
+            if (!_objectActive)
+            {
+                ActiveBreadge<Log>();
+            }
+        }
     }
 }

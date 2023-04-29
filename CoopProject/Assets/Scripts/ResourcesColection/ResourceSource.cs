@@ -32,6 +32,5 @@ namespace ResourcesColection
         }
 
         public abstract void AddResourceCount(int extraction);
-
     }
 }
