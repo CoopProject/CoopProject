@@ -28,7 +28,7 @@ public class Rock : ResourceSource,IResourceSource
     public override void TakeDamage(int damage)
     {
         _health -= damage;
-
+        _used = true;
         if (_health <= 0)
         {
             Dead();
@@ -55,6 +55,7 @@ public class Rock : ResourceSource,IResourceSource
         yield return waitForSecondsRealtime;
         _iDead = false;
         _iFree = true;
+        _used = false;
         _health = _maxHealth;
         _mesh.enabled = true;
         _colliderBox.enabled = true;
