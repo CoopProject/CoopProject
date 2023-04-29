@@ -8,7 +8,7 @@ using UnityEngine;
 public class HelpersBuilding<T> : MonoBehaviour where T : ResourceSource
 {
     [SerializeField] protected Factory<T> _spawnHelperTree;
-    [SerializeField] protected List<ResourceSource> _list;
+    [SerializeField] protected List<ResourceSource> _resources;
     [SerializeField] protected UpgradePanelUI<T> _panel;
     [SerializeField] protected GameData _data;
     [SerializeField] protected string KeyData = "TreeIsland";
@@ -27,14 +27,14 @@ public class HelpersBuilding<T> : MonoBehaviour where T : ResourceSource
         while (Counter <= helperInstance - 1)
         {
             var helper = _spawnHelperTree.GetHelperInstantiate();
-            helper.SetList(_list);
+            helper.SetList(_resources);
             yield return new WaitForSecondsRealtime(1f);
         }
     }
     
     private void LevelUpExtraction(int extraction)
     {
-        for (int i = 0; i < _list.Count; i++)
-            _list[i].AddResourceCount(extraction);
+        for (int i = 0; i < _resources.Count; i++)
+            _resources[i].AddResourceCount(extraction);
     }
 }

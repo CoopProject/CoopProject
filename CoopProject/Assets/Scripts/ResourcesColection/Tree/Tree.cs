@@ -29,7 +29,7 @@ public class Tree : ResourceSource
     public override void TakeDamage(int damage)
     {
         _health -= damage;
-        Occupy();
+        _used = true;
         if (_health <= 0)
         {
             Dead();
@@ -56,8 +56,9 @@ public class Tree : ResourceSource
         yield return waitForSecondsRealtime;
         _iDead = false;
         _health = _maxHealth;
+        _used = false;
         _mesh.enabled = true;
-        _iFree = true;
+        ToFree();
         _colliderBox.enabled = true;
     }
 }

@@ -23715,15 +23715,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnHelperTree: {fileID: 0}
-  _list:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  _resources: []
   _panel: {fileID: 0}
   _data: {fileID: 0}
   KeyData: RockIsland

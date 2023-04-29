@@ -1,16 +1,17 @@
-using System;
 using Reflex;
 using Reflex.Scripts.Attributes;
 
 public class StoneUpgradePanel : UpgradePanelUI<Rock>
 {
+    private const string _stonePanel = "StonePanel";
+    
     [Inject]
     private void Inject(Container container)
     {
         _playerWallet = container.Resolve<PlayerWallet>();
     }
 
-    private void Awake()=> _levelNow = _data.Load("StonePanel");
+    private void Awake()=> _levelNow = _data.Load(_stonePanel);
     
     private void Start()
     {
@@ -23,6 +24,6 @@ public class StoneUpgradePanel : UpgradePanelUI<Rock>
     }
     private void FixedUpdate()
     {
-        _data.Save("StonePanel",_levelNow);
+        _data.Save(_stonePanel,_levelNow);
     }
 }

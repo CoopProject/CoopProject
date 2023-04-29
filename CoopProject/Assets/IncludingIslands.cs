@@ -7,18 +7,14 @@ public class IncludingIslands : MonoBehaviour
 {
     [SerializeField] private List<Island> _islands;
     
-
-    private void Start()
-    {
-        DisableAllIsland();
-    }
+    private void Start() => DisableAllIsland();
+    
 
     public void ActiveNextIsland(int Level)
     {
         if (Level < _islands.Count)
-        {
             _islands[Level].ActiveIsland();
-        }
+        
     }
 
     private void DisableAllIsland()

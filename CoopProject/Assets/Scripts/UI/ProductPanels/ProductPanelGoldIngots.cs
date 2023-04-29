@@ -25,10 +25,8 @@ public class ProductPanelGoldIngots : ProductPanel
 
     private void AddAll()=> SellAllResource<Gold>();
 
-    private void TakeResourceBack()
-    {
-        TakeResource<Gold>();
-    }
+    private void TakeResourceBack() => TakeResource<Gold>();
+    
     
     private void TakeConvertType()
     {

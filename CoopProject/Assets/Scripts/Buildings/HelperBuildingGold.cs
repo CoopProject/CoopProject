@@ -1,11 +1,15 @@
 using ResourcesColection.Gold_Ore;
-using UnityEngine;
 
-public class HelperBuildingGold : HelpersBuilding<GoldOre>
+
+namespace DefaultNamespace.Buildings
 {
-    private void Awake()=> LevelPanel = _data.Load(KeyData);
-    private void Start()
+    public class HelperBuildingGold : HelpersBuilding<GoldOre>
     {
-        LevelUp(_panel.LevelUps[LevelPanel].InstanceHelpers,_panel.LevelUps[LevelPanel].ExtractedResources);
+        private void Awake() => LevelPanel = _data.Load(KeyData);
+
+        private void Start()
+        {
+            LevelUp(_panel.LevelUps[LevelPanel].InstanceHelpers, _panel.LevelUps[LevelPanel].ExtractedResources);
+        }
     }
 }

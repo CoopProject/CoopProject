@@ -24,7 +24,7 @@ public abstract class UpgradePanelUI<T> : MonoBehaviour where T : ResourceSource
     [SerializeField] private List<LevelUpData> _levelUps;
 
     protected PlayerWallet _playerWallet;
-    protected int _levelNow= 0;
+    protected int _levelNow = 0;
     public List<LevelUpData> LevelUps => _levelUps;
     public int LevelelNow => _levelNow;
 
@@ -40,7 +40,7 @@ public abstract class UpgradePanelUI<T> : MonoBehaviour where T : ResourceSource
         }
     }
 
-    protected void ShowReward() =>  LevelUpReward();
+    protected void ShowReward() => LevelUpReward();
 
     protected void LevelUpReward()
     {
@@ -50,13 +50,8 @@ public abstract class UpgradePanelUI<T> : MonoBehaviour where T : ResourceSource
             SetData();
             SetNexData();
             _helpersBuilding.LevelUp(LevelUps[_levelNow].InstanceHelpers, LevelUps[_levelNow].ExtractedResources);
-            VideoAd.Show(GamePause.OnGamePauseActive,null,GamePause.OffGamePauseActive);
+            VideoAd.Show(GamePause.OnGamePauseActive, null, GamePause.OffGamePauseActive);
         }
-    }
-
-    public void SetLevel(int level)
-    {
-        _levelNow = level;
     }
 
     protected void SetData()

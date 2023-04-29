@@ -10,6 +10,7 @@ namespace DefaultNamespace.Helper
         private readonly int _move = Animator.StringToHash("Move");
         private readonly int _extract = Animator.StringToHash("Extract");
         private readonly int _iExtract = Animator.StringToHash("IExtract");
+        private readonly int _idle = Animator.StringToHash("Idle");
 
         private void Start()
         {
@@ -17,7 +18,7 @@ namespace DefaultNamespace.Helper
         }
         
         public void Move() => _animator.SetBool(_move, true);
-        public void Stop() => _animator.SetBool(_move, false);
+        public void StopMove() => _animator.SetBool(_move, false);
 
         public void Extract() => _animator.SetBool(_iExtract, true);
         public void StopExtract() =>_animator.SetBool(_iExtract, false);
