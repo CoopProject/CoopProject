@@ -10,7 +10,9 @@ namespace ResourcesColection
         
         protected bool _iDead = false;
         protected bool _iFree = true;
+        protected bool _used;
         public bool IDead => _iDead;
+        public bool Used => _used;
         public bool Free => _iFree;
         public Transform Transform => _transform;
         

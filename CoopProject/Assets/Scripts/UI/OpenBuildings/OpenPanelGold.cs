@@ -25,8 +25,6 @@ public class OpenPanelGold : OpenPanel<Gold>
         _addResourceTwo.onClick.AddListener(AddResourceOne);
     }
 
-    private void Update()
-    {
-        ActiveBreadge<Gold>();
-    }
+    private void Update() => ActiveBreadge<Gold>();
+    
 }

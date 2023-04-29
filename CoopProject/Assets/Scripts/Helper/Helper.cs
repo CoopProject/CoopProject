@@ -32,17 +32,19 @@ public class Helper : MonoBehaviour
     {
         if (_target != null)
         {
+            _target.Occupy();
+            
             if (Vector3.Distance(transform.position, _target.transform.position) >= _extractDistance)
             {
                 
                 var targetPosition = _target.transform.position + offset;
-                _target.Occupy();
                 _agent.SetDestination(targetPosition);
                 _agent.isStopped = false;
                 _animator.StopExtract();
+                _animator.Move();
                 transform.LookAt(targetPosition);
                 
-                if (_target.IDead)
+                if (_target.Used)
                     _target = null;
             }
             else
@@ -51,23 +53,31 @@ public class Helper : MonoBehaviour
                 
                 if (Physics.Raycast(transform.position, transform.forward, out hit, 2f, _layerMask))
                 {
+                    _animator.StopMove();
                     _animator.Extract();
                     _agent.isStopped = true;
                 }
                 else
                     Search(transform);
                 
-                
-                var direction = _target.transform.position - transform.position;
-                direction.y = 0;
-                Quaternion targetRotation = Quaternion.LookRotation(direction);
-                transform.rotation = Quaternion.Euler(0,targetRotation.eulerAngles.y,0);
+                LookAtTarget();
             }
         }
         else
         {
             Search(transform);
+            _agent.isStopped = true;
+            _animator.StopMove();
+            _animator.StopExtract();
         }
+    }
+
+    private void LookAtTarget()
+    {
+        var direction = _target.transform.position - transform.position;
+        direction.y = 0;
+        Quaternion targetRotation = Quaternion.LookRotation(direction);
+        transform.rotation = Quaternion.Euler(0,targetRotation.eulerAngles.y,0);
     }
 
     private void Search(Transform pointFinding)
@@ -80,7 +90,7 @@ public class Helper : MonoBehaviour
             Vector3 direction = resource.transform.position - position;
             float curDistance = direction.sqrMagnitude;
 
-            if (curDistance < distance && resource.IDead == false && resource.Free)
+            if (curDistance < distance && !resource.IDead && resource.Free)
             {
                 _target = resource;
                 distance = curDistance;
@@ -101,7 +111,7 @@ public class Helper : MonoBehaviour
         else
         {
             _animator.StopExtract();
-            Search(transform);
+            _target = null;
         }
     }
 
