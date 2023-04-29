@@ -10,16 +10,13 @@ public class Player : MonoBehaviour
 
     private ExtractResourceService _extractResource;
     private static int _layerMask;
-    private int _treeResourceCounter;
     private int _damage = 20;
-
     private float _extractDuration = 1f;
     private float _rotationDuration = 1f;
     private float _rotationMaxDuration = 1f;
     private float _maxExtractDuration = 1f;
     private float _radius = 1.5f;
-    private Vector3 _offset = new Vector3(0, 0.3f, 0);
-
+    
     private void Awake()
     {
         _layerMask = 1 << LayerMask.NameToLayer("Resource");

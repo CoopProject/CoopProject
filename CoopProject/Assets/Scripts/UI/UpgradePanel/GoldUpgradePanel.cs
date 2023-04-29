@@ -4,6 +4,8 @@ using ResourcesColection.Gold_Ore;
 
 public class GoldUpgradePanel : UpgradePanelUI<GoldOre>
 {
+    private const string _goldPanel = "GoldPanel";
+    
     [Inject]
     private void Inject(Container container)
     {
@@ -12,7 +14,7 @@ public class GoldUpgradePanel : UpgradePanelUI<GoldOre>
     
     private void Start()
     {
-        _levelNow = _data.Load("GoldPanel");
+        _levelNow = _data.Load(_goldPanel);
         SetData();
      
         SetData();
@@ -24,6 +26,6 @@ public class GoldUpgradePanel : UpgradePanelUI<GoldOre>
     }
     private void FixedUpdate()
     {
-        _data.Save("GoldPanel",_levelNow);
+        _data.Save(_goldPanel,_levelNow);
     }
 }

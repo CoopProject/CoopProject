@@ -6,6 +6,8 @@ namespace DefaultNamespace.UI.UpgradePanel.WoodUpdates
 {
     public class WoodUpgradePanelGoldIsland : UpgradePanelUI<Tree>
     {
+        private const string _goldIsland = "GoldIsland";
+        
         [Inject]
         private void Inject(Container container)
         {
@@ -14,7 +16,7 @@ namespace DefaultNamespace.UI.UpgradePanel.WoodUpdates
 
         private void Awake()
         {
-            _levelNow = _data.Load("GoldIsland"); 
+            _levelNow = _data.Load(_goldIsland); 
         }
 
         private void Start()
@@ -27,9 +29,7 @@ namespace DefaultNamespace.UI.UpgradePanel.WoodUpdates
             _buttonLvlUp.onClick.AddListener(LevelUp);
         }
 
-        private void FixedUpdate()
-        {
-            _data.Save("GoldIsland", _levelNow);
-        }
+        private void FixedUpdate() => _data.Save(_goldIsland, _levelNow);
+        
     }
 }

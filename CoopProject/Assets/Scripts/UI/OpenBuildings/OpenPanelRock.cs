@@ -32,6 +32,9 @@ public class OpenPanelRock : OpenPanel<Stone>
 
     private void Update()
     {
-        ActiveBreadge<Stone>(); 
+        if (!_objectActive)
+        {
+            ActiveBreadge<Stone>();        
+        }
     }
 }

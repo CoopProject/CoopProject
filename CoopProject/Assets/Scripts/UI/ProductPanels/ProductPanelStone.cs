@@ -25,10 +25,8 @@ public class ProductPanelStone : ProductPanel
     
     private void AddAll()=> SellAllResource<Stone>();
     
-    private void TakeResourceBack()
-    {
-        TakeResource<Stone>();
-    }
+    private void TakeResourceBack() => TakeResource<Stone>();
+    
     
     private void TakeConvertType()
     {

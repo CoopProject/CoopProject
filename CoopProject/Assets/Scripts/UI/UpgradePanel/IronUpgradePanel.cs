@@ -4,6 +4,8 @@ using ResourcesColection.IronOre;
 
 public class IronUpgradePanel : UpgradePanelUI<IronOre>
 {
+    private const string _ironPanel = "IronPanel";
+    
     [Inject]
     private void Inject(Container container)
     {
@@ -12,7 +14,7 @@ public class IronUpgradePanel : UpgradePanelUI<IronOre>
     
     private void Start()
     {
-        _levelNow = _data.Load("IronPanel");
+        _levelNow = _data.Load(_ironPanel);
         SetData();
      
         SetData();
@@ -24,6 +26,6 @@ public class IronUpgradePanel : UpgradePanelUI<IronOre>
     }
     private void FixedUpdate()
     {
-        _data.Save("IronPanel",_levelNow);
+        _data.Save(_ironPanel,_levelNow);
     }
 }

@@ -5,19 +5,19 @@ using UnityEngine.UI;
 
 public class OpenPanel<T> : MonoBehaviour
 {
-    [Header("Кнопки")] 
+    [Header("Кнопки")]
     [SerializeField] protected Button _addResourceOne;
     [SerializeField] protected Button _addResourceTwo;
+    [SerializeField] protected GameData _data;
     [SerializeField] private OpenUIPanel _oppener;
     [SerializeField] private Building _building;
     [SerializeField] private Tarpaulin<T> _tarpaulin;
     [SerializeField] private TextMeshProUGUI _textCounterCoin;
     [SerializeField] private TextMeshProUGUI _textCounterResourceOne;
     [SerializeField] private StatsView _statsView;
-    [SerializeField] protected GameData _data;
-    [Space] 
+    [Space]
     [SerializeField] private int MaxCountCountCoin = 10;
-    [Space] 
+    [Space]
     [SerializeField] private int MaxCountResourceOne = 15;
 
     protected bool _objectActive = false;
@@ -29,8 +29,7 @@ public class OpenPanel<T> : MonoBehaviour
     private int CountCoin = 0;
     private int CountResourceOne = 0;
     private T _resourceType;
-
-
+    
     private void OnEnable() => SetStartData();
 
     protected void SetResourceType(T resource) => _resourceType = resource;
@@ -43,9 +42,8 @@ public class OpenPanel<T> : MonoBehaviour
             SetNewData();
         }
         else
-        {
             SetNewData();
-        }
+        
     }
 
     protected void AddResourceOne()
@@ -74,16 +72,13 @@ public class OpenPanel<T> : MonoBehaviour
         int resourceCount = _resourceCollector.GetCountList<ResourceInGame>();
 
         if (resourceCount >= MaxCountResourceOne)
-        {
             CountResourceOne = MaxCountResourceOne;
-        }
+        
         else
-        {
             CountResourceOne = resourceCount;
-        }
+        
     }
-
-
+    
     private bool ValidateAdd()
     {
         if (_playerWallet.Coins > MaxCountCountCoin)
@@ -95,15 +90,14 @@ public class OpenPanel<T> : MonoBehaviour
         CountCoin = _playerWallet.Coins;
         return false;
     }
-
-
+    
     protected void ActiveBreadge<_resourceType>()
     {
         if (CountCoin == MaxCountCountCoin && CountResourceOne == MaxCountResourceOne)
         {
             _objectActive = true;
             _tarpaulin.ActiveObject();
-            _data.SaveObject(KeyData,_objectActive);
+            _data.SaveObject(KeyData, _objectActive);
             _building.gameObject.SetActive(true);
             _resourceCollector.SellCountResource<_resourceType>(MaxCountResourceOne);
             _statsView.gameObject.SetActive(true);

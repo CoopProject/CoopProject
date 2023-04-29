@@ -27,6 +27,10 @@ public class OpenPanelGold : OpenPanel<Gold>
 
     private void Update()
     {
-        ActiveBreadge<Gold>();
+        if (!_objectActive)
+        {
+            ActiveBreadge<Gold>();    
+        }
     }
+
 }

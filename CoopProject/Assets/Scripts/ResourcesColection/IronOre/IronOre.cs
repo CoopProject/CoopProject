@@ -29,7 +29,7 @@ namespace ResourcesColection.IronOre
         public override void TakeDamage(int damage)
         {
             _health -= damage;
-
+            _used = true;
             if (_health <= 0)
             {
                 Dead();
@@ -57,6 +57,7 @@ namespace ResourcesColection.IronOre
             yield return waitForSecondsRealtime;
             _iDead = false;
             _iFree = true;
+            _used = false;
             _health = _maxHealth;
             _mesh.enabled = true;
             _colliderBox.enabled = true;
