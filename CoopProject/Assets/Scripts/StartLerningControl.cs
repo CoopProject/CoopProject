@@ -5,19 +5,17 @@ using UnityEngine.UI;
 
 public class StartLerningControl : MonoBehaviour
 {
-    [SerializeField] private CameraFollowTarget _cameraFollow;
+    [SerializeField] private SetterComponentsActivity _componentsActivity;
     [SerializeField] private List<Transform> _cameraPoints;
     [SerializeField] private List<GameObject> _learnCards;
     [SerializeField] private float _timeCameraMove = 1.0f;
     [SerializeField] private Button _nextButton;
     [SerializeField] private Button _skipButton;
-    [SerializeField] private GameObject _lerningPanel;
-
+    
     private int _index = 0;
 
     private void OnEnable()
     {
-        _cameraFollow.enabled = false;
         _nextButton.onClick.AddListener(SetNextView);
         _skipButton.onClick.AddListener(EndLerning);
         SetNextView();
@@ -47,8 +45,7 @@ public class StartLerningControl : MonoBehaviour
     
     private void EndLerning()
     {
-        _cameraFollow.enabled = true;
+        _componentsActivity.EnableComponents();
         enabled = false;
-        _lerningPanel.SetActive(false);
     }
 }
