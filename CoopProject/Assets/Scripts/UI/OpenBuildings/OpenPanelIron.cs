@@ -30,6 +30,12 @@ public class OpenPanelIron : OpenPanel<Iron>
         _addResourceTwo.onClick.AddListener(AddResourceOne);
     }
 
-    private void Update() => ActiveBreadge<Iron>();
+    private void Update()
+    {
+        if (!_objectActive)
+        {
+            ActiveBreadge<Iron>();    
+        }
+    } 
     
 }
