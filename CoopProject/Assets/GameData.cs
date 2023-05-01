@@ -57,7 +57,7 @@ public class GameData : MonoBehaviour
 
     private void SaveData()
     {
-       _data = JsonConvert.SerializeObject(_dataGame, Formatting.Indented);
+       _data = JsonUtility.ToJson(_dataGame);
        PlayerPrefs.SetString("Data",_data);
     }
 
@@ -73,7 +73,7 @@ public class GameData : MonoBehaviour
     
     private void SaveDataObject()
     {
-        _dataObjectActive = JsonConvert.SerializeObject(_dataObject, Formatting.Indented);
+        _dataObjectActive = JsonUtility.ToJson(_dataObject);
         PlayerPrefs.SetString("dataObjectActive",_dataObjectActive);
     }
 

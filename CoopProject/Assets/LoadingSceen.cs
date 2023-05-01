@@ -1,7 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,7 +10,7 @@ public class LoadingSceen : MonoBehaviour
     [SerializeField] private Animator _animator;
     [SerializeField] private GameObject _joustic;
     [SerializeField] private GameObject _water;
-    [SerializeField] private StartLerningControl _startLerningControl;
+    [SerializeField] private StartLearningControl _startLerningControl;
  
     private float _valueFade = 0;
     private float _durationStartGame = 30f;

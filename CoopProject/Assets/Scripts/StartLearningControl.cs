@@ -19,7 +19,7 @@ public class StartLearningControl : MonoBehaviour
     {
         _nextButton.onClick.AddListener(SetNextView);
         _skipButton.onClick.AddListener(SkipLearn);
-        LoadData();
+       // LoadData();
         SetNextView();
     }
 

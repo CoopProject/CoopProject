@@ -9,7 +9,7 @@ namespace DefaultNamespace.MVC.MVPShop.Prisenters
         private ViewUI _viewUI;
         private ResourceCollector _resourceCollector;
         private PlayerWallet _playerWallet;
-        private ViewAllSell _viewAllSell;
+        private  ViewAllSell _viewAllSell;
 
         public Presenter(Model model,ViewUI viewsUI,ResourceCollector resourceCollector,PlayerWallet playerWallet,ViewAllSell viewAllSell)
         {

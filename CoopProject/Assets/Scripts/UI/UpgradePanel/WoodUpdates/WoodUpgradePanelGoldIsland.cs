@@ -27,9 +27,11 @@ namespace DefaultNamespace.UI.UpgradePanel.WoodUpdates
             _helpersBuilding.LevelUp(LevelUps[_levelNow].InstanceHelpers, LevelUps[_levelNow].ExtractedResources);
             _buttonLvlUpReward.onClick.AddListener(ShowReward);
             _buttonLvlUp.onClick.AddListener(LevelUp);
+            _buttonLvlUpReward.onClick.AddListener(SaveData);
+            _buttonLvlUp.onClick.AddListener(SaveData);
         }
 
-        private void FixedUpdate() => _data.Save(_goldIsland, _levelNow);
+        private void SaveData() => _data.Save(_goldIsland, _levelNow);
         
     }
 }
