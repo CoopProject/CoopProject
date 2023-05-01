@@ -12,10 +12,17 @@ public class LoadingSceen : MonoBehaviour
     [SerializeField] private RectTransform _transformIcon;
     [SerializeField] private Animator _animator;
     [SerializeField] private GameObject _joustic;
-
+    [SerializeField] private GameObject _water;
+    [SerializeField] private StartLerningControl _startLerningControl;
+ 
     private float _valueFade = 0;
-    private float _durationStartGame = 45f;
+    private float _durationStartGame = 30f;
     private float _spead = 1f;
+
+    private void Awake()
+    {
+        _startLerningControl.gameObject.SetActive(false);
+    }
 
     private void Start()
     {
@@ -24,6 +31,7 @@ public class LoadingSceen : MonoBehaviour
         _animator.Play("Loading");
         StartCoroutine(StartGame());
         _joustic.gameObject.SetActive(false);
+        _water.gameObject.SetActive(false);
     }
 
     private IEnumerator StartGame()
@@ -36,6 +44,8 @@ public class LoadingSceen : MonoBehaviour
         }
         _backgroundSound.Play();
         _joustic.gameObject.SetActive(true);
+        _water.gameObject.SetActive(true);
+        _startLerningControl.gameObject.SetActive(true);
         Destroy(this.gameObject);
     }
 }

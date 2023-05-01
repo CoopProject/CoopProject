@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Reflex;
 using Reflex.Scripts.Attributes;
@@ -35,7 +36,7 @@ public class Tree : ResourceSource
             Dead();
             _iDead = true;
             AddResource();
-            StartCoroutine(Reset());
+            StartCoroutine(ResetResource());
         }
     }
 
@@ -49,8 +50,8 @@ public class Tree : ResourceSource
     }
 
     public override void AddResourceCount(int resourceExtraction) => _resourceAddCount = resourceExtraction;
-    
-    private IEnumerator Reset()
+
+    private IEnumerator ResetResource()
     {
         var waitForSecondsRealtime = new WaitForSecondsRealtime(_durationReset);
         yield return waitForSecondsRealtime;
@@ -61,4 +62,16 @@ public class Tree : ResourceSource
         ToFree();
         _colliderBox.enabled = true;
     }
+
+    // private IEnumerator Reset()
+    // {
+    //     var waitForSecondsRealtime = new WaitForSecondsRealtime(_durationReset);
+    //     yield return waitForSecondsRealtime;
+    //     _iDead = false;
+    //     _health = _maxHealth;
+    //     _used = false;
+    //     _mesh.enabled = true;
+    //     ToFree();
+    //     _colliderBox.enabled = true;
+    // }
 }

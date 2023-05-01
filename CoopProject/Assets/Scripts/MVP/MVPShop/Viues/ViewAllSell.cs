@@ -4,9 +4,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ViueAllSell : MonoBehaviour
+public class ViewAllSell : MonoBehaviour
 {
-   [SerializeField] private List<ViueUI> _viue;
+   [SerializeField] private List<ViewUI> _viue;
    [SerializeField] private Button _buttonSellAll;
    [SerializeField] private TextMeshProUGUI _textButtonSell;
    [SerializeField] private Button _buttonRewarSellAll;
