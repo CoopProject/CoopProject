@@ -23,8 +23,7 @@ public class Processor : MonoBehaviour
     {
         LoadData();
     }
-
-
+    
     private void FixedUpdate()
     {
         if (_ñountTransformation != 0)

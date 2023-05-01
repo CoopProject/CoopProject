@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class SwitchUIPanel : MonoBehaviour
 {
-   [SerializeField] private List<ViueUI> _viues;
-   [SerializeField] private ViueAllSell _viueAllSell;
+   [SerializeField] private List<ViewUI> _viues;
+   [SerializeField] private ViewAllSell viewAllSell;
    
 
    private void FixedUpdate()
    {
       SetAllStartData();
-      _viueAllSell.SetValue();
+      viewAllSell.SetValue();
    }
 
    private void SetAllStartData()

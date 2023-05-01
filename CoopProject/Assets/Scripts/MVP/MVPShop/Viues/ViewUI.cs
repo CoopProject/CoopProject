@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ViueUI : MonoBehaviour
+public class ViewUI : MonoBehaviour
 {
   [SerializeField] private TextMeshProUGUI _resourceCount;
   [Space]
