@@ -1,9 +1,4 @@
-#pragma warning disable
-
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,13 +10,7 @@ public class LoadingSceen : MonoBehaviour
     [SerializeField] private Animator _animator;
     [SerializeField] private GameObject _joustic;
 
-    private float _valueFade = 0;
-    private float _durationStartGame = 0;
-    private float _spead = 1f;
-
-#if YANDEX_GAMES && UNITY_WEBGL && !UNITY_EDITOR
-    _durationStartGame = 45f;
-#endif
+    private float _durationStartGame = 45f;
 
     private void Start()
     {
