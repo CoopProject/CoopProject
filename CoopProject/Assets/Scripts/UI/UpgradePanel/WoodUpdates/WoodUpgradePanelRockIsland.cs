@@ -6,7 +6,7 @@ namespace DefaultNamespace.UI.UpgradePanel.WoodUpdates
     public class WoodUpgradePanelRockIsland : UpgradePanelUI<Tree>
     {
         private const string _rockIsland = "RockIsland";
-        
+
         [Inject]
         private void Inject(Container container)
         {
@@ -14,7 +14,7 @@ namespace DefaultNamespace.UI.UpgradePanel.WoodUpdates
         }
 
         private void Awake() => _levelNow = _data.Load(_rockIsland);
-        
+
         private void Start()
         {
             SetData();
@@ -23,8 +23,11 @@ namespace DefaultNamespace.UI.UpgradePanel.WoodUpdates
             _helpersBuilding.LevelUp(LevelUps[_levelNow].InstanceHelpers, LevelUps[_levelNow].ExtractedResources);
             _buttonLvlUpReward.onClick.AddListener(ShowReward);
             _buttonLvlUp.onClick.AddListener(LevelUp);
+            _buttonLvlUpReward.onClick.AddListener(SaveData);
+            _buttonLvlUp.onClick.AddListener(SaveData);
         }
-        private void FixedUpdate() => _data.Save(_rockIsland,_levelNow);
-        
+
+        private void SaveData() => _data.Save(_rockIsland, _levelNow);
     }
+
 }

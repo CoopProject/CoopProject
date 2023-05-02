@@ -9535,7 +9535,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2059362683}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9634,13 +9634,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2020068406}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.8000001, y: 0.55, z: 1.8000001}
+  m_LocalRotation: {x: 0.7064013, y: -0.031554773, z: -0.0315536, w: 0.70640355}
+  m_LocalPosition: {x: 0.7775115, y: 1.5200626, z: -0.4166681}
+  m_LocalScale: {x: 1, y: 0.3055555, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2059362683}
-  m_RootOrder: 2
+  m_Children:
+  - {fileID: 2059362683}
+  m_Father: {fileID: 2244548402096491503}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2020068411
 MeshFilter:
@@ -9759,16 +9760,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2059362682}
-  m_LocalRotation: {x: 0.7064013, y: -0.031554773, z: -0.0315536, w: 0.70640355}
-  m_LocalPosition: {x: 0.7775115, y: 1.5200626, z: -0.4166681}
-  m_LocalScale: {x: 0.55555564, y: 0.5555554, z: 0.55555546}
+  m_LocalRotation: {x: -0, y: -0.0000000018626447, z: 0.0000000018626447, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.5555557, y: 1.8181819, z: 0.55555546}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 197899752}
   - {fileID: 886257521}
-  - {fileID: 2020068407}
   - {fileID: 1979773109}
-  m_Father: {fileID: 2244548402096491503}
+  m_Father: {fileID: 2020068407}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &2059362685
@@ -14533,7 +14533,7 @@ Transform:
   m_LocalScale: {x: 1.7999998, y: 1.8, z: 1.8000002}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 2059362683}
+  - {fileID: 2020068407}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 5.115}
@@ -23715,12 +23715,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnHelperTree: {fileID: 0}
-  _list:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  _resources: []
   _panel: {fileID: 0}
   _data: {fileID: 0}
   KeyData: IronIsland

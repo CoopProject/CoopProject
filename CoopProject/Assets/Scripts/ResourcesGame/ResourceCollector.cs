@@ -15,6 +15,8 @@ public class ResourceCollector : MonoBehaviour
     [SerializeField] private int _priceGoldIgnots = 40;
     [SerializeField] private GameData _data;
 
+    private float _durationDeleay = 5f;
+
     public int DataResourceLog { get; private set; }
     public int DataResourceStone { get; private set; }
     public int DataResourceGold { get; private set; }
@@ -89,7 +91,6 @@ public class ResourceCollector : MonoBehaviour
     public void SellResource<TypeResource>()
     {
         _resources[typeof(TypeResource)] = 0;
-        SaveData();
     }
 
 
@@ -100,7 +101,7 @@ public class ResourceCollector : MonoBehaviour
 
         else if (_resources[typeof(TypeResource)] > countResource)
             _resources[typeof(TypeResource)] -= countResource;
-        SaveData();
+        
     }
 
     private void SaveData()

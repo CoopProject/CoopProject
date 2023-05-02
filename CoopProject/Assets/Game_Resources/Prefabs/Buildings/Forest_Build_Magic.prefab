@@ -9529,16 +9529,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1433340083}
-  m_LocalRotation: {x: 0.6838642, y: -0.17980076, z: -0.17980006, w: 0.68386656}
-  m_LocalPosition: {x: 1.1929736, y: 1.7951286, z: -0.3951197}
-  m_LocalScale: {x: 0.5555556, y: 0.5555555, z: 0.5555555}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.5555555, y: 1.8181814, z: 0.5555555}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1236041309}
   - {fileID: 880100426}
   - {fileID: 1599627499}
-  - {fileID: 1984957405}
-  m_Father: {fileID: 223498764729776170}
+  m_Father: {fileID: 1984957405}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &1433340086
@@ -14399,13 +14398,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1984957404}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.8000001, y: 0.55, z: 1.8000001}
+  m_LocalRotation: {x: 0.6838642, y: -0.17980076, z: -0.17980006, w: 0.68386656}
+  m_LocalPosition: {x: 1.1929736, y: 1.7951286, z: -0.3951197}
+  m_LocalScale: {x: 1, y: 0.30555558, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1433340084}
-  m_RootOrder: 3
+  m_Children:
+  - {fileID: 1433340084}
+  m_Father: {fileID: 223498764729776170}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1984957409
 MeshFilter:
@@ -14533,7 +14533,7 @@ Transform:
   m_LocalScale: {x: 1.7999998, y: 1.8, z: 1.8000002}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 1433340084}
+  - {fileID: 1984957405}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 29.461}
@@ -23715,13 +23715,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnHelperTree: {fileID: 0}
-  _list:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  _resources: []
   _panel: {fileID: 0}
   _data: {fileID: 0}
   KeyData: GoldIsland

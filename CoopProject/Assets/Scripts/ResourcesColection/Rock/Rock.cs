@@ -34,7 +34,7 @@ public class Rock : ResourceSource,IResourceSource
             Dead();
             _iDead = true;
             AddResource();
-            StartCoroutine(Reset());
+            StartCoroutine(ResetResource());
         }
     }
 
@@ -49,15 +49,15 @@ public class Rock : ResourceSource,IResourceSource
 
     public override void AddResourceCount(int resourceExtraction) => _resourceAddCount = resourceExtraction;
     
-    private IEnumerator Reset()
+    private IEnumerator ResetResource()
     {
         var waitForSecondsRealtime = new WaitForSecondsRealtime(_durationReset);
         yield return waitForSecondsRealtime;
         _iDead = false;
-        _iFree = true;
-        _used = false;
         _health = _maxHealth;
+        _used = false;
         _mesh.enabled = true;
+        ToFree();
         _colliderBox.enabled = true;
     }
 }

@@ -6,15 +6,15 @@ using UnityEngine;
 
 public class SetupShop : MonoBehaviour
 {
-    [SerializeField] private ViueUI woodViueUI;
-    [SerializeField] private ViueUI _goldView;
-    [SerializeField] private ViueUI _stoneView;
-    [SerializeField] private ViueUI _ironView;
-    [SerializeField] private ViueUI _boardsView;
-    [SerializeField] private ViueUI _blocksView;
-    [SerializeField] private ViueUI _ironIngotsView;
-    [SerializeField] private ViueUI _goldIngotsView;
-    [SerializeField] private ViueAllSell _viueAllSell;
+    [SerializeField] private ViewUI woodViewUI;
+    [SerializeField] private ViewUI _goldView;
+    [SerializeField] private ViewUI _stoneView;
+    [SerializeField] private ViewUI _ironView;
+    [SerializeField] private ViewUI _boardsView;
+    [SerializeField] private ViewUI _blocksView;
+    [SerializeField] private ViewUI _ironIngotsView;
+    [SerializeField] private ViewUI _goldIngotsView;
+    [SerializeField] private ViewAllSell viewAllSell;
 
     private ResourceCollector _resourceCollector;
     private PlayerWallet _playerWallet;
@@ -46,13 +46,13 @@ public class SetupShop : MonoBehaviour
 
     private void Start()
     {
-        _presenterlog = new Presenter<Log>(_woodModel, woodViueUI, _resourceCollector, _playerWallet, _viueAllSell);
-        _presenterGold = new Presenter<Gold>(_goldModel, _goldView, _resourceCollector, _playerWallet, _viueAllSell);
-        _prisenterIron = new Presenter<Iron>(_ironModel, _ironView, _resourceCollector, _playerWallet, _viueAllSell);
-        _presenterStone = new Presenter<Stone>(_stoneModel, _stoneView, _resourceCollector, _playerWallet, _viueAllSell);
-        _presenterStoneBlocks = new Presenter<StoneBlocks>(_stoneBlocksModel, _blocksView, _resourceCollector,_playerWallet, _viueAllSell);
-        _presenterBoards = new Presenter<Boards>(_boardsModel, _boardsView, _resourceCollector, _playerWallet, _viueAllSell);
-        _presenterIronIgnots = new Presenter<IronIngots>(_ironIgnotsModel, _ironIngotsView, _resourceCollector, _playerWallet, _viueAllSell);
-        _presenterGoldIngots = new Presenter<GoldIngots>(_goldIgnotsModel, _goldIngotsView, _resourceCollector,_playerWallet, _viueAllSell);
+        _presenterlog = new Presenter<Log>(_woodModel, woodViewUI, _resourceCollector, _playerWallet, viewAllSell);
+        _presenterGold = new Presenter<Gold>(_goldModel, _goldView, _resourceCollector, _playerWallet, viewAllSell);
+        _prisenterIron = new Presenter<Iron>(_ironModel, _ironView, _resourceCollector, _playerWallet, viewAllSell);
+        _presenterStone = new Presenter<Stone>(_stoneModel, _stoneView, _resourceCollector, _playerWallet, viewAllSell);
+        _presenterStoneBlocks = new Presenter<StoneBlocks>(_stoneBlocksModel, _blocksView, _resourceCollector,_playerWallet, viewAllSell);
+        _presenterBoards = new Presenter<Boards>(_boardsModel, _boardsView, _resourceCollector, _playerWallet, viewAllSell);
+        _presenterIronIgnots = new Presenter<IronIngots>(_ironIgnotsModel, _ironIngotsView, _resourceCollector, _playerWallet, viewAllSell);
+        _presenterGoldIngots = new Presenter<GoldIngots>(_goldIgnotsModel, _goldIngotsView, _resourceCollector,_playerWallet, viewAllSell);
     }
 }
