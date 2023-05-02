@@ -11,11 +11,12 @@ public class ViewAllSell : MonoBehaviour
    [SerializeField] private TextMeshProUGUI _textButtonSell;
    [SerializeField] private Button _buttonRewarSellAll;
    [SerializeField] private TextMeshProUGUI _textRewardButtonSell;
-
+   
    public Button ButtonSellAll => _buttonSellAll;
    public Button ButtonReward => _buttonRewarSellAll;
 
-   private int _sumResource = 0;
+   public int PriceAllResources { get; private set; } = 0;
+   public int ResourceSum { get; private set; } = 0;
 
    private void OnEnable() => SetValue();
 
@@ -23,14 +24,16 @@ public class ViewAllSell : MonoBehaviour
    {
       for (int i = 0; i < _viue.Count; i++)
       {
-         _sumResource += _viue[i].Price;
-         _textButtonSell.text = $"{_sumResource}";
-         _textRewardButtonSell.text = $"{_sumResource * 2}";
+         PriceAllResources += _viue[i].Price;
+         ResourceSum += _viue[i].Price;
+         _textButtonSell.text = $"{PriceAllResources}";
+         _textRewardButtonSell.text = $"{PriceAllResources * 2}";
+         
       }
 
-      _sumResource = 0;
+      PriceAllResources = 0;
    }
 
-   public void SellAll() => SetValue();
-   
+
+   public void Clear() => ResourceSum = 0;
 }
