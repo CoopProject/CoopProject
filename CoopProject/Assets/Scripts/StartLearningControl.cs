@@ -19,7 +19,7 @@ public class StartLearningControl : MonoBehaviour
     {
         _nextButton.onClick.AddListener(SetNextView);
         _skipButton.onClick.AddListener(SkipLearn);
-       // LoadData();
+        LoadData();
         SetNextView();
     }
 
@@ -31,13 +31,14 @@ public class StartLearningControl : MonoBehaviour
 
     public void EndLearning()
     {
+        Camera.main.transform.DORotate(_cameraPoints[_cameraPoints.Count - 1].rotation.eulerAngles, _timeCameraMove);
         _componentsActivity.EnableComponents();
         enabled = false;
     }
 
     private void SetNextView()
     {
-        if (_index != _cameraPoints.Count)
+        if (_index != _cameraPoints.Count - 1)
         {
             Camera.main.transform.DOMove(_cameraPoints[_index].position, _timeCameraMove);
             Camera.main.transform.DORotate(_cameraPoints[_index].rotation.eulerAngles, _timeCameraMove);
@@ -66,6 +67,7 @@ public class StartLearningControl : MonoBehaviour
 
     private void LoadData()
     {
-        _index = PlayerPrefs.GetInt(_nameSave);
+        if (PlayerPrefs.HasKey(_nameSave))
+            _index = PlayerPrefs.GetInt(_nameSave);
     }
 }
