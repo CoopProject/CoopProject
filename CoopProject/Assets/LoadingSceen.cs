@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +11,7 @@ public class LoadingSceen : MonoBehaviour
     [SerializeField] private Animator _animator;
     [SerializeField] private GameObject _water;
     [SerializeField] private StartLearningControl _startLerningControl;
+    [SerializeField] private TMP_Text _timeLoadText;
  
     private float _durationStartGame = 30f;
 
@@ -33,6 +35,7 @@ public class LoadingSceen : MonoBehaviour
 
         while (_durationStartGame >= 0)
         {
+            _timeLoadText.text = _durationStartGame.ToString();
             _durationStartGame -= 1f;
             yield return WaitForSecondsRealtime;
         }
