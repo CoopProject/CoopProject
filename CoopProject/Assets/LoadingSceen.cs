@@ -13,7 +13,7 @@ public class LoadingSceen : MonoBehaviour
     [SerializeField] private StartLearningControl _startLerningControl;
     [SerializeField] private TMP_Text _timeLoadText;
  
-    private float _durationStartGame = 30f;
+    private float _durationStartGame = 0f;
     private void Start()
     {
         _backgroundSound.Stop();
