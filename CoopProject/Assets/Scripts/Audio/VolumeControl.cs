@@ -37,7 +37,7 @@ public class VolumeControl : MonoBehaviour
     {
         _audioMixer.SetFloat(_nameMusicAudioChannel, value);
 
-        if (_soundsVolume.value < _minSliderValue)
+        if (_musicVolume.value < _minSliderValue)
             _audioMixer.SetFloat(_nameMusicAudioChannel, value);
     }
 }
