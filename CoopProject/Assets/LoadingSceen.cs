@@ -14,8 +14,12 @@ public class LoadingSceen : MonoBehaviour
     [SerializeField] private TMP_Text _timeLoadText;
  
     private float _durationStartGame = 30f;
+
     private void Start()
     {
+#if UNITY_EDITOR
+        _durationStartGame = 0;
+#endif
         _backgroundSound.Stop();
         _animator.GetComponent<Animator>();
         _animator.Play("Loading");

@@ -38,7 +38,7 @@ public class StartLearningControl : MonoBehaviour
 
     private void SetNextView()
     {
-        if (_index != _cameraPoints.Count - 1)
+        if (_index < _cameraPoints.Count - 1)
         {
             Camera.main.transform.DOMove(_cameraPoints[_index].position, _timeCameraMove);
             Camera.main.transform.DORotate(_cameraPoints[_index].rotation.eulerAngles, _timeCameraMove);
