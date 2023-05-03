@@ -1,5 +1,6 @@
 using DefaultNamespace.MVP.MVPShop.Viues;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -27,79 +28,98 @@ public class OpenPanel<T> : MonoBehaviour
     protected string KeyData = "";
 
     private int CountCoin = 0;
-    private int CountResourceOne = 0;
+    private int CountResource = 0;
     private T _resourceType;
     
-    private void OnEnable() => SetStartData();
+    private void OnEnable() => SetNewData();
 
     protected void SetResourceType(T resource) => _resourceType = resource;
 
     protected void AddCoin()
     {
-        if (ValidateAdd())
+        if (CountCoin == MaxCountCountCoin)
+            return;
+        
+        if (_playerWallet.Coins >= MaxCountCountCoin)
         {
+            CountCoin = MaxCountCountCoin;
             _playerWallet.SellCoints(CountCoin);
             SetNewData();
         }
         else
-            SetNewData();
-        
+        {
+            if ((CountCoin+_playerWallet.Coins) > MaxCountCountCoin )
+            {
+                var difference = MaxCountCountCoin - CountCoin;
+                CountCoin = MaxCountCountCoin;
+                _playerWallet.SellCoints(difference);
+                SetNewData();
+            }
+            else
+            {
+                CountCoin += _playerWallet.Coins;
+                _playerWallet.SellCoints(_playerWallet.Coins);
+                SetNewData();
+            }
+        }
     }
 
-    protected void AddResourceOne()
+    protected void AddResourceTwo()
     {
-        AddResourceOne<T>();
+        AddResourceTwo<T>();
         SetNewData();
     }
 
     protected void SetStartData()
     {
         _textCounterCoin.text = $"{CountCoin}/{MaxCountCountCoin}";
-        _textCounterResourceOne.text = $"{CountResourceOne}/{MaxCountResourceOne}";
-
-        CountCoin = 0;
-        CountResourceOne = 0;
+        _textCounterResourceOne.text = $"{CountResource}/{MaxCountResourceOne}";
     }
 
     private void SetNewData()
     {
         _textCounterCoin.text = $"{CountCoin}/{MaxCountCountCoin}";
-        _textCounterResourceOne.text = $"{CountResourceOne}/{MaxCountResourceOne}";
+        _textCounterResourceOne.text = $"{CountResource}/{MaxCountResourceOne}";
     }
 
-    private void AddResourceOne<ResourceInGame>()
+    private void AddResourceTwo<_resourceType>()
     {
-        int resourceCount = _resourceCollector.GetCountList<ResourceInGame>();
+        int resourceCount = _resourceCollector.GetCountList<_resourceType>();
+
+        if (CountResource == MaxCountResourceOne)
+            return;
 
         if (resourceCount >= MaxCountResourceOne)
-            CountResourceOne = MaxCountResourceOne;
-        
-        else
-            CountResourceOne = resourceCount;
-        
-    }
-    
-    private bool ValidateAdd()
-    {
-        if (_playerWallet.Coins > MaxCountCountCoin)
         {
-            CountCoin = MaxCountCountCoin;
-            return true;
+            _resourceCollector.SellCountResource<_resourceType>(MaxCountResourceOne);
+            CountResource = MaxCountResourceOne;
         }
-
-        CountCoin = _playerWallet.Coins;
-        return false;
+        else
+        {
+            if ((CountResource + resourceCount) > MaxCountResourceOne)
+            {
+                var difference =  MaxCountResourceOne - CountResource;
+                CountResource = MaxCountResourceOne;
+                _resourceCollector.SellCountResource<_resourceType>(difference);
+                SetNewData();
+            }
+           else
+           {
+               CountResource += resourceCount;
+               _resourceCollector.SellCountResource<_resourceType>(resourceCount);
+               SetNewData();
+           }
+        }
     }
-    
-    protected void ActiveBreadge<_resourceType>()
+
+    protected void ActiveBreadge()
     {
-        if (CountCoin == MaxCountCountCoin && CountResourceOne == MaxCountResourceOne)
+        if (CountCoin == MaxCountCountCoin && CountResource == MaxCountResourceOne)
         {
             _objectActive = true;
             _tarpaulin.ActiveObject();
             _data.SaveObject(KeyData, _objectActive);
             _building.gameObject.SetActive(true);
-            _resourceCollector.SellCountResource<_resourceType>(MaxCountResourceOne);
             _statsView.gameObject.SetActive(true);
             _tarpaulin.Delete();
             _oppener.Close();

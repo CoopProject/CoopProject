@@ -3,10 +3,10 @@ using Reflex.Scripts.Attributes;
 using ResourcesGame.TypeResource;
 using UnityEngine;
 
-public class OpenMagickIsland : OpenIslandPanel<Iron,IronIngots>
+public class OpenMagickIsland : OpenIslandPanel<Iron, IronIngots>
 {
     [SerializeField] private StatsSetup _statsSetup;
-    
+
     private bool _wallsDisabel = false;
     private string _dataKey = "Magick";
     public string DataKey => _dataKey;
@@ -18,8 +18,8 @@ public class OpenMagickIsland : OpenIslandPanel<Iron,IronIngots>
         _playerWallet = container.Resolve<PlayerWallet>();
     }
 
-    private void OnEnable() =>  SetStartData();
-    
+    private void OnEnable() => SetStartData();
+
     private void Start()
     {
         _addResourceOne.onClick.AddListener(AddCoin);
@@ -29,64 +29,36 @@ public class OpenMagickIsland : OpenIslandPanel<Iron,IronIngots>
 
     private void Update() => ActiveIsland();
     
-
-    private void AddCoin()
-    {
-        ValidateAdd();
-        SetNewData();
-    }
-
-    private void AddResourceOne()
-    {
-        AddResourceOne<Iron>();
-        SetNewData();
-    }
-
-    private void AddResourceTwo()
-    {
-        AddResourceTwo<IronIngots>();
-        SetNewData();
-    }
-
-    private bool ValidateAdd()
-    {
-        if (_playerWallet.Coins > MaxCountCountCoin)
-        {
-            CountCoin = MaxCountCountCoin;
-            return true;
-        }
-
-        CountCoin = _playerWallet.Coins;
-        return false;
-    }
+    private void AddCoin() => AddCoinsPanel();
+    
+    private void AddResourceOne() => AddResourceOne<Iron>();
+    
+    private void AddResourceTwo() => AddResourceTwo<IronIngots>();
     
     protected override void ActiveIsland()
     {
-        if (CountCoin == MaxCountCountCoin && CountResourceOne == MaxCountCountOne &&
-            CountResourceTwo == MaxCountCountTwo)
+        if (CountCoin == MaxCountCountCoin && CountResourceOne == MaxCountResourceOne &&
+            CountResourceTwo == MaxCountResourceTwo)
         {
             foreach (var wall in _walls)
                 wall.gameObject.SetActive(false);
-            
+
             _wallsDisabel = true;
             _data.SaveObject(_dataKey, _wallsDisabel);
-            _playerWallet.SellCoints(MaxCountCountCoin);
-            _resourceCollector.SellCountResource<Stone>(CountResourceOne);
-            _resourceCollector.SellCountResource<StoneBlocks>(CountResourceTwo);
             _statsSetup.ActiveMagickIsland();
             DisableOpenners();
         }
     }
-    
+
     private void DisableOpenners()
     {
         for (int i = 0; i < _oppener.Count; i++)
         {
             _oppener[i].Close();
-            _oppener[i].Unplug();    
+            _oppener[i].Unplug();
         }
     }
-    
+
     public void DisableWalls()
     {
         _statsSetup.ActiveMagickIsland();

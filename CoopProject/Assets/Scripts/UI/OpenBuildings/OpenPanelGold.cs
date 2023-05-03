@@ -22,14 +22,14 @@ public class OpenPanelGold : OpenPanel<Gold>
         var gold = new Gold();
         SetResourceType(gold);
         _addResourceOne.onClick.AddListener(AddCoin);
-        _addResourceTwo.onClick.AddListener(AddResourceOne);
+        _addResourceTwo.onClick.AddListener(AddResourceTwo);
     }
 
     private void Update()
     {
         if (!_objectActive)
         {
-            ActiveBreadge<Gold>();    
+            ActiveBreadge();    
         }
     }
 
