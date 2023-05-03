@@ -7,9 +7,10 @@ public class ResourceCollector : MonoBehaviour
 {
     [SerializeField] private int _priceLog = 10;
     [SerializeField] private int _priceStone = 13;
-    [SerializeField] private int _priceGold = 20;
-    [SerializeField] private int _priceBoards = 15;
     [SerializeField] private int _priceIron = 21;
+    [SerializeField] private int _priceGold = 20;
+    [Space]
+    [SerializeField] private int _priceBoards = 15;
     [SerializeField] private int _priceStoneBloks = 25;
     [SerializeField] private int _priceIronIgnots = 30;
     [SerializeField] private int _priceGoldIgnots = 40;
