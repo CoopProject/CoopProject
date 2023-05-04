@@ -13,11 +13,6 @@ public class GameData : MonoBehaviour
     private void Awake()
     {
         LoadDataObject();
-        
-// #if YANDEX_GAMES && UNITY_WEBGL && !UNITY_EDITOR
-//         LoadData();
-//         LoadDataObject();
-// #endif
     }
 
     public void SaveObject(string key,bool value)
