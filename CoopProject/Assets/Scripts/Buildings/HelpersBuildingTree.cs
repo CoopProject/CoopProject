@@ -1,9 +1,11 @@
 
+using UnityEngine;
+
 namespace DefaultNamespace.Buildings
 {
     public class HelpersBuildingTree : HelpersBuilding<Tree>
     {
-        private void Awake()=> LevelPanel = _data.Load(KeyData);
+        private void Awake()=> LevelPanel = PlayerPrefs.GetInt(KeyData);
         
 
         private void Start()

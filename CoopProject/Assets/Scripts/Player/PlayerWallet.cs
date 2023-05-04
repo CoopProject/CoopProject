@@ -11,9 +11,7 @@ public class PlayerWallet : MonoBehaviour
 
     private void Start()
     {
-#if YANDEX_GAMES && UNITY_WEBGL && !UNITY_EDITOR
         LoadData();
-#endif
         SetCoinValue?.Invoke();
     }
 

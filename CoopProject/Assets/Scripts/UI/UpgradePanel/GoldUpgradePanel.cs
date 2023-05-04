@@ -1,6 +1,7 @@
 using Reflex;
 using Reflex.Scripts.Attributes;
 using ResourcesColection.Gold_Ore;
+using UnityEngine;
 
 public class GoldUpgradePanel : UpgradePanelUI<GoldOre>
 {
@@ -12,9 +13,14 @@ public class GoldUpgradePanel : UpgradePanelUI<GoldOre>
         _playerWallet = container.Resolve<PlayerWallet>();
     } 
     
+    private void OnEnable()
+    {
+        ButtonClick += SaveData;
+    }
+    
     private void Start()
     {
-        _levelNow = _data.Load(_goldPanel);
+        _levelNow = PlayerPrefs.GetInt(_goldPanel);
         SetData();
      
         SetData();
@@ -27,5 +33,10 @@ public class GoldUpgradePanel : UpgradePanelUI<GoldOre>
         _buttonLvlUp.onClick.AddListener(SaveData);
     }
 
-    private void SaveData() => _data.Save(_goldPanel, _levelNow);
+    private void SaveData() =>  PlayerPrefs.SetInt(_goldPanel, _levelNow);
+    
+    private void OnDisable()
+    {
+        ButtonClick -= SaveData;
+    }
 }

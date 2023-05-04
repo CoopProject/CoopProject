@@ -7,7 +7,7 @@ public class OpenMagickIsland : OpenIslandPanel<Iron, IronIngots>
 {
     [SerializeField] private StatsSetup _statsSetup;
 
-    private bool _wallsDisabel = false;
+    private int _wallsDisabel = 0;
     private string _dataKey = "Magick";
     public string DataKey => _dataKey;
 
@@ -43,8 +43,8 @@ public class OpenMagickIsland : OpenIslandPanel<Iron, IronIngots>
             foreach (var wall in _walls)
                 wall.gameObject.SetActive(false);
 
-            _wallsDisabel = true;
-            _data.SaveObject(_dataKey, _wallsDisabel);
+            _wallsDisabel = 1;
+            PlayerPrefs.SetInt(_dataKey, _wallsDisabel);
             _statsSetup.ActiveMagickIsland();
             DisableOpenners();
         }

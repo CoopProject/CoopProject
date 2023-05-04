@@ -12,7 +12,7 @@ namespace DefaultNamespace.Helper
         private readonly int _iExtract = Animator.StringToHash("IExtract");
         private readonly int _idle = Animator.StringToHash("Idle");
 
-        private void Start()
+        private void Awake()
         {
             _animator = GetComponent<Animator>();
         }

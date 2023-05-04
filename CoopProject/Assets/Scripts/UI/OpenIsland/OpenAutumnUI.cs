@@ -7,7 +7,7 @@ public class OpenAutumnUI : OpenIslandPanel<Log, Boards>
 {
     [SerializeField] private StatsSetup _statsSetup;
 
-    private bool _wallsDisabel = false;
+    private int _wallsDisabel = 0;
     private string _dataKey = "Autumn";
 
     public string DataKey => _dataKey;
@@ -50,8 +50,8 @@ public class OpenAutumnUI : OpenIslandPanel<Log, Boards>
             foreach (var wall in _walls)
                 wall.Disable();
 
-            _wallsDisabel = true;
-            _data.SaveObject(_dataKey, _wallsDisabel);
+            _wallsDisabel = 1;
+            PlayerPrefs.SetInt(_dataKey, _wallsDisabel);
             _statsSetup.ActiveAmaunt();
             DisableOpenners();
         }

@@ -15,8 +15,13 @@ namespace DefaultNamespace.UI.UpgradePanel.WoodUpdates
         {
             _playerWallet = container.Resolve<PlayerWallet>();
         }
+        
+        private void OnEnable()
+        {
+            ButtonClick += SaveData;
+        }
 
-        private void Awake() => _levelNow = _data.Load(_ironIsland);
+        private void Awake() => _levelNow = PlayerPrefs.GetInt(_ironIsland);
         
         private void Start()
         {
@@ -30,6 +35,11 @@ namespace DefaultNamespace.UI.UpgradePanel.WoodUpdates
             _buttonLvlUp.onClick.AddListener(SaveData);
         }
 
-        private void SaveData() => _data.Save(_ironIsland, _levelNow);
+        private void SaveData() => PlayerPrefs.SetInt(_ironIsland, _levelNow);
+        
+        private void OnDisable()
+        {
+            ButtonClick -= SaveData;
+        }
     }
 }

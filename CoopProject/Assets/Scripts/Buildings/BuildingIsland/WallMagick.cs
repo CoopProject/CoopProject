@@ -4,18 +4,18 @@ namespace DefaultNamespace.Buildings.BuildingIsland
 {
     public class WallMagick : Wall
     {
-        [SerializeField] private OpenMagickIsland _openAutumn;
-        [SerializeField] private GameData _data;
+        [SerializeField] private OpenMagickIsland _openMagickIsland;
 
-        private bool _iDisable = false;
+
+        private int _iDisable = 0;
 
         private void Start()
         {
-            _iDisable = _data.LoadObject(_openAutumn.DataKey);
+            _iDisable = PlayerPrefs.GetInt(_openMagickIsland.DataKey);
         
-            if (_iDisable)
+            if (_iDisable == 1)
             {
-                _openAutumn.DisableWalls();
+                _openMagickIsland.DisableWalls();
                 Disable();
             }
         }

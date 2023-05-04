@@ -1,5 +1,6 @@
 using Reflex;
 using Reflex.Scripts.Attributes;
+using UnityEngine;
 
 namespace DefaultNamespace.UI.UpgradePanel.WoodUpdates
 {
@@ -12,8 +13,13 @@ namespace DefaultNamespace.UI.UpgradePanel.WoodUpdates
         {
             _playerWallet = container.Resolve<PlayerWallet>();
         }
+        
+        private void OnEnable()
+        {
+            ButtonClick += SaveData;
+        }
 
-        private void Awake() => _levelNow = _data.Load(_rockIsland);
+        private void Awake() => _levelNow = PlayerPrefs.GetInt(_rockIsland);
 
         private void Start()
         {
@@ -27,7 +33,12 @@ namespace DefaultNamespace.UI.UpgradePanel.WoodUpdates
             _buttonLvlUp.onClick.AddListener(SaveData);
         }
 
-        private void SaveData() => _data.Save(_rockIsland, _levelNow);
+        private void SaveData() => PlayerPrefs.SetInt(_rockIsland, _levelNow);
+        
+        private void OnDisable()
+        {
+            ButtonClick -= SaveData;
+        }
     }
 
 }
