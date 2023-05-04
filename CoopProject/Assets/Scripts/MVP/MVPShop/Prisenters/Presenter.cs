@@ -1,7 +1,4 @@
-using System;
 using Agava.YandexGames;
-using Unity.VisualScripting;
-using UnityEngine;
 
 namespace DefaultNamespace.MVC.MVPShop.Prisenters
 {
@@ -49,12 +46,10 @@ namespace DefaultNamespace.MVC.MVPShop.Prisenters
 
         private void SellAllResourceReward()
         {
-            Debug.Log(_viewAllSell.ResourceSum);
             if (_viewAllSell.ResourceSum > 0)
                 _viewUI._buttonReward.onClick.Invoke();
             _viewAllSell.Clear();
-        } 
-            
+        }         
 
         private void RewardShow()
         {
