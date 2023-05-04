@@ -27,14 +27,14 @@ public class OpenPanelRock : OpenPanel<Stone>
         var stone = new Stone();
         SetResourceType(stone);
         _addResourceOne.onClick.AddListener(AddCoin);
-        _addResourceTwo.onClick.AddListener(AddResourceOne);
+        _addResourceTwo.onClick.AddListener(AddResourceTwo);
     }
 
     private void Update()
     {
         if (!_objectActive)
         {
-            ActiveBreadge<Stone>();        
+            ActiveBreadge();        
         }
     }
 }

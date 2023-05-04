@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using DefaultNamespace.Buildings.BuildingIsland;
 using TMPro;
@@ -15,11 +14,11 @@ public abstract class OpenIslandPanel<ResourceOne,ResourceTwo> : MonoBehaviour
     [SerializeField] protected Button _addResourceTwo;
     [SerializeField] protected Button _addResourceFree;
     [Space]
-    [SerializeField] protected int MaxCountCountCoin = 10;
+    [SerializeField] protected int MaxCountCountCoin;
     [Space]
-    [SerializeField] protected int MaxCountCountOne = 15;
+    [SerializeField] protected int MaxCountResourceOne;
     [Space]
-    [SerializeField] protected int MaxCountCountTwo = 20;
+    [SerializeField] protected int MaxCountResourceTwo;
     
     [Header("Счетчики ресурсов")]
     [SerializeField] private TextMeshProUGUI _textCounterCoin;
@@ -38,55 +37,103 @@ public abstract class OpenIslandPanel<ResourceOne,ResourceTwo> : MonoBehaviour
     protected void SetStartData()
     {
         _textCounterCoin.text = $"{CountCoin}/{MaxCountCountCoin}";
-        _textCounterResourceOne.text = $"{CountResourceOne}/{MaxCountCountOne}";
-        _textCounterResourceTwo.text = $"{CountResourceTwo}/{MaxCountCountTwo}";
+        _textCounterResourceOne.text = $"{CountResourceOne}/{MaxCountResourceOne}";
+        _textCounterResourceTwo.text = $"{CountResourceTwo}/{MaxCountResourceTwo}";
     }
 
     protected void SetNewData()
     {
         _textCounterCoin.text = $"{CountCoin}/{MaxCountCountCoin}";
-        _textCounterResourceOne.text = $"{CountResourceOne}/{MaxCountCountOne}";
-        _textCounterResourceTwo.text = $"{CountResourceTwo}/{MaxCountCountTwo}"; 
+        _textCounterResourceOne.text = $"{CountResourceOne}/{MaxCountResourceOne}";
+        _textCounterResourceTwo.text = $"{CountResourceTwo}/{MaxCountResourceTwo}"; 
     }
     
-    private bool ValidateAdd()
+    protected void AddCoinsPanel()
     {
-        if (_playerWallet.Coins > MaxCountCountCoin)
+        if (CountCoin == MaxCountCountCoin)
+            return;
+        
+        if (_playerWallet.Coins >= MaxCountCountCoin)
         {
             CountCoin = MaxCountCountCoin;
-            return true;
+            _playerWallet.SellCoints(CountCoin);
+        }
+        else
+        {
+            if ((CountCoin+_playerWallet.Coins) > MaxCountCountCoin )
+            {
+                var difference = MaxCountCountCoin - CountCoin;
+                CountCoin = MaxCountCountCoin;
+                _playerWallet.SellCoints(difference);
+            }
+            else
+            {
+                CountCoin += _playerWallet.Coins;
+                _playerWallet.SellCoints(_playerWallet.Coins);
+            }
         }
 
-        CountCoin = _playerWallet.Coins;
-        return false;
+        SetNewData();
     }
 
     protected void AddResourceOne<T>()
     {
         int resourceCount = _resourceCollector.GetCountList<T>();
 
-        if (resourceCount >= MaxCountCountOne)
+        if (CountResourceOne == MaxCountResourceOne)
+            return;
+
+        if (resourceCount >= MaxCountResourceOne)
         {
-            CountResourceOne = MaxCountCountOne;
+            _resourceCollector.SellCountResource<T>(MaxCountResourceOne);
+            CountResourceOne = MaxCountResourceOne;
         }
         else
         {
-            CountResourceOne = resourceCount;
+            if ((CountResourceOne + resourceCount) > MaxCountResourceOne)
+            {
+                var difference =  MaxCountResourceOne - CountResourceOne;
+                CountResourceOne = MaxCountResourceOne;
+                _resourceCollector.SellCountResource<T>(difference);
+            }
+            else
+            {
+                CountResourceOne += resourceCount;
+                _resourceCollector.SellCountResource<T>(resourceCount);
+            }
         }
+
+        SetNewData();
     }
 
     protected void AddResourceTwo<T>()
     {
         int resourceCount = _resourceCollector.GetCountList<T>();
+        
+        if (CountResourceTwo == MaxCountResourceTwo)
+            return;
 
-        if (resourceCount >= MaxCountCountTwo)
+        if (resourceCount >= MaxCountResourceTwo)
         {
-            CountResourceTwo = MaxCountCountTwo;
+            _resourceCollector.SellCountResource<T>(MaxCountResourceTwo);
+            CountResourceTwo = MaxCountResourceTwo;
         }
         else
         {
-            CountResourceTwo = resourceCount;
+            if ((CountResourceTwo + resourceCount) > MaxCountResourceTwo)
+            {
+                var difference = MaxCountResourceTwo - CountResourceTwo;
+                CountResourceTwo = MaxCountResourceTwo;
+                _resourceCollector.SellCountResource<T>(difference);
+            }
+            else
+            {
+                CountResourceTwo+= resourceCount;
+                _resourceCollector.SellCountResource<T>(resourceCount);
+            }
         }
+
+        SetNewData();
     }
 
     protected abstract void ActiveIsland();
