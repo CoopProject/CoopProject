@@ -25,7 +25,7 @@ public class Model
 
    public void SetCoinPlayer(PlayerWallet playerWallet) => playerWallet.SetCoinsValue(SumResource);
    
-   public void SetRewardCoinPlayer(PlayerWallet playerWallet) => playerWallet.SetCoinsValue(SumResource * 2);
+   public void SetRewardCoinPlayer(PlayerWallet playerWallet) => playerWallet.SetCoinsValue(SumResource * 3);
    
 
    public void ClearData<T>(ResourceCollector resourceCollector) => resourceCollector.SellResource<T>();

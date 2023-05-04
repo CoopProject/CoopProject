@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -27,8 +26,7 @@ public class ViewAllSell : MonoBehaviour
          PriceAllResources += _viue[i].Price;
          ResourceSum += _viue[i].Price;
          _textButtonSell.text = $"{PriceAllResources}";
-         _textRewardButtonSell.text = $"{PriceAllResources * 2}";
-         
+         _textRewardButtonSell.text = $"{PriceAllResources * 3}";
       }
 
       PriceAllResources = 0;

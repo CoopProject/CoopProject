@@ -62,7 +62,7 @@ public class Processor : MonoBehaviour
     public void LevelUp()
     {
         if (_duration > _durationMinimum)
-            _duration -= 0.5f;
+            _duration -= 0.7f;
         
         SaveData();
     }
