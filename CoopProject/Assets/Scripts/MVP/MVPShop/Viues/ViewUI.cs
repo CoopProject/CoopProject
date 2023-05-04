@@ -30,7 +30,7 @@ public class ViewUI : MonoBehaviour
   public void SetPriceButton(int value)
   {
     _textButtonPrice.text = $"{value}";
-    _textRewardButtonPrice.text = $"{value * 2}";
+    _textRewardButtonPrice.text = $"{value * 3}";
     Price = value;
   }
 }
