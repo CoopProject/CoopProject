@@ -23,7 +23,7 @@ public class OpenWinterIsland : OpenIslandPanel<Stone,StoneBlocks>
     
     private void Start()
     {
-        _addResourceOne.onClick.AddListener(AddCoin);
+        _addResourceOne.onClick.AddListener(AddCoins);
         _addResourceTwo.onClick.AddListener(AddResourceOne);
         _addResourceFree.onClick.AddListener(AddResourceTwo);
     }
@@ -31,49 +31,25 @@ public class OpenWinterIsland : OpenIslandPanel<Stone,StoneBlocks>
     private void Update() => ActiveIsland();
     
 
-    private void AddCoin()
-    {
-        ValidateAdd();
-        SetNewData();
-    }
+    private void AddCoins() => AddCoinsPanel();
+    
 
-    private void AddResourceOne()
-    {
-        AddResourceOne<Stone>();
-        SetNewData();
-    }
+    private void AddResourceOne() => AddResourceOne<Stone>();
+    
 
-    private void AddResourceTwo()
-    {
-        AddResourceTwo<StoneBlocks>();
-        SetNewData();
-    }
-
-    private bool ValidateAdd()
-    {
-        if (_playerWallet.Coins > MaxCountCountCoin)
-        {
-            CountCoin = MaxCountCountCoin;
-            return true;
-        }
-
-        CountCoin = _playerWallet.Coins;
-        return false;
-    }
+    private void AddResourceTwo() => AddResourceTwo<StoneBlocks>();
+    
     
     protected override void ActiveIsland()
     {
-        if (CountCoin == MaxCountCountCoin && CountResourceOne == MaxCountCountOne &&
-            CountResourceTwo == MaxCountCountTwo)
+        if (CountCoin == MaxCountCountCoin && CountResourceOne == MaxCountResourceOne &&
+            CountResourceTwo == MaxCountResourceTwo)
         {
             foreach (var wall in _walls)
                 wall.gameObject.SetActive(false);
             
             _wallsDisabel = true;
             _data.SaveObject(_dataKey, _wallsDisabel);
-            _playerWallet.SellCoints(MaxCountCountCoin);
-            _resourceCollector.SellCountResource<Stone>(CountResourceOne);
-            _resourceCollector.SellCountResource<StoneBlocks>(CountResourceTwo);
             _statsSetup.ActiveWinter();
             DisableOpenners();
         }

@@ -33,49 +33,25 @@ public class OpenAutumnUI : OpenIslandPanel<Log, Boards>
 
     private void Update() => ActiveIsland();
 
-    protected void AddCoin()
-    {
-        ValidateAdd();
-        SetNewData();
-    }
+    protected void AddCoin() => AddCoinsPanel();
+    
 
-    protected void AddResourceOne()
-    {
-        AddResourceOne<Log>();
-        SetNewData();
-    }
+    protected void AddResourceOne() => AddResourceOne<Log>();
+    
 
-    protected void AddResourceTwo()
-    {
-        AddResourceTwo<Boards>();
-        SetNewData();
-    }
-
-    private bool ValidateAdd()
-    {
-        if (_playerWallet.Coins > MaxCountCountCoin)
-        {
-            CountCoin = MaxCountCountCoin;
-            return true;
-        }
-
-        CountCoin = _playerWallet.Coins;
-        return false;
-    }
+    protected void AddResourceTwo() => AddResourceTwo<Boards>();
+    
 
     protected override void ActiveIsland()
     {
-        if (CountCoin == MaxCountCountCoin && CountResourceOne == MaxCountCountOne &&
-            CountResourceTwo == MaxCountCountTwo)
+        if (CountCoin == MaxCountCountCoin && CountResourceOne == MaxCountResourceOne &&
+            CountResourceTwo == MaxCountResourceTwo)
         {
             foreach (var wall in _walls)
                 wall.Disable();
 
             _wallsDisabel = true;
             _data.SaveObject(_dataKey, _wallsDisabel);
-            _playerWallet.SellCoints(MaxCountCountCoin);
-            _resourceCollector.SellCountResource<Log>(CountResourceOne);
-            _resourceCollector.SellCountResource<Boards>(CountResourceTwo);
             _statsSetup.ActiveAmaunt();
             DisableOpenners();
         }
