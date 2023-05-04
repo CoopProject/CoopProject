@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using DefaultNamespace.Buildings.BuildingIsland;
 using TMPro;
@@ -15,11 +14,11 @@ public abstract class OpenIslandPanel<ResourceOne,ResourceTwo> : MonoBehaviour
     [SerializeField] protected Button _addResourceTwo;
     [SerializeField] protected Button _addResourceFree;
     [Space]
-    [SerializeField] protected int MaxCountCountCoin = 10;
+    [SerializeField] protected int MaxCountCountCoin;
     [Space]
-    [SerializeField] protected int MaxCountResourceOne = 15;
+    [SerializeField] protected int MaxCountResourceOne;
     [Space]
-    [SerializeField] protected int MaxCountResourceTwo = 20;
+    [SerializeField] protected int MaxCountResourceTwo;
     
     [Header("Счетчики ресурсов")]
     [SerializeField] private TextMeshProUGUI _textCounterCoin;
@@ -58,7 +57,6 @@ public abstract class OpenIslandPanel<ResourceOne,ResourceTwo> : MonoBehaviour
         {
             CountCoin = MaxCountCountCoin;
             _playerWallet.SellCoints(CountCoin);
-            SetNewData();
         }
         else
         {
@@ -67,15 +65,15 @@ public abstract class OpenIslandPanel<ResourceOne,ResourceTwo> : MonoBehaviour
                 var difference = MaxCountCountCoin - CountCoin;
                 CountCoin = MaxCountCountCoin;
                 _playerWallet.SellCoints(difference);
-                SetNewData();
             }
             else
             {
                 CountCoin += _playerWallet.Coins;
                 _playerWallet.SellCoints(_playerWallet.Coins);
-                SetNewData();
             }
         }
+
+        SetNewData();
     }
 
     protected void AddResourceOne<T>()
@@ -97,46 +95,45 @@ public abstract class OpenIslandPanel<ResourceOne,ResourceTwo> : MonoBehaviour
                 var difference =  MaxCountResourceOne - CountResourceOne;
                 CountResourceOne = MaxCountResourceOne;
                 _resourceCollector.SellCountResource<T>(difference);
-                SetNewData();
             }
             else
             {
                 CountResourceOne += resourceCount;
                 _resourceCollector.SellCountResource<T>(resourceCount);
-                SetNewData();
             }
         }
+
+        SetNewData();
     }
 
     protected void AddResourceTwo<T>()
     {
         int resourceCount = _resourceCollector.GetCountList<T>();
         
-
-        if (CountResourceTwo == MaxCountResourceOne)
+        if (CountResourceTwo == MaxCountResourceTwo)
             return;
 
-        if (resourceCount >= MaxCountResourceOne)
+        if (resourceCount >= MaxCountResourceTwo)
         {
-            _resourceCollector.SellCountResource<T>(MaxCountResourceOne);
-            CountResourceTwo = MaxCountResourceOne;
+            _resourceCollector.SellCountResource<T>(MaxCountResourceTwo);
+            CountResourceTwo = MaxCountResourceTwo;
         }
         else
         {
-            if ((CountResourceTwo + resourceCount) > MaxCountResourceOne)
+            if ((CountResourceTwo + resourceCount) > MaxCountResourceTwo)
             {
-                var difference =  MaxCountResourceOne - CountResourceTwo;
-                CountResourceTwo = MaxCountResourceOne;
+                var difference = MaxCountResourceTwo - CountResourceTwo;
+                CountResourceTwo = MaxCountResourceTwo;
                 _resourceCollector.SellCountResource<T>(difference);
-                SetNewData();
             }
             else
             {
                 CountResourceTwo+= resourceCount;
                 _resourceCollector.SellCountResource<T>(resourceCount);
-                SetNewData();
             }
         }
+
+        SetNewData();
     }
 
     protected abstract void ActiveIsland();
