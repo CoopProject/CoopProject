@@ -3,14 +3,17 @@ using UnityEngine;
 
 public class PlayerWallet : MonoBehaviour
 {
-    private int _coins = 0;
+    [SerializeField] private int _coins = 0;
+
     public int Coins => _coins;
     public event Action SetCoinValue;
     public event Action<int> OnPlayerScoreUpdated;
 
     private void Start()
     {
+#if YANDEX_GAMES && UNITY_WEBGL && !UNITY_EDITOR
         LoadData();
+#endif
         SetCoinValue?.Invoke();
     }
 
