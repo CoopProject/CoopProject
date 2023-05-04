@@ -1,6 +1,7 @@
 using Reflex;
 using Reflex.Scripts.Attributes;
 using ResourcesColection.IronOre;
+using UnityEngine;
 
 public class IronUpgradePanel : UpgradePanelUI<IronOre>
 {
@@ -12,9 +13,14 @@ public class IronUpgradePanel : UpgradePanelUI<IronOre>
         _playerWallet = container.Resolve<PlayerWallet>();
     } 
     
+    private void OnEnable()
+    {
+        ButtonClick += SaveData;
+    }
+    
     private void Start()
     {
-        _levelNow = _data.Load(_ironPanel);
+        _levelNow = PlayerPrefs.GetInt(_ironPanel);
         SetData();
      
         SetData();
@@ -27,5 +33,10 @@ public class IronUpgradePanel : UpgradePanelUI<IronOre>
         _buttonLvlUp.onClick.AddListener(SaveData);
     }
 
-    private void SaveData() => _data.Save(_ironPanel, _levelNow);
+    private void SaveData() => PlayerPrefs.SetInt(_ironPanel, _levelNow);
+    
+    private void OnDisable()
+    {
+        ButtonClick -= SaveData;
+    }
 }

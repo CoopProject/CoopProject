@@ -19,7 +19,6 @@ public abstract class ProductPanel : MonoBehaviour
     [SerializeField] private TMP_Text _buttonPrice;
     [SerializeField] private TMP_Text _rewardButtonPrice;
     [SerializeField] private GameObject _levelMaxPanel;
-    [SerializeField] private GameData _data;
     [SerializeField] private string _keyData = "";
     [SerializeField] private int _levelUpPrice = 100;
     [SerializeField] private int _priceValueChange = 20;
@@ -55,7 +54,7 @@ public abstract class ProductPanel : MonoBehaviour
             _levelUpPrice += _priceValueChange;
             _levelNow++;
             UpdateUI();
-            _data.Save(_keyData,_levelNow);
+            PlayerPrefs.SetInt(_keyData,_levelNow);
             CheckMaxLevel();
         }
     }
@@ -135,7 +134,7 @@ public abstract class ProductPanel : MonoBehaviour
 
     private void OnDisable() => _processor.Done -= ConversionComplit;
 
-    private void LoadData()=> _levelNow =  _data.Load(_keyData);
+    private void LoadData()=> _levelNow =  PlayerPrefs.GetInt(_keyData);
 
     private void CheckMaxLevel()
     {

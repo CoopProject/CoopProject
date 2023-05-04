@@ -1,11 +1,12 @@
 using ResourcesColection.Gold_Ore;
+using UnityEngine;
 
 
 namespace DefaultNamespace.Buildings
 {
     public class HelperBuildingGold : HelpersBuilding<GoldOre>
     {
-        private void Awake() => LevelPanel = _data.Load(KeyData);
+        private void Awake() => PlayerPrefs.GetInt(KeyData);
 
         private void Start()
         {

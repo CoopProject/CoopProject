@@ -3,7 +3,6 @@ using Reflex.Scripts.Attributes;
 using ResourcesGame.TypeResource;
 using UnityEngine;
 
-
 public class OpenPanelRock : OpenPanel<Stone>
 {
     private string _keyData = "StoneBlock";

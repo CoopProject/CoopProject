@@ -8,7 +8,6 @@ public abstract class OpenIslandPanel<ResourceOne,ResourceTwo> : MonoBehaviour
 {
     [SerializeField] protected List<OpenUIPanel> _oppener;
     [SerializeField] protected List<Wall> _walls;
-    [SerializeField] protected GameData _data;
     [Header("Кнопочки для добовления")] 
     [SerializeField] protected Button _addResourceOne;
     [SerializeField] protected Button _addResourceTwo;

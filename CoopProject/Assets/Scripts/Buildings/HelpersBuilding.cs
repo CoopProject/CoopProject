@@ -10,8 +10,7 @@ public class HelpersBuilding<T> : MonoBehaviour where T : ResourceSource
     [SerializeField] protected Factory<T> _spawnHelperTree;
     [SerializeField] protected List<ResourceSource> _resources;
     [SerializeField] protected UpgradePanelUI<T> _panel;
-    [SerializeField] protected GameData _data;
-    [SerializeField] protected string KeyData = "TreeIsland";
+    [SerializeField] protected string KeyData = "";
 
     protected int LevelPanel = 0;
     public int Counter => _spawnHelperTree.InstanceCount;

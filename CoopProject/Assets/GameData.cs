@@ -1,5 +1,4 @@
-#pragma warning disable
-
+using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using UnityEngine;
@@ -10,34 +9,17 @@ public class GameData : MonoBehaviour
     private Dictionary<string, bool> _dataObject = new();
     private string _data = "";
     private string _dataObjectActive = "";
-
+    
     private void Awake()
     {
-#if YANDEX_GAMES && UNITY_WEBGL && !UNITY_EDITOR
-        LoadData();
         LoadDataObject();
-#endif
+        
+// #if YANDEX_GAMES && UNITY_WEBGL && !UNITY_EDITOR
+//         LoadData();
+//         LoadDataObject();
+// #endif
     }
 
-    public void Save(string key,int value)
-    {
-        if (key != "")
-        {
-            if (_dataGame.ContainsKey(key))
-            {
-                _dataGame[key] = value;
-                PlayerPrefs.SetInt(key,_dataGame[key]);
-                SaveData();
-            }
-            else
-            {
-                _dataGame.Add(key, value);
-                PlayerPrefs.SetInt(key,_dataGame[key]);   
-                SaveData();
-            }
-        }
-    }
-    
     public void SaveObject(string key,bool value)
     {
         if (key != "")
@@ -55,21 +37,7 @@ public class GameData : MonoBehaviour
         }
     }
 
-    private void SaveData()
-    {
-       _data = JsonUtility.ToJson(_dataGame);
-       PlayerPrefs.SetString("Data",_data);
-    }
 
-    private void LoadData()
-    {
-        _data = PlayerPrefs.GetString("Data","");
-        if (_data != "")
-        {
-             Dictionary<string,int> data =  JsonConvert.DeserializeObject<Dictionary<string, int>>(_data);
-             _dataGame = data;
-        }
-    }
     
     private void SaveDataObject()
     {
@@ -80,6 +48,8 @@ public class GameData : MonoBehaviour
     private void LoadDataObject()
     {
         _dataObjectActive = PlayerPrefs.GetString("dataObjectActive","");
+        Debug.Log(_dataObjectActive);
+        
         if (_dataObjectActive != "")
         {
             Dictionary<string,bool> data =  JsonConvert.DeserializeObject<Dictionary<string, bool>>(_dataObjectActive);

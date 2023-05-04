@@ -14,7 +14,6 @@ public class ResourceCollector : MonoBehaviour
     [SerializeField] private int _priceStoneBloks = 25;
     [SerializeField] private int _priceIronIgnots = 30;
     [SerializeField] private int _priceGoldIgnots = 40;
-    [SerializeField] private GameData _data;
 
     private float _durationDeleay = 5f;
 
@@ -116,25 +115,25 @@ public class ResourceCollector : MonoBehaviour
         DataResourceIronIgnots = _resources[typeof(IronIngots)];
         DataResourceGoldIgnots = _resources[typeof(GoldIngots)];
 
-        _data.Save("Log", DataResourceLog);
-        _data.Save("Stone", DataResourceStone);
-        _data.Save("Gold", DataResourceGold);
-        _data.Save("Boards", DataResourceBoards);
-        _data.Save("Iron", DataResourceIron);
-        _data.Save("StoneBlocks", DataResourceStoneBlocks);
-        _data.Save("IronIgnots", DataResourceIronIgnots);
-        _data.Save("GoldIgnots", DataResourceGoldIgnots);
+        PlayerPrefs.SetInt("Log", DataResourceLog);
+        PlayerPrefs.SetInt("Stone", DataResourceStone);
+        PlayerPrefs.SetInt("Gold", DataResourceGold);
+        PlayerPrefs.SetInt("Boards", DataResourceBoards);
+        PlayerPrefs.SetInt("Iron", DataResourceIron);
+        PlayerPrefs.SetInt("StoneBlocks", DataResourceStoneBlocks);
+        PlayerPrefs.SetInt("IronIgnots", DataResourceIronIgnots);
+        PlayerPrefs.SetInt("GoldIgnots", DataResourceGoldIgnots);
     }
 
     private void LoadData()
     {
-        DataResourceLog = _data.Load("Log");
-        DataResourceStone = _data.Load("Stone");
-        DataResourceGold = _data.Load("Gold");
-        DataResourceBoards = _data.Load("Boards");
-        DataResourceIron = _data.Load("Iron");
-        DataResourceStoneBlocks = _data.Load("StoneBlocks");
-        DataResourceIronIgnots = _data.Load("IronIgnots");
-        DataResourceGoldIgnots = _data.Load("GoldIgnots");
+        DataResourceLog =  PlayerPrefs.GetInt("Log");
+        DataResourceStone = PlayerPrefs.GetInt("Stone");
+        DataResourceGold = PlayerPrefs.GetInt("Gold");
+        DataResourceBoards = PlayerPrefs.GetInt("Boards");
+        DataResourceIron = PlayerPrefs.GetInt("Iron");
+        DataResourceStoneBlocks = PlayerPrefs.GetInt("StoneBlocks");
+        DataResourceIronIgnots = PlayerPrefs.GetInt("IronIgnots");
+        DataResourceGoldIgnots = PlayerPrefs.GetInt("GoldIgnots");
     }
 }

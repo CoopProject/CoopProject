@@ -1,10 +1,11 @@
 using ResourcesColection.IronOre;
+using UnityEngine;
 
 namespace DefaultNamespace.Buildings
 {
     public class HelperBuildingIron : HelpersBuilding<IronOre>
     {
-        private void Awake() => LevelPanel = _data.Load(KeyData);
+        private void Awake() => LevelPanel = PlayerPrefs.GetInt(KeyData);
 
         private void Start()
         {

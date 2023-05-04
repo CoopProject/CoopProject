@@ -4,27 +4,26 @@ using UnityEngine;
 public class Tarpaulin<T> : MonoBehaviour
 {
     [SerializeField] protected string KeyData = "Samwill";
-    [SerializeField] protected GameData _data;
     [SerializeField] protected OpenPanel<T> _openPanel;
 
-    protected bool _objectActive ;
+    protected int _objectActive ;
 
     private void Awake()
     {
-        _objectActive = _data.LoadObject(KeyData);
+        _objectActive = PlayerPrefs.GetInt(KeyData,_objectActive);
     }
 
     protected void ActiveBuilding()
     {
-        if (_objectActive)
+        if (_objectActive == 1)
             _openPanel.ObjectActive();
         
     }
 
     public void ActiveObject()
     {
-        _objectActive = true;
-        _data.SaveObject(KeyData,_objectActive); 
+        _objectActive = 1;
+        PlayerPrefs.SetInt(KeyData,_objectActive); 
     }
 
     public void Delete() => gameObject.SetActive(false);

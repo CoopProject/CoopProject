@@ -95,15 +95,15 @@ public class Processor : MonoBehaviour
 
     private void SaveData()
     {
-        _data.Save(_keyDataConvertion,_ñountTransformation);
-        _data.Save(_keyDataComplited,_ñompleted);
+        PlayerPrefs.SetInt(_keyDataConvertion,_ñountTransformation);
+        PlayerPrefs.SetInt(_keyDataComplited,_ñompleted);
         PlayerPrefs.SetFloat("duration",_countDuration);
     }
 
     private void LoadData()
     {
-        _ñountTransformation =  _data.Load(_keyDataConvertion);
-        _ñompleted = _data.Load(_keyDataComplited);
-        PlayerPrefs.GetFloat("duration", 0);
+        _ñountTransformation =  PlayerPrefs.GetInt(_keyDataConvertion);
+        _ñompleted = PlayerPrefs.GetInt(_keyDataComplited);
+        _countDuration = PlayerPrefs.GetFloat("duration", 0);
     }
 }

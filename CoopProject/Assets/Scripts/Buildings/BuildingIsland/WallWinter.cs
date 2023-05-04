@@ -5,15 +5,14 @@ namespace DefaultNamespace.Buildings.BuildingIsland
     public class WallWinter : Wall
     {
         [SerializeField] private OpenWinterIsland _openWinter;
-        [SerializeField] private GameData _data;
 
-        private bool _iDisable = false;
+        private int _iDisable = 0;
 
         private void Start()
         {
-            _iDisable = _data.LoadObject(_openWinter.DataKey);
+            _iDisable = PlayerPrefs.GetInt(_openWinter.DataKey);
         
-            if (_iDisable)
+            if (_iDisable == 1)
             {
                 _openWinter.DisableWalls();
                 Disable();
