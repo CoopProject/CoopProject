@@ -34,4 +34,9 @@ public class ViewAllSell : MonoBehaviour
 
 
    public void Clear() => ResourceSum = 0;
+
+   public void ButtonRewardClikc()
+   {
+      ButtonReward.onClick.Invoke();
+   }
 }
