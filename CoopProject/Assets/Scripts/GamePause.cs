@@ -32,5 +32,16 @@ namespace DefaultNamespace
             OffGamePause?.Invoke();
             OffGamePause -= Off;
         }
+
+        public static void IntarstialClose(bool close)
+        {
+            if (close)
+            {
+                OffGamePause += Off;
+                OffGamePause?.Invoke();
+                OffGamePause -= Off;     
+            }
+            
+        }
     }
 }

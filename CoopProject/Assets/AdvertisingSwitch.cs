@@ -1,22 +1,20 @@
-using System.Collections;
 using Agava.YandexGames;
+using DefaultNamespace;
 using UnityEngine;
 
 public class AdvertisingSwitch : MonoBehaviour
 {
    private float _duration = 300;
-
-   private void Start() => StartCoroutine(ShowVideo());
+   private float _durationMax = 300;
    
-
-   private IEnumerator ShowVideo()
+   private void FixedUpdate()
    {
-      var WaitForSecondsRealtime = new WaitForSecondsRealtime(_duration);
+      _duration -= Time.deltaTime;
       
-      while (true)
+      if (_duration < 0)
       {
-         yield return WaitForSecondsRealtime;
-         InterstitialAd.Show();
-      }
+         InterstitialAd.Show(GamePause.OnGamePauseActive,GamePause.IntarstialClose,null);
+         _duration = _durationMax;
+      }   
    }
 }

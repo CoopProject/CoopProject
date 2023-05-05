@@ -12,7 +12,7 @@ public class BackgoundSound : MonoBehaviour
     GamePause.OffGamePause += AudioPlay;
   }
 
-  private void AudioStop() => _audio.Pause();
+  public void AudioStop() => _audio.Pause();
   
   private void AudioPlay() => _audio.Play();
 
