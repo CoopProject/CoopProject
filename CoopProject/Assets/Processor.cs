@@ -57,7 +57,11 @@ public class Processor : MonoBehaviour
         SaveData();
     }
 
-    public void Reset()=> _ñompleted = 0;
+    public void Reset()
+    {
+        _ñompleted = 0;
+        SaveData();
+    }
 
     public void LevelUp()
     {
