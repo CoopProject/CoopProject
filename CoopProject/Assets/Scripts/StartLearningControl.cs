@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
@@ -11,12 +12,16 @@ public class StartLearningControl : MonoBehaviour
     [SerializeField] private float _timeCameraMove = 1.0f;
     [SerializeField] private Button _nextButton;
     [SerializeField] private Button _skipButton;
-    
+    [SerializeField] private Transform _playerPoint;
+
+    private Vector3 _endPoint;
+    private Vector3 _offset = new Vector3(0, 10, -8);
     private int _index = 0;
     private string _nameSave = "LearningProgress";
 
     private void OnEnable()
     {
+        _endPoint = _playerPoint.position + _offset;
         _nextButton.onClick.AddListener(SetNextView);
         _skipButton.onClick.AddListener(SkipLearn);
         LoadData();
@@ -31,9 +36,10 @@ public class StartLearningControl : MonoBehaviour
 
     public void EndLearning()
     {
-        Camera.main.transform.DORotate(_cameraPoints[_cameraPoints.Count - 1].rotation.eulerAngles, _timeCameraMove);
-        _componentsActivity.EnableComponents();
-        enabled = false;
+        Sequence sequence = DOTween.Sequence();
+        sequence.Append(Camera.main.transform.DOLocalMove(_endPoint, _timeCameraMove));
+        sequence.Insert(0, Camera.main.transform.DORotate(_cameraPoints[_cameraPoints.Count - 1].rotation.eulerAngles, _timeCameraMove));
+        StartCoroutine(OnPlayDelay());
     }
 
     private void SetNextView()
@@ -69,5 +75,13 @@ public class StartLearningControl : MonoBehaviour
     {
         if (PlayerPrefs.HasKey(_nameSave))
             _index = PlayerPrefs.GetInt(_nameSave);
+    }
+
+    private IEnumerator OnPlayDelay()
+    {
+        WaitForSeconds waitTime = new WaitForSeconds(_timeCameraMove);
+        yield return waitTime;
+        _componentsActivity.EnableComponents();
+        enabled = false;
     }
 }

@@ -97,7 +97,7 @@ public abstract class ProductPanel : MonoBehaviour
     {
         int countList = _resourceCollector.GetCountList<T>();
 
-        if (_counter <= countList && countList != 0)
+        if (countList != 0)
         {
             _resourceCollector.SellCountResource<T>(1);
             _processor.Conversion();
