@@ -104,6 +104,6 @@ public class Processor : MonoBehaviour
     {
         _ñountTransformation =  PlayerPrefs.GetInt(_keyDataConvertion);
         _ñompleted = PlayerPrefs.GetInt(_keyDataComplited);
-        _countDuration = PlayerPrefs.GetFloat("duration", 0);
+        _countDuration = PlayerPrefs.GetFloat("duration", _duration);
     }
 }
